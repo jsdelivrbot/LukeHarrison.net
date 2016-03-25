@@ -1,0 +1,216 @@
+//--------------------------------------------------------------------
+// FRAMEWORK
+//--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+// CLEARFIX
+//--------------------------------------------------------------------
+
+@mixin clearfix {
+	&:before, &:after {
+        	content: "";
+        	display: table;
+    	}
+	&:after {
+		clear: both;
+	}
+}
+
+//--------------------------------------------------------------------
+// CREATE  CONTAINER MIXIN
+//--------------------------------------------------------------------
+
+@mixin create_container($columnWidth, $columns, $gutter, $padding, $fullWidth, $responsive) {
+
+	@if $fullWidth == true {
+		$responsive: true;
+	}
+
+	$width: ($columnWidth * $columns) + ($gutter * ($columns - 1));
+
+	// Set Base Container
+	.container {
+		@if $fullWidth == true {
+			max-width:100%;
+		}
+		@else if $responsive == true {
+			max-width:$width;
+		}
+		@else {
+			width:$width;
+		}
+		@include clearfix();
+		margin:0px auto;
+		position:relative;
+		padding: 0 $padding 0 $padding;
+	}
+
+	.container-full {
+		@include clearfix();
+		margin:0px auto;
+		position:relative;
+		padding: 0;
+	}
+}
+
+//--------------------------------------------------------------------
+// CREATE GRID MIXIN
+//--------------------------------------------------------------------
+
+@mixin create_grid($prefix, $columnWidth, $columns, $gutter, $padding, $fullWidth, $responsive) {
+
+	$width: ($columnWidth * $columns) + ($gutter * ($columns - 1));
+
+	// Define Individual Grid Classes
+	@for $i from 1 to $columns {
+		// Calculate grid size in pixels
+		$grid: ($columnWidth * $i) + ($gutter * ($i - 1));
+		
+		// Calculate responsive grid sizes if required
+		@if $responsive == true {
+			// Calculate grid size in percentage
+			$grid: ($grid / $width) * 100%;
+
+			// Get Gutter Percentage for Grids
+			$gutter-percentage: ($gutter / $width) * 100%;
+
+			.#{$prefix}#{$i}	{
+				width: $grid;
+				float: left;
+				clear:none;
+				margin-left:$gutter-percentage;
+				box-sizing: border-box;
+			}
+
+		}
+		@else
+		{
+			.grid#{$i} {
+				width: $grid;
+				float: left;
+				margin-left:$gutter;
+				box-sizing: border-box;
+			}
+		}
+	}
+
+	// Define Additional Full Width Variants & Clear Classes For Responsive Classes Only
+	@if $prefix != "grid" {		
+		.#{$prefix}-full {	
+			width:100%;
+			float:none;
+			clear:both;
+			margin-left:0;
+			box-sizing: border-box;
+		}
+
+		.#{$prefix}-clear {
+			margin-left: 0px;
+			clear: left;
+		}
+	}
+	@else {
+		.clear {
+			margin-left: 0px;
+			clear: left;
+		}
+	}
+
+}
+
+//--------------------------------------------------------------------
+// CREATE OFFSETS MIXIN
+//--------------------------------------------------------------------
+
+@mixin create_offsets($prefix, $columnWidth, $columns, $gutter, $padding, $fullWidth, $responsive) {
+
+	$width: ($columnWidth * $columns) + ($gutter * ($columns - 1));
+
+	// Define Grid Offsets
+	@for $i from 1 to $columns {
+		// Calculate grid size in pixels
+		$grid: ($columnWidth * $i) + ($gutter * ($i - 1));
+		
+		// Calculate responsive grid sizes if required
+		@if $responsive == true {
+			// Calculate grid size in percentage
+			$grid: ($grid / $width) * 100%;
+
+			// Get Gutter Percentage for Grids
+			$gutter-percentage: (($gutter / $width) * 100%);
+
+			.#{$prefix}#{$i}	{
+				margin-left:$grid + $gutter-percentage;
+			}
+		}
+		@else {
+			.offset#{$i}	{
+				margin-left:$grid + ($gutter * 2);
+			}
+		}
+	}
+}
+
+//----------------------------------------------------------------------------------------------------
+// GENERATE DEFAULT CONTAINER AND GRID CLASSES
+//----------------------------------------------------------------------------------------------------
+
+// Default container
+@include create_container($columnWidth, $columns, $gutter, $padding, $fullWidth, $responsive);
+@include create_grid("grid", $columnWidth, $columns, $gutter, $padding, $fullWidth, $responsive);
+@include create_offsets("offset", $columnWidth, $columns, $gutter, $padding, $fullWidth, $responsive);
+
+.hide {
+	display:none;
+}
+
+.show {
+	display:block;
+}
+
+.show-inline {
+	display:inline-block;
+}
+
+//----------------------------------------------------------------------------------------------------
+// GENERATE RESPONSIVE CONTAINER AND GRID CLASSES
+//----------------------------------------------------------------------------------------------------
+
+// Generate repsonsive classes and containers. If we need to change grid as per responsive container config redefine variables
+@each $bp-name, $bp-value in $breakpoints	{
+
+	@if map-has-key($gridResponsive, $bp-name) {
+
+		// Get grid match
+		$bp-obj: map-get($gridResponsive, $bp-name);
+
+		$columnWidth: map-get($bp-obj, "column width"); 
+		$gutter: map-get($bp-obj, "gutter"); 
+		$columns: map-get($bp-obj, "columns"); 
+		$padding: map-get($bp-obj, "padding");
+
+		@include bp(#{$bp-name}) {
+			@include create_container($columnWidth, $columns, $gutter, $padding, $fullWidth, $responsive);
+		}
+	}
+
+	@include bp(#{$bp-name}) {
+		@include create_grid(#{$bp-name}, $columnWidth, $columns, $gutter, $padding, $fullWidth, $responsive);
+		@include create_offsets(#{$bp-name}-offset, $columnWidth, $columns, $gutter, $padding, $fullWidth, $responsive);
+
+		.#{$bp-name}-hide {
+			display:none;
+		}
+		.#{$bp-name}-show {
+			display:block;
+		}
+		.#{$bp-name}-show--inline {
+			display:inline-block;
+		}
+	}
+}
+
+
+
+
+

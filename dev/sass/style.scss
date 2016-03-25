@@ -1,0 +1,237 @@
+/*
+SASS 'Orion' Framework
+Author: Luke Harrison
+Web: www.lukeharrison.net
+Github: https://github.com/Silveredge9/Orion-Framework
+Email: luke@lukeharrison.net
+*/
+
+// This is the the primary style sheet. Before you begin please review the config partial if you wish to tweak the settings and add default styles.
+
+// Import Standard Framework Components
+@import "partials/globals";
+@import "partials/reset";
+@import "partials/rebuild";
+@import "partials/mixins";
+@import "partials/framework";
+
+//--------------------------------------------------------------------
+// PROJECT VARIABLES
+//--------------------------------------------------------------------
+
+// Colours
+$about: #47b4e0;
+$portfolio: #84bc44;
+$contact: #f05d4a;
+$border: #e4e4e4;
+$type: #002010;
+
+//--------------------------------------------------------------------
+// REUSABLE CLASSES
+//--------------------------------------------------------------------
+
+.outer {
+	display:table;
+}
+
+.inner {
+	display:table-cell;
+	vertical-align:middle;
+}
+
+//--------------------------------------------------------------------
+// PROJECT STYLES
+//--------------------------------------------------------------------
+
+body {
+	background:$about;
+	font-family:'Lato', sans-serif;
+	color:$type;
+	padding-bottom:75px;
+}
+
+header {
+
+	nav {
+		box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.15);
+		width:100%;
+		position:fixed;
+		bottom:0;
+	}
+
+	ul {
+		list-style:none;
+		margin:0;
+		background:#fff;
+		@include clearfix;
+	}
+
+	li {
+		height:65px;
+		text-align:center;
+		border-left:1px solid $border;
+		box-sizing:border-box;
+		float:left;
+	}
+
+	li.nav--logo {
+		display:none;
+		width:100%;
+		border-left:0;
+		text-align:left;
+		padding:0 1.5%;
+		box-sizing:border-box;
+		strong {
+			font-size:24px;
+			line-height:32px;
+			font-weight:bold;
+			display:block;
+			margin-top:2px;
+		}
+		svg {
+			float:left;
+			max-width:68px;
+			max-height:65px;
+			margin:-3px 4% 0 0;
+		}
+	}
+
+	a {
+		font-size:16px;
+		font-weight:bold;
+		text-decoration:none;
+		color:inherit;
+		position:relative;
+		&:before {
+			content:"";
+			display:block;
+			position:absolute;
+			width:0%;
+			height:2px;
+			background:$type;
+			bottom:-3px;
+			right:50%;
+			transition:width .5s
+		}
+		&:after {
+			content:"";
+			display:block;
+			position:absolute;
+			width:0%;
+			height:2px;
+			background:$type;
+			bottom:-3px;
+			left:50%;
+			transition:width .25s
+		}
+	}
+
+	nav.about .nav--about a, nav.portfolio .nav--portfolio a, nav.contact .nav--contact a, a:hover {
+		&:before, &:after {
+			width:50%;
+		}
+	}
+
+	li.nav--about {
+		& a:before, & a:after {
+			background:$about;
+		}
+	}
+
+	li.nav--portfolio {
+		& a:before, & a:after {
+			background:$portfolio;
+		}
+	}
+
+	li.nav--contact {
+		& a:before, & a:after {
+			background:$contact;
+		}
+	}
+
+	li.nav--about, li.nav--portfolio, li.nav--contact, nav.contact .nav--contact {
+		width:33.3%;
+	}
+
+	nav.about .nav--about, nav.portfolio .nav--portfolio,  {
+		position:relative;
+		span.arrow {
+			span {
+				display:block;
+				width: 0;
+				height: 0;
+				border-style: solid;
+				border-width: 14px 14px 0 14px;
+				border-color: #ffffff transparent transparent transparent;
+				position:relative;
+				&:before {
+					content:"";
+					width:35px;
+					height:10px;
+					position:absolute;
+					top:-24px;
+					left:-17px;
+					display:block;
+					background:#fff;
+				}
+			}
+			width:28px;
+			height:14px;
+			bottom:-14px;
+			display:block;
+			position:absolute;
+			left:0;
+			right:0;
+			margin-left:auto;
+			margin-right:auto;
+			&:before {
+				content:"";
+				width: 0;
+				height: 0;
+				left:0;
+				top:0;
+				border-style: solid;
+				display:block;
+				border-color: #000000 transparent transparent transparent;
+				border-width: 14px 14px 0 14px;
+				filter: blur(2px);
+				opacity:0.25;
+				position:absolute;
+			}
+
+		}
+	}
+
+}
+
+@include bp(med) {
+	header nav {
+		position:relative;
+		li {
+			height:112px;
+		}
+		li a {
+			top:-5px;
+			font-size:24px;
+		}
+		li.nav--logo {
+			width:40%;
+			display:table;
+		}
+		li.nav--about, li.nav--portfolio, li.nav--contact {
+			width:20%;
+		}
+	}
+}
+
+@include bp(xxlrg) {
+	header nav {
+		li.nav--logo {
+			width:25%;
+		}
+		li.nav--about, li.nav--portfolio, li.nav--contact {
+			width:25%; 
+		}
+	}
+}

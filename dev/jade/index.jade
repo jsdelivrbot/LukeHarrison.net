@@ -1,0 +1,22 @@
+doctype html
+html(lang='en')
+
+	head
+
+		- var name = "LUKE PAGE"
+		- var slug = "about"
+		- var description = "Luke Harrison - Sheffield web designer and front-end developer"
+
+		include partials/header
+
+	body
+
+		include ../img/master.svg
+
+		include partials/navigation
+
+		script(src='js/core.min.js')
+
+		<!--[if lt IE 9]>
+		script(src='js/ie8.min.js')
+		<![endif]-->
