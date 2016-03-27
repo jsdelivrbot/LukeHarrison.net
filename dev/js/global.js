@@ -1,13 +1,32 @@
 /*
 |--------------------------------------------------------------------
-|  PROJECT CODE
+|  FEATURE ANIMATION
 |--------------------------------------------------------------------
 */
 
-// Bind querySelector for jQuery-esq selection method
-var $ = document.querySelector.bind(document);
-var $$ = document.querySelectorAll.bind(document);
 
-if(bp.min("med")){
-	console.log("hello");
-}
+
+(function(){
+	var banner = document.querySelector(".banner--about");
+	var full = document.querySelector(".feature-full");
+	var lines = document.querySelector(".feature-lines");
+
+	var x = window.innerWidth / 2;
+	var oldX;
+
+	var bannerOver = function(){
+		full.classList.remove("inactive");
+		banner.onmousemove = function(e){
+			x = window.innerWidth - e.pageX;
+			full.style.setProperty("-webkit-clip-path", `inset(0 0 0 ${x}px)`);
+		};
+	};
+
+	banner.addEventListener("mouseover", bannerOver);
+
+	banner.addEventListener("mouseout", function(){
+		full.classList.add("inactive");
+		full.style.removeProperty("-webkit-clip-path");
+	});
+
+})();
