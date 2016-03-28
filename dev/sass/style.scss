@@ -36,22 +36,28 @@ body {
 	padding-bottom:75px;
 }
 
-header--lrg {
+.header--lrg {
 	font-size:60px;
+	margin-bottom:25px;
 	font-weight:bold;
 }
 
-header--med {
+.header--med {
 	font-size:36px;
 	font-weight:bold;
 }
 
-header--sml {
+.header--sml {
 	font-size:24px;
+	line-height:30px;
 }
 
 .banner {
 	color:#fff;
+}
+
+.nowrap {
+	white-space:nowrap;
 }
 
 //--------------------------------------------------------------------
@@ -220,6 +226,7 @@ li.nav--logo, .mobile-logo {
 		bottom:0;
 		height:60px;
 		height:8vh;
+		z-index:100;
 	}
 	.mobile-logo {
 		display:block;
@@ -318,10 +325,11 @@ li.nav--logo, .mobile-logo {
 //--------------------------------------------------------------------
 
 .banner--about {
-	background:$about;
+	background:#5abce3;
 	height:88vh;
 	position:relative;
-	font-size:10px;
+	font-size:5px;
+	overflow:hidden;
 	&:after {
 		content:"";
 		display:block;
@@ -332,10 +340,18 @@ li.nav--logo, .mobile-logo {
 		bottom:0;
 	}
 
+	.banner-container {
+		position:relative;
+		height:100%;
+		left:-36%;
+	}
+
 	.feature {
+		position:absolute;
 		bottom:34px;
 		width:100%;
 		height:100%;
+		top:0;
 		& img {
 			width:1099px;
 			width:109.9em;
@@ -345,15 +361,17 @@ li.nav--logo, .mobile-logo {
 			position:absolute;
 			bottom:34px;
 			left:0;
-			right:-49px;
+			right:0px;
 			margin-left:auto;
 			margin-right:auto;
 		}
 	}
 
+	.feature-lines {
+		background:$about;
+	}		
+
 	.feature-full{
-		position:absolute;
-		top:0;
 		background:#5abce3;
 		clip-path:inset(0 0 0 50%);
 		&.inactive {
@@ -361,5 +379,51 @@ li.nav--logo, .mobile-logo {
 		}
 	}
 
+	.feature-text {
+		text-align:center;
+		margin-top:6%;
+		h1 {
+			text-transform:uppercase;
+		}
+		h2 {
+			box-sizing: border-box;
+			padding:0 5%;
+		}
+	}
 
+}
+
+@include bp(sml) {
+	.banner--about {
+		font-size:6px;
+
+		.feature img {
+			right:0;
+		}
+	}
+}
+
+@include bp(lrg) {
+	
+	.banner--about {
+		font-size:7px;
+
+		.banner-container {
+			left:auto;
+		}
+
+		.feature img {
+			right:-34px;
+		}
+	}
+}
+
+@include bp(xxxxlrg) {
+	.banner--about {
+		font-size:10px;
+
+		.feature img {
+			right:-49px;
+		}
+	}
 }
