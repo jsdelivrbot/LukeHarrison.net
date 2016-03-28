@@ -37,8 +37,8 @@ body {
 }
 
 .header--lrg {
-	font-size:60px;
-	margin-bottom:25px;
+	font-size:48px;
+	margin-bottom:15px;
 	font-weight:bold;
 }
 
@@ -48,8 +48,8 @@ body {
 }
 
 .header--sml {
-	font-size:24px;
-	line-height:30px;
+	font-size:18px;
+	line-height:24px;
 }
 
 .banner {
@@ -58,6 +58,20 @@ body {
 
 .nowrap {
 	white-space:nowrap;
+}
+
+@include bp(lrg) {
+
+	.header--lrg {
+		font-size:60px;
+		margin-bottom:25px;
+	}
+
+	.header--sml {
+		font-size:24px;
+		line-height:30px;
+	}
+
 }
 
 //--------------------------------------------------------------------
@@ -276,13 +290,16 @@ li.nav--logo, .mobile-logo {
 		min-height:112px;
 		height:112px;
 		height:12vh;
+		max-height:120px;
 		ul {
 			min-height:inherit;
 			height:inherit;
+			max-height:inherit;
 		}
 		li {
 			min-height:inherit;
 			height:inherit;
+			max-height:inherit;
 		}
 		li a {
 			top:-5px;
@@ -327,6 +344,7 @@ li.nav--logo, .mobile-logo {
 .banner--about {
 	background:#5abce3;
 	height:88vh;
+	max-height:840px;
 	position:relative;
 	font-size:5px;
 	overflow:hidden;
@@ -379,6 +397,13 @@ li.nav--logo, .mobile-logo {
 		}
 	}
 
+	.container {
+		position:absolute;
+		left:0;
+		right:0;
+		top:0;
+	}
+
 	.feature-text {
 		text-align:center;
 		margin-top:6%;
@@ -403,11 +428,9 @@ li.nav--logo, .mobile-logo {
 	}
 }
 
-@include bp(lrg) {
+@include bp(med) {
 	
 	.banner--about {
-		font-size:7px;
-
 		.banner-container {
 			left:auto;
 		}
@@ -415,6 +438,14 @@ li.nav--logo, .mobile-logo {
 		.feature img {
 			right:-34px;
 		}
+
+	}
+}
+
+@include bp(lrg) {
+	
+	.banner--about {
+		font-size:7px;
 	}
 }
 
