@@ -391,9 +391,9 @@ li.nav--logo, .mobile-logo {
 
 	.feature-full{
 		background:#5abce3;
-		clip-path:inset(0 0 0 50%);
+		//clip-path:inset(0 0 0 50%);
 		&.inactive {
-			transition: clip-path 1.5s
+			transition: clip 1.5s
 		}
 	}
 

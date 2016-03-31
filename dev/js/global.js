@@ -5,26 +5,41 @@
 */
 
 (function(){
+
 	var banner = document.querySelector(".banner--about");
 	var full = document.querySelector(".feature-full");
 	var lines = document.querySelector(".feature-lines");
+	var defaultWidth;
+	var defaultHeight;
+	var pos = window.innerWidth / 2;
 
-	var x = window.innerWidth / 2;
-	var oldX;
+	var resetBanner = function(){
+		defaultWidth = window.innerWidth;
+		defaultHeight = window.innerHeight;
+		full.style.setProperty("clip", `rect(0px, ${defaultWidth}px, ${defaultHeight}px, ${defaultWidth*0.4952}px)`);
+	};
+
+	// Set to default
+	resetBanner(); 
+
+	// Reposition on window resize
+	window.onresize = function(){
+		resetBanner(); 
+	}
 
 	if(!Modernizr.touchevents){ 
 
-		banner.addEventListener("mouseover",  function(){
+		banner.addEventListener("mouseover", function(){
 			full.classList.remove("inactive");
 			banner.onmousemove = function(e){
-				x = window.innerWidth - e.pageX;
-				full.style.setProperty("-webkit-clip-path", `inset(0 0 0 ${x}px)`);
+				pos = window.innerWidth - e.pageX;
+				full.style.setProperty("clip", `rect(0px, ${defaultWidth}px, ${defaultHeight}px, ${pos}px)`);
 			};
 		});
 
 		banner.addEventListener("mouseout", function(){
 			full.classList.add("inactive");
-			full.style.removeProperty("-webkit-clip-path");
+			resetBanner(); 
 		});
 
 	}
@@ -33,15 +48,13 @@
 		banner.addEventListener("touchmove", function(e){
 			e.preventDefault();
 			full.classList.remove("inactive");
-			x = e.touches[0].clientX;
-			full.style.setProperty("-webkit-clip-path", `inset(0 0 0 ${x}px)`);
-			full.style.setProperty("clip-path", `inset(0 0 0 ${x}px)`);
+			pos = e.touches[0].clientX;
+			full.style.setProperty("clip", `rect(0px, ${defaultWidth}px, ${defaultHeight}px, ${pos}px)`);
 		});
 
 		banner.addEventListener("touchend", function(e){
 			full.classList.add("inactive");
-			document.querySelector(".feature-full").removeAttribute("style");
-			//document.querySelector("h1").style.setProperty("display", "none");
+			resetBanner(); 
 		});
 	}
 
