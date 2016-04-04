@@ -37,8 +37,8 @@ body {
 }
 
 .header--lrg {
-	font-size:48px;
-	margin-bottom:15px;
+	font-size:24px;
+	margin-bottom:10px;
 	font-weight:bold;
 }
 
@@ -58,6 +58,14 @@ body {
 
 .nowrap {
 	white-space:nowrap;
+}
+
+@include bp(sml) {
+	.header--lrg {
+		font-size:48px;
+		margin-bottom:15px;
+		font-weight:bold;
+	}
 }
 
 @include bp(lrg) {
@@ -248,6 +256,12 @@ li.nav--logo, .mobile-logo {
 		padding:5%;
 		box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.15);
 		border:0;
+		height:auto;
+		max-height:160px;
+		position:absolute;
+		top:0;
+		background:#fff;
+		z-index:10;
 	}
 }
 
@@ -343,8 +357,6 @@ li.nav--logo, .mobile-logo {
 
 .banner--about {
 	background:#5abce3;
-	height:88vh;
-	max-height:840px;
 	position:relative;
 	font-size:5px;
 	overflow:hidden;
@@ -361,7 +373,6 @@ li.nav--logo, .mobile-logo {
 	.banner-container {
 		position:relative;
 		height:100%;
-		left:-36%;
 	}
 
 	.feature {
@@ -375,7 +386,7 @@ li.nav--logo, .mobile-logo {
 			width:109.9em;
 			height:384px;
 			height:38.4em;
-			display:block;
+			display:none;
 			position:absolute;
 			bottom:34px;
 			left:0;
@@ -386,14 +397,62 @@ li.nav--logo, .mobile-logo {
 	}
 
 	.feature-lines {
-		background:$about;
+		background:$about url("../img/feature-lines.svg") no-repeat left 44% bottom 34px;
+		background-size: 109.9em 38.4em;
 	}		
 
 	.feature-full{
-		background:#5abce3;
-		//clip-path:inset(0 0 0 50%);
+		background:#5abce3 url("../img/feature-full.svg") no-repeat right 55% bottom 34px;
+		background-size: 109.9em 38.4em;
 		&.inactive {
-			transition: clip 1.5s
+			transition: clip 1.5s, clip-path 1.5s;
+		}
+	}
+
+	// Tweak background sizings
+
+	@media (min-width: 374px) {
+		.feature-lines {
+			background-position: left 42% bottom 34px;
+		}
+		.feature-full {
+			background-position: right 58% bottom 34px;
+		}
+	}
+
+	@media (min-width: 550px) {
+		.feature-lines {
+			background-position: left 39% bottom 34px;
+		}
+		.feature-full {
+			background-position: right 62% bottom 34px;
+		}
+	}
+
+	@media (min-width: 679px) {
+		.feature-lines {
+			background-position: left 66% bottom 34px;
+		}
+		.feature-full {
+			background-position: right 30% bottom 34px;
+		}
+	}
+
+	@media (min-width: 667px) and (orientation:landscape) {
+		.feature-lines {
+			background-position: left 250% bottom 34px;
+		}
+		.feature-full {
+			background-position: right -150% bottom 34px;
+		}
+	}
+
+	@media (min-width: 700px) and (orientation:landscape) {
+		.feature-lines {
+			background-position: left 71% bottom 34px;
+		}
+		.feature-full {
+			background-position: right 28% bottom 34px;
 		}
 	}
 
@@ -403,6 +462,8 @@ li.nav--logo, .mobile-logo {
 		right:0;
 		top:0;
 		width:100%; 
+		padding:0;
+		display:none;
 	}
 
 	.feature-text {
@@ -421,7 +482,7 @@ li.nav--logo, .mobile-logo {
 
 @include bp(sml) {
 	.banner--about {
-		font-size:6px;
+		font-size:6.5px;
 
 		.feature img {
 			right:0;
@@ -429,24 +490,68 @@ li.nav--logo, .mobile-logo {
 	}
 }
 
+@include bpMax(med, "orientation:portrait") {
+	.banner--about {
+		height:82vh;
+	}
+}
+
+@include bpMax(med, "orientation:landscape") {
+	.banner--about {
+		font-size:6px;
+		height:350px;
+	}
+}
+
 @include bp(med) {
 	
 	.banner--about {
+
 		.banner-container {
 			left:auto;
 		}
 
 		.feature img {
 			right:-34px;
+			display:block;
+		}
+
+		.container {
+			display:block;
+		}
+
+		.feature-lines {
+			background:$about;
+		}		
+
+		.feature-full{
+			background:#5abce3;
 		}
 
 	}
 }
 
-@include bp(lrg) {
-	
+@include bp(med, "orientation:portrait") {
 	.banner--about {
-		font-size:7px;
+		height:50vh;
+		min-height:635px;
+		max-height:840px;
+	}
+}
+
+@include bp(med, "orientation:landscape") {
+	.banner--about {
+		height:88vh;
+		min-height:635px;
+		max-height:840px;
+	}
+}
+
+@include bp(lrg) {
+
+	.banner--about {
+		font-size:8px;
+		min-height:735px;
 	}
 }
 
