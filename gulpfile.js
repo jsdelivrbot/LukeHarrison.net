@@ -129,7 +129,7 @@ gulp.task('images', function(){
 */
 
 // Combine JS and minify
-gulp.task('js', function() {
+gulp.task('js-process', function() {
 	return gulp.src([
 		'./dev/js/partials/vendor/*.js',
 		'./dev/js/partials/polyfills/*.js',
@@ -150,6 +150,20 @@ gulp.task('js', function() {
     	.pipe(gulpif(minify, rename("core.min.js"), gulp.dest('./dist/js')))
     	.pipe(gulpif(minify, uglify()))
     	.pipe(gulpif(minify, gulp.dest('./dist/js/')));
+});
+
+// Copy Across specific JS files
+gulp.task('js-copy', function() {
+	// Copy all non-directory files
+	gulp.src('dev/js/seperate/*.js')
+    	.pipe(gulpif(minify, gulp.dest('./dist/js/')));
+});
+
+gulp.task('js', function(){
+	runSequence(
+		"js-process",
+		"js-copy"
+	);
 });
 
 /*

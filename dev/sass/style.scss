@@ -26,6 +26,47 @@ $contact: #f05d4a;
 $border: #e4e4e4;
 $type: #002010;
 
+
+//--------------------------------------------------------------------
+// DEFINE CUSTOM FONTS
+//--------------------------------------------------------------------
+
+@font-face {
+    font-family: 'Lato';
+    src: url('../fonts/lato-bold-webfont.eot');
+    src: url('../fonts/lato-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/lato-bold-webfont.woff2') format('woff2'),
+         url('../fonts/lato-bold-webfont.woff') format('woff'),
+         url('../fonts/lato-bold-webfont.ttf') format('truetype'),
+         url('../fonts/lato-bold-webfont.svg#../fonts/latobold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Lato';
+    src: url('../fonts/lato-light-webfont.eot');
+    src: url('../fonts/lato-light-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/lato-light-webfont.woff2') format('woff2'),
+         url('../fonts/lato-light-webfont.woff') format('woff'),
+         url('../fonts/lato-light-webfont.ttf') format('truetype'),
+         url('../fonts/lato-light-webfont.svg#../fonts/latolight') format('svg');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Lato';
+    src: url('../fonts/lato-regular-webfont.eot');
+    src: url('../fonts/lato-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/lato-regular-webfont.woff2') format('woff2'),
+         url('../fonts/lato-regular-webfont.woff') format('woff'),
+         url('../fonts/lato-regular-webfont.ttf') format('truetype'),
+         url('../fonts/lato-regular-webfont.svg#../fonts/latoregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
 //--------------------------------------------------------------------
 // GLOBAL CLASSES
 //--------------------------------------------------------------------
@@ -373,10 +414,13 @@ li.nav--logo, .mobile-logo {
 	.banner-container {
 		position:relative;
 		height:100%;
+		background:url("../img/feature-static.svg") no-repeat center bottom 34px;
+		background-size:1500px auto;
 	}
 
 	.feature {
 		position:absolute;
+		display:none;
 		bottom:34px;
 		width:100%;
 		height:100%;
@@ -386,7 +430,6 @@ li.nav--logo, .mobile-logo {
 			width:109.9em;
 			height:384px;
 			height:38.4em;
-			display:none;
 			position:absolute;
 			bottom:34px;
 			left:0;
@@ -397,62 +440,15 @@ li.nav--logo, .mobile-logo {
 	}
 
 	.feature-lines {
-		background:$about url("../img/feature-lines.svg") no-repeat left 44% bottom 34px;
+		background:$about;
 		background-size: 109.9em 38.4em;
 	}		
 
 	.feature-full{
-		background:#5abce3 url("../img/feature-full.svg") no-repeat right 55% bottom 34px;
+		background:#5abce3;
 		background-size: 109.9em 38.4em;
 		&.inactive {
 			transition: clip 1.5s, clip-path 1.5s;
-		}
-	}
-
-	// Tweak background sizings
-
-	@media (min-width: 374px) {
-		.feature-lines {
-			background-position: left 42% bottom 34px;
-		}
-		.feature-full {
-			background-position: right 58% bottom 34px;
-		}
-	}
-
-	@media (min-width: 550px) {
-		.feature-lines {
-			background-position: left 39% bottom 34px;
-		}
-		.feature-full {
-			background-position: right 62% bottom 34px;
-		}
-	}
-
-	@media (min-width: 679px) {
-		.feature-lines {
-			background-position: left 66% bottom 34px;
-		}
-		.feature-full {
-			background-position: right 30% bottom 34px;
-		}
-	}
-
-	@media (min-width: 667px) and (orientation:landscape) {
-		.feature-lines {
-			background-position: left 250% bottom 34px;
-		}
-		.feature-full {
-			background-position: right -150% bottom 34px;
-		}
-	}
-
-	@media (min-width: 700px) and (orientation:landscape) {
-		.feature-lines {
-			background-position: left 71% bottom 34px;
-		}
-		.feature-full {
-			background-position: right 28% bottom 34px;
 		}
 	}
 
@@ -480,6 +476,16 @@ li.nav--logo, .mobile-logo {
 
 }
 
+@include bp(xsml) {
+
+	.banner--about {
+		.banner-container {
+			background-size:2000px auto;
+		}
+	}
+
+}
+
 @include bp(sml) {
 	.banner--about {
 		font-size:6.5px;
@@ -492,7 +498,7 @@ li.nav--logo, .mobile-logo {
 
 @include bpMax(med, "orientation:portrait") {
 	.banner--about {
-		height:82vh;
+		height:92vh;
 	}
 }
 
@@ -511,21 +517,16 @@ li.nav--logo, .mobile-logo {
 			left:auto;
 		}
 
+		.feature {
+			display:block; 
+		}
+
 		.feature img {
 			right:-34px;
-			display:block;
 		}
 
 		.container {
 			display:block;
-		}
-
-		.feature-lines {
-			background:$about;
-		}		
-
-		.feature-full{
-			background:#5abce3;
 		}
 
 	}
@@ -535,7 +536,7 @@ li.nav--logo, .mobile-logo {
 	.banner--about {
 		height:50vh;
 		min-height:635px;
-		max-height:840px;
+		max-height:860px;
 	}
 }
 
@@ -543,7 +544,7 @@ li.nav--logo, .mobile-logo {
 	.banner--about {
 		height:88vh;
 		min-height:635px;
-		max-height:840px;
+		max-height:860px;
 	}
 }
 
