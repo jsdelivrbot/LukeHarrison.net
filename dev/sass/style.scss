@@ -412,7 +412,8 @@ li.nav--logo, .mobile-logo {
 	}
 
 	.banner-container {
-		position:relative;
+		position:absolute;
+		width:100%;
 		height:100%;
 		background:url("../img/feature-static.svg") no-repeat center bottom 34px;
 		background-size:1500px auto;
