@@ -281,7 +281,7 @@ li.nav--logo, .mobile-logo {
 	}
 }
 
-.icon-logo.svg-fallback {
+.icon-logo.no-svg {
 	background:url("../img/sprite.png") no-repeat left top;
 	width:60px;
 	height:65px;
@@ -484,9 +484,6 @@ li.nav--logo, .mobile-logo {
 	.feature-full {
 		transition: clip 1.5s, clip-path 1.5s;
 	}
-	.feature-text {
-		transition: opacity 1.5s;
-	}
 }
 
 @include bp(xsml) {
@@ -583,10 +580,18 @@ li.nav--logo, .mobile-logo {
 // IE8
 //--------------------------------------------------------------------
 
-html.svg .svg-fallback {
+html.no-mediaqueries body {
+	min-width:1170px;
+}
+
+html.svg .no-svg {
 	display:none;
 }
 
-html.no-svg svg {
+html.no-svg svg, html.no-svg .svg {
 	display:none;
+}
+
+html.no-svg .no-svg {
+	display:block;
 }

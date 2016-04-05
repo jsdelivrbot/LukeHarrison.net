@@ -21,7 +21,7 @@
 		linesText = document.querySelector(".feature-text--designer"),
 		defaultWidth,
 		defaultHeight,
-		pos = window.innerWidth / 2,
+		pos = window.innerWidth / 2 || document.documentElement.clientWidth / 2 || document.body.clientWidth / 2,
 		opacityLines,
 		opacityFull,
 		moveArea,
@@ -29,17 +29,13 @@
 
 	// Create function to set default feature state
 		resetBanner = function(){
-			// Reset text opacity
-			fullText.removeAttribute("style");
-			linesText.removeAttribute("style");		
-
 			// Reset vertical line
 			if(clipPath){
 				full.style.setProperty("-webkit-clip-path", "inset(0 0 0 50%)");
 			}
 			else {
-				defaultWidth = window.innerWidth;
-				defaultHeight = (window.innerHeight + 300);
+				defaultWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+				defaultHeight = window.innerHeight + 300  || document.documentElement.clientWidth + 300 || document.body.clientWidth + 300;
 				full.style.clip = `rect(0px, ${defaultWidth}px, ${defaultHeight}px, ${defaultWidth*0.4952}px)`;
 			}
 		};
@@ -67,22 +63,6 @@
 			// Define what happens as mouse moves
 			banner.onmousemove = function(e){
 				pos = moveArea - e.pageX;
-
-				// calculate percentage of pos relative to window width
-				if(pos >= (moveArea / 2)){
-					// Right half
-					opacityLines = e.pageX / (moveArea / 2);
-					opacityFull = 1;
-				}
-				else {
-					// Left half
-					opacityFull = 2 - (e.pageX / (moveArea / 2));
-					opacityLines = 1;
-				}
-
-				// change text opacity
-				fullText.style.opacity = opacityLines;
-				linesText.style.opacity = opacityFull;
 
 				// Move vertical line
 				if(clipPath){
