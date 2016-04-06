@@ -4,15 +4,14 @@ html(lang='en')
 	head
 
 		- var name = "LUKE PAGE"
-		- var slug = "about"
+		- var slug = "about" 
 		- var description = "Luke Harrison - Sheffield web designer and front-end developer"
 
 		include partials/header
 
-	body
+	body(class=slug)
 
 		include ../img/master.svg
-
 		include partials/navigation
 
 		section.banner.banner--about

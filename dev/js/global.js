@@ -1,3 +1,5 @@
+"use strict";
+
 /*
 |--------------------------------------------------------------------
 |  FEATURE ANIMATION
@@ -7,7 +9,10 @@
 // Pass in window and document object to increase lookup speed
 (function(window, document){
 
-	"use strict";
+	// Exit prematurely if not on about page as no need to run this module
+	if(!document.querySelector("body").classList.contains("about")){
+		return false;
+	}
 
 	// Check if clip-paths are supported function
 	// http://stackoverflow.com/questions/27558996/how-can-i-test-for-clip-path-support
