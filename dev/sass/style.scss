@@ -2,11 +2,9 @@
 SASS 'Orion' Framework
 Author: Luke Harrison
 Web: www.lukeharrison.net
-Github: https://github.com/Silveredge9/Orion-Framework
+Github: https://github.com/WebDevLuke/Orion-Framework
 Email: luke@lukeharrison.net
 */
-
-// This is the the primary style sheet. Before you begin please review the config partial if you wish to tweak the settings and add default styles.
 
 // Import Standard Framework Components
 @import "partials/globals";
@@ -588,10 +586,11 @@ html.svg .no-svg {
 	display:none;
 }
 
-html.no-svg svg, html.no-svg .svg {
-	display:none;
-}
 
 html.no-svg .no-svg {
 	display:block;
+}
+
+html.no-svg svg, html.no-svg .svg {
+	display:none;
 }
