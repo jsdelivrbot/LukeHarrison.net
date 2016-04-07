@@ -14,24 +14,77 @@ html(lang='en')
 		include ../img/master.svg
 		include partials/navigation
 
-		section.banner.banner--about
-			div.banner-container
-				div.feature.feature-lines
-					div.container
-						div.feature-text.feature-text--designer.med-clear.med5.xxxlrg-clear.xxxlrg5.xxxlrg-offset2 
-							h1.header--lrg Designer
-							h2.header--sml Creative web designer with knowledge of UX principles who solves problems with #[span(class="nowrap") user-centered] solutions.
+		section(class="banner banner--about")
+			div(class="banner-container")
+				div(class="feature feature-lines")
+					div(class="container")
+						div(class="feature-text feature-text--designer med-clear med5 xxxlrg-clear xxxlrg5 xxxlrg-offset2")
+							h1(class="header--lrg") Designer
+							h2(class="header--sml") Creative web designer with knowledge of UX principles who solves problems with #[span(class="nowrap") user-centered] solutions.
 					img(src="img/feature-lines.svg", alt="")
 					img(src="img/feature-lines.png", class="no-svg" alt="")
-				div.feature.feature-full
-					div.container
-						div.feature-text.feature-text--developer.med5.med-offset7.xxxlrg5.xxxlrg-offset9
-							h1.header--lrg Developer
-							h2.header--sml Front-end developer who is all about clean, efficient HTML5, CSS3 and JavaScript.
+				div(class="feature feature-full")
+					div(class="container")
+						div(class="feature-text feature-text--developer med5 med-offset7 xxxlrg5 xxxlrg-offset9")
+							h1(class="header--lrg") Developer
+							h2(class="header--sml") Front-end developer who is all about clean, efficient HTML5, CSS3 and JavaScript.
 					img(src="img/feature-full.svg", alt="")
 					img(src="img/feature-full.png", class="no-svg" alt="")
 
+		section(class="about__text unit-scale")
+			div(class="container")
+				div(class="med-clear med6 xxxlrg-clear xxxlrg6 xxxlrg-offset2")
+					h1.header--med Hi, I’m Luke Harrison
+					h2.header--sml I’m a web designer &amp; front-end developer from Sheffield, UK with over 5 years of experience.
+					p I have key skills which stretch across the project life cycle; from designing UX driven wireframes and mockups through to developing high quality code focusing on performance, responsiveness and usability.
+					p I’ve always been interested in web design, first as a hobby and now as a career. I currently work at internet service provider Plusnet, where I'm working in an agile environment developing and maintaining products and services.
+				div(class="med6 xxxlrg7 about__me")
+					img(src="img/me.jpg" alt="Luke Harrison, web designer and developer")
 
+		section(class="about__skills unit-scale")
+			div(class="container")
+				h1(class="header--med") Key Skills
+
+				div(class="copy text-box text-box--design med-clear med6 xlrg-clear xlrg3 xxxlrg-clear xxxlrg4")
+					ul
+						li #[span] Web Design
+						li #[span] UX basics (Personas, Wireframe etc) 
+						li #[span] UI design
+						li #[span] Illustration &amp; icon design
+						li #[span] Photoshop, Fireworks, Illustrator
+						li #[span] A/B &amp; MVT via Adobe Target			
+	
+				div(class="copy text-box text-box--html med6 xlrg3 xxxlrg4")
+					ul
+						li #[span] HTML5 &amp; CSS3
+						li #[span] Mobile-first responsive design
+						li #[span] BEM methodology
+						li #[span] Jade / SASS / LESS preprocessors
+						li #[span] Cross-browser compatibility
+						li #[span] Cross-client HTML Emails
+						li #[span] Optimisation techniques
+						li #[span] Bootstrap
+
+				div(class="copy text-box text-box--js med-clear med6 xlrg3 xxxlrg4")
+					ul
+						li #[span] JavaScript
+						li #[span] DOM API &amp; vanilla JavaScript
+						li #[span] Libraries (jQuery, ReactJS fundamentals)
+						li #[span] Common patterns (Module, MVC, CommonJS etc)
+						li #[span] Build systems (Gulp, Grunt etc)
+						li #[span] ES2015 / Babel
+						li #[span] Optimisation techniques
+
+				div(class="copy text-box text-box--misc med6 xlrg3 xxxlrg4")
+					ul
+						li #[span] Misc
+						li #[span] GIT
+						li #[span] PHP
+						li #[span] Wordpress
+						li #[span] Google Analytics
+						li #[span] SEO fundamentals
+						li #[span] Agile methodology (Scrum, Kanban)
+						li #[span] Copywriting
 
 
 

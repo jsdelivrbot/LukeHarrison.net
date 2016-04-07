@@ -23,6 +23,8 @@ $portfolio: #84bc44;
 $contact: #f05d4a;
 $border: #e4e4e4;
 $type: #002010;
+$grey: #efefef;
+$misc: #c8c8c8;
 
 
 //--------------------------------------------------------------------
@@ -72,23 +74,35 @@ $type: #002010;
 body {
 	font-family:'Lato', sans-serif;
 	color:$type;
-	padding-bottom:75px;
 }
 
 .header--lrg {
 	font-size:24px;
+	line-height:30px;
 	margin-bottom:10px;
 	font-weight:bold;
 }
 
 .header--med {
-	font-size:36px;
+	font-size:24px;
+	line-height:30px;
+	margin-bottom:25px;
 	font-weight:bold;
 }
 
 .header--sml {
 	font-size:18px;
 	line-height:24px;
+	margin-bottom:25px;
+}
+
+.copy {
+	font-size:18px;
+	line-height:24px;
+}
+
+p {
+	@extend .copy;
 }
 
 .banner {
@@ -99,24 +113,47 @@ body {
 	white-space:nowrap;
 }
 
+.unit-scale {
+	font-size:3px;
+}
+
 @include bp(sml) {
 	.header--lrg {
 		font-size:48px;
+		line-height:52px;
 		margin-bottom:15px;
 		font-weight:bold;
 	}
+}
+
+@include bp(med) {
+
+	.header--med {
+		font-size:36px;
+		line-height:32px;
+	}
+
+	.unit-scale {
+		font-size:7px;
+	}
+
 }
 
 @include bp(lrg) {
 
 	.header--lrg {
 		font-size:60px;
+		line-height:60px;
 		margin-bottom:25px;
 	}
 
 	.header--sml {
 		font-size:24px;
 		line-height:30px;
+	}
+
+	.unit-scale {
+		font-size:10px;
 	}
 
 }
@@ -264,6 +301,7 @@ li.nav--logo, .mobile-logo {
 	width:100%;
 	border-left:0;
 	text-align:left;
+	font-size:16px;
 	padding:1.5%;
 	box-sizing:border-box;
 	strong {
@@ -286,6 +324,7 @@ li.nav--logo, .mobile-logo {
 }
 
 @include bpMax(med, "orientation:portrait") {
+
 	nav {
 		box-shadow: 0px -2px 5px 0px rgba(0,0,0,0.15);
 		width:100%;
@@ -295,19 +334,26 @@ li.nav--logo, .mobile-logo {
 		height:8vh;
 		z-index:100;
 	}
+
 	.mobile-logo {
 		display:block;
 		text-align:center;
-		padding:5%;
+		padding:5% 0;
 		box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.15);
 		border:0;
 		height:auto;
-		max-height:160px;
+		max-height:190px;
 		position:absolute;
 		top:0;
 		background:#fff;
 		z-index:10;
 	}
+
+	body {
+		padding-bottom:60px;
+		padding-bottom:8vh;
+	}
+
 }
 
 @include bpMax(med, "orientation:landscape") {
@@ -373,7 +419,7 @@ li.nav--logo, .mobile-logo {
 			height:inherit;
 			svg.icon-logo, div.icon-logo {
 				float:left;
-				margin:-3px 4% 0 0;
+				margin:0 4% 0 0;
 			}
 		}
 		li.nav--about, li.nav--portfolio, li.nav--contact {
@@ -383,6 +429,7 @@ li.nav--logo, .mobile-logo {
 			border-left:1px solid $border;
 		}
 	}
+
 }
 
 @include bp(xxlrg) {
@@ -572,6 +619,216 @@ li.nav--logo, .mobile-logo {
 			right:-49px;
 		}
 	}
+}
+
+//--------------------------------------------------------------------
+// ABOUT INTRO
+//--------------------------------------------------------------------
+
+.about__text {
+	margin-top:15.0em;
+	//margin-bottom:16.5em;
+	overflow:hidden;
+}
+
+.about__me img {
+	display:block;
+	width:100%;
+	height:auto;
+	margin:0 auto;
+}
+
+@include bp(sml) {
+	.about__me img {
+		width:75%;
+	}
+}
+
+@include bp(med) {
+	.about__me img {
+		width:auto;
+	}
+}
+
+//--------------------------------------------------------------------
+// ABOUT KEY SKILLS
+//--------------------------------------------------------------------
+
+.about__skills {
+	background:#efefef;
+	padding-top:10.0em;
+	padding-bottom:18.0em;
+
+	h1 {
+		text-align:center;
+		margin-bottom:1.611em; /* 58px */
+	}
+
+	.text-box {
+		background:#fff;
+		box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.15);
+		box-sizing:border-box;
+		padding:15px;
+		margin-bottom:30px;
+		overflow:hidden;
+		
+		ul {
+			list-style:none;
+			margin:0;
+			position:relative;
+			&:before {
+				display:block;
+				content:"";
+				width:3px;
+				height:100%;
+				background:$about;
+				position:absolute;
+				left:5px;
+				top:10px;
+			}
+		}
+
+		li {
+			margin-bottom:10px;
+			padding-left:23px;
+			margin-left:20px;
+			position:relative;
+
+			span {
+				display:block;
+				width:13px;
+				height:13px;
+				border-radius:50%;
+				background:#fff;
+				border:3px solid $about;
+				box-sizing:border-box;
+				position:absolute;	
+				top:5px;
+				left:0;
+			}
+
+			&:before {
+				content:"";
+				display:block;
+				width:15px;
+				height:3px;
+				background:$about;
+				position:absolute;
+				top:10px;
+				left:-15px;
+			}
+
+		}
+
+		li:first-child {
+			font-weight:bold;
+			margin-left:0;
+			&:before {
+				display:none;
+			}
+		}
+
+		li:last-child {
+			margin-bottom:0;
+			&:after {
+				content:"";
+				display:block;
+				background:#fff;
+				width:15px;
+				height:100%;
+				position:absolute;
+				left:-20px;
+				top:13px;
+			}
+		}
+
+	}
+
+	.text-box--design {
+		border-bottom:10px solid $about;
+		
+		ul:before, li:before {
+			background:$about;
+		}
+
+		li span {
+			border-color:$about;
+		}
+
+	}
+
+	.text-box--html {
+		border-bottom:10px solid $portfolio;
+
+		ul:before, li:before {
+			background:$portfolio;
+		}
+
+		li span {
+			border-color:$portfolio;
+		}
+
+	}
+
+	.text-box--js {
+		border-bottom:10px solid $contact;
+
+		ul:before, li:before {
+			background:$contact;
+		}
+
+		li span {
+			border-color:$contact;
+		}
+
+	}
+
+	.text-box--misc {
+		border-bottom:10px solid $misc;
+
+		ul:before, li:before {
+			background:$misc;
+		}
+
+		li span {
+			border-color:$misc;
+		}
+
+	}
+
+}
+
+@include bp(med){
+
+	.about__skills {
+
+		.text-box {
+			min-height:330px;
+			padding:23px;
+		}
+
+		.text-box--js {
+			margin-bottom:0;
+		}
+
+		.text-box--misc {
+			margin-bottom:0;
+		}
+
+	}
+
+}
+
+@include bp(xlrg){
+
+	.about__skills {
+
+		.text-box {
+			margin-bottom:0;
+		}
+
+	}
+
 }
 
 //--------------------------------------------------------------------

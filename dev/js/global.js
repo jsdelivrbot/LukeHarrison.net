@@ -7,7 +7,7 @@
 */
 
 // Pass in window and document object to increase lookup speed
-(function(window, document){
+(function(window, document){ 
 
 	// Exit prematurely if not on about page as no need to run this module
 	if(!document.querySelector("body").classList.contains("about")){
@@ -46,7 +46,7 @@
 		};
 
 	// Set to default feature state
-	resetBanner(); 
+	resetBanner();
 
 	// If no touch events and if higher then the med breakpoint then enable interaction
 	if(!Modernizr.touchevents && bp.min("med")){
@@ -60,17 +60,20 @@
 
 		// Define function which fires when mouse enters feature
 		var bannerEnter = function(){
+
 			banner.classList.remove("inactive");
 
 			// Get width of body
-			moveArea = document.body.clientWidth;
+			moveArea = document.body.clientWidth || document.documentElement.clientWidth;
 
 			// Define what happens as mouse moves
 			banner.onmousemove = function(e){
-				pos = moveArea - e.pageX;
+				e = e || window.event;
+				pos = e.pageX || e.clientX
+				pos = moveArea - pos;
 
-				// Move vertical line
-				if(clipPath){
+				//Move vertical line
+				if(clipPath){ 
 					full.style.setProperty("-webkit-clip-path", `inset(0 0 0 ${pos}px)`); 
 				}
 				else {
@@ -91,8 +94,8 @@
 			banner.addEventListener("mouseleave", bannerLeave);
 		}
 		else {
-			banner.attachEvent("mouseenter", bannerEnter);
-			banner.attachEvent("mouseleave", bannerLeave);
+			banner.attachEvent("onmouseenter", bannerEnter);
+			//banner.attachEvent("mouseleave", bannerLeave);
 		}
 
 	}

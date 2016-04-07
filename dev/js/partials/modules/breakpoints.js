@@ -21,7 +21,7 @@ const bp = (function(){
 		// Breakpoint detection function
 		// eg: if(bp.min("med")){
 		min: function(size){
-			if(window.innerWidth >= bpObj[size]) {
+			if(window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth >= bpObj[size]) {
 				return true;
 			}
 			else {
@@ -30,7 +30,7 @@ const bp = (function(){
 		},
 
 		max: function(size){
-			if(window.innerWidth <= bpObj[size]) {
+			if(window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth <= bpObj[size]) {
 				return true;
 			}
 			else {
@@ -39,7 +39,7 @@ const bp = (function(){
 		},
 
 		between: function(from, to){
-			if(window.innerWidth >= bpObj[from] && window.innerWidth <= bpObj[to]) {
+			if(window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth >= bpObj[from] && window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth <= bpObj[to]) {
 				return true;
 			}
 			else {
