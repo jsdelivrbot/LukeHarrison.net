@@ -117,6 +117,40 @@ p {
 	font-size:3px;
 }
 
+p a {
+	position:relative;
+
+	&:hover {
+		&:before, &:after {
+			width:0%;
+		}
+	}
+	&:before {
+		content:"";
+		display:block;
+		position:absolute;
+		width:50%;
+		height:2px;
+		background:#000;
+		bottom:-3px;
+		right:50%;
+		transition:width .2s
+	}
+	&:after {
+		content:"";
+		display:block;
+		position:absolute;
+		width:50%;
+		height:2px;
+		background:#000;
+		bottom:-3px;
+		left:50%;
+		transition:width .1s
+	}
+}
+
+
+
 @include bp(sml) {
 	.header--lrg {
 		font-size:48px;
@@ -156,6 +190,18 @@ p {
 		font-size:10px;
 	}
 
+}
+
+//--------------------------------------------------------------------
+// PAGE SPECIFIC CLASSES
+//--------------------------------------------------------------------
+
+.about p a {
+	color:$about;
+	text-decoration:none;
+	&:before, &:after {
+		background:$about;
+	}
 }
 
 //--------------------------------------------------------------------
@@ -830,6 +876,21 @@ li.nav--logo, .mobile-logo {
 	}
 
 }
+
+//--------------------------------------------------------------------
+// ABOUT TIMELINE
+//--------------------------------------------------------------------
+
+.about__timeline {
+	margin-top:15.0em;
+
+	.timeline-item {
+		margin-bottom:22px;
+	}
+
+}
+
+
 
 //--------------------------------------------------------------------
 // HIDE IE8 FALLBACKS
