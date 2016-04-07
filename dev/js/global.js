@@ -24,82 +24,84 @@
 		lines = document.querySelector(".feature-lines"),
 		fullText = document.querySelector(".feature-text--developer"),
 		linesText = document.querySelector(".feature-text--designer"),
-		pos = window.innerWidth / 2 || document.documentElement.clientWidth / 2 || document.body.clientWidth / 2,
+		pos = document.body.clientWidth / 2 || document.documentElement.clientWidth / 2,
 		clipPath = areClipPathShapesSupported(),
-		defaultWidth,
-		defaultHeight,
+		moveWidth = document.body.clientWidth || document.documentElement.clientWidth,
+		moveHeight = document.body.clientHeight + 300 || document.documentElement.clientHeight + 300,
 		opacityLines,
 		opacityFull,
-		moveArea,
 		bannerEnter,
 		bannerLeave,
 
 		// Create function to set default feature state
-		resetBanner = function(){
+		resizeBanner = function(){
+			// Initialise or reinitialise document width and height
+			moveWidth = document.body.clientWidth || document.documentElement.clientWidth;
+			moveHeight = document.body.clientHeight + 300 || document.documentElement.clientHeight + 300; 
+
 			// Reset vertical line
-			if(clipPath){
-				full.style.setProperty("-webkit-clip-path", "inset(0 0 0 50%)");
+			if(!clipPath){
+				full.style.clip = `rect(0px, ${moveWidth}px, ${moveHeight}px, ${moveWidth*0.50}px)`;
+			}
+		},
+
+		resetBanner = function(){
+			if(!clipPath){
+				full.style.clip = `rect(0px, ${moveWidth}px, ${moveHeight}px, ${moveWidth*0.50}px)`;
 			}
 			else {
-				defaultWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
-				defaultHeight = window.innerHeight + 300  || document.documentElement.clientWidth + 300 || document.body.clientWidth + 300;
-				full.style.clip = `rect(0px, ${defaultWidth}px, ${defaultHeight}px, ${defaultWidth*0.4952}px)`;
-			}
+				full.style.setProperty("-webkit-clip-path", "inset(0 0 0 50%)");
+			}	
 		};
-
-	// Set to default feature state
+		
 	resetBanner();
 
-	// If no touch events and if higher then the med breakpoint then enable interaction
-	if(!Modernizr.touchevents && bp.min("med")){
+	// On window resize get new document dimensions and recrop if not clip-path
+	window.onresize = function(){
+		resizeBanner();  
+	}
 
-		// Reposition on window resize if we're forced to use clip instead of clip-path
-		if(!clipPath){
-			window.onresize = function(){
-				resetBanner(); 
-			}
-		}
+	// Define function which fires when mouse enters feature
+	bannerEnter = function(){
 
-		// Define function which fires when mouse enters feature
-		bannerEnter = function(){
+		// If no touch events and if higher then the med breakpoint then enable interaction
+		if(!Modernizr.touchevents && bp.min("med")){
 
 			banner.classList.remove("inactive");
-
-			// Get width of body
-			moveArea = document.body.clientWidth || document.documentElement.clientWidth;
 
 			// Define what happens as mouse moves
 			banner.onmousemove = function(e){
 				e = e || window.event;
 				pos = e.pageX || e.clientX
-				pos = moveArea - pos;
+				pos = moveWidth - pos;
 
 				//Move vertical line
 				if(clipPath){ 
 					full.style.setProperty("-webkit-clip-path", `inset(0 0 0 ${pos}px)`); 
 				}
 				else {
-					full.style.clip = `rect(0px, ${defaultWidth}px, ${defaultHeight}px, ${pos}px)`;
+					full.style.clip = `rect(0px, ${moveWidth}px, ${moveHeight}px, ${pos}px)`;
 				}
 			};
-		};
+		}
+	};
 
-		// Define function which fires when mouse leaves feature
-		bannerLeave = function(){
+	// Define function which fires when mouse leaves feature
+	bannerLeave = function(){
+		if(!Modernizr.touchevents && bp.min("med")){
 			banner.classList.add("inactive");
 			resetBanner();
-		};
-
-		// Attach event liseners and if not availble use legacy attachEvent
-		if(banner.addEventListener){
-			banner.addEventListener("mouseenter", bannerEnter);
-			banner.addEventListener("mouseleave", bannerLeave);
 		}
-		else {
-			banner.attachEvent("onmouseenter", bannerEnter);
-			banner.attachEvent("mouseleave", bannerLeave);
-		}
+	};
 
+	// Attach event liseners and if not availble use legacy attachEvent
+	if(banner.addEventListener){
+		banner.addEventListener("mouseenter", bannerEnter);
+		banner.addEventListener("mouseleave", bannerLeave);
+	}
+	else {
+		banner.attachEvent("onmouseenter", bannerEnter);
+		banner.attachEvent("mouseleave", bannerLeave);
 	}
 
 })(window, document);
