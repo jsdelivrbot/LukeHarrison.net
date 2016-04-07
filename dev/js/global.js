@@ -35,7 +35,7 @@
 
 		// Create function to set default feature state
 		resizeBanner = function(){
-			// Initialise or reinitialise document width and height
+			// Reinitialise with current document width and height
 			moveWidth = document.body.clientWidth || document.documentElement.clientWidth;
 			moveHeight = document.body.clientHeight + 300 || document.documentElement.clientHeight + 300; 
 
@@ -45,7 +45,7 @@
 			}
 		},
 
-		resetBanner = function(){
+		bannerToDefault = function(){
 			if(!clipPath){
 				full.style.clip = `rect(0px, ${moveWidth}px, ${moveHeight}px, ${moveWidth*0.50}px)`;
 			}
@@ -53,8 +53,9 @@
 				full.style.setProperty("-webkit-clip-path", "inset(0 0 0 50%)");
 			}	
 		};
-		
-	resetBanner();
+	
+	// Run once to initialise feature
+	bannerToDefault();
 
 	// On window resize get new document dimensions and recrop if not clip-path
 	window.onresize = function(){
@@ -90,7 +91,7 @@
 	bannerLeave = function(){
 		if(!Modernizr.touchevents && bp.min("med")){
 			banner.classList.add("inactive");
-			resetBanner();
+			bannerToDefault();
 		}
 	};
 
@@ -101,7 +102,7 @@
 	}
 	else {
 		banner.attachEvent("onmouseenter", bannerEnter);
-		banner.attachEvent("mouseleave", bannerLeave);
+		banner.attachEvent("onmouseleave", bannerLeave); 
 	}
 
 })(window, document);

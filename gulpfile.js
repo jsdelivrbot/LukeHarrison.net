@@ -80,9 +80,9 @@ gulp.task('html', function() {
 */
 
 gulp.task('sass-style', function () {
-	return gulp.src('dev/sass/style.scss')
+	return gulp.src('dev/sass/*.scss')
 	.pipe(gulpif(minify, sassport([],{outputStyle: 'compressed'}), sassport([], {outputStyle: 'expanded'})))
-    	.pipe(gulpif(minify, rename("style.min.css")))
+    	.pipe(gulpif(minify, rename({ suffix: '.min' })))
 	.on('error', sass.logError)
 	.pipe(autoprefixer({
 		browsers: ['last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'],
@@ -156,6 +156,8 @@ gulp.task('js-process', function() {
 gulp.task('js-copy', function() {
 	// Copy all non-directory files
 	gulp.src('dev/js/seperate/*.js')
+    	.pipe(gulpif(minify, rename({ suffix: '.min' }), gulp.dest('./dist/js/')))
+    	.pipe(gulpif(minify, uglify()))
     	.pipe(gulpif(minify, gulp.dest('./dist/js/')));
 });
 

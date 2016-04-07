@@ -832,22 +832,9 @@ li.nav--logo, .mobile-logo {
 }
 
 //--------------------------------------------------------------------
-// IE8
+// HIDE IE8 FALLBACKS
 //--------------------------------------------------------------------
 
-html.no-mediaqueries body {
-	min-width:1170px;
-}
-
 html.svg .no-svg {
-	display:none;
-}
-
-
-html.no-svg .no-svg {
-	display:block;
-}
-
-html.no-svg svg, html.no-svg .svg {
 	display:none;
 }

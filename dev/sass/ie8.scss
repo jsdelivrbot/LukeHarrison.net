@@ -1,0 +1,26 @@
+//--------------------------------------------------------------------
+// IE8
+//--------------------------------------------------------------------
+
+li.ie8:after {
+	content:"";
+	display:block;
+	background:#fff;
+	width:15px;
+	height:100%;
+	position:absolute;
+	left:-20px; 
+	top:13px;
+}
+
+html.no-mediaqueries body {
+	min-width:1170px;
+}
+
+html.no-svg .no-svg {
+	display:block;
+}
+
+html.no-svg svg, html.no-svg .svg {
+	display:none;
+}
