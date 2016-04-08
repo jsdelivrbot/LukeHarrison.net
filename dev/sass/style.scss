@@ -885,9 +885,16 @@ li.nav--logo, .mobile-logo {
 	margin-top:15.0em;
 
 	.timeline-item {
-		margin-bottom:22px;
+		margin-bottom:25px;
 	}
+}
 
+@include bp(xlrg) {
+	.about__timeline {
+		.timeline-item--sml {
+			max-height:200px;
+		}
+	}
 }
 
 
