@@ -66,7 +66,7 @@
 	bannerEnter = function(){
 
 		// If no touch events and if higher then the med breakpoint then enable interaction
-		if(!Modernizr.touchevents && bp.min("med")){
+		if(bp.min("med")){
 
 			banner.classList.remove("inactive");
 
@@ -89,20 +89,22 @@
 
 	// Define function which fires when mouse leaves feature
 	bannerLeave = function(){
-		if(!Modernizr.touchevents && bp.min("med")){
+		if(bp.min("med")){
 			banner.classList.add("inactive");
 			bannerToDefault();
 		}
 	};
 
-	// Attach event liseners and if not availble use legacy attachEvent
-	if(banner.addEventListener){
-		banner.addEventListener("mouseenter", bannerEnter);
-		banner.addEventListener("mouseleave", bannerLeave);
-	}
-	else {
-		banner.attachEvent("onmouseenter", bannerEnter);
-		banner.attachEvent("onmouseleave", bannerLeave); 
+	// Attach event liseners if not touch device and if not available use legacy attachEvent
+	if(!Modernizr.touchevents){
+		if(banner.addEventListener){
+			banner.addEventListener("mouseenter", bannerEnter);
+			banner.addEventListener("mouseleave", bannerLeave);
+		}
+		else {
+			banner.attachEvent("onmouseenter", bannerEnter);
+			banner.attachEvent("onmouseleave", bannerLeave); 
+		}
 	}
 
 })(window, document);
