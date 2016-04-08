@@ -1,10 +1,12 @@
+"use strict";
+
 /*
 |--------------------------------------------------------------------
-|  LAST-CHILD REPLACEMENT FOR 
+|  LAST-CHILD REPLACEMENT FOR IE8
 |--------------------------------------------------------------------
 */
 
-(function(){
+(function(document){
 
 	// Exit prematurely if not on about page as no need to run this module
 	if(!document.querySelector("body").classList.contains("about")){
@@ -21,4 +23,4 @@
 		item[item.length - 1].classList.add("ie8");
 	}
 
-})();
+})(document);

@@ -28,31 +28,31 @@
 		clipPath = areClipPathShapesSupported(),
 		moveWidth = document.body.clientWidth || document.documentElement.clientWidth,
 		moveHeight = document.body.clientHeight + 300 || document.documentElement.clientHeight + 300,
-		opacityLines,
-		opacityFull,
 		bannerEnter,
 		bannerLeave,
+		resizeBanner,
+		bannerToDefault;
 
-		// Create function to set default feature state
-		resizeBanner = function(){
-			// Reinitialise with current document width and height
-			moveWidth = document.body.clientWidth || document.documentElement.clientWidth;
-			moveHeight = document.body.clientHeight + 300 || document.documentElement.clientHeight + 300; 
+	// Create function to set default feature state
+	resizeBanner = function(){
+		// Reinitialise with current document width and height
+		moveWidth = document.body.clientWidth || document.documentElement.clientWidth;
+		moveHeight = document.body.clientHeight + 300 || document.documentElement.clientHeight + 300; 
 
-			// Reset vertical line
-			if(!clipPath){
-				full.style.clip = `rect(0px, ${moveWidth}px, ${moveHeight}px, ${moveWidth*0.50}px)`;
-			}
-		},
+		// Reset vertical line
+		if(!clipPath){
+			full.style.clip = `rect(0px, ${moveWidth}px, ${moveHeight}px, ${moveWidth*0.50}px)`;
+		}
+	},
 
-		bannerToDefault = function(){
-			if(!clipPath){
-				full.style.clip = `rect(0px, ${moveWidth}px, ${moveHeight}px, ${moveWidth*0.50}px)`;
-			}
-			else {
-				full.style.setProperty("-webkit-clip-path", "inset(0 0 0 50%)");
-			}	
-		};
+	bannerToDefault = function(){
+		if(!clipPath){
+			full.style.clip = `rect(0px, ${moveWidth}px, ${moveHeight}px, ${moveWidth*0.50}px)`;
+		}
+		else {
+			full.style.setProperty("-webkit-clip-path", "inset(0 0 0 50%)");
+		}	
+	};
 	
 	// Run once to initialise feature
 	bannerToDefault();
