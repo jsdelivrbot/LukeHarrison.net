@@ -403,6 +403,11 @@ li.nav--logo, .mobile-logo {
 }
 
 @include bpMax(med, "orientation:landscape") {
+
+	body {
+		-webkit-text-size-adjust: none;
+	}
+
 	header nav {
 		position:relative;
 		height:auto;
@@ -836,6 +841,18 @@ li.nav--logo, .mobile-logo {
 
 	}
 
+}
+
+@include bpBetween(sml, med){
+
+	.about__skills {
+		.text-box {
+			width:80%;
+			max-width:450px;
+			margin-left:auto;
+			margin-right:auto;
+		}
+	}
 }
 
 @include bp(med){
