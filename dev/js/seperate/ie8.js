@@ -11,9 +11,12 @@
 		return false;
 	}
 
-	var boxes = document.querySelectorAll(".about__skills .text-box");
+	var boxes = document.querySelectorAll(".about__skills .text-box"),
+		i,
+		max,
+		item;
 
-	for(var i = 0, item; i < boxes.length; i++) {
+	for(i = 0, max = boxes.length; i < max; i++) {
 		item = boxes[i].querySelectorAll("li");
 		item[item.length - 1].classList.add("ie8");
 	}

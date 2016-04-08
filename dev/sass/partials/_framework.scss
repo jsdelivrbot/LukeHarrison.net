@@ -137,10 +137,10 @@
 			$grid: ($grid / $width) * 100%;
 
 			// Get Gutter Percentage for Grids
-			$gutter-percentage: (($gutter / $width) * 100%);
+			$gutter-percentage: ($gutter / $width) * 100%;
 
 			.#{$prefix}#{$i}	{
-				margin-left:$grid + (($gutter-percentage * $i) + $gutter-percentage);  
+				margin-left:($grid + $gutter-percentage * 2);
 			}
 		}
 		@else {
