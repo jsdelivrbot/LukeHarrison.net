@@ -548,12 +548,6 @@ li.nav--logo, .mobile-logo {
 	}
 
 	.container {
-		position:absolute;
-		left:0;
-		right:0;
-		top:0;
-		width:100%; 
-		padding:0; 
 		display:none;
 	}
 
@@ -564,7 +558,7 @@ li.nav--logo, .mobile-logo {
 			text-transform:uppercase;
 		}
 		h2 {
-			box-sizing: border-box;
+			box-sizing: border-box; 
 			padding:0 5%;
 		}
 	}
