@@ -24,3 +24,32 @@ html.no-svg .no-svg {
 html.no-svg svg, html.no-svg .svg {
 	display:none;
 }
+
+html.no-svg {
+
+	.social-icon {
+		background:url("../img/sprite.png") no-repeat left top;
+	}
+
+	.social-icon--twitter {
+		background-position:-63px -5px;
+	}
+
+	.social-icon--linkedin {
+		background-position:-122px 0px;
+	}
+
+	.social-icon--github {
+		background-position:-182px 0px;
+	}
+
+	.social-icon--codepen {
+		background-position:-243px 0px;
+		height:40px;
+	}
+
+	.social-icon--dribbble {
+		background-position:-302px 0px;
+	}
+
+}

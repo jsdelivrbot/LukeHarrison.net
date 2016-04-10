@@ -108,3 +108,15 @@
 	}
 
 })(window, document);
+
+
+/*
+|--------------------------------------------------------------------
+| GENERATE CURRENT YEAR
+|--------------------------------------------------------------------
+*/
+
+(function(document) {
+	var year = document.querySelector(".year");
+	year.textContent = (new Date).getFullYear();
+})(document);
