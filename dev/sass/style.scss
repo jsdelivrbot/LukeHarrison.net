@@ -654,14 +654,21 @@ nav {
 		.container {
 			display:block;
 		}
-
-		&.animated .feature-full {
-			animation-name: banner-animate;
-			animation-duration: 3s;
-			animation-timing-function: ease-in-out;
-		}
-
 	}
+
+	body.clip-path .banner--about.animated .feature-full {
+		animation-name: banner-animate;
+		animation-duration: 3s;
+		animation-timing-function: ease-in-out;
+	}
+
+	body.no-clip-path .banner--about.animated .feature-full {
+		animation-name: banner-animate-legacy;
+		animation-duration: 3s;
+		animation-timing-function: ease-in-out;
+	}
+
+
 }
 
 @include bp(med, "orientation:portrait") {

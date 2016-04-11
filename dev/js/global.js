@@ -42,8 +42,11 @@
 		bannerEnter,
 		bannerLeave,
 		bannerAnimation,
+		bannerLoad,
 		resizeBanner,
-		bannerToDefault;
+		bannerToDefault,
+		bannerReset,
+		anim0,	anim10, anim50, anim60, anim100,
 
 	// Create function to set default feature state
 	resizeBanner = function(){
@@ -55,9 +58,59 @@
 		if(!clipPath){
 			full.style.clip = `rect(0px, ${moveWidth}px, ${moveHeight}px, ${moveWidth*0.50}px)`;
 		}
-	},
+	};
 
-	bannerToDefault = function(){
+	// Define function which fires when About banner has loaded so legacy intro animation can begin
+	bannerLoad = function(){
+		anim0 = `rect(0px, ${moveWidth}px, ${moveHeight}px, ${moveWidth}px)`;
+		anim10 = `rect(0px, ${moveWidth}px, ${moveHeight}px, ${moveWidth}px)`;
+		anim50 = `rect(0px, ${moveWidth}px, ${moveHeight}px, 0px)`;
+		anim60 = `rect(0px, ${moveWidth}px, ${moveHeight}px, 0px)`;
+		anim100 = `rect(0px, ${moveWidth}px, ${moveHeight}px, ${moveWidth*0.50}px)`;
+
+		// dynamically add new @keyframes into head for legacy animation
+		var style = document.createElement('style');
+		style.type = 'text/css';
+		document.getElementsByTagName('head')[0].appendChild(style);
+		style.innerHTML = `
+			@-webkit-keyframes banner-animate-legacy {
+				0%	{
+					clip: ${anim0}
+				}
+				10% {
+					clip: ${anim10}
+				}
+				50% {
+					clip: ${anim50}
+				}
+				60% {
+					clip: ${anim60}
+				}
+				100% {
+					clip: ${anim100}
+				}
+			}
+			@keyframes banner-animate-legacy {
+				0%	{
+					clip: ${anim0}
+				}
+				10% {
+					clip: ${anim10}
+				}
+				50% {
+					clip: ${anim50}
+				}
+				60% {
+					clip: ${anim60}
+				}
+				100% {
+					clip: ${anim100}
+				}
+			}
+		`
+	};
+
+	bannerReset = function(){
 		if(!clipPath){
 			full.style.clip = `rect(0px, ${moveWidth}px, ${moveHeight}px, ${moveWidth*0.50}px)`;
 		}
@@ -65,12 +118,21 @@
 			full.style.setProperty("-webkit-clip-path", "inset(0 0 0 50%)");
 		}	
 	};
-	
-	// Run once to initialise feature
-	bannerToDefault();
 
+	bannerToDefault = function(){
+		if(!clipPath){
+			document.querySelector("body").classList.add("no-clip-path");
+			bannerLoad();
+			bannerReset();
+		}
+		else {
+			document.querySelector("body").classList.add("clip-path");
+			full.style.setProperty("-webkit-clip-path", "inset(0 0 0 50%)");
+		}
+	};
+	
 	// On window resize get new document dimensions and recrop if not clip-path
-	window.onresize = function(){
+	window.onresize = function(){ 
 		resizeBanner();  
 	}
 
@@ -107,7 +169,7 @@
 			if(!banner.classList.contains("inactive")) {
 				banner.classList.add("inactive");
 			}
-			bannerToDefault();
+			bannerReset();
 		}
 	};
 
@@ -116,15 +178,12 @@
 		if(banner.classList.contains("animated")) { 
 			banner.classList.remove("animated");
 		}
-	}
+	};
 
 	// Attach event liseners if not touch device and if not available use legacy attachEvent
 	if(!Modernizr.touchevents){
-
-		// Add css animation end listener
-		prefixedEvent(full, "AnimationEnd", bannerAnimation);
-
 		if(banner.addEventListener){
+			prefixedEvent(full, "AnimationEnd", bannerAnimation);
 			banner.addEventListener("mouseover", bannerEnter);
 			banner.addEventListener("mouseleave", bannerLeave);
 		}
@@ -133,6 +192,9 @@
 			banner.attachEvent("onmouseleave", bannerLeave); 
 		}
 	}
+
+	// Run once to initialise feature
+	bannerToDefault();
 
 })(window, document);
 
