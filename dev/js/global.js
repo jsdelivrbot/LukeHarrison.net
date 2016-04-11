@@ -18,6 +18,17 @@
 	// http://stackoverflow.com/questions/27558996/how-can-i-test-for-clip-path-support
 	var areClipPathShapesSupported = function () {var base = 'clipPath', prefixes = [ 'webkit', 'moz', 'ms', 'o' ], properties = [ base ], testElement = document.createElement( 'testelement' ), attribute = 'inset(0 0 0 50%)'; for ( var i = 0, l = prefixes.length; i < l; i++ ) {var prefixedProperty = prefixes[i] + base.charAt( 0 ).toUpperCase() + base.slice( 1 ); properties.push( prefixedProperty ); } for ( var i = 0, l = properties.length; i < l; i++ ) {var property = properties[i]; if ( testElement.style[property] === '' ) {testElement.style[property] = attribute; if ( testElement.style[property] !== '' ) {return true; } } } return false; },
 
+		prefixedEvent = function(element, type, callback) {
+			var pfx = ["webkit", "moz", "MS", "o", ""],
+				p,
+				length = pfx.length;
+
+			for (p = 0; p < length; p++) {
+				if (!pfx[p]) type = type.toLowerCase();
+				element.addEventListener(pfx[p]+type, callback, false);
+			}
+		},
+
 		// Set or declare variables
 		banner = document.querySelector(".banner--about"),
 		full = document.querySelector(".feature-full"),
@@ -30,6 +41,7 @@
 		moveHeight = document.body.clientHeight + 300 || document.documentElement.clientHeight + 300,
 		bannerEnter,
 		bannerLeave,
+		bannerAnimation,
 		resizeBanner,
 		bannerToDefault;
 
@@ -66,9 +78,11 @@
 	bannerEnter = function(){
 
 		// If no touch events and if higher then the med breakpoint then enable interaction
-		if(bp.min("med")){
+		if(bp.min("med") && !banner.classList.contains("animated")){
 
-			banner.classList.remove("inactive");
+			if(banner.classList.contains("inactive")) {
+				banner.classList.remove("inactive");
+			}
 
 			// Define what happens as mouse moves
 			banner.onmousemove = function(e){
@@ -89,16 +103,29 @@
 
 	// Define function which fires when mouse leaves feature
 	bannerLeave = function(){
-		if(bp.min("med")){
-			banner.classList.add("inactive");
+		if(bp.min("med") && !banner.classList.contains("animated")){
+			if(!banner.classList.contains("inactive")) {
+				banner.classList.add("inactive");
+			}
 			bannerToDefault();
 		}
 	};
 
+	// Define function which fires when CSS animation intro has ended
+	bannerAnimation = function(){
+		if(banner.classList.contains("animated")) { 
+			banner.classList.remove("animated");
+		}
+	}
+
 	// Attach event liseners if not touch device and if not available use legacy attachEvent
 	if(!Modernizr.touchevents){
+
+		// Add css animation end listener
+		prefixedEvent(full, "AnimationEnd", bannerAnimation);
+
 		if(banner.addEventListener){
-			banner.addEventListener("mouseenter", bannerEnter);
+			banner.addEventListener("mouseover", bannerEnter);
 			banner.addEventListener("mouseleave", bannerLeave);
 		}
 		else {
