@@ -122,8 +122,14 @@
 	bannerToDefault = function(){
 		if(!clipPath){
 			document.querySelector("body").classList.add("no-clip-path");
-			bannerLoad();
-			bannerReset();
+			// if browser supports CSS animations then run load animation else clear animation blocking class
+			if(Modernizr.cssanimations) {
+				bannerLoad();
+			}
+			else {
+				bannerAnimation();
+			}
+			bannerReset(); 
 		}
 		else {
 			document.querySelector("body").classList.add("clip-path");
