@@ -607,6 +607,7 @@ nav {
 @include bpMax(med, "orientation:portrait") {
 	.banner--about {
 		height:92vh;
+		max-height:700px;
 	}
 }
 
