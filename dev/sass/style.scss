@@ -108,6 +108,18 @@ p {
 
 .banner {
 	color:#fff;
+	text-align:center;
+	padding-top:6%;
+	h1 {
+		text-transform:uppercase;
+	}
+	h2 {
+		max-width:625px;
+		display:inline-block;
+	}
+	a {
+		color:#fff;
+	}
 }
 
 .nowrap {
@@ -118,9 +130,9 @@ p {
 	font-size:3px;
 }
 
-p a {
+p a, .banner a {
 	position:relative;
-
+	text-decoration:none;
 	&:hover {
 		&:before, &:after {
 			width:0%;
@@ -132,7 +144,7 @@ p a {
 		position:absolute;
 		width:50%;
 		height:2px;
-		background:#000;
+		background:#fff;
 		bottom:-3px;
 		right:50%;
 		transition:width .2s
@@ -143,7 +155,7 @@ p a {
 		position:absolute;
 		width:50%;
 		height:2px;
-		background:#000;
+		background:#fff;
 		bottom:-3px;
 		left:50%;
 		transition:width .1s
@@ -393,9 +405,12 @@ nav {
 		border:0;
 		height:auto;
 		max-height:190px;
+		background:#fff;
+	}
+
+	.about .mobile-logo {
 		position:absolute;
 		top:0;
-		background:#fff;
 		z-index:10;
 	}
 
@@ -507,6 +522,8 @@ nav {
 //--------------------------------------------------------------------
 
 .banner--about {
+	padding-top:0;
+	text-align:left;
 	background:#5abce3;
 	position:relative;
 	font-size:5px;
@@ -1053,6 +1070,16 @@ footer {
 			}
 		}
 	}
+}
+
+//--------------------------------------------------------------------
+// CONTACT PAGE
+//--------------------------------------------------------------------
+
+.banner--contact {
+	background:$contact;
+
+
 }
 
 //--------------------------------------------------------------------
