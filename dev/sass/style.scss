@@ -622,13 +622,13 @@ nav {
 	0%	{
 		clip-path: inset(0px 0px 0px 100%);
 	}
-	10%	{
+	5%	{
 		clip-path: inset(0px 0px 0px 100%);
 	}
 	50%	{
 		clip-path: inset(0px 0px 0px 0%);
 	}
-	60%	{
+	55%	{
 		clip-path: inset(0px 0px 0px 0%);
 	}
 	100%	{
@@ -659,13 +659,13 @@ nav {
 
 	body.clip-path .banner--about.animated .feature-full {
 		animation-name: banner-animate;
-		animation-duration: 3s;
+		animation-duration: 2s; 
 		animation-timing-function: ease-in-out;
 	}
 
 	body.no-clip-path .banner--about.animated .feature-full {
 		animation-name: banner-animate-legacy;
-		animation-duration: 3s;
+		animation-duration: 2s;
 		animation-timing-function: ease-in-out;
 	}
 

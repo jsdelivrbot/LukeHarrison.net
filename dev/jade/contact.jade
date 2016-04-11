@@ -1,0 +1,22 @@
+doctype html
+html(lang='en')
+
+	head
+
+		- var name = "Contact - Luke Harrison"
+		- var slug = "contact" 
+		- var description = "If you have a question or just want to get in touch, email me using the form provided."
+
+		include partials/header
+
+	body(class=slug)
+
+		include ../img/master.svg
+		include partials/navigation
+
+		section(class="banner banner--contact") 
+			div(class="container")
+				h1(class="header--lrg") Contact
+				h2(class="header--sml") If you have any questions or just want to get in touch, email me at #[a(href="mailto:luke@lukeharrison.net" class="nowrap") luke@lukeharrison.net] or use the form below.
+			
+		include partials/footer

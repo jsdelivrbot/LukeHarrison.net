@@ -77,13 +77,13 @@
 				0%	{
 					clip: ${anim0}
 				}
-				10% {
+				5% {
 					clip: ${anim10}
 				}
 				50% {
 					clip: ${anim50}
 				}
-				60% {
+				55% {
 					clip: ${anim60}
 				}
 				100% {
@@ -94,13 +94,13 @@
 				0%	{
 					clip: ${anim0}
 				}
-				10% {
+				5% {
 					clip: ${anim10}
 				}
 				50% {
 					clip: ${anim50}
 				}
-				60% {
+				55% {
 					clip: ${anim60}
 				}
 				100% {
