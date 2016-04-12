@@ -109,13 +109,14 @@ p {
 .banner {
 	color:#fff;
 	text-align:center;
-	padding-top:6%;
 	h1 {
 		text-transform:uppercase;
+		padding-top:10%;
 	}
 	h2 {
 		max-width:625px;
 		display:inline-block;
+		padding-bottom:5%;
 	}
 	a {
 		color:#fff;
@@ -170,6 +171,13 @@ p a, .banner a {
 		line-height:52px;
 		margin-bottom:15px;
 		font-weight:bold;
+
+		h1 {
+			padding-top:7%;
+		}
+		h2 {
+			padding-bottom:5%;
+		}
 	}
 }
 
@@ -182,6 +190,15 @@ p a, .banner a {
 
 	.unit-scale {
 		font-size:7px;
+	}
+
+	.banner {
+		h1 {
+			padding-top:5%;
+		}
+		h2 {
+			padding-bottom:5%; 
+		}
 	}
 
 }
@@ -222,6 +239,9 @@ p a, .banner a {
 //--------------------------------------------------------------------
 
 header {
+
+	position:relative;
+	z-index:10;
 
 	ul {
 		list-style:none;
@@ -1076,9 +1096,69 @@ footer {
 // CONTACT PAGE
 //--------------------------------------------------------------------
 
+.contact footer {
+	margin:0;
+}
+
 .banner--contact {
 	background:$contact;
+}
 
+.contact-form {
+	background:#fff;
+	padding:15px;
+	box-sizing:border-box;
+}
+
+form {
+	input[type="text"], input[type="email"], textarea {
+		border:3px solid $border;
+		font-family:'Lato', sans-serif;
+		color:$type;
+		width:100%;
+		box-sizing:border-box;
+		padding:2.5%;
+		@extend .copy;
+		margin-bottom:15px;
+		min-height:50px;
+	}
+	textarea {
+		min-height:150px;
+	}
+	input[type="submit"] {
+		min-height:50px;
+		margin:0;
+		background:$type;
+		border:0;
+		color:#fff;
+		font-family:'Lato', sans-serif;
+		font-weight:bold;
+		cursor:pointer;
+		padding:2% 0;
+		width:100%;
+		display:block;
+		margin:0 auto 1% auto;
+	}
+}
+
+@include bp(med) {
+
+	.contact-form {
+		padding:30px;
+	}
+
+	form {
+		input[type="text"], input[type="email"], textarea {
+			margin-bottom:30px;
+		}
+		textarea {
+			min-height:260px;
+		}
+		input[type="submit"] {
+			padding:2% 5%;
+			width:auto; 
+		}
+	}
 
 }
 
