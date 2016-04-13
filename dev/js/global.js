@@ -215,3 +215,116 @@
 	var year = document.querySelector(".year");
 	year.textContent = (new Date).getFullYear();
 })(document);
+
+
+/*
+|--------------------------------------------------------------------
+|  FORM VALIDATION
+|--------------------------------------------------------------------
+*/
+
+// Define function which returns either true or false
+var formReady = function(inputs){ 
+
+	var formStatus = false,
+		emailReg,
+		validate,
+		btn,
+		i,
+		length = inputs.length;
+
+	// Define email check
+	emailReg = new RegExp(/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i);
+
+	// Define validation function
+	validate = function(elem){		
+		if(!elem.value) {
+			// Sort no value validation msg here
+			return false;
+		}
+		if(elem.type === "email" && !emailReg.test(elem.value)){
+			// Sort incorrect email format validation msg here
+			return false;		 		
+		}
+		else {
+			return true;
+		}
+	}
+
+	for(i = 0; i < length; i++){
+		if(validate(inputs[i])) {
+			console.log(inputs[i].placeholder + " passed");
+			formStatus = true;
+		}
+		else {
+			console.log(inputs[i].placeholder + " failed");
+			formStatus = false;
+		}
+	}
+
+	// FIX HERE
+	if(formStatus){
+		return true;
+	}
+	else {
+		return false;
+	}
+};
+
+
+/*
+|--------------------------------------------------------------------
+|  FORM SUBMISSION
+|--------------------------------------------------------------------
+*/
+
+(function(window, document, formReady){ 
+
+	// Exit prematurely if not on about page as no need to run this module
+	if(!document.querySelector("body").classList.contains("contact")){
+		return false;
+	}
+
+	var form,
+		formSubmit,
+		formInputs,
+		name,
+		email,
+		msg;
+
+	form = document.querySelector("form");
+
+	name = document.querySelector("input[name='name']");
+	email = document.querySelector("input[type='email']");
+	msg = document.querySelector("textarea[name='message']");
+
+	formInputs = [name, email, msg];
+
+	// Define form submit function
+	formSubmit = function(e){
+		e.preventDefault();
+		if(formReady(formInputs)){
+			// Ajax fun
+			console.log("Form passed validation");
+		}
+		else {
+			console.log("Form failed");
+		}
+		return false;
+	};
+
+	// Attach event handlers
+	if(form.addEventListener){
+		form.addEventListener("submit", function(e){
+			formSubmit(e);
+		});
+	}
+	else {
+		form.attachEvent("onsubmit", function(e){
+			formSubmit(e);
+		});
+	}
+
+})(window, document, formReady);
+
+
