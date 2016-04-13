@@ -230,8 +230,8 @@ var formReady = function(inputs){
 		emailReg,
 		validate,
 		btn,
-		i,
-		length = inputs.length;
+		input,
+		inputStatus = [];
 
 	// Define email check
 	emailReg = new RegExp(/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i);
@@ -240,36 +240,111 @@ var formReady = function(inputs){
 	validate = function(elem){		
 		if(!elem.value) {
 			// Sort no value validation msg here
+			if(elem.parentNode.classList.contains("errorformat")){
+				elem.parentNode.classList.remove("errorformat");
+			}
+
+			if(!elem.parentNode.classList.contains("error")){
+				elem.parentNode.classList.add("error");
+			}
 			return false;
 		}
 		if(elem.type === "email" && !emailReg.test(elem.value)){
 			// Sort incorrect email format validation msg here
+			if(!elem.parentNode.classList.contains("error")){
+				elem.parentNode.classList.add("error");
+			}
+			if(!elem.parentNode.classList.contains("errorformat")){
+				elem.parentNode.classList.add("errorformat");
+			}
 			return false;		 		
 		}
 		else {
+			if(elem.parentNode.classList.contains("error")){
+				elem.parentNode.classList.remove("error");
+			}
+
 			return true;
 		}
 	}
 
-	for(i = 0; i < length; i++){
-		if(validate(inputs[i])) {
-			console.log(inputs[i].placeholder + " passed");
-			formStatus = true;
+	// Validate all inputs within input object and update each status
+	for(input in inputs){
+		if(validate(inputs[input].elem)){
+			inputs[input].status = true;
 		}
 		else {
-			console.log(inputs[i].placeholder + " failed");
-			formStatus = false;
+			inputs[input].status = false;
 		}
 	}
 
-	// FIX HERE
-	if(formStatus){
-		return true;
+	// Check if all input status are true otherwise return false
+	for(input in inputs){
+		if(!inputs[input].status) {
+			return false;
+		}
 	}
-	else {
+
+	return true;
+};
+
+// Define function which removes error messages on inputs to allow for new data
+(function(){
+
+	// Exit prematurely if not on contact page as no need to run this module
+	if(!document.querySelector("body").classList.contains("contact")){
 		return false;
 	}
-};
+
+	var inputs,
+		i,
+		length,
+		inputReset,
+		elem;
+
+	inputs = document.querySelectorAll(".input-container");
+	length = inputs.length;
+
+	inputReset = function(e){
+		if(e.type === "focus"){
+			elem = e.target.parentNode;
+		}
+		else {
+			elem = e.target;
+		}
+
+		if(elem.classList.contains("error")){
+			elem.classList.remove("error");
+		}
+	}
+
+	for(i = 0; i < length; i++){
+		if(inputs[i].addEventListener){
+			if(!Modernizr.touchevents) {
+				inputs[i].addEventListener("mouseenter", function(e){
+					inputReset(e);
+				});
+			}
+			else {
+				inputs[i].addEventListener("click", function(e){
+					inputReset(e);
+				});
+			}
+			inputs[i].firstChild.addEventListener("focus", function(e){
+				inputReset(e);
+			});
+		}
+		else {
+			inputs[i].attachEvent("onmouseenter", function(e){
+				inputReset(e);
+			});
+			inputs[i].attachEvent("onfocus", function(e){
+				inputReset(e);
+			});
+		}
+	}
+
+})(document);
 
 
 /*
@@ -278,32 +353,39 @@ var formReady = function(inputs){
 |--------------------------------------------------------------------
 */
 
-(function(window, document, formReady){ 
+(function(document, formReady){ 
 
-	// Exit prematurely if not on about page as no need to run this module
+	// Exit prematurely if not on contact page as no need to run this module
 	if(!document.querySelector("body").classList.contains("contact")){
 		return false;
 	}
 
 	var form,
 		formSubmit,
-		formInputs,
+		inputs,
 		name,
 		email,
-		msg;
+		msg,
+		i,
+		length,
+		inputObj = {};
 
 	form = document.querySelector("form");
 
-	name = document.querySelector("input[name='name']");
-	email = document.querySelector("input[type='email']");
-	msg = document.querySelector("textarea[name='message']");
+	// Define validation inputs
+	inputs = document.querySelectorAll("input[type='text'], input[type='email'], textarea");
+	length = inputs.length;
 
-	formInputs = [name, email, msg];
+	// Push input to object and add status parameter
+	for(i = 0; i < length; i++){
+		inputObj[inputs[i].name] = {elem: inputs[i]};
+		inputObj[inputs[i].name]["status"] = false;
+	}
 
 	// Define form submit function
 	formSubmit = function(e){
 		e.preventDefault();
-		if(formReady(formInputs)){
+		if(formReady(inputObj)){
 			// Ajax fun
 			console.log("Form passed validation");
 		}
@@ -325,6 +407,6 @@ var formReady = function(inputs){
 		});
 	}
 
-})(window, document, formReady);
+})(document, formReady);
 
 
