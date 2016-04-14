@@ -259,7 +259,7 @@ var formReady = function(inputs){
 
 	// Define validation function
 	validate = function(elem){		
-		if(!elem.value) {
+		if(!elem.value || elem.value === elem.getAttribute("placeholder")) {
 			// Sort no value validation msg here
 			if(elem.parentNode.classList.contains("errorformat")){
 				elem.parentNode.classList.remove("errorformat");
@@ -270,7 +270,7 @@ var formReady = function(inputs){
 			}
 			return false;
 		}
-		if(elem.type === "email" && !emailReg.test(elem.value)){
+		if(elem.classList.contains("input--email") && !emailReg.test(elem.value)){
 			// Sort incorrect email format validation msg here
 			if(!elem.parentNode.classList.contains("error")){
 				elem.parentNode.classList.add("error");
