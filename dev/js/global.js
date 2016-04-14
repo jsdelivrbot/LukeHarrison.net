@@ -384,6 +384,7 @@ var formReady = function(inputs){
 	var form,
 		formSubmit,
 		formContainer,
+		formContainerOverlay,
 		inputs,
 		name,
 		email,
@@ -392,6 +393,7 @@ var formReady = function(inputs){
 
 	form = document.querySelector("form");
 	formContainer = document.querySelector(".contact-form");
+	formContainerOverlay = document.querySelector(".contact-form__overlay span");
 
 	// Define validation inputs
 	inputs = document.querySelectorAll("input[type='text'], input[type='email'], textarea");
@@ -405,13 +407,11 @@ var formReady = function(inputs){
 			if(request.status === 200) {
 				if(!formContainer.classList.contains("success")){
 					formContainer.classList.add("success");
-					formContainer.dataset.feedback = request.responseText;
 				}
 			}
 			else {
-				if(!formContainer.classList.contains("fail")){
-					formContainer.classList.add("fail");
-					formContainer.dataset.feedback = request.responseText;
+				if(!formContainer.classList.contains("failure")){
+					formContainer.classList.add("failure");
 				}
 			}
 			if(formContainer.classList.contains("loading")){

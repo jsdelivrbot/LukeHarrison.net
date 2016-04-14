@@ -27,6 +27,7 @@ $grey: #efefef;
 $misc: #c8c8c8;
 $error: #E1482F;
 $light-error: #FFEBE6;
+$success: #32bd5d;
 
 
 //--------------------------------------------------------------------
@@ -1111,26 +1112,56 @@ footer {
 	padding:15px;
 	box-sizing:border-box;
 	position:relative;
-	&:after {
-		content:attr(data-feedback);
-		transition:opacity 0.5s;
-		opacity:0;
-		display:block;
+	overflow:hidden;
+}
+
+.contact-form__overlay {
+	transition:opacity 0.5s;
+	opacity:0;
+	display:block;
+	width:100%;
+	height:100%;
+	position:absolute;
+	top:-100%;
+	left:0;
+	background:#fff;
+	box-sizing:border-box;
+	padding:15px;
+	@extend .header--sml;
+	font-weight:bold;
+	& span {
 		width:100%;
 		height:100%;
-		top:-100%;
-		left:0;
-		background:#fff;
-		color:$copy;
+		display:table;
+	}
+	& span:after {
+		content:"";
+		display:table-cell;
+		vertical-align:middle;
 	}
 }
 
-.contact-form.feedback:after {
+.contact-form.feedback .contact-form__overlay {
 	display:block;
-	position:absolute;
 	top:0;
-	opacity:0.7;
+	opacity:0.9;
 }
+
+.contact-form.feedback.loading .contact-form__overlay span:after {
+	color:$type;
+	content:"Loading...";
+}
+
+.contact-form.feedback.success .contact-form__overlay span:after {
+	color:$success; 
+	content:attr(data-success);
+}
+
+.contact-form.feedback.failure .contact-form__overlay span:after {
+	color:$error; 
+	content:attr(data-failure); 
+}
+
 
 form {
 	input[type="text"], input[type="email"], textarea {
