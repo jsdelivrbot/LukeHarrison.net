@@ -3,6 +3,9 @@
  * MIT Licensed
  * Created by Christopher Rolfe 
  */
+
+ /* Modified by Luke Harrison */
+ 
 if (!('placeholder' in document.createElement("input"))) {
 
 	// Get all the inputs
@@ -21,9 +24,11 @@ if (!('placeholder' in document.createElement("input"))) {
 		// Blur to re-add it if needed
 		if (inputs[i].addEventListener) {
 			inputs[i].addEventListener('click', hidePlaceholderOnFocus, false);
+			inputs[i].addEventListener('focus', hidePlaceholderOnFocus, false);
 			inputs[i].addEventListener('blur', unfocusOnAnElement, false);
 		} else if (inputs[i].attachEvent) {
 			inputs[i].attachEvent('onclick', hidePlaceholderOnFocus);
+			inputs[i].attachEvent('onfocus', hidePlaceholderOnFocus);
 			inputs[i].attachEvent('onblur', unfocusOnAnElement);
 		}
 	}
