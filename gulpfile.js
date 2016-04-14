@@ -178,7 +178,7 @@ gulp.task('js', function(){
 gulp.task('copy', function() {
 
 	// Copy all non-directory files
-	gulp.src('dev/*.+(xml|txt|json)')
+	gulp.src('dev/*.+(xml|txt|json|php)')
 	.pipe(gulp.dest('dist/'));
 
 	// Copy specified folders and contents

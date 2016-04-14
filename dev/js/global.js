@@ -231,10 +231,31 @@ var formReady = function(inputs){
 		validate,
 		btn,
 		input,
-		inputStatus = [];
+		inputStatus = [],
+		inputObj = {},
+		length = inputs.length,
+		i;
 
 	// Define email check
 	emailReg = new RegExp(/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i);
+
+	// Check if object is empty
+	var isEmpty = function(obj) {
+		for (var key in obj) {
+			if(obj.hasOwnProperty(key)) {
+				return false;
+			}
+		}
+		return true;
+	}
+
+	// Push inputs to object and add status parameter only once
+	if(isEmpty(inputObj)){
+		for(i = 0; i < length; i++){
+			inputObj[inputs[i].name] = {elem: inputs[i]};
+			inputObj[inputs[i].name]["status"] = false;
+		}
+	}
 
 	// Define validation function
 	validate = function(elem){		
@@ -269,18 +290,18 @@ var formReady = function(inputs){
 	}
 
 	// Validate all inputs within input object and update each status
-	for(input in inputs){
-		if(validate(inputs[input].elem)){
-			inputs[input].status = true;
+	for(input in inputObj){
+		if(validate(inputObj[input].elem)){
+			inputObj[input].status = true;
 		}
 		else {
-			inputs[input].status = false;
+			inputObj[input].status = false;
 		}
 	}
 
 	// Check if all input status are true otherwise return false
-	for(input in inputs){
-		if(!inputs[input].status) {
+	for(input in inputObj){
+		if(!inputObj[input].status) {
 			return false;
 		}
 	}
@@ -366,31 +387,34 @@ var formReady = function(inputs){
 		name,
 		email,
 		msg,
-		i,
-		length,
-		inputObj = {};
+		request;
 
 	form = document.querySelector("form");
 
 	// Define validation inputs
 	inputs = document.querySelectorAll("input[type='text'], input[type='email'], textarea");
-	length = inputs.length;
 
-	// Push input to object and add status parameter
-	for(i = 0; i < length; i++){
-		inputObj[inputs[i].name] = {elem: inputs[i]};
-		inputObj[inputs[i].name]["status"] = false;
-	}
+	// Setup AJAX request
+	request = new XMLHttpRequest();
+	request.open("Post", "mailer.php", true);
+	request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+	// Define AJAX response
+	request.onreadystatechange = function() {
+		if (request.readyState == 4 && request.status == 200) {
+			console.log(request.responseText);
+		}
+		else {
+			console.log(request.status + " " + request.statusText);
+		}
+	};
 
 	// Define form submit function
 	formSubmit = function(e){
 		e.preventDefault();
-		if(formReady(inputObj)){
-			// Ajax fun
-			console.log("Form passed validation");
-		}
-		else {
-			console.log("Form failed");
+		if(formReady(inputs)){
+			// Grab form data, serialise and send
+			request.send(serialize(form));
 		}
 		return false;
 	};
@@ -398,7 +422,7 @@ var formReady = function(inputs){
 	// Attach event handlers
 	if(form.addEventListener){
 		form.addEventListener("submit", function(e){
-			formSubmit(e);
+			formSubmit(e); 
 		});
 	}
 	else {
