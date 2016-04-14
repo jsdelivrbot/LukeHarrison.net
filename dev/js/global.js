@@ -383,6 +383,7 @@ var formReady = function(inputs){
 
 	var form,
 		formSubmit,
+		formContainer,
 		inputs,
 		name,
 		email,
@@ -390,22 +391,32 @@ var formReady = function(inputs){
 		request;
 
 	form = document.querySelector("form");
+	formContainer = document.querySelector(".contact-form");
 
 	// Define validation inputs
 	inputs = document.querySelectorAll("input[type='text'], input[type='email'], textarea");
 
 	// Setup AJAX request
 	request = new XMLHttpRequest();
-	request.open("Post", "mailer.php", true);
-	request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
 	// Define AJAX response
 	request.onreadystatechange = function() {
-		if (request.readyState == 4 && request.status == 200) {
-			console.log(request.responseText);
-		}
-		else {
-			console.log(request.status + " " + request.statusText);
+		if (request.readyState === 4) {
+			if(request.status === 200) {
+				if(!formContainer.classList.contains("success")){
+					formContainer.classList.add("success");
+					formContainer.dataset.feedback = request.responseText;
+				}
+			}
+			else {
+				if(!formContainer.classList.contains("fail")){
+					formContainer.classList.add("fail");
+					formContainer.dataset.feedback = request.responseText;
+				}
+			}
+			if(formContainer.classList.contains("loading")){
+				formContainer.classList.remove("loading");
+			}
 		}
 	};
 
@@ -414,6 +425,14 @@ var formReady = function(inputs){
 		e.preventDefault();
 		if(formReady(inputs)){
 			// Grab form data, serialise and send
+			if(!formContainer.classList.contains("loading")){
+				formContainer.classList.add("loading");
+			}
+			if(!formContainer.classList.contains("feedback")){
+				formContainer.classList.add("feedback");
+			}
+			request.open("Post", "mailer.php", true);
+			request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 			request.send(serialize(form));
 		}
 		return false;
