@@ -36,6 +36,9 @@ var del = require('del');
 var inject = require('gulp-inject');
 // Used to add autoprefixer to SASS task
 var autoprefixer = require('gulp-autoprefixer');
+var browserify = require("browserify");
+var source = require('vinyl-source-stream');
+var glob = require('glob');
 
 /*
 |--------------------------------------------------------------------
@@ -129,27 +132,37 @@ gulp.task('images', function(){
 */
 
 // Combine JS and minify
-gulp.task('js-process', function() {
-	return gulp.src([
-		'./dev/js/partials/vendor/*.js',
-		'./dev/js/partials/polyfills/*.js',
-		'./dev/js/partials/modules/breakpoints.js',
-		'./dev/js/global.js'
-	])
-	.pipe(concat('core.js'))
-	.pipe(inject(gulp.src('./dev/data/config.json'), {
-		starttag: '/* inject: Breakpoints JSON */',
-		endtag: '/* endinject */',
-		transform: function (filePath, file) {
-			// return file contents as string
-			return "var bpData = " + file.contents.toString('utf8')
-		},
-		removeTags: true
-	}))
-	.pipe(babel())
-    	.pipe(gulpif(minify, rename("core.min.js"), gulp.dest('./dist/js')))
-    	.pipe(gulpif(minify, uglify()))
-    	.pipe(gulpif(minify, gulp.dest('./dist/js/')));
+// gulp.task('js-process', function() {
+// 	return gulp.src([
+// 		'./dev/js/partials/vendor/*.js',
+// 		'./dev/js/partials/polyfills/*.js',
+// 		'./dev/js/partials/modules/breakpoints.js',
+// 		'./dev/js/global.js'
+// 	])
+// 	.pipe(concat('core.js'))
+// 	.pipe(inject(gulp.src('./dev/data/config.json'), {
+// 		starttag: '/* inject: Breakpoints JSON */',
+// 		endtag: '/* endinject */',
+// 		transform: function (filePath, file) {
+// 			// return file contents as string
+// 			return "var bpData = " + file.contents.toString('utf8')
+// 		},
+// 		removeTags: true
+// 	}))
+// 	.pipe(babel())
+//     	.pipe(gulpif(minify, rename("core.min.js"), gulp.dest('./dist/js')))
+//     	.pipe(gulpif(minify, uglify()))
+//     	.pipe(gulpif(minify, gulp.dest('./dist/js/')));
+// });
+
+gulp.task('jsbuild', function() {
+	var files = glob.sync('./dev/js/*.js');
+	return browserify({entries: files})
+	.bundle()
+	//Pass desired output filename to vinyl-source-stream
+	.pipe(source('about.js'))
+	// Start piping stream to tasks!
+	.pipe(gulp.dest('./dist/js'));
 });
 
 // Copy Across specific JS files
