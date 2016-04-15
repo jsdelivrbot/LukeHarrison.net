@@ -1,4 +1,4 @@
-{
+var bpData = {
 	"grid": {
 		"default" : {
 			"responsive": true,
@@ -27,4 +27,6 @@
 		"xxxlrg": "1466px",
 		"xxxxlrg": "1600px"
 	}
-}
+};
+
+module.exports = bpData;

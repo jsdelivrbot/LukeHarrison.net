@@ -1,11 +1,15 @@
-/*
-|--------------------------------------------------------------------
-|  FEATURE ANIMATION
-|--------------------------------------------------------------------
-*/
-
 // Pass in window and document object to increase lookup speed
 module.exports = (function(window, document){ 
+
+	/*
+	|--------------------------------------------------------------------
+	|  FEATURE ANIMATION
+	|--------------------------------------------------------------------
+	*/
+
+	var bp = require("./breakpoints.js");
+	var classList = require("../polyfills/classlist.js");
+	var Modernizr = require("../vendor/modernizr-custom.js");
 
 	// Exit prematurely if not on about page as no need to run this module
 	if(!document.querySelector("body").classList.contains("about")){

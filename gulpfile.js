@@ -24,8 +24,6 @@ var gulpif = require('gulp-if');
 var sassport = require('gulp-sassport');
 // Used to create synchronous build tasks
 var runSequence = require('run-sequence');
-// Used to convert ES2015 to accepted JS
-var babel = require("gulp-babel");
 // Used to convert Jade to HTML
 var jade = require('gulp-jade');
 // Used to pipe JSON data into Jade
@@ -39,6 +37,7 @@ var autoprefixer = require('gulp-autoprefixer');
 var browserify = require("browserify");
 var source = require('vinyl-source-stream');
 var glob = require('glob');
+var streamify = require('gulp-streamify');
 
 /*
 |--------------------------------------------------------------------
@@ -131,46 +130,27 @@ gulp.task('images', function(){
 |--------------------------------------------------------------------
 */
 
-// Combine JS and minify
-// gulp.task('js-process', function() {
-// 	return gulp.src([
-// 		'./dev/js/partials/vendor/*.js',
-// 		'./dev/js/partials/polyfills/*.js',
-// 		'./dev/js/partials/modules/breakpoints.js',
-// 		'./dev/js/global.js'
-// 	])
-// 	.pipe(concat('core.js'))
-	// .pipe(inject(gulp.src('./dev/data/config.json'), {
-	// 	starttag: '/* inject: Breakpoints JSON */',
-	// 	endtag: '/* endinject */',
-	// 	transform: function (filePath, file) {
-	// 		// return file contents as string
-	// 		return "var bpData = " + file.contents.toString('utf8')
-	// 	},
-	// 	removeTags: true
-	// }))
-// 	.pipe(babel())
-//     	.pipe(gulpif(minify, rename("core.min.js"), gulp.dest('./dist/js')))
-//     	.pipe(gulpif(minify, uglify()))
-//     	.pipe(gulpif(minify, gulp.dest('./dist/js/')));
-// });
-
-gulp.task('jsbuild', function() {
+gulp.task('js-process', function() {
 	var files = glob.sync('./dev/js/*.js');
 	files.map(function(file) {
 		var name = file.replace("./dev/js/", "");
 		name = name.replace(".js", "");
 		return browserify({entries: file})
+		.transform("babelify", {presets: ["es2015"]})
 		.bundle()
 		.pipe(source(file))
-		.pipe(rename({ 
+		.pipe(gulpif(minify, rename({ 
 			dirname: "",
 			basename: name,
 			suffix: ".min",
 			extname: ".js"
-		}))
-		.pipe(babel())
-		.pipe(gulp.dest('./dist/js/'));
+		}), rename({ 
+			dirname: "",
+			basename: name,
+			extname: ".js"
+		})))
+	    	.pipe(gulpif(minify, streamify(uglify())))
+	    	.pipe(gulp.dest('./dist/js/'));
 	});
 });
 

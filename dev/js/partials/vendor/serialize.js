@@ -12,7 +12,7 @@
  *         the <button>'s (which are potential HTML4 successful controls) unlike jQuery
  * @license MIT/GPL
 */
-function serialize (form) {
+module.exports = function serialize (form) {
     'use strict';
     var i, j, len, jLen, formElement, q = [];
     function urlencode (str) {

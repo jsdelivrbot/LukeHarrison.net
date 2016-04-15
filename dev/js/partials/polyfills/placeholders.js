@@ -6,52 +6,56 @@
 
  /* Modified by Luke Harrison */
  
-if (!('placeholder' in document.createElement("input"))) {
+module.exports = (function(){
 
-	// Get all the inputs
-	var inputs = document.querySelectorAll(".input");
+	if (!('placeholder' in document.createElement("input"))) {
 
-	// Loop over them
-	for (var i = 0; i < inputs.length; i++) {
-		// If they don't have a preset value
-		if (!inputs[i].value) {
-			// The set the placeholder
-			inputs[i].value = inputs[i].getAttribute('placeholder');
+		// Get all the inputs
+		var inputs = document.querySelectorAll(".input");
+
+		// Loop over them
+		for (var i = 0; i < inputs.length; i++) {
+			// If they don't have a preset value
+			if (!inputs[i].value) {
+				// The set the placeholder
+				inputs[i].value = inputs[i].getAttribute('placeholder');
+			}
+
+			// Attach event listeners for click and blur
+			// Click so that we can clear the placeholder if we need to
+			// Blur to re-add it if needed
+			if (inputs[i].addEventListener) {
+				inputs[i].addEventListener('click', hidePlaceholderOnFocus, false);
+				inputs[i].addEventListener('focus', hidePlaceholderOnFocus, false);
+				inputs[i].addEventListener('blur', unfocusOnAnElement, false);
+			} else if (inputs[i].attachEvent) {
+				inputs[i].attachEvent('onclick', hidePlaceholderOnFocus);
+				inputs[i].attachEvent('onfocus', hidePlaceholderOnFocus);
+				inputs[i].attachEvent('onblur', unfocusOnAnElement);
+			}
 		}
 
-		// Attach event listeners for click and blur
-		// Click so that we can clear the placeholder if we need to
-		// Blur to re-add it if needed
-		if (inputs[i].addEventListener) {
-			inputs[i].addEventListener('click', hidePlaceholderOnFocus, false);
-			inputs[i].addEventListener('focus', hidePlaceholderOnFocus, false);
-			inputs[i].addEventListener('blur', unfocusOnAnElement, false);
-		} else if (inputs[i].attachEvent) {
-			inputs[i].attachEvent('onclick', hidePlaceholderOnFocus);
-			inputs[i].attachEvent('onfocus', hidePlaceholderOnFocus);
-			inputs[i].attachEvent('onblur', unfocusOnAnElement);
+		/**
+		 * When the input value is the same as the placeholder clear it
+		 */
+		function hidePlaceholderOnFocus(event) {
+			target = (event.currentTarget) ? event.currentTarget : event.srcElement;
+
+			if (target.value == target.getAttribute('placeholder')) {
+				target.value = '';
+			}
+		}
+
+		/**
+		 * When the input has an empty value put the placeholder back in
+		 */
+		function unfocusOnAnElement(event) {
+			target = (event.currentTarget) ? event.currentTarget : event.srcElement;
+
+			if (target.value == '') {
+				target.value = target.getAttribute('placeholder');
+			}
 		}
 	}
 
-	/**
-	 * When the input value is the same as the placeholder clear it
-	 */
-	function hidePlaceholderOnFocus(event) {
-		target = (event.currentTarget) ? event.currentTarget : event.srcElement;
-
-		if (target.value == target.getAttribute('placeholder')) {
-			target.value = '';
-		}
-	}
-
-	/**
-	 * When the input has an empty value put the placeholder back in
-	 */
-	function unfocusOnAnElement(event) {
-		target = (event.currentTarget) ? event.currentTarget : event.srcElement;
-
-		if (target.value == '') {
-			target.value = target.getAttribute('placeholder');
-		}
-	}
-}
+})();

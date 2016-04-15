@@ -1,5 +1,10 @@
 module.exports = (function(document){
 
+	var Modernizr = require("../vendor/modernizr-custom.js");
+	var serialize = require("../vendor/serialize.js");
+	var classList = require("../polyfills/classlist.js");
+	var placeholders = require("../polyfills/placeholders.js");
+
 	/*
 	|--------------------------------------------------------------------
 	|  FORM VALIDATION
