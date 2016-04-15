@@ -12,8 +12,6 @@ var sass = require('gulp-sass');
 var imagemin = require('gulp-imagemin');
 // Used to prevent minifying of unchanged images
 var cache = require('gulp-cache');
-// Used to concat core js file
-var concat = require('gulp-concat');
 // Used to minify JS
 var uglify = require('gulp-uglify');
 // Used to rename CSS and JS depending if minified
@@ -30,10 +28,9 @@ var jade = require('gulp-jade');
 var data = require('gulp-data');
 // Used to delete folders during build process
 var del = require('del');
-// Used to inject breakpoints json data as object into breakpoints.js
-var inject = require('gulp-inject');
 // Used to add autoprefixer to SASS task
 var autoprefixer = require('gulp-autoprefixer');
+// Used to compile JS modules
 var browserify = require("browserify");
 var source = require('vinyl-source-stream');
 var glob = require('glob');
