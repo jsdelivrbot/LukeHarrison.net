@@ -140,15 +140,15 @@ gulp.task('images', function(){
 // 		'./dev/js/global.js'
 // 	])
 // 	.pipe(concat('core.js'))
-// 	.pipe(inject(gulp.src('./dev/data/config.json'), {
-// 		starttag: '/* inject: Breakpoints JSON */',
-// 		endtag: '/* endinject */',
-// 		transform: function (filePath, file) {
-// 			// return file contents as string
-// 			return "var bpData = " + file.contents.toString('utf8')
-// 		},
-// 		removeTags: true
-// 	}))
+	// .pipe(inject(gulp.src('./dev/data/config.json'), {
+	// 	starttag: '/* inject: Breakpoints JSON */',
+	// 	endtag: '/* endinject */',
+	// 	transform: function (filePath, file) {
+	// 		// return file contents as string
+	// 		return "var bpData = " + file.contents.toString('utf8')
+	// 	},
+	// 	removeTags: true
+	// }))
 // 	.pipe(babel())
 //     	.pipe(gulpif(minify, rename("core.min.js"), gulp.dest('./dist/js')))
 //     	.pipe(gulpif(minify, uglify()))
@@ -157,12 +157,21 @@ gulp.task('images', function(){
 
 gulp.task('jsbuild', function() {
 	var files = glob.sync('./dev/js/*.js');
-	return browserify({entries: files})
-	.bundle()
-	//Pass desired output filename to vinyl-source-stream
-	.pipe(source('about.js'))
-	// Start piping stream to tasks!
-	.pipe(gulp.dest('./dist/js'));
+	files.map(function(file) {
+		var name = file.replace("./dev/js/", "");
+		name = name.replace(".js", "");
+		return browserify({entries: file})
+		.bundle()
+		.pipe(source(file))
+		.pipe(rename({ 
+			dirname: "",
+			basename: name,
+			suffix: ".min",
+			extname: ".js"
+		}))
+		.pipe(babel())
+		.pipe(gulp.dest('./dist/js/'));
+	});
 });
 
 // Copy Across specific JS files
