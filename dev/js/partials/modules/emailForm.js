@@ -210,7 +210,7 @@ module.exports = (function(document){
 
 		// Define form submit function
 		formSubmit = function(e){
-			e.preventDefault();
+			e.preventDefault ? e.preventDefault() : (e.returnValue = false);
 			if(formReady(inputs)){
 				// Grab form data, serialise and send
 				if(!formContainer.classList.contains("loading")){

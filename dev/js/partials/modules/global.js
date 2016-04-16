@@ -1,3 +1,4 @@
+
 module.exports = (function(){
 
 	/*
@@ -6,7 +7,9 @@ module.exports = (function(){
 	|--------------------------------------------------------------------
 	*/
 
-	var year = document.querySelector(".year");
-	year.textContent = (new Date).getFullYear();
 	
+
+	var year = document.querySelector(".year");	
+	year.innerText = (new Date).getFullYear();
+
 })();
