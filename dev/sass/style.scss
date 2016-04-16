@@ -1192,6 +1192,10 @@ form {
 		width:100%;
 		display:block;
 		margin:0 auto 1% auto;
+		transition:background .5s;
+		&:hover {
+			background:lighten($type, 3%);
+		}
 	}
 }
 
