@@ -116,10 +116,10 @@ module.exports = (function(document){
 
 		inputReset = function(e){
 			if(e.type === "focus"){
-				elem = e.target.parentNode;
+				elem = e.target.parentNode || e.srcElement.parentNode;
 			}
 			else {
-				elem = e.target;
+				elem = e.target || e.srcElement;
 			}
 
 			if(elem.classList.contains("error")){
