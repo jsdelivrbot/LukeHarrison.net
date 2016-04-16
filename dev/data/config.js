@@ -20,6 +20,7 @@ var bpData = {
 	"breakpoints": {
 		"xsml": "370px",
 		"sml": "480px",
+		"sml2": "600px",
 		"med": "740px",
 		"lrg": "925px",
 		"xlrg": "1280px",
