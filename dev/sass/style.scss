@@ -547,6 +547,9 @@ nav {
 		li.nav--about, li.nav--portfolio, li.nav--contact {
 			width:25%; 
 		}
+		li.nav--logo strong {
+			margin-top:5px;
+		}
 	}
 }
 
@@ -1298,6 +1301,144 @@ form {
 	}
 }
 
+.portfolio-item {
+	counter-reset: total 0 current 1;   
+	font-size:5px;
+	position:relative;
+	box-sizing:border-box;
+	@include clearfix();
+	.portfolio-item__text {
+		margin-top:8.0em;
+		margin-bottom:8.0em;
+	}
+	h3 {
+		@extend .copy;
+		margin-bottom:5px;
+	}
+	a {
+		@extend .copy;
+	}
+	.container {
+		z-index:0;
+	}
+}
+
+.portfolio-item__screens {
+	width:100%;
+	background:$grey;
+	height:73.4em;
+	box-sizing:border-box;
+	padding:10px 10px 50px 10px;
+	overflow:hidden;
+	position:relative;
+}
+
+.portfolio-item__container {
+	height:100%;
+	position:relative;
+}
+
+.portfolio-item__slide {
+	background:#fff;
+	border-radius:10px;
+	width:100%;
+	height:100%;
+	overflow:hidden;
+	position:absolute;
+	box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.15); 
+	z-index:6;
+	float:left;
+	left:110%;
+	transition:left 1.0s;
+}
+
+.portfolio-item__slide.prev {
+	counter-increment: current;  
+}
+
+.portfolio-item__slide.active {
+	left:0;
+}
+
+.portfolio-item__slide.active ~ .portfolio-item__slide  {
+	left:115%;
+}
+
+.portfolio-item__slide.prev {
+	left:-115%;
+}
+
+.portfolio-item__browser {
+	min-width:1460px;
+	height:39px;
+	box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.25);
+	display:block;
+	position:relative;
+	z-index:5;
+}
+
+.portfolio-item__screen {
+	counter-increment: total;  
+	height:93.5%;
+	height:calc(100% - 39px);
+	overflow:scroll;
+	overflow-x: hidden;
+	img {
+		width:100%;
+		height:auto;
+		display:block;
+		position:relative;
+		top:0;
+	}
+}
+
+
+.portfolio-item__controls {
+	position:absolute;
+	@extend .copy;
+	font-weight:bold;
+	width:100px;
+	left:0;
+	right:0;
+	bottom:0;
+	margin:12px auto;
+	text-align:center;
+
+	.portfolio-items__controls-arrow {
+		width:6px;
+		height:9px;
+		display:inline-block;
+		cursor:pointer;
+	}
+
+	.portfolio-items__controls-prev {
+		width: 0;
+		height: 0;
+		border-style: solid;
+		border-width: 4.5px 6px 4.5px 0;
+		border-color: transparent $type transparent transparent;
+		margin:0 20px 2px 0;
+	}
+
+	.portfolio-items__controls-next {
+		width: 0;
+		height: 0;
+		border-style: solid;
+		border-width: 4.5px 0 4.5px 6px;
+		border-color: transparent transparent transparent $type;
+		margin:0 0 2px 20px;
+	}
+
+	.portfolio-items__controls-total:before {
+		content: counters(total,".");
+	}
+
+	.portfolio-items__controls-current:before {
+		content: counters(current,".");
+	}
+
+}
+
 @include bp(sml2){
 	.banner {
 		.tabs li {
@@ -1324,61 +1465,9 @@ form {
 	}
 }
 
-.portfolio-item {
-	font-size:5px;
-	position:relative;
-	box-sizing:border-box;
-	@include clearfix();
-	.portfolio-item__text {
-		margin-top:8.0em;
-		margin-bottom:8.0em;
-	}
-	h3 {
-		@extend .copy;
-		margin-bottom:5px;
-	}
-	a {
-		@extend .copy;
-	}
-}
-
-.portfolio-item__screens {
-	width:100%;
-	background:$grey;
-	box-sizing:border-box;
-	padding:30px;
-}
-
-.portfolio-item__screen-wrapper {
-	background:#fff;
-	border-radius:10px;
-	width:100%;
-	height:59.4em;
-	overflow:hidden;
-	position:relative;
-	box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.15);
-}
-
-.portfolio-item__browser {
-	min-width:1460px;
-	height:39px;
-	box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.25);
-	display:block;
-	position:relative;
-	z-index:10;
-}
-
-.portfolio-item__screen {
-	height:93.5%;
-	overflow:scroll;
-	overflow-x: hidden;
-	z-index:999;
-	img {
-		width:100%;
-		height:auto;
-		display:block;
-		position:relative;
-		top:0;
+@include bpBetween(sml2, med){ 
+	.portfolio-item:first-child {
+		margin-top:30px;
 	}
 }
 
@@ -1387,6 +1476,20 @@ form {
 	.portfolio-item {
 		font-size:8px;
 		padding:3.0em;
+	}
+
+	.portfolio-item__screens {
+		width:85%;
+		margin:0 auto;
+		padding:30px 30px 50px 30px;
+	}
+
+}
+
+@include bp(lrg) {
+
+	.portfolio-item__screens {
+		width:75%;
 	}
 
 }
@@ -1437,6 +1540,12 @@ form {
 	.portfolio-item__screens {
 		width:49%;
 		float:left;
+		position:relative;
+		z-index:10;
+	}
+
+	.portfolio-item__controls {
+		margin:13px auto;
 	}
 
 }
@@ -1449,12 +1558,12 @@ form {
 
 
 @include bp(xxxlrg) {
-	.portfolio-item {
-
+	.portfolio-item__controls {
+		margin:25px auto;
 	}
 
 	.portfolio-item__screens {
-		padding:60px;
+		padding:60px 60px 80px 60px; 
 	}
 }
 
