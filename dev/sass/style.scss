@@ -1325,8 +1325,8 @@ form {
 
 .portfolio-item__screens {
 	width:100%;
-	background:$grey;
-	height:73.4em;
+	background:$grey; 
+	height:60em;
 	box-sizing:border-box;
 	padding:10px 10px 50px 10px;
 	overflow:hidden;
@@ -1565,7 +1565,8 @@ form {
 	}
 
 	.portfolio-item__screens {
-		padding:60px 60px 80px 60px; 
+		padding:60px 60px 80px 60px;
+		height:73.4em;
 	}
 }
 

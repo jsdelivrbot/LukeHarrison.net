@@ -3,14 +3,16 @@ module.exports = (function(document){
 	var slider = document.querySelectorAll(".portfolio-item__screens"),
 		length = slider.length,
 		i,
-		sliderControl,
+		sliderClick,
+		sliderMove,
+		sliderKey,
 		target,
 		active,
 		next,
 		previous,
 		parent;
 
-	sliderControl = function(e){
+	sliderClick = function(e){
 		target = e.target || e.srcElement;
 		parent = e.path[2];
 		active = parent.querySelector(".portfolio-item__slide.active");
@@ -24,11 +26,13 @@ module.exports = (function(document){
 		else {
 			next = false;
 		}
+		sliderMove(next);
+	}
 
+	sliderMove = function(next){
 		if(next){
 			if(active.classList.contains("active")){
-				active.classList.remove("active"); 
-
+				active.classList.remove("active");
 				if(target.classList.contains("portfolio-items__controls-next")){
 					active.classList.add("prev");
 				}
@@ -40,15 +44,21 @@ module.exports = (function(document){
 		}
 	}
 
+	sliderKey = function(e){ 
+		console.log(e);
+		alert("hello");
+		//sliderMove(next);
+	};
+
 	for(i = 0; i < length; i++) {
 		if(slider[i].addEventListener){
 			slider[i].addEventListener("click", function(e){
-				sliderControl(e);
+				sliderClick(e);
 			});
 		}
 		else {
 			slider[i].attachEvent("onclick", function(e){
-				sliderControl(e); 
+				sliderClick(e); 
 			}); 
 		}
 	}
