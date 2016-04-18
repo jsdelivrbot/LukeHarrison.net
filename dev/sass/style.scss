@@ -1331,6 +1331,7 @@ form {
 	padding:10px 10px 50px 10px;
 	overflow:hidden;
 	position:relative;
+	user-select: none;
 }
 
 .portfolio-item__container {
@@ -1403,6 +1404,7 @@ form {
 	bottom:0;
 	margin:12px auto;
 	text-align:center;
+	user-select: none;
 
 	.portfolio-items__controls-arrow {
 		width:6px;

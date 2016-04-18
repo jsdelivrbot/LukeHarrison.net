@@ -17,10 +17,12 @@ module.exports = (function(document){
 
 		if(target.classList.contains("portfolio-items__controls-prev")){
 			next = active.previousElementSibling;
-
 		}
 		else if(target.classList.contains("portfolio-items__controls-next")){
 			next = active.nextElementSibling; 
+		}
+		else {
+			next = false;
 		}
 
 		if(next){
