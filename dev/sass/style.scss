@@ -1274,6 +1274,7 @@ form {
 
 .banner--portfolio {
 	background:$portfolio;
+	overflow:hidden;
 }
 
 .banner {
@@ -1299,6 +1300,11 @@ form {
 		color:$type;
 		font-weight:bold;
 	}
+}
+
+.portfolio-items {
+	max-width:2000px;
+	margin:0 auto;
 }
 
 .portfolio-item {
@@ -1561,7 +1567,7 @@ form {
 
 @include bp(xxxlrg) {
 	.portfolio-item__controls {
-		margin:25px auto;
+		margin:28px auto;
 	}
 
 	.portfolio-item__screens {
