@@ -1,4 +1,7 @@
-module.exports = (function(document){
+module.exports = (function(document, window){
+
+	var classList = require("../polyfills/classlist.js");
+	var Modernizr = require("../vendor/modernizr-custom.js");
 
 	var slider = document.querySelectorAll(".portfolio-item__screens.multiple"),
 		length = slider.length,
@@ -17,7 +20,8 @@ module.exports = (function(document){
 		getClosest,
 		swipedetect,
 		screenContainer,
-		slides;
+		slides,
+		activePos;
 
 	// jquery Closest() vanilla JS function
 	// http://gomakethings.com/climbing-up-and-down-the-dom-tree-with-vanilla-javascript/
@@ -104,7 +108,7 @@ module.exports = (function(document){
 
 	sliderClick = function(e){
 		target = e.target || e.srcElement;
-		parent = e.path[2];
+		parent = getClosest(e.target, '.portfolio-item__screens');
 
 		if(target.classList.contains("portfolio-items__controls-prev")){
 			sliderMove("previous", parent);
@@ -120,30 +124,37 @@ module.exports = (function(document){
 	sliderMove = function(direction, parent){
 		active = parent.querySelector(".portfolio-item__slide.active");
 		screenContainer = parent.querySelector(".portfolio-item__container");
-		slides = screenContainer.querySelectorAll(".portfolio-item__slide");
+		slides = Array.prototype.slice.call(screenContainer.querySelectorAll(".portfolio-item__slide"));
 
 		if(direction === "next") {
 			if(active.nextElementSibling){
+				activePos = (slides.indexOf(active) + 1);
 				next = active.nextElementSibling;
-
+				screenContainer.style.left = "-" + (100 * activePos) + "%";
 			}
 			else {
 				next =  screenContainer.firstChild;
-				slides = screenContainer.querySelectorAll(".portfolio-item__slide");
+				activePos = 0;
+				slides = screenContainer.querySelectorAll(".portfolio-item__slide"); 
 				for(i = 0; i < slides.length; i++){
 					slides[i].classList.remove("prev");
 				}
+				screenContainer.style.left = "-" + (100 * activePos) + "%";
 			}
 		}
 		else if (direction === "previous") {
 			if(active.previousElementSibling){
+				activePos = (slides.indexOf(active) - 1);
 				next = active.previousElementSibling;
+				screenContainer.style.left = "-" + (100 * activePos) + "%";
 			}
 			else {
 				next =  screenContainer.lastChild;
+				activePos = slides.indexOf(screenContainer.lastChild);
 				for(i = 0; i < slides.length; i++){
 					slides[i].classList.add("prev");
 				}
+				screenContainer.style.left = "-" + (100 * activePos) + "%";
 			}
 		}
 
@@ -178,17 +189,19 @@ module.exports = (function(document){
 			}
 
 			// Add touch events
-			swipedetect(slider[i], function(swipedir){
-				
-				parent = getClosest(eventObj.target, '.portfolio-item__screens');
+			if(Modernizr.touchevents){
+				swipedetect(slider[i], function(swipedir){
+					
+					parent = getClosest(eventObj.target, '.portfolio-item__screens');
 
-				if (swipedir == 'right') {
-					sliderMove("previous", parent);
-				}
-				if (swipedir == 'left') {
-					sliderMove("next", parent);
-				}
-			})
+					if (swipedir == 'right') {
+						sliderMove("previous", parent);
+					}
+					if (swipedir == 'left') {
+						sliderMove("next", parent);
+					}
+				})
+			}
 
 			// Size slides & container
 			slides = slider[i].querySelectorAll(".portfolio-item__slide");
@@ -210,4 +223,4 @@ module.exports = (function(document){
 	})(slider);
 
 
-})(document);
+})(document, window);
