@@ -77,7 +77,7 @@ module.exports = (function(document){
 	    }, false)
 	  
 	    touchsurface.addEventListener('touchmove', function(e){
-	        e.preventDefault() // prevent scrolling when inside DIV
+	        //e.preventDefault() // prevent scrolling when inside DIV
 	    }, false)
 	  
 	    touchsurface.addEventListener('touchend', function(e){
@@ -155,12 +155,10 @@ module.exports = (function(document){
 			parent = getClosest(eventObj.target, '.portfolio-item__screens');
 
 			if (swipedir == 'right') {
-				console.log("right");
-				sliderMove("next", parent);
+				sliderMove("previous", parent);
 			}
 			if (swipedir == 'left') {
-				console.log("left");
-				sliderMove("previous", parent);
+				sliderMove("next", parent);
 			}
 		})
 
