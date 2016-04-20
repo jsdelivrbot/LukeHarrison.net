@@ -116,7 +116,7 @@ gulp.task('sass', function(){
 
 // Image MIN & with CACHE to stop repeat compressed images
 gulp.task('images', function(){
-	return gulp.src('dev/img/*.+(png|jpg|gif|svg)')
+	return gulp.src('dev/img/**/*.+(png|jpg|gif|svg)')
 	//.pipe(imagemin())
 	.pipe(gulp.dest('dist/img/'))
 });

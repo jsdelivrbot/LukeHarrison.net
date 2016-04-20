@@ -1334,53 +1334,64 @@ form {
 	background:$grey; 
 	height:60em;
 	box-sizing:border-box;
-	padding:10px;
 	overflow:hidden;
 	position:relative;
 	user-select: none;
 }
 
 .portfolio-item__screens.multiple {
-	padding-bottom:50px;
 	& .portfolio-item__controls {
 		display:block;
+	}
+	& .portfolio-item__slide {
+		padding-bottom:50px;
 	}
 }
 
 .portfolio-item__container {
 	height:100%;
 	position:relative;
-}
-
-.portfolio-item__slide {
-	background:#fff;
-	border-radius:10px;
-	width:100%;
-	height:100%;
-	overflow:hidden;
-	position:absolute;
-	box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.15); 
-	z-index:6;
-	float:left;
-	left:110%;
 	transition:left 1.0s;
 }
 
+.portfolio-item__slide {
+	background:$grey;
+	width:100%;
+	height:100%;
+	position:relative;
+	z-index:6;
+	float:left;
+	box-sizing:border-box;
+	padding:10px;
+	// left:110%; 
+	// transition:left 1.0s;
+}
+
+.portfolio-item__slide-inner {
+	width:100%;
+	height:100%;
+	border-radius:10px;
+	overflow:hidden;
+	position:relative;
+	background:#fff;
+	box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.15); 
+}
+
 .portfolio-item__slide.prev {
-	counter-increment: current;  
+	counter-increment: current; 
 }
 
 .portfolio-item__slide.active {
 	left:0;
 }
 
-.portfolio-item__slide.active ~ .portfolio-item__slide  {
-	left:115%;
-}
+// .portfolio-item__slide.active ~ .portfolio-item__slide  {
+// 	left:115%;
+// }
 
-.portfolio-item__slide.prev {
-	left:-115%;
-}
+// .portfolio-item__slide.prev {
+// 	left:-115%;
+// }
 
 .portfolio-item__browser {
 	min-width:1460px;
@@ -1418,6 +1429,7 @@ form {
 	margin:12px auto;
 	text-align:center;
 	user-select: none;
+	z-index:10;
 
 	.portfolio-items__controls-arrow {
 		width:6px;
@@ -1496,11 +1508,16 @@ form {
 	.portfolio-item__screens {
 		width:85%;
 		margin:0 auto;
-		padding:30px;
 	}
 
 	.portfolio-item__screens.multiple {
-		padding-bottom:50px;
+		.portfolio-item__slide {
+			padding-bottom:50px;
+		}
+	}
+
+	.portfolio-item__slide {
+		padding:30px;
 	}
 
 }
@@ -1582,12 +1599,17 @@ form {
 	}
 
 	.portfolio-item__screens {
-		padding:60px;
 		height:73.4em;
 	}
 
 	.portfolio-item__screens.multiple {
-		padding-bottom:80px;
+		.portfolio-item__slide {
+			padding-bottom:80px;
+		}
+	}
+
+	.portfolio-item__slide {
+		padding:60px;
 	}
 
 

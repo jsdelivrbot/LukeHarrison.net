@@ -1,11 +1,13 @@
 module.exports = (function(document){
 
-	var slider = document.querySelectorAll(".portfolio-item__screens"),
+	var slider = document.querySelectorAll(".portfolio-item__screens.multiple"),
 		length = slider.length,
 		i,
+		d,
 		sliderClick,
 		sliderMove,
 		sliderKey,
+		sliderSetup,
 		target,
 		active,
 		next,
@@ -13,7 +15,9 @@ module.exports = (function(document){
 		parent,
 		eventObj,
 		getClosest,
-		swipedetect;
+		swipedetect,
+		screenContainer,
+		slides;
 
 	// jquery Closest() vanilla JS function
 	// http://gomakethings.com/climbing-up-and-down-the-dom-tree-with-vanilla-javascript/
@@ -115,18 +119,38 @@ module.exports = (function(document){
 
 	sliderMove = function(direction, parent){
 		active = parent.querySelector(".portfolio-item__slide.active");
+		screenContainer = parent.querySelector(".portfolio-item__container");
+		slides = screenContainer.querySelectorAll(".portfolio-item__slide");
 
 		if(direction === "next") {
-			next = active.nextElementSibling; 
+			if(active.nextElementSibling){
+				next = active.nextElementSibling;
+
+			}
+			else {
+				next =  screenContainer.firstChild;
+				slides = screenContainer.querySelectorAll(".portfolio-item__slide");
+				for(i = 0; i < slides.length; i++){
+					slides[i].classList.remove("prev");
+				}
+			}
 		}
 		else if (direction === "previous") {
-			next = active.previousElementSibling;
+			if(active.previousElementSibling){
+				next = active.previousElementSibling;
+			}
+			else {
+				next =  screenContainer.lastChild;
+				for(i = 0; i < slides.length; i++){
+					slides[i].classList.add("prev");
+				}
+			}
 		}
 
 		if(direction && next){
 			if(active.classList.contains("active")){
 				active.classList.remove("active");
-				if(direction === "next"){
+				if(direction === "next" && active.nextElementSibling){
 					active.classList.add("prev");
 				}
 			}
@@ -137,32 +161,53 @@ module.exports = (function(document){
 		}
 	}
 
-	for(i = 0; i < length; i++) {
-		if(slider[i].addEventListener){
-			slider[i].addEventListener("click", function(e){ 
-				sliderClick(e);
-			});
-		}
-		else {
-			slider[i].attachEvent("onclick", function(e){
-				sliderClick(e); 
-			}); 
-		}
+	sliderSetup = (function(slider){
 
-		// Add touch events
-		swipedetect(slider[i], function(swipedir){
-			
-			parent = getClosest(eventObj.target, '.portfolio-item__screens');
-
-			if (swipedir == 'right') {
-				sliderMove("previous", parent);
+		 // Add event listeners
+		for(i = 0; i < length; i++) {
+			// Add click events
+			if(slider[i].addEventListener){
+				slider[i].addEventListener("click", function(e){ 
+					sliderClick(e);
+				});
 			}
-			if (swipedir == 'left') {
-				sliderMove("next", parent);
+			else {
+				slider[i].attachEvent("onclick", function(e){
+					sliderClick(e); 
+				}); 
 			}
-		})
 
-	}
+			// Add touch events
+			swipedetect(slider[i], function(swipedir){
+				
+				parent = getClosest(eventObj.target, '.portfolio-item__screens');
+
+				if (swipedir == 'right') {
+					sliderMove("previous", parent);
+				}
+				if (swipedir == 'left') {
+					sliderMove("next", parent);
+				}
+			})
+
+			// Size slides & container
+			slides = slider[i].querySelectorAll(".portfolio-item__slide");
+			screenContainer = slider[i].querySelector(".portfolio-item__container");
+
+			// Set slide width
+			for(d = 0; d < slides.length; d++){
+				slides[d].style.width = (100 / slides.length) + "%";
+			}
+
+			// Set container width
+			screenContainer.style.width = (100 * slides.length) + "%";
+			screenContainer.style.left = 0 + "%"; 
+
+		}
+
+
+
+	})(slider);
 
 
 })(document);
