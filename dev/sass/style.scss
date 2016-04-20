@@ -1334,10 +1334,17 @@ form {
 	background:$grey; 
 	height:60em;
 	box-sizing:border-box;
-	padding:10px 10px 50px 10px;
+	padding:10px;
 	overflow:hidden;
 	position:relative;
 	user-select: none;
+}
+
+.portfolio-item__screens.multiple {
+	padding-bottom:50px;
+	& .portfolio-item__controls {
+		display:block;
+	}
 }
 
 .portfolio-item__container {
@@ -1399,8 +1406,8 @@ form {
 	}
 }
 
-
 .portfolio-item__controls {
+	display:none;
 	position:absolute;
 	@extend .copy;
 	font-weight:bold;
@@ -1489,7 +1496,11 @@ form {
 	.portfolio-item__screens {
 		width:85%;
 		margin:0 auto;
-		padding:30px 30px 50px 30px;
+		padding:30px;
+	}
+
+	.portfolio-item__screens.multiple {
+		padding-bottom:50px;
 	}
 
 }
@@ -1571,9 +1582,15 @@ form {
 	}
 
 	.portfolio-item__screens {
-		padding:60px 60px 80px 60px;
+		padding:60px;
 		height:73.4em;
 	}
+
+	.portfolio-item__screens.multiple {
+		padding-bottom:80px;
+	}
+
+
 }
 
 //--------------------------------------------------------------------
