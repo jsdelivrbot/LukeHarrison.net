@@ -1491,6 +1491,13 @@ form {
 	}
 }
 
+@include bp(sml2) {
+	.portfolio-item__screens {
+		width:70%;
+		margin:0 auto;
+	}
+}
+
 @include bpBetween(sml2, med){ 
 	.portfolio-item:first-child {
 		margin-top:30px;
@@ -1504,11 +1511,6 @@ form {
 		padding:3.0em;
 	}
 
-	.portfolio-item__screens {
-		width:85%;
-		margin:0 auto;
-	}
-
 	.portfolio-item__screens.multiple {
 		.portfolio-item__slide {
 			padding-bottom:50px;
@@ -1517,6 +1519,11 @@ form {
 
 	.portfolio-item__slide {
 		padding:30px;
+	}
+
+	.portfolio-item__screens {
+		width:85%;
+		margin:0 auto;
 	}
 
 }
@@ -1535,11 +1542,11 @@ form {
 		font-size:10px;
 		padding:0 0 0 2%;
 
-		&:first-child {
+		&.odd {
 			padding:2% 0 0 2%;
 		}
 
-		&:nth-child(even){
+		&.even{
 			padding:0 2% 0 0;
 			.portfolio-item__screens {
 				float:right; 
@@ -1586,7 +1593,7 @@ form {
 }
 
 @include bpBetween(xlrg, xxxlrg){
-	.portfolio-item:nth-child(even) .portfolio-item__text {
+	.portfolio-item.even .portfolio-item__text {
 		margin-left:0;
 	}
 }

@@ -25,73 +25,66 @@ html(lang='en')
 
 		section(class="portfolio-items")
 
-			section(class="portfolio-item")
-				div(class="portfolio-item__screens multiple")
-					div(class="portfolio-item__container")
-						div(class="portfolio-item__slide active")
-							div(class="portfolio-item__slide-inner")
-								img(src="img/browser.svg" class="portfolio-item__browser" alt="Browser") 
-								div(class="portfolio-item__screen")
-									img(src="img/portfolio/plusnet/assetbank_01.jpg" alt="Plusnet Toolkit")
-						div(class="portfolio-item__slide")
-							div(class="portfolio-item__slide-inner")
-								img(src="img/browser.svg" class="portfolio-item__browser" alt="Browser") 
-								div(class="portfolio-item__screen")
-									img(src="img/portfolio/plusnet/assetbank_01.jpg" alt="Plusnet Toolkit")
-					div(class="portfolio-item__controls")
-						span(class="portfolio-items__controls-arrow portfolio-items__controls-prev")
-						span(class="portfolio-items__controls-current")
-						span(class="portfolio-items__controls-sep")  / 
-						span(class="portfolio-items__controls-total")
-						span(class="portfolio-items__controls-arrow portfolio-items__controls-next")
-				div(class="container")
-					div(class="portfolio-item__text sml-clear sml10 sml-offset1 lrg-clear lrg8 lrg-offset2 xlrg-clear xlrg5 xlrg-offset7 xxxlrg-clear xxxlrg5 xxxlrg-offset9")
-						div(class="portfolio-item__text-inner")
-							h3 Plusnet
-							h1(class="header--med") Brand Toolkit
-							p I have key skills which stretch across the project life cycle; from designing UX driven wireframes and mockups through to developing high quality code focusing on performance. I have key skills which stretch across the project life cycle; from designing UX driven wireframes and mockups through to developing high quality code focusing on performance.
-							p I have key skills which stretch across the project life cycle; from designing UX driven wireframes and mockups through to developing high quality code focusing on performance.
-							a(href="/") link goes here
+			- var i = 0
 
-			section(class="portfolio-item")
-				div(class="portfolio-item__screens multiple")
-					div(class="portfolio-item__container")
-						div(class="portfolio-item__slide active")
-							div(class="portfolio-item__slide-inner")
-								img(src="img/browser.svg" class="portfolio-item__browser" alt="Browser")
-								div(class="portfolio-item__screen")
-									img(src="img/portfolio/plusnet/assetbank_01.jpg" alt="Plusnet Toolkit")
-						div(class="portfolio-item__slide")
-							div(class="portfolio-item__slide-inner")
-								img(src="img/browser.svg" class="portfolio-item__browser" alt="Browser")
-								div(class="portfolio-item__screen")
-									img(src="img/portfolio/plusnet/assetbank_01.jpg" alt="Plusnet Toolkit")
-						div(class="portfolio-item__slide")
-							div(class="portfolio-item__slide-inner")
-								img(src="img/browser.svg" class="portfolio-item__browser" alt="Browser")
-								div(class="portfolio-item__screen")
-									img(src="img/portfolio/plusnet/assetbank_01.jpg" alt="Plusnet Toolkit")
-						div(class="portfolio-item__slide")
-							div(class="portfolio-item__slide-inner")
-								img(src="img/browser.svg" class="portfolio-item__browser" alt="Browser")
-								div(class="portfolio-item__screen")
-									img(src="img/portfolio/plusnet/assetbank_01.jpg" alt="Plusnet Toolkit")
+			//- Loop through portfolio.js object items
+			each value, key in portfolio
 
-					div(class="portfolio-item__controls")
-						span(class="portfolio-items__controls-arrow portfolio-items__controls-prev")
-						span(class="portfolio-items__controls-current")
-						span(class="portfolio-items__controls-sep")  / 
-						span(class="portfolio-items__controls-total")
-						span(class="portfolio-items__controls-arrow portfolio-items__controls-next")
-				div(class="container")
-					div(class="portfolio-item__text sml-clear sml10 sml-offset1 lrg-clear lrg8 lrg-offset2 xlrg-clear xlrg5 xxxlrg-clear xxxlrg5 xxxlrg-offset2")
-						div(class="portfolio-item__text-inner")
-							h3 Plusnet
-							h1(class="header--med") Brand Toolkit
-							p I have key skills which stretch across the project life cycle; from designing UX driven wireframes and mockups through to developing high quality code focusing on performance. I have key skills which stretch across the project life cycle; from designing UX driven wireframes and mockups through to developing high quality code focusing on performance.
-							p I have key skills which stretch across the project life cycle; from designing UX driven wireframes and mockups through to developing high quality code focusing on performance.
-							a(href="/") link goes here
+				- var name = key
 
+				//- Set container classes based on odd/even
+				if i === 0
+					- var slideOrderClass = "odd"
+					- var containerClasses = "sml-clear sml10 sml-offset1 lrg-clear lrg8 lrg-offset2 xlrg-clear xlrg5 xlrg-offset7 xxxlrg-clear xxxlrg5 xxxlrg-offset9"
+					- i = 1;
+				else if i === 1
+					- slideOrderClass = "even"
+					- containerClasses = "sml-clear sml10 sml-offset1 lrg-clear lrg8 lrg-offset2 xlrg-clear xlrg5 xxxlrg-clear xxxlrg5 xxxlrg-offset2"
+					- i = 0;
 
-			
+				//- If more than one screenshot add class
+				if value.screenshots.length > 1
+					- var slideClass = "multiple"
+				else
+					- var slideClass = ""
+
+				section(class="portfolio-item #{slideOrderClass}")
+					div(class="portfolio-item__screens #{slideClass}")
+						div(class="portfolio-item__container")
+
+							//- Loop through screenshots
+							each screenshot, key in value.screenshots
+
+								if key === 0
+									- var slideStatus = "active"
+								else
+									- var slideStatus = ""
+
+								div(class="portfolio-item__slide #{slideStatus}")
+									div(class="portfolio-item__slide-inner")
+										img(src="img/browser.svg" class="portfolio-item__browser" alt="Browser") 
+										div(class="portfolio-item__screen")
+											img(src= screenshot alt= name + " screenshot " + (key + 1))
+
+						div(class="portfolio-item__controls")
+							span(class="portfolio-items__controls-arrow portfolio-items__controls-prev")
+							span(class="portfolio-items__controls-current")
+							span(class="portfolio-items__controls-sep")  / 
+							span(class="portfolio-items__controls-total")
+							span(class="portfolio-items__controls-arrow portfolio-items__controls-next")
+					div(class="container")
+
+						div(class="portfolio-item__text #{containerClasses}")
+							div(class="portfolio-item__text-inner")
+								h3= value.company
+								h1(class="header--med")= key
+					
+								//- Print out all paragraphs
+								each paragraph in value.description
+									p= paragraph
+
+								//- If there is a link, print it
+								if value.url
+									a(href= value.url) link goes here
+
 		include partials/footer

@@ -66,7 +66,7 @@ gulp.task('deleteDist', function(){
 gulp.task('html', function() {
   return gulp.src('./dev/jade/*.jade')
     .pipe(data(function(file){
-     		return require('./dev/data/portfolio.json');
+     		return {"portfolio": require('./dev/data/portfolio.js')}
      }))
     .pipe(jade())
     .pipe(gulp.dest('dist/'));

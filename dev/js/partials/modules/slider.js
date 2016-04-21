@@ -1,7 +1,6 @@
 module.exports = (function(document, window){
 
 	var classList = require("../polyfills/classlist.js");
-	var Modernizr = require("../vendor/modernizr-custom.js"); 
 	var getClosest = require("../vendor/getClosest.js");
 	var swipeDetect = require("../vendor/swipeDetect.js");
 
@@ -88,8 +87,7 @@ module.exports = (function(document, window){
 		}
 	}
 
-	sliderSetup = (function(slider){
-
+	sliderSetup = (function(slider, Modernizr){
 		 // Add event listeners
 		for(i = 0; i < length; i++) {
 			// Add click events
@@ -105,18 +103,15 @@ module.exports = (function(document, window){
 			}
 
 			// Add touch events
-
 			if(Modernizr.touchevents){
-				swipeDetect(slider[i], function(swipedir){
-					
+				swipeDetect(slider[i], function(swipedir, eventObj){
+			
 					parent = getClosest(eventObj.target, '.portfolio-item__screens');
 
 					if (swipedir == 'right') {
-						console.log("right")
 						sliderMove("previous", parent);
 					}
 					if (swipedir == 'left') {
-						console.log("left")
 						sliderMove("next", parent); 
 					}
 				})
@@ -134,11 +129,8 @@ module.exports = (function(document, window){
 			// Set container width
 			screenContainer.style.width = (100 * slides.length) + "%";
 			screenContainer.style.left = 0 + "%"; 
-
 		}
-
-
-	})(slider);
+	})(slider, Modernizr);
 
 
 })(document, window);

@@ -14,10 +14,8 @@
 	    allowedTime = 300, // maximum time allowed to travel that distance
 	    elapsedTime,
 	    startTime,
-	    eventObj
-	    handleswipe = callback || function(swipedir){}
-
-	    console.log("bla");
+	    eventObj,
+	    handleswipe = callback || function(swipedir, eventObj){}
 	  
 	    touchsurface.addEventListener('touchstart', function(e){
 	        var touchobj = e.changedTouches[0]
@@ -26,7 +24,7 @@
 	        startX = touchobj.pageX
 	        startY = touchobj.pageY
 	        startTime = new Date().getTime() // record time when finger first makes contact with surface
-	        e.preventDefault()
+	        //e.preventDefault()
               eventObj = e;
 	    }, false)
 	  
@@ -47,8 +45,8 @@
 	                swipedir = (distY < 0)? 'up' : 'down' // if dist traveled is negative, it indicates up swipe
 	            }
 	        }
-	        handleswipe(swipedir)
-	        e.preventDefault()
+	        handleswipe(swipedir, eventObj)
+	        //e.preventDefault()
 	    }, false)
 	}
 
