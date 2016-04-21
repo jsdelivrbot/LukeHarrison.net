@@ -347,7 +347,6 @@ li.nav--logo, .mobile-logo {
 		line-height:32px;
 		font-weight:bold;
 		display:block;
-		margin-top:2px;
 	}
 	svg.icon-logo, div.icon-logo {
 		max-width:68px;
@@ -521,8 +520,13 @@ nav {
 			border:0;
 			height:inherit;
 			svg.icon-logo, div.icon-logo {
-				float:left;
-				margin:0 4% 0 0;
+				position:absolute;
+				top:0;
+				bottom:0;
+				margin:auto 0;
+			}
+			.logo-text {
+				margin-left:80px;
 			}
 		}
 		li.nav--about, li.nav--portfolio, li.nav--contact {
@@ -546,9 +550,6 @@ nav {
 		}
 		li.nav--about, li.nav--portfolio, li.nav--contact {
 			width:25%; 
-		}
-		li.nav--logo strong {
-			margin-top:5px;
 		}
 	}
 }
