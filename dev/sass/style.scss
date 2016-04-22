@@ -1456,12 +1456,8 @@ form {
 		margin:0 0 2px 20px;
 	}
 
-	.portfolio-items__controls-total:before {
-		content: counters(total,".");
-	}
-
-	.portfolio-items__controls-current:before {
-		content: counters(current,".");
+	.portfolio-items__controls-num:before {
+		content: counter(current) " / " counter(total)""; 
 	}
 
 }
