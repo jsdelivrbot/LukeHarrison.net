@@ -6,25 +6,25 @@ section(class="banner banner--portfolio")
 					li(class="active") #[span View all]
 				else
 					li
-						a(href="portfolio") #[span View all]
+						a(href="/portfolio") #[span View all]
 
 				if portfolioCategory === "Plusnet"
 					li(class="active") #[span Plusnet]
 				else
 					li
-						a(href="portfolio-plusnet") #[span Plusnet]
+						a(href="/portfolio/plusnet") #[span Plusnet]
 
 				if portfolioCategory === "Red HQ"
 					li(class="active") #[span Red HQ]
 				else
 					li 
-						a(href="portfolio-redhq") #[span Red HQ]
+						a(href="/portfolio/red-hq") #[span Red HQ]
 
 				if portfolioCategory === "Side Project"
 					li(class="active") #[span Side Projects]
 				else
 					li
-						a(href="portfolio-sideprojects") #[span Side Projects]
+						a(href="/portfolio/side-projects") #[span Side Projects]
 
 	section(class="portfolio-items")
 
@@ -71,7 +71,7 @@ section(class="banner banner--portfolio")
 
 							div(class="portfolio-item__slide #{slideStatus}")
 								div(class="portfolio-item__slide-inner")
-									img(src="img/browser.svg" class="portfolio-item__browser" alt="Browser") 
+									img(src="/img/browser.svg" class="portfolio-item__browser" alt="Browser") 
 									div(class="portfolio-item__screen")
 										img(src= screenshot alt= name + " screenshot " + (key + 1))
 

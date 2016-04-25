@@ -1,7 +1,14 @@
-# Remove HTML extension
 RewriteEngine On
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^([^\.]+)$ $1.html [NC,L]
+Options +FollowSymLinks
+
+RewriteCond %{SCRIPT_FILENAME} !-d
+RewriteCond %{SCRIPT_FILENAME} !-f
+ 
+RewriteRule    ^portfolio/plusnet?$    portfolio-plusnet.html    [NC,L]
+RewriteRule    ^portfolio/red-hq?$    portfolio-redhq.html    [NC,L]
+RewriteRule    ^portfolio/side-projects?$    portfolio-sideprojects.html    [NC,L]
+RewriteRule    ^portfolio/?$    portfolio.html    [NC,L]
+RewriteRule    ^contact/?$    contact.html    [NC,L]
 
 # BEGIN GZIP
 # mod_gzip compression (legacy, Apache 1.3)
