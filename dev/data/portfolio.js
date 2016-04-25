@@ -11,8 +11,8 @@ var portfolio = {
 			"I have key skills which stretch across the project life cycle; from designing UX driven wireframes and mockups through to developing high quality code focusing on performance."
 		]
 	},
-	"Brand Toolkit2" : {
-		"company": "Plusnet",
+	"Red HQ project" : {
+		"company": "Red HQ",
 		"url": "http://www.google.co.uk",
 		"screenshots": [
 			"img/portfolio/plusnet/assetbank_01.jpg"
@@ -34,7 +34,7 @@ var portfolio = {
 		]
 	},
 	"Brand Toolkit4" : {
-		"company": "Plusnet",
+		"company": "Side Project",
 		"url": "http://www.google.co.uk",
 		"screenshots": [
 			"img/portfolio/plusnet/assetbank_01.jpg"
