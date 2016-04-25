@@ -5,22 +5,26 @@ section(class="banner banner--portfolio")
 				if portfolioCategory === "View All"
 					li(class="active") #[span View all]
 				else
-					li #[span View all]
+					li
+						a(href="portfolio") #[span View all]
 
 				if portfolioCategory === "Plusnet"
 					li(class="active") #[span Plusnet]
 				else
-					li #[span Plusnet]
+					li
+						a(href="portfolio-plusnet") #[span Plusnet]
 
 				if portfolioCategory === "Red HQ"
 					li(class="active") #[span Red HQ]
 				else
-					li #[span Red HQ]
+					li 
+						a(href="portfolio-redhq") #[span Red HQ]
 
 				if portfolioCategory === "Side Project"
 					li(class="active") #[span Side Projects]
 				else
-					li #[span Side Projects]
+					li
+						a(href="portfolio-sideprojects") #[span Side Projects]
 
 	section(class="portfolio-items")
 

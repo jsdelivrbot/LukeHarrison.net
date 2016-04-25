@@ -1282,13 +1282,20 @@ form {
 	.tabs {
 		list-style:none;
 		margin:0 auto;
+		box-sizing:border-box;
+		padding:0 15px; 
 	}
 	.tabs li {
+		position:relative;
+		display:block;
+	}
+	.tabs li a, .tabs li.active span {
 		@extend .header--sml;
 		color:#fff;
 		margin:0;
 		padding:15px 30px;
 		cursor:pointer;
+		display:block;
 		bottom:-2px;
 		position:relative;
 		overflow:hidden;
@@ -1296,9 +1303,9 @@ form {
 			position:relative;
 		}
 	}
-	.tabs li.active {
+	.tabs li.active a, .tabs li.active span {
 		background:#fff;
-		color:$type;
+		color:$type; 
 		font-weight:bold;
 	}
 }
@@ -1327,6 +1334,7 @@ form {
 	}
 	.container {
 		z-index:0;
+		box-sizing:border-box;
 	}
 }
 
@@ -1465,6 +1473,9 @@ form {
 @include bp(sml2){
 	.banner {
 		.tabs li {
+			display:inline-block;
+		}
+		.tabs li a, .tabs li.active span {
 			display:inline-block; 
 			&:before {
 				position:absolute;
@@ -1477,12 +1488,12 @@ form {
 				transition:bottom .25s;
 			}
 		}
-		.tabs li.active {
+		.tabs li.active a, .tabs li.active span {
 			&:before {
 				display:none;
 			}
 		}
-		.tabs li:hover:before {
+		.tabs li:hover a:before, .tabs li.active:hover span:before {
 			bottom:0;
 		}
 	}
