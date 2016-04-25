@@ -1550,9 +1550,14 @@ form {
 		font-size:10px;
 		padding:0 0 0 2%;
 
-		&.odd {
+		&.odd:first-child {
 			padding:2% 0 0 2%;
 		}
+
+		&.odd {
+			padding:0 0 0 2%;
+		}
+
 
 		&.even{
 			padding:0 2% 0 0;
