@@ -1283,7 +1283,7 @@ form {
 		list-style:none;
 		margin:0 auto;
 		box-sizing:border-box;
-		padding:0 15px; 
+		padding:0 15px 15px 15px; 
 	}
 	.tabs li {
 		position:relative;
@@ -1342,6 +1342,7 @@ form {
 	width:100%;
 	background:$grey; 
 	height:60em;
+	max-height:734px;
 	box-sizing:border-box;
 	overflow:hidden;
 	position:relative;
@@ -1365,7 +1366,7 @@ form {
 
 .portfolio-item__slide {
 	width:100%;
-	height:100%;
+	height:auto;
 	position:relative;
 	z-index:6;
 	float:left;
@@ -1373,6 +1374,10 @@ form {
 	padding:10px;
 	// left:110%; 
 	// transition:left 1.0s;
+}
+
+.portfolio-item__slide.scroll {
+	height:100%;
 }
 
 .portfolio-item__slide-inner {
@@ -1393,14 +1398,6 @@ form {
 	left:0;
 }
 
-// .portfolio-item__slide.active ~ .portfolio-item__slide  {
-// 	left:115%;
-// }
-
-// .portfolio-item__slide.prev {
-// 	left:-115%;
-// }
-
 .portfolio-item__browser {
 	min-width:1460px;
 	height:39px;
@@ -1414,8 +1411,7 @@ form {
 	counter-increment: total;  
 	height:93.5%;
 	height:calc(100% - 39px);
-	overflow:scroll;
-	overflow-x: hidden;
+	overflow:hidden;
 	img {
 		width:100%;
 		height:auto;
@@ -1423,6 +1419,11 @@ form {
 		position:relative;
 		top:0;
 	}
+}
+
+.portfolio-item__slide.scroll .portfolio-item__screen {
+	overflow:scroll;
+	overflow-x: hidden;
 }
 
 .portfolio-item__controls {
@@ -1472,6 +1473,9 @@ form {
 
 @include bp(sml2){
 	.banner {
+		.tabs {
+			padding-bottom:0;
+		}
 		.tabs li {
 			display:inline-block;
 		}

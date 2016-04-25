@@ -64,16 +64,18 @@ section(class="banner banner--portfolio")
 						//- Loop through screenshots
 						each screenshot, key in value.screenshots
 
-							if key === 0
+							if screenshot.scroll && key === 0
+								- var slideStatus = "active scroll"
+							else if  key === 0
 								- var slideStatus = "active"
-							else
+							else 
 								- var slideStatus = ""
 
 							div(class="portfolio-item__slide #{slideStatus}")
 								div(class="portfolio-item__slide-inner")
 									img(src="img/browser.svg" class="portfolio-item__browser" alt="Browser") 
 									div(class="portfolio-item__screen")
-										img(src= screenshot alt= name + " screenshot " + (key + 1))
+										img(src= screenshot.url alt= name + " screenshot " + (key + 1))
 
 					div(class="portfolio-item__controls")
 						span(class="portfolio-items__controls-arrow portfolio-items__controls-prev")
@@ -91,5 +93,7 @@ section(class="banner banner--portfolio")
 								p= paragraph
 
 							//- If there is a link, print it
-							if value.url
-								a(href= value.url) link goes here
+							if value.urlText && value.url
+								a(href= value.url target="_blank")= value.urlText
+							else if value.url
+								a(href= value.url target="_blank")= value.url

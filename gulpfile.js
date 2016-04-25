@@ -202,7 +202,7 @@ gulp.task("watch", function() {
 	// HTML
 	gulp.watch('dev/jade/**/*.jade',['html']);
 	// Images
-	gulp.watch('dev/img/*.+(png|jpg|gif|svg)',['images']);
+	gulp.watch('dev/img/**/*.+(png|jpg|gif|svg)',['images']);
 	// Watch for Breakpoint JS changes and compile SASS
 	gulp.watch('dev/data/breakpoints.json',['sass']);
 	// SASS
