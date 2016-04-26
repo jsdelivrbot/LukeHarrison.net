@@ -23,7 +23,7 @@ var portfolio = {
 				"scroll": true
 			},
 			{
-				"url": "img/portfolio/plusnet/assetbank_01.jpg",
+				"url": "img/portfolio/sideprojects/orion-framework/01.png",
 				"scroll": false
 			}
 		],

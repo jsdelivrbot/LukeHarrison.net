@@ -1341,8 +1341,6 @@ form {
 .portfolio-item__screens {
 	width:100%;
 	background:$grey; 
-	height:60em;
-	max-height:734px;
 	box-sizing:border-box;
 	overflow:hidden;
 	position:relative;
@@ -1361,7 +1359,7 @@ form {
 .portfolio-item__container {
 	height:100%;
 	position:relative;
-	transition:left 1.0s;
+	transition:left 1.0s; 
 }
 
 .portfolio-item__slide {
@@ -1372,17 +1370,17 @@ form {
 	float:left;
 	box-sizing:border-box;
 	padding:10px;
-	// left:110%; 
-	// transition:left 1.0s;
+	max-height:734px;
 }
 
-.portfolio-item__slide.scroll {
-	height:100%;
-}
+// .portfolio-item__slide.scroll {
+// 	height:60em;
+// }
 
 .portfolio-item__slide-inner {
 	width:100%;
 	height:100%;
+	max-height:594px;
 	border-radius:10px;
 	overflow:hidden;
 	position:relative;
@@ -1621,19 +1619,19 @@ form {
 		margin:28px auto;
 	}
 
-	.portfolio-item__screens {
-		height:73.4em;
-	}
-
 	.portfolio-item__screens.multiple {
 		.portfolio-item__slide {
-			padding-bottom:80px;
+			padding-bottom:80px; 
 		}
 	}
 
 	.portfolio-item__slide {
 		padding:60px;
 	}
+
+	// .portfolio-item__slide.scroll {
+	// 	height:73.4em;
+	// }
 
 
 }
