@@ -9,7 +9,8 @@ module.exports = (function(window, document){
 
 	var bp = require("./breakpoints.js");
 	var classList = require("../polyfills/classlist.js");
-	var Modernizr = require("../vendor/modernizr-custom.js");
+
+	console.log(Modernizr.touchevents);
 
 	// Exit prematurely if not on about page as no need to run this module
 	if(!document.querySelector("body").classList.contains("about")){
@@ -122,6 +123,7 @@ module.exports = (function(window, document){
 	};
 
 	bannerToDefault = function(){
+		console.log(Modernizr);
 		if(!clipPath){
 			document.querySelector("body").classList.add("no-clip-path");
 			// if browser supports CSS animations then run load animation else clear animation blocking class
