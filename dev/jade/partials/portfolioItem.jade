@@ -67,9 +67,9 @@ section(class="banner banner--portfolio")
 							if screenshot.scroll && key === 0
 								- var slideStatus = "active scroll"
 							else if  key === 0
-								- var slideStatus = "active"
+								- var slideStatus = "active noScroll"
 							else 
-								- var slideStatus = ""
+								- var slideStatus = "noScroll"
 
 							div(class="portfolio-item__slide #{slideStatus}")
 								div(class="portfolio-item__slide-inner")

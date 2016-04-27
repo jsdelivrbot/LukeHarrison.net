@@ -1,7 +1,9 @@
 	// jquery Closest() vanilla JS function
 	// http://gomakethings.com/climbing-up-and-down-the-dom-tree-with-vanilla-javascript/
+
 	var getClosest = function (elem, selector) {
 	    var firstChar = selector.charAt(0);
+
 	    // Get closest match
 	    for ( ; elem && elem !== document; elem = elem.parentNode ) {
 	        // If selector is a class

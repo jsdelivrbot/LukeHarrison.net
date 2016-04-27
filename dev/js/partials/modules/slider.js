@@ -1,10 +1,15 @@
 module.exports = (function(document, window){
 
 	var classList = require("../polyfills/classlist.js");
+	var indexof = require("../polyfills/indexof.js");
+	var getcomputedstyle = require("../polyfills/getcomputedstyle.js");
 	var getClosest = require("../vendor/getClosest.js");
 	var swipeDetect = require("../vendor/swipeDetect.js");
 
 	var slider = document.querySelectorAll(".portfolio-item__screens.multiple"),
+		scrollSlides = document.querySelectorAll(".portfolio-item__slide.scroll .portfolio-item__screen"),
+		noScrollSlide = document.querySelector(".portfolio-item__slide.noScroll .portfolio-item__screen"),
+		noScrollSlideHeight,
 		length = slider.length,
 		i,
 		d,
@@ -12,6 +17,7 @@ module.exports = (function(document, window){
 		sliderMove,
 		sliderKey,
 		sliderSetup,
+		slideHeight,
 		target,
 		active,
 		next,
@@ -22,8 +28,9 @@ module.exports = (function(document, window){
 		activePos;
 
 	sliderClick = function(e){
+
 		target = e.target || e.srcElement;
-		parent = getClosest(e.target, '.portfolio-item__screens');
+		parent = getClosest(target, '.portfolio-item__screens');
 
 		if(target.classList.contains("portfolio-items__controls-prev")){
 			sliderMove("previous", parent);
@@ -39,12 +46,13 @@ module.exports = (function(document, window){
 	sliderMove = function(direction, parent){
 		active = parent.querySelector(".portfolio-item__slide.active");
 		screenContainer = parent.querySelector(".portfolio-item__container");
-		slides = Array.prototype.slice.call(screenContainer.querySelectorAll(".portfolio-item__slide"));
 
 		if(direction === "next") {
-			if(active.nextElementSibling){
-				activePos = (slides.indexOf(active) + 1);
-				next = active.nextElementSibling;
+			if(active.nextElementSibling || active.nextSibling){
+				//activePos = (slides.indexOf(active) + 1);
+				activePos = Array.prototype.indexOf.call(slides, active);
+				activePos = activePos + 1;
+				next = active.nextElementSibling || active.nextSibling;
 				screenContainer.style.left = "-" + (100 * activePos) + "%";
 			}
 			else {
@@ -58,14 +66,17 @@ module.exports = (function(document, window){
 			}
 		}
 		else if (direction === "previous") {
-			if(active.previousElementSibling){
-				activePos = (slides.indexOf(active) - 1);
-				next = active.previousElementSibling;
+			if(active.previousElementSibling || active.previousSibling){
+				//activePos = (slides.indexOf(active) - 1);
+				activePos = Array.prototype.indexOf.call(slides, active);
+				activePos = activePos - 1;
+				next = active.previousElementSibling || active.previousSibling;
 				screenContainer.style.left = "-" + (100 * activePos) + "%";
 			}
 			else {
 				next =  screenContainer.lastChild;
-				activePos = slides.indexOf(screenContainer.lastChild);
+				//activePos = slides.indexOf(screenContainer.lastChild);
+				activePos = Array.prototype.indexOf.call(slides, screenContainer.lastChild);
 				for(i = 0; i < slides.length; i++){
 					slides[i].classList.add("prev");
 				}
@@ -76,7 +87,7 @@ module.exports = (function(document, window){
 		if(direction && next){
 			if(active.classList.contains("active")){
 				active.classList.remove("active");
-				if(direction === "next" && active.nextElementSibling){
+				if(direction === "next" && active.nextElementSibling || direction === "next" && active.nextSibling){
 					active.classList.add("prev");
 				}
 			}
@@ -86,6 +97,15 @@ module.exports = (function(document, window){
 			}
 		}
 	}
+
+	slideHeight = function(){
+		// First get height num from nonscroll slide
+		noScrollSlideHeight = window.getComputedStyle(noScrollSlide).height;
+
+		for(d = 0; d < scrollSlides.length; d++){
+			scrollSlides[d].style.height = noScrollSlideHeight;
+		}
+	};
 
 	sliderSetup = (function(slider, Modernizr){
 		 // Add event listeners
@@ -98,7 +118,7 @@ module.exports = (function(document, window){
 			}
 			else {
 				slider[i].attachEvent("onclick", function(e){
-					sliderClick(e); 
+					sliderClick(e);
 				}); 
 			}
 
@@ -129,6 +149,14 @@ module.exports = (function(document, window){
 			// Set container width
 			screenContainer.style.width = (100 * slides.length) + "%";
 			screenContainer.style.left = 0 + "%"; 
+
+			// Sort height on scroll slides
+			slideHeight();
+
+			// On window resize get new document dimensions and resize scroll slides
+			window.onresize = function(){ 
+				slideHeight();  
+			}
 		}
 	})(slider, Modernizr);
 
