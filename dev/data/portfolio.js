@@ -20,13 +20,17 @@ var portfolio = {
 		"urlText" : "View Schooltopia",
 		"screenshots": [
 			{
-				"url": "img/portfolio/sideprojects/tilepuzzle/01.png",
-				"scroll": false
+				"url": "img/portfolio/sideprojects/schooltopia/01.jpg",
+				"scroll": true
+			},
+			{
+				"url": "img/portfolio/sideprojects/schooltopia/02.jpg",
+				"scroll": true
 			}
 		],
 		"description": [
 			"Schooltopia is a website offering web design services to primary schools. Building upon the knowledge and experience I gained at Red HQ, I wanted to create a secondary portfolio website specifically targeting schools.",
-			"This means in the future if I have the desire and the freelance capacity to build more school websites, I already have something to work with.",
+			"This means in the future if I have the desire and the freelance capacity to build more school websites, I already have a foundation to build on.",
 		]
 	},
 	"Tile Puzzle Game" : {

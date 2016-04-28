@@ -46,6 +46,7 @@ module.exports = (function(document, window){
 	sliderMove = function(direction, parent){
 		active = parent.querySelector(".portfolio-item__slide.active");
 		screenContainer = parent.querySelector(".portfolio-item__container");
+		slides = screenContainer.querySelectorAll(".portfolio-item__slide"); 
 
 		if(direction === "next") {
 			if(active.nextElementSibling || active.nextSibling){
@@ -58,7 +59,6 @@ module.exports = (function(document, window){
 			else {
 				next =  screenContainer.firstChild;
 				activePos = 0;
-				slides = screenContainer.querySelectorAll(".portfolio-item__slide"); 
 				for(i = 0; i < slides.length; i++){
 					slides[i].classList.remove("prev");
 				}
