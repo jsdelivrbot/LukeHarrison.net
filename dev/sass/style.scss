@@ -111,6 +111,7 @@ p {
 
 .banner {
 	color:#fff;
+	background:$misc;
 	text-align:center;
 	h1 {
 		text-transform:uppercase;
@@ -134,7 +135,7 @@ p {
 	font-size:3px;
 }
 
-p a, .banner a, .portfolio-item a {
+section p a, .banner a, .portfolio-item a {
 	position:relative;
 	text-decoration:none;
 	&:hover {
@@ -229,7 +230,7 @@ p a, .banner a, .portfolio-item a {
 // PAGE SPECIFIC CLASSES
 //--------------------------------------------------------------------
 
-.about p a {
+.about section p a {
 	color:$type;
 	text-decoration:none;
 	font-weight:bold;
@@ -238,7 +239,7 @@ p a, .banner a, .portfolio-item a {
 	}
 }
 
-.portfolio p a, .portfolio-item a {
+.portfolio section p a, .portfolio-item a {
 	color:$type;
 	font-weight:bold;
 	text-decoration:none;
@@ -1075,6 +1076,14 @@ footer {
 		}
 		& li a {
 			font-size:18px;
+		}
+	}
+
+	a.standard {
+		color:$type;
+		text-decoration:none;
+		&:hover {
+			text-decoration:underline;
 		}
 	}
 
