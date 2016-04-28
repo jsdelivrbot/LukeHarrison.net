@@ -10,7 +10,6 @@ module.exports = (function(window, document){
 	var bp = require("./breakpoints.js");
 	var classList = require("../polyfills/classlist.js");
 
-	console.log(Modernizr.touchevents);
 
 	// Exit prematurely if not on about page as no need to run this module
 	if(!document.querySelector("body").classList.contains("about")){
@@ -42,6 +41,7 @@ module.exports = (function(window, document){
 		clipPath = areClipPathShapesSupported(),
 		moveWidth = document.body.clientWidth || document.documentElement.clientWidth,
 		moveHeight = document.body.clientHeight + 300 || document.documentElement.clientHeight + 300,
+		isSafari = navigator.userAgent.indexOf('Safari') != -1 && navigator.userAgent.indexOf('Chrome') == -1, 
 		bannerEnter,
 		bannerLeave,
 		bannerAnimation,
@@ -49,7 +49,7 @@ module.exports = (function(window, document){
 		resizeBanner,
 		bannerToDefault,
 		bannerReset,
-		anim0,	anim10, anim50, anim60, anim100,
+		anim0,	anim10, anim50, anim60, anim100; 
 
 	// Create function to set default feature state
 	resizeBanner = function(){
@@ -58,7 +58,7 @@ module.exports = (function(window, document){
 		moveHeight = document.body.clientHeight + 300 || document.documentElement.clientHeight + 300; 
 
 		// Reset vertical line
-		if(!clipPath){
+		if(!clipPath || isSafari){
 			full.style.clip = `rect(0px, ${moveWidth}px, ${moveHeight}px, ${moveWidth*0.50}px)`;
 		}
 	};
@@ -114,7 +114,7 @@ module.exports = (function(window, document){
 	};
 
 	bannerReset = function(){
-		if(!clipPath){
+		if(!clipPath || isSafari){
 			full.style.clip = `rect(0px, ${moveWidth}px, ${moveHeight}px, ${moveWidth*0.50}px)`;
 		}
 		else {
@@ -124,7 +124,7 @@ module.exports = (function(window, document){
 
 	bannerToDefault = function(){
 		console.log(Modernizr);
-		if(!clipPath){
+		if(!clipPath || isSafari){
 			document.querySelector("body").classList.add("no-clip-path");
 			// if browser supports CSS animations then run load animation else clear animation blocking class
 			if(Modernizr.cssanimations) {
@@ -163,7 +163,7 @@ module.exports = (function(window, document){
 				pos = moveWidth - pos;
 
 				//Move vertical line
-				if(clipPath){ 
+				if(clipPath && !isSafari){ 
 					full.style.setProperty("-webkit-clip-path", `inset(0 0 0 ${pos}px)`); 
 				}
 				else {

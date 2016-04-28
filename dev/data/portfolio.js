@@ -26,6 +26,10 @@ var portfolio = {
 			{
 				"url": "img/portfolio/sideprojects/schooltopia/02.jpg",
 				"scroll": true
+			},
+			{
+				"url": "img/portfolio/sideprojects/schooltopia/03.svg",
+				"scroll": false
 			}
 		],
 		"description": [

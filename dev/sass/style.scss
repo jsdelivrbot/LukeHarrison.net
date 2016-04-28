@@ -1024,6 +1024,10 @@ footer {
 		margin-bottom:10em;
 	}
 
+	.link-wrapper {
+		display:block;
+	}
+
 	.social-icon {
 		display:inline-block;
 		margin:0 20px 20px 0;
@@ -1092,6 +1096,17 @@ footer {
 @include bpMax(med, "orientation:portrait") {
 	.footer-links {
 		display:none;
+	}
+}
+
+@include bp(sml) {
+	footer {
+		.link-wrapper {
+			display:inline;
+			&:before {
+				content:" | ";
+			}
+		}
 	}
 }
 

@@ -201,6 +201,7 @@ gulp.task('copy', function() {
 gulp.task("watch", function() {
 	// HTML
 	gulp.watch('dev/jade/**/*.jade',['html']);
+	gulp.watch('dev/data/**/*.js',['html']);
 	// Images
 	gulp.watch('dev/img/**/*.+(png|jpg|gif|svg)',['images']);
 	// Watch for Breakpoint JS changes and compile SASS
