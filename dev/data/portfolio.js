@@ -5,7 +5,8 @@ var portfolio = {
 		"urlText" : "View on Github",
 		"screenshots": [
 			{
-				"url": "img/portfolio/sideprojects/orion-framework/01.png",
+				"url": "img/portfolio/sideprojects/orion-framework/01.svg",
+				"altUrl": "img/portfolio/sideprojects/orion-framework/01.png",
 				"scroll": false
 			}
 		],
@@ -30,6 +31,16 @@ var portfolio = {
 			{
 				"url": "img/portfolio/sideprojects/schooltopia/03.svg",
 				"altUrl": "img/portfolio/sideprojects/schooltopia/03.png",
+				"scroll": false
+			},
+			{
+				"url": "img/portfolio/sideprojects/schooltopia/04.svg",
+				"altUrl": "img/portfolio/sideprojects/schooltopia/04.png",
+				"scroll": false
+			},
+			{
+				"url": "img/portfolio/sideprojects/schooltopia/05.svg",
+				"altUrl": "img/portfolio/sideprojects/schooltopia/05.png",
 				"scroll": false
 			}
 		],
