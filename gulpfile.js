@@ -221,3 +221,10 @@ gulp.task('build',function() {
 		["html", "images", "sass", "js", "copy"]
 	);
 });
+
+gulp.task('portfolio',function() {
+	runSequence(
+		// Run other tasks asynchronously 
+		["html", "images"]
+	);
+});

@@ -189,7 +189,7 @@ section p a, .banner a, .portfolio-item a {
 
 	.header--med {
 		font-size:36px;
-		line-height:32px;
+		line-height:normal;
 	}
 
 	.unit-scale {
@@ -1025,7 +1025,7 @@ footer {
 	}
 
 	.link-wrapper {
-		display:block;
+		display:none !important;
 	}
 
 	.social-icon {
@@ -1384,6 +1384,10 @@ form {
 	position:relative;
 	transition:left 1.0s;
 	@include clearfix();
+}
+
+.portfolio-item__text-inner .header--med {
+	margin-top:-5px;
 }
 
 .portfolio-item__slide {

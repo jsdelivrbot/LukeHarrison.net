@@ -71,14 +71,18 @@ section(class="banner banner--portfolio")
 							else if screenshot.scroll
 								- var slideStatus = "scroll"
 							else
-								- var slideStatus = "noScroll"
+								- var slideStatus = "noScroll"						
 
 							div(class="portfolio-item__slide #{slideStatus}")
 								div(class="portfolio-item__slide-inner")
 									img(src="img/browser.svg" class="portfolio-item__browser svg" alt="Browser")
 									img(src="img/browser.png" class="portfolio-item__browser no-svg" alt="Browser") 
 									div(class="portfolio-item__screen")
-										img(src= screenshot.url alt= name + " screenshot " + (key + 1))
+										if screenshot.altUrl
+											img(class="svg" src= screenshot.url alt= name + " screenshot " + (key + 1))
+											img(class="no-svg" src= screenshot.altUrl alt= name + " screenshot " + (key + 1))
+										else
+											img(src= screenshot.url alt= name + " screenshot " + (key + 1))
 
 					div(class="portfolio-item__controls")
 						span(class="portfolio-items__controls-arrow portfolio-items__controls-prev")
