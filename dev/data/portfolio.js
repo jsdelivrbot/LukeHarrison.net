@@ -1,4 +1,38 @@
 var portfolio = {
+	"A/B Testing and MVT" : {
+		"company": "Plusnet",
+		"screenshots": [
+			{
+				"url": "img/portfolio/plusnet/AB/01.jpg",
+				"scroll": false
+			},
+			{
+				"url": "img/portfolio/plusnet/AB/02.jpg",
+				"scroll": true
+			},
+			{
+				"url": "img/portfolio/plusnet/AB/03.jpg",
+				"scroll": true
+			}
+		],
+		"description": [
+			"One of my responsibilties at Plusnet is to build A/B and multivariant tests using Adobe Target. These allow me to test new sales page designs against existing ones by seeing how conversion is influenced.",
+			"This specific example shows a test where I compared the existing broadband packages page against a new streamlined full width variant over a 30 day period. Once this was over, metrics  within Adobe Target and Google Analytics showed that the new variant succeeded in improving conversion. It was subsquently rolled out in a later sprint.."
+		]
+	},
+	"Screenshot Automation Tool" : {
+		"company": "Plusnet",
+		"screenshots": [
+			{
+				"url": "img/portfolio/plusnet/screenshotTool/01.png",
+				"scroll": false
+			}
+		],
+		"description": [
+			"I created a screenshot automation tool using Ruby and Selenium WebDriver to help Plusnet developers easily generate large amounts of screenshots for use during stakeholder signoff.",
+			"Users can either select from common tasks, such as generating screenshots of all pages required for signoff of a broadband offer, or they can pass in a custom array for one-off jobs."
+		]
+	},
 	"Orion Framework" : {
 		"company": "Side Project",
 		"url": "https://github.com/WebDevLuke/Orion-Framework",
