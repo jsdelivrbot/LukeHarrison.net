@@ -17,20 +17,7 @@ var portfolio = {
 		],
 		"description": [
 			"One of my responsibilties at Plusnet is to build A/B and multivariant tests using Adobe Target. These allow me to test new sales page designs against existing ones by seeing how conversion is influenced.",
-			"This specific example shows a test where I compared the existing broadband packages page against a new streamlined full width variant over a 30 day period. Once this was over, metrics  within Adobe Target and Google Analytics showed that the new variant succeeded in improving conversion. It was subsquently rolled out in a later sprint.."
-		]
-	},
-	"Screenshot Automation Tool" : {
-		"company": "Plusnet",
-		"screenshots": [
-			{
-				"url": "img/portfolio/plusnet/screenshotTool/01.png",
-				"scroll": false
-			}
-		],
-		"description": [
-			"I created a screenshot automation tool using Ruby and Selenium WebDriver to help Plusnet developers easily generate large amounts of screenshots for use during stakeholder signoff.",
-			"Users can either select from common tasks, such as generating screenshots of all pages required for signoff of a broadband offer, or they can pass in a custom array for one-off jobs."
+			"This specific example shows a test where I compared the existing broadband packages page against a new streamlined full width variant over a 30 day period. Once this was over, metrics  within Adobe Target and Google Analytics showed that the new variant succeeded in improving conversion. It was subsquently rolled out in a later sprint."
 		]
 	},
 	"Orion Framework" : {
@@ -83,6 +70,19 @@ var portfolio = {
 			"This means in the future if I have the desire and the freelance capacity to build more school websites, I already have a foundation to build on."
 		]
 	},
+	"Screenshot Automation Tool" : {
+		"company": "Plusnet",
+		"screenshots": [
+			{
+				"url": "img/portfolio/plusnet/screenshotTool/01.png",
+				"scroll": false
+			}
+		],
+		"description": [
+			"I created a screenshot automation tool using Ruby and Selenium WebDriver to help Plusnet developers easily generate large amounts of screenshots for use during stakeholder signoff.",
+			"Users can either select from common tasks, such as generating screenshots of all pages required for signoff of a broadband offer, or they can pass in a custom array for one-off jobs."
+		]
+	},
 	"4x4overlander " : {
 		"company": "Red HQ",
 		"url": "http://www.4x4overlander.com/",
@@ -114,6 +114,21 @@ var portfolio = {
 			"This new website gave Red HQ a more professional showcase to promote it's services, and as a result it saw a large increase in organic web traffic and enquiries."
 		]
 	},
+	"Tile Puzzle Game" : {
+		"company": "Side Project",
+		"url": "https://codepen.io/lukedidit/full/yOeePo/",
+		"urlText" : "Play Tile Puzzle Game",
+		"screenshots": [
+			{
+				"url": "img/portfolio/sideprojects/tilepuzzle/01.png",
+				"scroll": false
+			}
+		],
+		"description": [
+			"This was a small side project of mine to put into practice what at the time I had recently learned about object-orientated programming in JavaScript. I feel I learn best when doing, so if I learn something substantial I tend to build upon that with a practical exercise.",
+			"There’s 4 different variations to tackle. See how quickly you can solve them!"
+		]
+	},
 	"MPD Power " : {
 		"company": "Red HQ",
 		"screenshots": [
@@ -131,6 +146,29 @@ var portfolio = {
 			"I worked with them to develop a new website which was modern and professional and would suit their needs. This redesign gave them a more corporate image which increased their sales both at home and especially in developing countries."
 		]
 	},
+	"Sandal Magna Community Academy" : {
+		"company": "Red HQ",
+		"url": "http://www.sandalmagna.co.uk",
+		"urlText" : "www.sandalmagna.co.uk",
+		"screenshots": [
+			{
+				"url": "img/portfolio/redhq/sandalmagna/01.jpg",
+				"scroll": true
+			},
+			{
+				"url": "img/portfolio/redhq/sandalmagna/02.jpg",
+				"scroll": false
+			},
+			{
+				"url": "img/portfolio/redhq/sandalmagna/03.jpg",
+				"scroll": false
+			}
+		],
+		"description": [
+			"Sandal Magna Community Academy was probably my favourite out of the six or so school websites I created whilst at Red HQ. I think it really serves as a brilliant showcase for the school and its surrounding community.",
+			"After each new school website was rolled live, I delivered training directly to the teachers themselves to educate them on how to use the CMS and what best practices were recommended."
+		]
+	},
 	"ReactJS IMDB App" : {
 		"company": "Side Project",
 		"url": "http://lukeharrison.net/react/",
@@ -144,35 +182,6 @@ var portfolio = {
 		"description": [
 			"This was a small development exercise to create my first web app using ReactJS. To use, simply enter a movie into the input and submit. Relevant data is then pulled from an IMDB API and displayed on the page.",
 			"This was a great introduction to building apps using ReactJS and allowed me to get to grips with the basic principles and syntax of this powerful library."
-		]
-	},
-	"Sandal Magna Community Academy" : {
-		"company": "Red HQ",
-		"url": "http://www.sandalmagna.co.uk",
-		"urlText" : "www.sandalmagna.co.uk",
-		"screenshots": [
-			{
-				"url": "img/portfolio/redhq/sandalmagna/01.jpg",
-				"scroll": true
-			}
-		],
-		"description": [
-			"Sandal Magna Community Academy was probably my favourite out of the six or so school websites I created whilst at Red HQ. I think it really serves as a brilliant showcase for the school and its surrounding community.",
-		]
-	},
-	"Tile Puzzle Game" : {
-		"company": "Side Project",
-		"url": "https://codepen.io/lukedidit/full/yOeePo/",
-		"urlText" : "Play Tile Puzzle Game",
-		"screenshots": [
-			{
-				"url": "img/portfolio/sideprojects/tilepuzzle/01.png",
-				"scroll": false
-			}
-		],
-		"description": [
-			"This was a small side project of mine to put into practice what at the time I had recently learned about object-orientated programming in JavaScript. I feel I learn best when doing, so if I learn something substantial I tend to build upon that with a practical exercise.",
-			"There’s 4 different variations to tackle. See how quickly you can solve them!"
 		]
 	}
 };
