@@ -28,17 +28,14 @@ module.exports = (function(){
 			removeLoader;
 
 		removeLoader = function(){
-			console.log("bla");
-			// loader.style.display = "none";
+			loader.style.display = "none";
 		};
 
-		// if(loader.addEventListener){
-		// 	prefixedEvent(loader, "AnimationEnd", removeLoader);
-		// }
+		if(loader.addEventListener){
+			prefixedEvent(loader, "TransitionEnd", removeLoader);
+		}
 
-		loader.addEventListener("webkitAnimationEnd", removeLoader);
-
-		// Define loader close behaviour
+		// Define loader close behaviour 
 		window.onload = function(){
 
 			// Remove loader icon
