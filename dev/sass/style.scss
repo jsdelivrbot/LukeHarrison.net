@@ -716,14 +716,15 @@ nav {
 		animation-name: banner-animate;
 		animation-duration: 2s; 
 		animation-timing-function: ease-in-out;
+		animation-play-state: paused;
 	}
 
 	body.no-clip-path .banner--about.animated .feature-full {
 		animation-name: banner-animate-legacy;
 		animation-duration: 2s;
 		animation-timing-function: ease-in-out;
+		animation-play-state: paused;
 	}
-
 
 }
 
@@ -1665,6 +1666,66 @@ form {
 
 
 }
+
+//--------------------------------------------------------------------
+// LOADER
+//--------------------------------------------------------------------
+
+.loader {
+	display:table;
+	background:#fff;
+	opacity:0;
+	width:100%;
+	height:100%;
+	position:fixed;
+	z-index:100;
+	transition:opacity 0.5s;
+
+	.loader-inner {
+		display:table-cell;
+		width:100%;
+		height:100%;
+		vertical-align:middle;
+		text-align:center; 
+	}
+
+	.loader-icon {
+	    display: inline-block;
+	    width: 2em;
+	    height: 2em;
+	    border: .25em solid rgba(0,0,0,.1);
+	    border-top-color: $about;
+	    border-radius: 50%;
+	    -webkit-animation: loading 1s infinite linear;
+	    animation: loading 1s infinite linear;
+	    margin: 2em;
+	}
+
+	@-webkit-keyframes loading {
+	    100% {
+	        transform: rotate(360deg);
+	    }
+	}
+
+	@keyframes loading {
+	    100% {
+	        transform: rotate(360deg);
+	    }
+	}
+}
+
+.portfolio .loader .loader-icon {
+	border-top-color: $portfolio;
+}
+
+.contact .loader .loader-icon {
+	border-top-color: $contact;
+}
+
+body.loading .loader {
+	opacity:1.0;
+}
+
 
 //--------------------------------------------------------------------
 // HIDE IE8 FALLBACKS
