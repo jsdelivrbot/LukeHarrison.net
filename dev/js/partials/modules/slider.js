@@ -108,6 +108,7 @@ module.exports = (function(document, window){
 	};
 
 	noScrollSlide.onload = function(){
+		console.log("onload!!!");
 		slideHeight();  
 	}; 
 
