@@ -2,6 +2,7 @@
 module.exports = (function(){
 
 	var Modernizr = require("../vendor/modernizr-custom.js");
+	var prefixedEvent = require("../vendor/prefixedEvent.js");
 
 	/*
 	|--------------------------------------------------------------------
@@ -9,8 +10,10 @@ module.exports = (function(){
 	|--------------------------------------------------------------------
 	*/	
 
-	var year = document.querySelector(".year");	
-	year.innerText = (new Date).getFullYear();
+	(function(document){
+		var year = document.querySelector(".year");	
+		year.innerText = (new Date).getFullYear();
+	})(document);
 
 	/*
 	|--------------------------------------------------------------------
@@ -18,18 +21,34 @@ module.exports = (function(){
 	|--------------------------------------------------------------------
 	*/	
 
-	window.onload = function(){
-
+	(function(document, window, prefixedEvent){
 		var body = document.querySelector("body"),
-			feature = document.querySelector(".banner--about.animated .feature-full");
+			loader = document.querySelector(".loader"),
+			feature = document.querySelector(".banner--about.animated .feature-full"),
+			removeLoader;
 
-		// Remove loader icon
-		body.classList.remove("loading");
+		removeLoader = function(){
+			console.log("bla");
+			// loader.style.display = "none";
+		};
 
-		// If on about page start feature animation
-		if(body.classList.contains("about")){
-			feature.style.animationPlayState = "running"; 
-		}
-	};
+		// if(loader.addEventListener){
+		// 	prefixedEvent(loader, "AnimationEnd", removeLoader);
+		// }
+
+		loader.addEventListener("webkitAnimationEnd", removeLoader);
+
+		// Define loader close behaviour
+		window.onload = function(){
+
+			// Remove loader icon
+			body.classList.remove("loading");
+
+			// If on about page start feature animation
+			if(body.classList.contains("about")){
+				feature.style.animationPlayState = "running"; 
+			}
+		};
+	})(document, window, prefixedEvent);
 
 })();

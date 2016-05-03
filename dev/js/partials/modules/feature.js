@@ -9,6 +9,7 @@ module.exports = (function(window, document){
 
 	var bp = require("./breakpoints.js");
 	var classList = require("../polyfills/classlist.js");
+	var prefixedEvent = require("../vendor/prefixedEvent.js");
 
 
 	// Exit prematurely if not on about page as no need to run this module
@@ -19,17 +20,6 @@ module.exports = (function(window, document){
 	// Check if clip-paths are supported function
 	// http://stackoverflow.com/questions/27558996/how-can-i-test-for-clip-path-support
 	var areClipPathShapesSupported = function () {var base = 'clipPath', prefixes = [ 'webkit', 'moz', 'ms', 'o' ], properties = [ base ], testElement = document.createElement( 'testelement' ), attribute = 'inset(0 0 0 50%)'; for ( var i = 0, l = prefixes.length; i < l; i++ ) {var prefixedProperty = prefixes[i] + base.charAt( 0 ).toUpperCase() + base.slice( 1 ); properties.push( prefixedProperty ); } for ( var i = 0, l = properties.length; i < l; i++ ) {var property = properties[i]; if ( testElement.style[property] === '' ) {testElement.style[property] = attribute; if ( testElement.style[property] !== '' ) {return true; } } } return false; },
-
-		prefixedEvent = function(element, type, callback) {
-			var pfx = ["webkit", "moz", "MS", "o", ""],
-				p,
-				length = pfx.length;
-
-			for (p = 0; p < length; p++) {
-				if (!pfx[p]) type = type.toLowerCase();
-				element.addEventListener(pfx[p]+type, callback, false);
-			}
-		},
 
 		// Set or declare variables
 		banner = document.querySelector(".banner--about"),
@@ -123,7 +113,6 @@ module.exports = (function(window, document){
 	};
 
 	bannerToDefault = function(){
-		console.log(Modernizr);
 		if(!clipPath || isSafari){
 			document.querySelector("body").classList.add("no-clip-path");
 			// if browser supports CSS animations then run load animation else clear animation blocking class
@@ -185,13 +174,14 @@ module.exports = (function(window, document){
 
 	// Define function which fires when CSS animation intro has ended
 	bannerAnimation = function(){
-		if(banner.classList.contains("animated")) { 
+		if(banner.classList.contains("animated")) {
 			banner.classList.remove("animated");
 		}
 	};
 
 	// Attach event liseners if not touch device and if not available use legacy attachEvent
 	if(!Modernizr.touchevents){
+
 		if(banner.addEventListener){
 			prefixedEvent(full, "AnimationEnd", bannerAnimation);
 			banner.addEventListener("mouseover", bannerEnter);
