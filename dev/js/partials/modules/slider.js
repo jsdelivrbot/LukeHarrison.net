@@ -8,7 +8,7 @@ module.exports = (function(document, window){
 
 	var slider = document.querySelectorAll(".portfolio-item__screens.multiple"),
 		scrollSlides = document.querySelectorAll(".portfolio-item__slide.scroll .portfolio-item__screen"),
-		noScrollSlide = document.querySelector(".portfolio-item__slide.noScroll .portfolio-item__screen"),
+		noScrollSlide = document.querySelector(".portfolio-item__slide.noScroll .portfolio-item__screen img"),
 		noScrollSlideHeight,
 		length = slider.length,
 		i,
@@ -100,12 +100,16 @@ module.exports = (function(document, window){
 
 	slideHeight = function(){
 		// First get height num from nonscroll slide
-		noScrollSlideHeight = window.getComputedStyle(noScrollSlide).height;
+			noScrollSlideHeight = window.getComputedStyle(noScrollSlide).height;
 
-		for(d = 0; d < scrollSlides.length; d++){
-			scrollSlides[d].style.height = noScrollSlideHeight;
-		}
+			for(d = 0; d < scrollSlides.length; d++){
+				scrollSlides[d].style.height = noScrollSlideHeight;
+			} 
 	};
+
+	noScrollSlide.onload = function(){
+		slideHeight();  
+	}; 
 
 	sliderSetup = (function(slider, Modernizr){
 		 // Add event listeners
@@ -149,9 +153,6 @@ module.exports = (function(document, window){
 			// Set container width
 			screenContainer.style.width = (100 * slides.length) + "%";
 			screenContainer.style.left = 0 + "%"; 
-
-			// Sort height on scroll slides
-			slideHeight();
 
 			// On window resize get new document dimensions and resize scroll slides
 			window.onresize = function(){ 
