@@ -1439,12 +1439,14 @@ form {
 	}
 }
 
-.portfolio-item__slide.scroll {
+.portfolio-item__slide {
 	//height:calc(100% - 39px);
 	max-width:100%;
 }
 
-.portfolio-item__slide.scroll .portfolio-item__screen {
+.portfolio-item__slide .portfolio-item__screen {
+	position:absolute;
+	height:calc(100% - 39px);
 	img {
 		width:100%;
 		height:auto;
@@ -1454,7 +1456,13 @@ form {
 	}
 }
 
-.portfolio-item__slide.scroll .portfolio-item__screen {
+.portfolio-spacer {
+	width:100%;
+	height:auto;
+	display:block;
+}
+
+.portfolio-item__slide.scroll .portfolio-item__screen { 
 	overflow:scroll;
 	overflow-x: hidden;
 }

@@ -2,7 +2,6 @@ module.exports = (function(document, window){
 
 	var classList = require("../polyfills/classlist.js");
 	var indexof = require("../polyfills/indexof.js");
-	var getcomputedstyle = require("../polyfills/getcomputedstyle.js");
 	var getClosest = require("../vendor/getClosest.js");
 	var swipeDetect = require("../vendor/swipeDetect.js");
 
@@ -98,20 +97,6 @@ module.exports = (function(document, window){
 		}
 	}
 
-	slideHeight = function(){
-		// First get height num from nonscroll slide
-			noScrollSlideHeight = window.getComputedStyle(noScrollSlide).height;
-
-			for(d = 0; d < scrollSlides.length; d++){
-				scrollSlides[d].style.height = noScrollSlideHeight;
-			} 
-	};
-
-	noScrollSlide.onload = function(){
-		console.log("onload!!!");
-		slideHeight();  
-	}; 
-
 	sliderSetup = (function(slider, Modernizr){
 		 // Add event listeners
 		for(i = 0; i < length; i++) {
@@ -154,11 +139,6 @@ module.exports = (function(document, window){
 			// Set container width
 			screenContainer.style.width = (100 * slides.length) + "%";
 			screenContainer.style.left = 0 + "%"; 
-
-			// On window resize get new document dimensions and resize scroll slides
-			window.onresize = function(){ 
-				slideHeight();  
-			}
 		}
 	})(slider, Modernizr);
 
