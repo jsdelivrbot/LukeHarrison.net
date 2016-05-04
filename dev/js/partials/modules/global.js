@@ -1,7 +1,6 @@
 
 module.exports = (function(){
 
-	var Modernizr = require("../vendor/modernizr-custom.js");
 	var prefixedEvent = require("../vendor/prefixedEvent.js");
 
 	/*
@@ -31,13 +30,11 @@ module.exports = (function(){
 			loader.style.display = "none";
 		};
 
-		if(loader.addEventListener && Modernizr.cssanimations){
+		// This is breaking loader
+		if(Modernizr.cssanimations){
 			prefixedEvent(loader, "TransitionEnd", removeLoader);
 		}
-		else {
-			removeLoader();
-		}
-
+		
 		// Define loader close behaviour 
 		window.onload = function(){
 

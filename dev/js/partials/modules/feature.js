@@ -11,7 +11,6 @@ module.exports = (function(window, document){
 	var classList = require("../polyfills/classlist.js");
 	var prefixedEvent = require("../vendor/prefixedEvent.js");
 
-
 	// Exit prematurely if not on about page as no need to run this module
 	if(!document.querySelector("body").classList.contains("about")){
 		return false;

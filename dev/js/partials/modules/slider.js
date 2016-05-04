@@ -9,7 +9,7 @@ module.exports = (function(document, window){
 		scrollSlides = document.querySelectorAll(".portfolio-item__slide.scroll .portfolio-item__screen"),
 		noScrollSlide = document.querySelector(".portfolio-item__slide.noScroll .portfolio-item__screen img"),
 		noScrollSlideHeight,
-		length = slider.length,
+		length = slider.length, 
 		i,
 		d,
 		sliderClick,

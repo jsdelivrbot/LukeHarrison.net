@@ -1734,6 +1734,12 @@ body.loading .loader {
 	opacity:1.0;
 }
 
+html.no-cssanimations .loader {
+	display:none !important;
+	opacity:0 !important;
+	visibility:hidden !important;
+}	
+
 
 //--------------------------------------------------------------------
 // HIDE IE8 FALLBACKS
