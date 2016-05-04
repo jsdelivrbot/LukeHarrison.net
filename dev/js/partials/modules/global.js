@@ -31,8 +31,11 @@ module.exports = (function(){
 			loader.style.display = "none";
 		};
 
-		if(loader.addEventListener){
+		if(loader.addEventListener && Modernizr.cssanimations){
 			prefixedEvent(loader, "TransitionEnd", removeLoader);
+		}
+		else {
+			removeLoader();
 		}
 
 		// Define loader close behaviour 

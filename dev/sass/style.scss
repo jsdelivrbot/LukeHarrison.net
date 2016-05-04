@@ -1440,12 +1440,12 @@ form {
 }
 
 .portfolio-item__slide {
-	//height:calc(100% - 39px);
 	max-width:100%;
 }
 
 .portfolio-item__slide .portfolio-item__screen {
 	position:absolute;
+	height:93%;
 	height:calc(100% - 39px);
 	img {
 		width:100%;
