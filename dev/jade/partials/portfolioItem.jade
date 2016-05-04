@@ -83,7 +83,7 @@ section(class="banner banner--portfolio")
 											img(class="no-svg" src= screenshot.altUrl alt= name + " screenshot " + (key + 1))
 										else
 											img(src= screenshot.url alt= name + " screenshot " + (key + 1))
-									img(src="img/portfolio-spacer.gif" class="portfolio-spacer")
+									img(src="img/portfolio-spacer.gif" class="portfolio-spacer" alt="portfolio spacer")
 
 					div(class="portfolio-item__controls")
 						span(class="portfolio-items__controls-arrow portfolio-items__controls-prev")
@@ -94,7 +94,7 @@ section(class="banner banner--portfolio")
 					div(class="portfolio-item__text #{containerClasses}")
 						div(class="portfolio-item__text-inner")
 							h3= value.company
-							h1(class="header--med")= key
+							h2(class="header--med")= key
 				
 							//- Print out all paragraphs
 							each paragraph in value.description
