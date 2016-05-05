@@ -3,15 +3,15 @@ var portfolio = {
 		"company": "Plusnet",
 		"screenshots": [
 			{
-				"url": "img/portfolio/plusnet/AB/01.jpg",
+				"url": "/img/portfolio/plusnet/AB/01.jpg",
 				"scroll": false
 			},
 			{
-				"url": "img/portfolio/plusnet/AB/02.jpg",
+				"url": "/img/portfolio/plusnet/AB/02.jpg",
 				"scroll": true
 			},
 			{
-				"url": "img/portfolio/plusnet/AB/03.jpg",
+				"url": "/img/portfolio/plusnet/AB/03.jpg",
 				"scroll": true
 			}
 		],
@@ -26,8 +26,8 @@ var portfolio = {
 		"urlText" : "View on Github",
 		"screenshots": [
 			{
-				"url": "img/portfolio/sideprojects/orion-framework/01.svg",
-				"altUrl": "img/portfolio/sideprojects/orion-framework/01.png",
+				"url": "/img/portfolio/sideprojects/orion-framework/01.svg",
+				"altUrl": "/img/portfolio/sideprojects/orion-framework/01.png",
 				"scroll": false
 			}
 		],
@@ -42,26 +42,26 @@ var portfolio = {
 		"urlText" : "www.schooltopia.co.uk",
 		"screenshots": [
 			{
-				"url": "img/portfolio/sideprojects/schooltopia/01.jpg",
+				"url": "/img/portfolio/sideprojects/schooltopia/01.jpg",
 				"scroll": true
 			},
 			{
-				"url": "img/portfolio/sideprojects/schooltopia/02.jpg",
+				"url": "/img/portfolio/sideprojects/schooltopia/02.jpg",
 				"scroll": true
 			},
 			{
-				"url": "img/portfolio/sideprojects/schooltopia/03.svg",
-				"altUrl": "img/portfolio/sideprojects/schooltopia/03.png",
+				"url": "/img/portfolio/sideprojects/schooltopia/03.svg",
+				"altUrl": "/img/portfolio/sideprojects/schooltopia/03.png",
 				"scroll": false
 			},
 			{
-				"url": "img/portfolio/sideprojects/schooltopia/04.svg",
-				"altUrl": "img/portfolio/sideprojects/schooltopia/04.png",
+				"url": "/img/portfolio/sideprojects/schooltopia/04.svg",
+				"altUrl": "/img/portfolio/sideprojects/schooltopia/04.png",
 				"scroll": false
 			},
 			{
-				"url": "img/portfolio/sideprojects/schooltopia/05.svg",
-				"altUrl": "img/portfolio/sideprojects/schooltopia/05.png",
+				"url": "/img/portfolio/sideprojects/schooltopia/05.svg",
+				"altUrl": "/img/portfolio/sideprojects/schooltopia/05.png",
 				"scroll": false
 			}
 		],
@@ -74,7 +74,7 @@ var portfolio = {
 		"company": "Plusnet",
 		"screenshots": [
 			{
-				"url": "img/portfolio/plusnet/screenshotTool/01.png",
+				"url": "/img/portfolio/plusnet/screenshotTool/01.png",
 				"scroll": false
 			}
 		],
@@ -89,7 +89,7 @@ var portfolio = {
 		"urlText" : "www.4x4overlander.com",
 		"screenshots": [
 			{
-				"url": "img/portfolio/redhq/4x4overlander/01.jpg",
+				"url": "/img/portfolio/redhq/4x4overlander/01.jpg",
 				"scroll": true
 			}
 		],
@@ -101,11 +101,11 @@ var portfolio = {
 		"company": "Red HQ",
 		"screenshots": [
 			{
-				"url": "img/portfolio/redhq/redhq/01.jpg",
+				"url": "/img/portfolio/redhq/redhq/01.jpg",
 				"scroll": true
 			},
 			{
-				"url": "img/portfolio/redhq/redhq/02.jpg",
+				"url": "/img/portfolio/redhq/redhq/02.jpg",
 				"scroll": false
 			}
 		],
@@ -120,7 +120,7 @@ var portfolio = {
 		"urlText" : "Play Tile Puzzle Game",
 		"screenshots": [
 			{
-				"url": "img/portfolio/sideprojects/tilepuzzle/01.png",
+				"url": "/img/portfolio/sideprojects/tilepuzzle/01.png",
 				"scroll": false
 			}
 		],
@@ -133,11 +133,11 @@ var portfolio = {
 		"company": "Red HQ",
 		"screenshots": [
 			{
-				"url": "img/portfolio/redhq/mpdpower/01.jpg",
+				"url": "/img/portfolio/redhq/mpdpower/01.jpg",
 				"scroll": true
 			},
 			{
-				"url": "img/portfolio/redhq/mpdpower/02.jpg",
+				"url": "/img/portfolio/redhq/mpdpower/02.jpg",
 				"scroll": true
 			}
 		],
@@ -152,15 +152,15 @@ var portfolio = {
 		"urlText" : "www.sandalmagna.co.uk",
 		"screenshots": [
 			{
-				"url": "img/portfolio/redhq/sandalmagna/01.jpg",
+				"url": "/img/portfolio/redhq/sandalmagna/01.jpg",
 				"scroll": true
 			},
 			{
-				"url": "img/portfolio/redhq/sandalmagna/02.jpg",
+				"url": "/img/portfolio/redhq/sandalmagna/02.jpg",
 				"scroll": false
 			},
 			{
-				"url": "img/portfolio/redhq/sandalmagna/03.jpg",
+				"url": "/img/portfolio/redhq/sandalmagna/03.jpg",
 				"scroll": false
 			}
 		],
@@ -175,7 +175,7 @@ var portfolio = {
 		"urlText" : "Use ReactJS IMDB App",
 		"screenshots": [
 			{
-				"url": "img/portfolio/sideprojects/reactmovies/01.jpg",
+				"url": "/img/portfolio/sideprojects/reactmovies/01.jpg",
 				"scroll": false
 			}
 		],

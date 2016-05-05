@@ -1,1 +1,37 @@
-REMEMBER TO CREATE ME
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<url>
+  <loc>http://www.lukeharrison.net/</loc>
+  <lastmod>2016-05-05T16:13:29+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.lukeharrison.net/portfolio</loc>
+  <lastmod>2016-05-05T16:16:32+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.lukeharrison.net/contact</loc>
+  <lastmod>2016-05-05T16:13:29+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.lukeharrison.net/portfolio/plusnet</loc>
+  <lastmod>2016-05-05T16:16:31+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.lukeharrison.net/portfolio/red-hq</loc>
+  <lastmod>2016-05-05T16:16:31+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://www.lukeharrison.net/portfolio/side-projects</loc>
+  <lastmod>2016-05-05T16:16:31+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+</urlset>
