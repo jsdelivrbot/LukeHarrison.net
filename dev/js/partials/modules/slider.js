@@ -27,8 +27,6 @@ module.exports = (function(document, window){
 		slides,
 		activePos;
 
-
-
 	const instance = layzr({
 		normal: 'data-normal',
 		retina: 'data-retina',
