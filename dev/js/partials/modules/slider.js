@@ -4,6 +4,7 @@ module.exports = (function(document, window){
 	var indexof = require("../polyfills/indexof.js");
 	var getClosest = require("../vendor/getClosest.js");
 	var swipeDetect = require("../vendor/swipeDetect.js");
+	var layzr = require("layzr.js");
 
 	var slider = document.querySelectorAll(".portfolio-item__screens.multiple"),
 		scrollSlides = document.querySelectorAll(".portfolio-item__slide.scroll .portfolio-item__screen"),
@@ -25,6 +26,23 @@ module.exports = (function(document, window){
 		screenContainer,
 		slides,
 		activePos;
+
+
+
+	const instance = layzr({
+		normal: 'data-normal',
+		retina: 'data-retina',
+		srcset: 'data-srcset',
+		threshold: 0
+	})
+
+
+	document.addEventListener('DOMContentLoaded', event => {
+		instance
+			.update()           // track initial elements
+			.check()            // check initial elements
+			.handlers(true)     // bind scroll and resize handlers
+	})
 
 	sliderClick = function(e){
 

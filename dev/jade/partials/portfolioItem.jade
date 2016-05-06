@@ -75,15 +75,15 @@ section(class="banner banner--portfolio")
 
 							div(class="portfolio-item__slide #{slideStatus}")
 								div(class="portfolio-item__slide-inner")
-									img(src="/img/browser.svg" class="portfolio-item__browser svg" alt="Browser")
-									img(src="/img/browser.png" class="portfolio-item__browser no-svg" alt="Browser") 
+									img(src="img/browser.svg" class="portfolio-item__browser svg" alt="Browser")
+									img(src="img/browser.png" class="portfolio-item__browser no-svg" alt="Browser") 
 									div(class="portfolio-item__screen")
 										if screenshot.altUrl
-											img(class="svg" src= screenshot.url alt= name + " screenshot " + (key + 1))
-											img(class="no-svg" src= screenshot.altUrl alt= name + " screenshot " + (key + 1))
+											img(class="svg" data-normal= screenshot.url alt= name + " screenshot " + (key + 1))
+											img(class="no-svg" data-normal= screenshot.altUrl alt= name + " screenshot " + (key + 1))
 										else
-											img(src= screenshot.url alt= name + " screenshot " + (key + 1))
-									img(src="/img/portfolio-spacer.gif" class="portfolio-spacer" alt="portfolio spacer")
+											img(data-normal= screenshot.url alt= name + " screenshot " + (key + 1))
+									img(src="img/portfolio-spacer.gif" class="portfolio-spacer" alt="portfolio spacer")
 
 					div(class="portfolio-item__controls")
 						span(class="portfolio-items__controls-arrow portfolio-items__controls-prev")
