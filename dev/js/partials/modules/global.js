@@ -43,7 +43,10 @@ module.exports = (function(){
 
 			// If on about page start feature animation
 			if(body.classList.contains("about")){
+				
 				feature.style.animationPlayState = "running"; 
+				feature.style.webkitAnimationPlayState = "running"; 
+
 			}
 		};
 	})(document, window, prefixedEvent);
