@@ -54,7 +54,7 @@ var portfolio = {
 		],
 		"description": [
 			"Plusnet Toolkit is an internal website built on Wordpress which gives creatives and stakeholders easy access to brand assets.",
-			"It started out as a small side project intended for use within the web dev team but grew in scope and is now used by creatives and brand stakeholders in departments across Plusnet."
+			"It started out as a small side project of mine intended for use within the web dev team, but grew in scope and is now used by creatives and brand stakeholders in departments across Plusnet."
 		]
 	},
 	"Schooltopia" : {
