@@ -1,0 +1,28 @@
+doctype html
+html(lang='en')
+
+	head
+
+		- var name = "Articles - Luke Harrison"
+		- var slug = "articles" 
+		- var description = "A list of articles by Luke Harrison on web design, web development and more."
+
+		include partials/header
+
+	body(class="loading " + slug)
+
+		include ../img/master.svg
+		//include partials/loader
+		include partials/navigation
+
+		section(class="banner banner--articles") 
+					h1(class="header--lrg") Articles
+					h2(class="header--sml") Occasionally I write about web development if I've learned something new or want to share something neat. 
+
+		section(class="articles__list unit-scale")
+			div(class="container")
+				div(class="med-clear med10 med-offset1 xxxlrg-clear xxxlrg10 xxxlrg-offset3")
+					div(class="article-item")
+						h3(class="article-item__date") 12 October 2016  
+						h2(class="article-item__title header--med")
+							a(href="/") Article title link goes here  Article title link goes here  Article title link goes here 

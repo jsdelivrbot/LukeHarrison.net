@@ -6,14 +6,15 @@ header
 		|Web Designer &amp; #[span(class="nowrap") Front-end Developer]
 	nav
 		ul
-			li(class="outer nav--logo")
-				span(class="inner")
-					svg(class="icon icon-logo")
-						use(xlink:href='#icon-logo')
-					span(class="icon icon-logo no-svg")
-					span(class="logo-text")
-						strong Luke Harrison 
-						|Web Designer &amp; #[span(class="nowrap") Front-end Developer]
+			li(class="nav--logo")
+				span(class="outer")
+					span(class="inner")
+						svg(class="icon icon-logo")
+							use(xlink:href='#icon-logo')
+						span(class="icon icon-logo no-svg")
+						span(class="logo-text")
+							strong Luke Harrison 
+							|Web Designer &amp; #[span(class="nowrap") Front-end Developer]
 			li(class="outer nav--about")
 				span(class="arrow")
 					span
@@ -24,6 +25,11 @@ header
 					span
 				span(class="inner")
 					a(href="/portfolio") Portfolio
+			li(class="outer nav--articles")
+				span(class="arrow")
+					span
+				span(class="inner")
+					a(href="/articles") Articles
 			li(class="outer nav--contact")
 				span(class="arrow")
 					span

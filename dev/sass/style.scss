@@ -20,7 +20,8 @@ Email: luke@lukeharrison.net
 // Colours
 $about: #47b4e0;
 $portfolio: #84bc44;
-$contact: #f05d4a;
+$articles: #f05d4a;
+$contact: #d266c9;
 $border: #e4e4e4;
 $type: #002010;
 $grey: #efefef;
@@ -118,7 +119,7 @@ p {
 		padding-top:10%;
 	}
 	h2 {
-		max-width:625px;
+		max-width:650px;
 		display:inline-block;
 		padding:0 15px 5% 15px;
 	}
@@ -274,13 +275,19 @@ header {
 		display:table;
 	}
 
+	span.outer {
+		display:table;
+		width:100%;
+		height:100%;
+	}
+
 	span.inner {
 		display:table-cell;
 		vertical-align:middle;
 	}
 
-	li.nav--about, li.nav--portfolio, li.nav--contact, nav.contact .nav--contact {
-		width:33.3%;
+	li.nav--about, li.nav--articles, li.nav--portfolio, li.nav--contact {
+		width:25%;
 	}
 
 	nav.about .nav--about, nav.portfolio .nav--portfolio,  {
@@ -362,7 +369,7 @@ li.nav--logo, .mobile-logo {
 }
 
 nav ul li a {
-	font-size:18px;
+	font-size:16px;
 	font-weight:bold;
 	text-decoration:none;
 	color:inherit;
@@ -399,6 +406,12 @@ nav {
 		}
 	}
 
+	li.nav--articles {
+		& a:before, & a:after {
+			background:$articles;
+		}
+	}
+
 	li.nav--portfolio {
 		& a:before, & a:after {
 			background:$portfolio;
@@ -412,7 +425,7 @@ nav {
 	}
 }
 
-.about .nav--about a, .portfolio .nav--portfolio a, .contact .nav--contact a, nav ul li a:hover {
+.about .nav--about a, .articles .nav--articles a, .portfolio .nav--portfolio a, .contact .nav--contact a, nav ul li a:hover {
 	&:before, &:after {
 		width:50%;
 	}
@@ -517,7 +530,7 @@ nav {
 			text-align:left;
 			padding:0 1.5%;
 			width:40%;
-			display:table;
+			display:block;
 			border:0;
 			height:inherit;
 			svg.icon-logo, div.icon-logo {
@@ -528,11 +541,11 @@ nav {
 			}
 			.logo-text {
 				display:block;
-				margin-left:80px;
+				margin-left:70px;
 			}
 		}
-		li.nav--about, li.nav--portfolio, li.nav--contact {
-			width:20%;
+		li.nav--about, li.nav--articles, li.nav--portfolio, li.nav--contact {
+			width:15%;
 		}
 		li.nav--about {
 			border-left:1px solid $border;
@@ -545,13 +558,10 @@ nav {
 
 }
 
-@include bp(xxlrg) {
+@include bp(xxlrg) { 
 	header nav {
-		li.nav--logo {
-			width:25%;
-		}
-		li.nav--about, li.nav--portfolio, li.nav--contact {
-			width:25%; 
+		li.nav--logo, li.nav--about, li.nav--articles, li.nav--portfolio, li.nav--contact {
+			width:20%;
 		}
 	}
 }
@@ -1126,7 +1136,7 @@ footer {
 	footer {
 		.footer-links {
 			& li {
-				margin-left:60px;
+				margin-left:50px;
 			}
 			& li a {
 				font-size:24px;
@@ -1677,6 +1687,62 @@ form {
 }
 
 //--------------------------------------------------------------------
+// ARTICLES
+//--------------------------------------------------------------------
+
+.banner--articles {
+	background:$articles;
+}
+
+.articles__list {
+	margin-top:10.0em;
+	overflow:hidden;
+}
+
+.article-item__date {
+	@extend .copy;
+}
+
+.article-item__title {
+	@extend .copy;
+	& a {
+		font-weight:bold;
+		text-decoration:none;
+		position:relative;
+		color:$type;
+		&:before {
+			content:"";
+			display:block;
+			position:absolute;
+			width:0%;
+			height:2px;
+			background:$articles;
+			bottom:-3px;
+			right:50%;
+			transition:width .5s
+		}
+		&:after {
+			content:"";
+			display:block;
+			position:absolute;
+			width:0%;
+			height:2px;
+			background:$articles;
+			bottom:-3px;
+			left:50%;
+			transition:width .25s
+		}
+	}
+}
+
+.article-item__title a:hover {
+	&:before, &:after {
+		width:50%;
+	}
+}
+
+
+//--------------------------------------------------------------------
 // LOADER
 //--------------------------------------------------------------------
 
@@ -1721,6 +1787,10 @@ form {
 	        transform: rotate(360deg);
 	    }
 	}
+}
+
+.articles .loader .loader-icon {
+	border-top-color: $articles;
 }
 
 .portfolio .loader .loader-icon {
