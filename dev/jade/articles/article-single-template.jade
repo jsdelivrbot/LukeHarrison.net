@@ -7,25 +7,27 @@ html(lang='en')
 		- var slug = "articles" 
 		- var description = "Article description goes here."
 
-		include partials/header
+		include ../partials/header
 
 	body(class="loading " + slug)
 
-		include ../img/master.svg
+		include ../../img/master.svg
 		//include partials/loader
-		include partials/navigation
+		include ../partials/navigation
 
 		section(class="banner banner--articles") 
-					h1(class="header--lrg article-header") Article title link goes here  
-					h2(class="header--sml") Posted on 12th October 2016  
+			h1(class="header--lrg article-header")= articleName
+			h2(class="header--sml") Posted on #{article.date}
 
 		section(class="articles__list unit-scale")
 			div(class="container")
 				div(class="med-clear med10 med-offset1 lrg8 lrg-offset2 xxxlrg-clear xxxlrg8 xxxlrg-offset4") 
 
-					div(class="article__body")
-						p Hello
+					- var articleContent = "../../articles/" + article.dir + article.slug + ".md"
 
+					div(class="article__body")
+						include:markdown= articleContent
+	
 					div(id="disqus_thread") 
 						script.
 							/**
@@ -46,4 +48,4 @@ html(lang='en')
 
 						script(id="dsq-count-scr" src="//webdevluke.disqus.com/count.js" async) 
 
-		include partials/footer
+		include ../partials/footer

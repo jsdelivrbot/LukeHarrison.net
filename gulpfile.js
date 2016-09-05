@@ -24,6 +24,7 @@ var sassport = require('gulp-sassport');
 var runSequence = require('run-sequence');
 // Used to convert Jade to HTML
 var jade = require('gulp-jade');
+var foreach = require('gulp-foreach');
 // Used to pipe JSON data into Jade
 var data = require('gulp-data');
 // Used to delete folders during build process
@@ -62,14 +63,42 @@ gulp.task('deleteDist', function(){
 |--------------------------------------------------------------------
 */
 
-// Filter in JSON data
-gulp.task('html', function() {
+
+// Filter in JSON data and render pages
+gulp.task('jade-standard', function() {
   return gulp.src('./dev/jade/*.jade')
     .pipe(data(function(file){
      		return {"portfolio": require('./dev/data/portfolio.js')}
      }))
     .pipe(jade())
     .pipe(gulp.dest('dist/'));
+});
+
+// Filter in blog data and render blog index and articles
+var articles = require('./dev/data/articles.js')
+
+gulp.task('jade-render-articles', function(){
+	Array.prototype.forEach.call(articles, function(article) {	
+		// Return jade article template
+		gulp.src('./dev/jade/articles/article-single-template.jade')
+		// Pipe data into jade
+		.pipe(data(function(file){
+		 	return {"article": articles[article], "articleName": article }
+		 }))
+		// Convert jade to HTML
+		.pipe(jade())
+		// Rename file
+		.pipe(rename(articles[article].slug + ".html"))
+		// Send to dist
+		.pipe(gulp.dest('dist/'));
+	});
+});
+
+gulp.task('html', function(){
+	runSequence(
+		"jade-standard",
+		"jade-blog"
+	);
 });
 
 /*

@@ -19,6 +19,7 @@
     "gulp-babel": "^6.1.2",
     "gulp-cache": "^0.4.2",
     "gulp-data": "^1.2.1",
+    "gulp-foreach": "^0.1.0",
     "gulp-if": "^2.0.0",
     "gulp-imagemin": "^2.4.0",
     "gulp-inject": "^3.0.0",
@@ -28,6 +29,7 @@
     "gulp-sassport": "^0.4.0",
     "gulp-streamify": "^1.0.2",
     "gulp-uglify": "^1.5.2",
+    "jstransformer-markdown": "^1.1.0",
     "layzr.js": "^2.0.4",
     "run-sequence": "^1.1.5",
     "vinyl-source-stream": "^1.1.0"
