@@ -12,7 +12,7 @@ html(lang='en')
 	body(class="loading " + slug)
 
 		include ../img/master.svg
-		//include partials/loader
+		include partials/loader
 		include partials/navigation
 
 		section(class="banner banner--articles") 
@@ -21,8 +21,26 @@ html(lang='en')
 
 		section(class="articles__list unit-scale")
 			div(class="container")
-				div(class="med-clear med10 med-offset1 xxxlrg-clear xxxlrg10 xxxlrg-offset3")
+				div(class="med-clear med10 med-offset1 lrg8 lrg-offset2 xxxlrg-clear xxxlrg8 xxxlrg-offset4")
+
 					div(class="article-item")
 						h3(class="article-item__date") 12 October 2016  
 						h2(class="article-item__title header--med")
 							a(href="/") Article title link goes here  Article title link goes here  Article title link goes here 
+
+					div(class="article-item")
+						h3(class="article-item__date") 12 October 2016  
+						h2(class="article-item__title header--med")
+							a(href="/") Article title link goes here  Article title link goes here  Article title link goes here 
+
+
+					div(class="article-item")
+						h3(class="article-item__date") 12 October 2016  
+						h2(class="article-item__title header--med")
+							a(href="/") Article title link goes here  Article title link goes here  Article title link goes here
+
+					a(href="/" class="article-navigation article-navigation--previous") Previous
+					a(href="/" class="article-navigation article-navigation--next") Next
+
+
+		include partials/footer

@@ -13,7 +13,7 @@ Email: luke@lukeharrison.net
 @import "partials/mixins";
 @import "partials/framework";
 
-//--------------------------------------------------------------------
+//---------------------------------------------------------------------
 // PROJECT VARIABLES
 //--------------------------------------------------------------------
 
@@ -21,7 +21,7 @@ Email: luke@lukeharrison.net
 $about: #47b4e0;
 $portfolio: #84bc44;
 $articles: #f05d4a;
-$contact: #d266c9;
+$contact: #c37cbd;
 $border: #e4e4e4;
 $type: #002010;
 $grey: #efefef;
@@ -136,7 +136,7 @@ p {
 	font-size:3px;
 }
 
-section p a, .banner a, .portfolio-item a {
+section p a, .banner a, .portfolio-item a, .article-navigation {
 	position:relative;
 	text-decoration:none;
 	&:hover {
@@ -541,7 +541,7 @@ nav {
 			}
 			.logo-text {
 				display:block;
-				margin-left:70px;
+				margin-left:75px;
 			}
 		}
 		li.nav--about, li.nav--articles, li.nav--portfolio, li.nav--contact {
@@ -1696,7 +1696,18 @@ form {
 
 .articles__list {
 	margin-top:10.0em;
-	overflow:hidden;
+}
+
+.article-item {
+	border-bottom:1px solid $border;
+	margin-bottom:10em;
+	padding-bottom:11em;
+	&:last-child {
+		border-bottom:0;
+	}
+	& h2 {
+		margin-bottom:0;
+	}
 }
 
 .article-item__date {
@@ -1704,43 +1715,52 @@ form {
 }
 
 .article-item__title {
-	@extend .copy;
+	margin-bottom:1.5em;
 	& a {
 		font-weight:bold;
 		text-decoration:none;
 		position:relative;
 		color:$type;
-		&:before {
-			content:"";
-			display:block;
-			position:absolute;
-			width:0%;
-			height:2px;
-			background:$articles;
-			bottom:-3px;
-			right:50%;
-			transition:width .5s
-		}
-		&:after {
-			content:"";
-			display:block;
-			position:absolute;
-			width:0%;
-			height:2px;
-			background:$articles;
-			bottom:-3px;
-			left:50%;
-			transition:width .25s
-		}
+	}
+	& a:hover {
+		text-decoration:underline;
 	}
 }
 
-.article-item__title a:hover {
+.article-item .article-item__title {
+	margin-bottom:0;
+}
+
+.article-navigation {
+	display:none;
+	@extend .copy;
+	color:$type;
+	font-weight:bold;
 	&:before, &:after {
-		width:50%;
+		background:$articles;
 	}
 }
 
+.article-navigation--previous {
+	float:left;
+}
+
+.article-navigation--next {
+	float:right;
+}
+
+.article__body {
+	margin-bottom:5em;
+}
+
+@include bp(med) {
+
+	.article-item {
+		margin-bottom:5em;
+		padding-bottom:6em;
+	}
+
+}
 
 //--------------------------------------------------------------------
 // LOADER
