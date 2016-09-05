@@ -24,7 +24,6 @@ var sassport = require('gulp-sassport');
 var runSequence = require('run-sequence');
 // Used to convert Jade to HTML
 var jade = require('gulp-jade');
-var foreach = require('gulp-foreach');
 // Used to pipe JSON data into Jade
 var data = require('gulp-data');
 // Used to delete folders during build process
