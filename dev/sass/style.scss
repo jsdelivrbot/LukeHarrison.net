@@ -1753,6 +1753,15 @@ form {
 	margin-bottom:5em;
 }
 
+.article-header {
+	max-width:1390px;
+	margin-left:auto; 
+	margin-right:auto;
+	padding:0 15px;
+	line-height:normal;
+	text-transform:none !important;
+}	
+
 @include bp(med) {
 
 	.article-item {
