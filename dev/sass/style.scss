@@ -25,7 +25,7 @@ $contact: #c37cbd;
 $border: #e4e4e4;
 $type: #002010;
 $grey: #efefef;
-$misc: #c8c8c8;
+$misc: #f05d4a;
 $error: #E1482F;
 $light-error: #FFEBE6;
 $success: #32bd5d;
@@ -923,6 +923,19 @@ nav {
 	}
 
 	.text-box--js {
+		border-bottom:10px solid $articles;
+
+		ul:before, li:before {
+			background:$articles;
+		}
+
+		li span {
+			border-color:$articles;
+		}
+
+	}
+
+	.text-box--misc {
 		border-bottom:10px solid $contact;
 
 		ul:before, li:before {
@@ -931,19 +944,6 @@ nav {
 
 		li span {
 			border-color:$contact;
-		}
-
-	}
-
-	.text-box--misc {
-		border-bottom:10px solid $misc;
-
-		ul:before, li:before {
-			background:$misc;
-		}
-
-		li span {
-			border-color:$misc;
 		}
 
 	}
