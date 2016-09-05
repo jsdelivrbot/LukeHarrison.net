@@ -136,7 +136,7 @@ p {
 	font-size:3px;
 }
 
-section p a, .banner a, .portfolio-item a, .article-navigation {
+section p a, .banner a, .portfolio-item a, .article-navigation, .article__body a {
 	position:relative;
 	text-decoration:none;
 	&:hover {
@@ -246,6 +246,15 @@ section p a, .banner a, .portfolio-item a, .article-navigation {
 	text-decoration:none;
 	&:before, &:after {
 		background:$portfolio;
+	}
+}
+
+.article__body a {
+	color:$type;
+	font-weight:bold;
+	text-decoration:none;
+	&:before, &:after {
+		background:$articles;
 	}
 }
 
@@ -1751,6 +1760,27 @@ form {
 
 .article__body {
 	margin-bottom:5em;
+	@extend .copy;
+	h2 {
+		@extend .header--med;
+	}
+	h3 {
+		@extend .header--sml;
+	}
+	pre {
+		background:$type;
+		padding:12px;
+		margin:30px 0;
+		color:#fff;
+		
+		code {
+			font-size:16px;
+		}
+	}
+	em {
+		font-style:normal;
+		color:$articles;
+	}
 }
 
 .article-header {
@@ -1767,6 +1797,12 @@ form {
 	.article-item {
 		margin-bottom:5em;
 		padding-bottom:6em;
+	}
+
+	.article__body {
+		pre {
+			margin:30px -30px;
+		}
 	}
 
 }

@@ -229,6 +229,7 @@ gulp.task('copy', function() {
 // WATCH FUNCTION
 gulp.task("watch", function() {
 	// HTML
+	gulp.watch('dev/articles/**/*.md',['html']);
 	gulp.watch('dev/jade/**/*.jade',['html']);
 	gulp.watch('dev/data/**/*.js',['html']);
 	// Images
