@@ -74,24 +74,11 @@ gulp.task('jade-standard', function() {
     .pipe(gulp.dest('dist/'));
 });
 
-// Filter in blog data and render blog index and articles
-var articles = require('./dev/data/articles.js')
-
-gulp.task('jade-render-articles', function(){
-	Array.prototype.forEach.call(articles, function(article) {	
-		// Return jade article template
-		gulp.src('./dev/jade/articles/article-single-template.jade')
-		// Pipe data into jade
-		.pipe(data(function(file){
-		 	return {"article": articles[article], "articleName": article }
-		 }))
-		// Convert jade to HTML
-		.pipe(jade())
-		// Rename file
-		.pipe(rename(articles[article].slug + ".html"))
-		// Send to dist
-		.pipe(gulp.dest('dist/'));
-	});
+// Compile Jade Articles
+gulp.task('jade-blog', function() {
+  return gulp.src('./dev/jade/articles/*.jade')
+    .pipe(jade())
+    .pipe(gulp.dest('dist/articles'));
 });
 
 gulp.task('html', function(){
@@ -144,10 +131,23 @@ gulp.task('sass', function(){
 */
 
 // Image MIN & with CACHE to stop repeat compressed images
-gulp.task('images', function(){
+gulp.task('images-standard', function(){
 	return gulp.src('dev/img/**/*.+(png|jpg|gif|svg|ico)')
 	//.pipe(imagemin({ progressive: true }))
 	.pipe(gulp.dest('dist/img/'))
+});
+
+gulp.task('images-articles', function(){
+	return gulp.src('dev/articles/**/*.+(png|jpg|gif|svg|ico)')
+	//.pipe(imagemin({ progressive: true }))
+	.pipe(gulp.dest('dist/img/articles/'))
+});
+
+gulp.task('images', function(){
+	runSequence(
+		"images-standard",
+		"images-articles"
+	);
 });
 
 /*
