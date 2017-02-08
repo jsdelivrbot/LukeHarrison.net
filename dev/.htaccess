@@ -10,6 +10,7 @@ RewriteRule    ^portfolio/side-projects?$    portfolio-sideprojects.html    [NC,
 RewriteRule    ^portfolio/?$    portfolio.html    [NC,L]
 RewriteRule    ^contact/?$    contact.html    [NC,L]
 RewriteRule    ^articles/5-memories-web-design?$    articles/5-memories-web-design.html    [NC,L]
+RewriteRule    ^articles/component-vs-utility-classes-scalable-css?$    articles/component-vs-utility-classes-scalable-css.html    [NC,L]
 
 # BEGIN GZIP
 # mod_gzip compression (legacy, Apache 1.3)

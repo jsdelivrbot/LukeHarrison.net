@@ -89,20 +89,20 @@ body {
 
 .header--med {
 	font-size:24px;
-	line-height:30px;
+	line-height:1.5;
 	margin-bottom:25px;
 	font-weight:bold;
 }
 
 .header--sml {
 	font-size:18px;
-	line-height:24px;
+	line-height:1.5;
 	margin-bottom:25px;
 }
 
 .copy {
 	font-size:18px;
-	line-height:24px;
+	line-height:1.5;
 	font-weight:300;
 }
 
@@ -218,7 +218,6 @@ section p a, .banner a, .portfolio-item a, .article-navigation, .article__body a
 
 	.header--sml {
 		font-size:24px;
-		line-height:30px;
 	}
 
 	.unit-scale {
@@ -1769,10 +1768,12 @@ form {
 		padding:12px;
 		margin:30px 0;
 		color:#fff;
-		
-		code {
-			font-size:16px;
-		}
+
+	}
+	code {
+		font-size:85%;
+		font-family:Consolas, "Liberation Mono", Menlo, Courier, monospace;
+		background-color:rgba(0,0,0,0.04);
 	}
 	em {
 		font-style:italic;
