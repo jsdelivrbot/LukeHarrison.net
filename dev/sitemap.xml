@@ -4,34 +4,37 @@
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
 <url>
   <loc>http://www.lukeharrison.net/</loc>
-  <lastmod>2016-05-05T16:13:29+00:00</lastmod>
-  <changefreq>monthly</changefreq>
+  <lastmod>2017-02-07T21:21:12+00:00</lastmod>
 </url>
 <url>
   <loc>http://www.lukeharrison.net/portfolio</loc>
-  <lastmod>2016-05-05T16:16:32+00:00</lastmod>
-  <changefreq>monthly</changefreq>
+  <lastmod>2017-02-07T21:21:12+00:00</lastmod>
+</url>
+<url>
+  <loc>http://www.lukeharrison.net/articles/</loc>
+  <lastmod>2017-02-07T21:21:19+00:00</lastmod>
 </url>
 <url>
   <loc>http://www.lukeharrison.net/contact</loc>
-  <lastmod>2016-05-05T16:13:29+00:00</lastmod>
-  <changefreq>monthly</changefreq>
+  <lastmod>2017-02-07T21:21:12+00:00</lastmod>
 </url>
 <url>
   <loc>http://www.lukeharrison.net/portfolio/plusnet</loc>
-  <lastmod>2016-05-05T16:16:31+00:00</lastmod>
-  <changefreq>monthly</changefreq>
+  <lastmod>2017-02-07T21:21:12+00:00</lastmod>
 </url>
 <url>
   <loc>http://www.lukeharrison.net/portfolio/red-hq</loc>
-  <lastmod>2016-05-05T16:16:31+00:00</lastmod>
-  <changefreq>monthly</changefreq>
+  <lastmod>2017-02-07T21:21:12+00:00</lastmod>
 </url>
 <url>
   <loc>http://www.lukeharrison.net/portfolio/side-projects</loc>
-  <lastmod>2016-05-05T16:16:31+00:00</lastmod>
-  <changefreq>monthly</changefreq>
+  <lastmod>2017-02-07T21:21:12+00:00</lastmod>
+</url>
+<url>
+  <loc>http://www.lukeharrison.net/articles/5-memories-web-design</loc>
+  <lastmod>2017-02-07T21:21:19+00:00</lastmod>
 </url>
 </urlset>
