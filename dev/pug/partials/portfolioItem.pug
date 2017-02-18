@@ -57,8 +57,8 @@ section(class="banner banner--portfolio")
 			else
 				- var slideClass = ""
 
-			section(class="portfolio-item #{slideOrderClass}")
-				div(class="portfolio-item__screens #{slideClass}")
+			section(class="portfolio-item " + slideOrderClass)
+				div(class="portfolio-item__screens " + slideClass)
 					div(class="portfolio-item__container")
 
 						//- Loop through screenshots
@@ -73,7 +73,7 @@ section(class="banner banner--portfolio")
 							else
 								- var slideStatus = "noScroll"						
 
-							div(class="portfolio-item__slide #{slideStatus}")
+							div(class="portfolio-item__slide " + slideStatus)
 								div(class="portfolio-item__slide-inner")
 									img(src="/img/browser.svg" class="portfolio-item__browser svg" alt="Browser")
 									img(src="/img/browser.png" class="portfolio-item__browser no-svg" alt="Browser") 
@@ -91,7 +91,7 @@ section(class="banner banner--portfolio")
 						span(class="portfolio-items__controls-arrow portfolio-items__controls-next")
 				div(class="container")
 
-					div(class="portfolio-item__text #{containerClasses}")
+					div(class="portfolio-item__text " + containerClasses)
 						div(class="portfolio-item__text-inner")
 							h3= value.company
 							h2(class="header--med")= key
