@@ -47,7 +47,7 @@ Posted on 21st April 2014
 
 <p>These should hopefully be pretty self explanatory.</p>
 
-<p><code>sh
+<p><code>
 // Set Grid
 $columns: 12;
 $column-width: 70px;
@@ -65,7 +65,7 @@ $padding: $gutter / 2;
 
 <p>We&#39;ll also add another variable which will govern if or not the container should be responsive.</p>
 
-<p><code>sh
+<p><code>
 // Should it be responsive?
 $responsive: true;
 </code></p>
@@ -76,7 +76,7 @@ $responsive: true;
 
 <p>We do this by defining a new variable called $width as the sum of the width of all columns plus the width of all gutters.</p>
 
-<p><code>sh
+<p><code>
 // Set container width relative to grid size
 $width: ($column-width * $columns) + ($gutter * ($columns - 1));
 </code>
@@ -85,7 +85,7 @@ Assuming the figures from step 1 remain unchanged, adding these together would r
 
 <p>We can then use this to create the grid container. Notice the use of an IF statement and the responsive variable here to determine how we set the width.</p>
 
-<p><code>sh
+<p><code>
 // Set Base Container
 .container
 {
@@ -107,7 +107,7 @@ padding: 0 $padding 0 $padding;
 
 <p>This is where SASS really comes into it&#39;s own. Using a FOR statement we can procedurally generate the grid classes based on the $columns variable we&#39;ve defined.</p>
 
-<p><code></code>`sh
+<p><code></code>`
 // Define Individual Grid Classes
 @for $i from 1 to $columns
 {
@@ -163,7 +163,7 @@ For example on the 7th loop of the FOR statement $i would be 7, so therefore $gr
 
 <h4>SASS</h4>
 
-<p><code></code>`sh
+<p><code></code>`
 // Set Grid (1170gs default)
 $column-width: 70px;
 $gutter: 30px;
@@ -238,7 +238,7 @@ clear: left;
 
 <p><code>$responsive</code> set to <code>true</code></p>
 
-<p><code></code>`sh
+<p><code></code>`
 .container {
   max-width: 1170px;
   margin: 0px auto;
@@ -308,7 +308,7 @@ clear: left;
 
 <p><code>$responsive</code> set to <code>false</code></p>
 
-<p><code></code>`sh
+<p><code></code>`
 .container {
   width: 1170px;
   margin: 0px auto;
@@ -376,7 +376,7 @@ clear: left;
 
 <h4>Example HTML</h4>
 
-<p><code>sh
+<p><code>
 &lt;div class=&quot;container&quot;&gt;
 	&lt;div class=&quot;clear grid4&quot;&gt;Grid 4&lt;/div&gt;
 	&lt;div class=&quot;grid4&quot;&gt;Grid 4&lt;/div&gt;

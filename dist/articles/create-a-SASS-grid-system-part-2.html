@@ -50,7 +50,7 @@ Posted on 14th May 2014
 
 <p>First things first, let&#39;s create a few SASS variables and define the breakpoints we will use in our media queries. In terms of which breakpoints to use that&#39;s a whole other topic in itself, so I&#39;m just going to use these four for example&#39;s sake. Feel free to change them as you see fit.</p>
 
-<p><code>sh
+<p><code>
 // Define Media Query Breakpoints
 $bp-xlrg: 1280px;
 $bp-lrg: 924px;
@@ -62,7 +62,7 @@ $bp-sml: 480px;
 
 <p>When we create columns in our grid system, we assign them classes based on how big we want them to be. Below is an example of a 3 column row using the default 12 column grid system.</p>
 
-<p><code>sh
+<p><code>
 &lt;div class=&quot;container&quot;&gt;
 	&lt;div class=&quot;clear grid4&quot;&gt;Grid 4&lt;/div&gt;
 	&lt;div class=&quot;grid4&quot;&gt;Grid 4&lt;/div&gt;
@@ -82,7 +82,7 @@ $bp-sml: 480px;
 
 <p>Let&#39;s do just that.</p>
 
-<p><code></code>`sh
+<p><code></code>`
 // Set Grid (1170gs default)
 $column-width: 70px;
 $gutter: 30px;
@@ -158,7 +158,7 @@ In addition to wrapping the grid generating code in a mixin, we want to give eac
 
 <p>We also need to define Breakpoint Clear and Full Width classes which will allow you to redefine rows as well as column sizes.</p>
 
-<p><code></code>`sh
+<p><code></code>`
 // Define Additional Full Width Variants &amp; Clear Classes For Responsive Classes Only
 @if $prefix != &quot;grid&quot;
 {		
@@ -192,7 +192,7 @@ clear: left;
 
 <p>First things first, we need to use the mixin to generate the normal grid classes we&#39;ve been using all along. We&#39;ll give these a prefix of &quot;grid&quot; so the final CSS should still read grid1, grid2, grid3.</p>
 
-<p><code></code>`sh
+<p><code></code>`
 // Generate Grid Classes
 @include create_grid(&quot;grid&quot;);
 Now we&#39;re going to create the Breakpoint Classes and place them within media queries using the breakpoint variables we defined way back in step 1.</p>
@@ -233,7 +233,7 @@ Now we&#39;re going to create the Breakpoint Classes and place them within media
 
 <h4>SASS</h4>
 
-<p><code></code>`sh
+<p><code></code>`
 // Set Grid (1170gs default)
 $column-width: 70px;
 $gutter: 30px;
@@ -368,7 +368,7 @@ clear: left;
 
 <h4>CSS</h4>
 
-<p><code></code>`sh
+<p><code></code>`
 .container {
   max-width: 1170px;
   margin: 0px auto;
