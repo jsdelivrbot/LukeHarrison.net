@@ -1,6 +1,9 @@
 RewriteEngine On
 Options +FollowSymLinks
  
+RewriteRule    ^portfolio/plusnet?$    portfolio-plusnet.html    [NC,L]
+RewriteRule    ^portfolio/red-hq?$    portfolio-redhq.html    [NC,L]
+RewriteRule    ^portfolio/side-projects?$    portfolio-sideprojects.html    [NC,L]
 
 # BEGIN GZIP
 # mod_gzip compression (legacy, Apache 1.3)
