@@ -226,6 +226,8 @@ gulp.task("watch", function() {
 	gulp.watch('dev/sass/**/*.scss',['sass']);
 	// JS
 	gulp.watch('dev/js/**/*.js',['js']);
+	// HTACESS
+	gulp.watch('dev/.htaccess',['copy']);
 });
 
 // BUILD FUNCTION

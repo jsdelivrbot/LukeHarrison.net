@@ -1,11 +1,6 @@
 RewriteEngine On
-Options +FollowSymLinks 
+Options +FollowSymLinks
  
-RewriteCond %{SCRIPT_FILENAME} !-d
-RewriteCond %{SCRIPT_FILENAME} !-f
-  
-RewriteCond %{REQUEST_FILENAME}.html -f
-RewriteRule !.*\.html$ %{REQUEST_FILENAME}.html [QSA,L]
 
 # BEGIN GZIP
 # mod_gzip compression (legacy, Apache 1.3)
