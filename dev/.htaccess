@@ -3,7 +3,7 @@ Options +FollowSymLinks
 
 RewriteCond %{SCRIPT_FILENAME} !-d
 RewriteCond %{SCRIPT_FILENAME} !-f
- 
+  
 RewriteCond %{REQUEST_FILENAME}.html -f
 RewriteRule !.*\.html$ %{REQUEST_FILENAME}.html [QSA,L]
 
