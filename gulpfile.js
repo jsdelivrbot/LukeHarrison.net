@@ -130,23 +130,10 @@ gulp.task('sass', function(){
 */
 
 // Image MIN & with CACHE to stop repeat compressed images
-gulp.task('images-standard', function(){
+gulp.task('images', function(){
 	return gulp.src('dev/img/**/*.+(png|jpg|gif|svg|ico)')
 	//.pipe(imagemin({ progressive: true }))
 	.pipe(gulp.dest('dist/img/'))
-});
-
-gulp.task('images-articles', function(){
-	return gulp.src('dev/articles/**/*.+(png|jpg|gif|svg|ico)')
-	//.pipe(imagemin({ progressive: true }))
-	.pipe(gulp.dest('dist/img/articles/'))
-});
-
-gulp.task('images', function(){
-	runSequence(
-		"images-standard",
-		"images-articles"
-	);
 });
 
 /*

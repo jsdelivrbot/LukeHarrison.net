@@ -4,13 +4,8 @@ Options +FollowSymLinks
 RewriteCond %{SCRIPT_FILENAME} !-d
 RewriteCond %{SCRIPT_FILENAME} !-f
  
-RewriteRule    ^portfolio/plusnet?$    portfolio-plusnet.html    [NC,L]
-RewriteRule    ^portfolio/red-hq?$    portfolio-redhq.html    [NC,L]
-RewriteRule    ^portfolio/side-projects?$    portfolio-sideprojects.html    [NC,L]
-RewriteRule    ^portfolio/?$    portfolio.html    [NC,L]
-RewriteRule    ^contact/?$    contact.html    [NC,L]
-RewriteRule    ^articles/5-memories-web-design?$    articles/5-memories-web-design.html    [NC,L]
-RewriteRule    ^articles/component-vs-utility-classes-scalable-css?$    articles/component-vs-utility-classes-scalable-css.html    [NC,L]
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule !.*\.html$ %{REQUEST_FILENAME}.html [QSA,L]
 
 # BEGIN GZIP
 # mod_gzip compression (legacy, Apache 1.3)
