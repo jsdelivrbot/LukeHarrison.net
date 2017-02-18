@@ -5,6 +5,10 @@ RewriteRule    ^portfolio/plusnet?$    portfolio-plusnet.html    [NC,L]
 RewriteRule    ^portfolio/red-hq?$    portfolio-redhq.html    [NC,L]
 RewriteRule    ^portfolio/side-projects?$    portfolio-sideprojects.html    [NC,L]
 
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.html -f
+RewriteRule ^(.*)$ $1.html
+
 # BEGIN GZIP
 # mod_gzip compression (legacy, Apache 1.3)
 <IfModule mod_gzip.c>
