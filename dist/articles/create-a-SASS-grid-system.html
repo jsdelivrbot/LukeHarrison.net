@@ -34,58 +34,112 @@
 Create a SASS grid system
 Posted on 21st April 2014
 --&gt;</p>
-
-<p><img alt="SASS Grid System" src="https://raw.githubusercontent.com/WebDevLuke/My-Articles/master/2014-04-21-create-a-SASS-grid-system/blog-pic.jpg"/></p>
-
-<p>In this post I&#39;ll be showing you how to create a responsive grid system where you simply define a few variables and let SASS worry about the rest. This tutorial assumes you have some knowledge of both CSS grids and SASS, so if you&#39;re unsure about either I would definitely recommend reading up before continuing.</p>
-
-<p>Right, let&#39;s get started.</p>
-
+<p><img src="https://raw.githubusercontent.com/WebDevLuke/My-Articles/master/2014-04-21-create-a-SASS-grid-system/blog-pic.jpg" alt="SASS Grid System"></p>
+<p>In this post I'll be showing you how to create a responsive grid system where you simply define a few variables and let SASS worry about the rest. This tutorial assumes you have some knowledge of both CSS grids and SASS, so if you're unsure about either I would definitely recommend reading up before continuing.</p>
+<p>Right, let's get started.</p>
 <h2>1) Set the variables</h2>
-
 <p>The first thing we need to do is define the SASS variables which will allow you to specify the type of grid system you want to generate.</p>
-
 <p>These should hopefully be pretty self explanatory.</p>
-
-<p><code>
-// Set Grid
+<pre><code class="language-scss">// Set Grid
 $columns: 12;
 $column-width: 70px;
 $gutter: 30px;
 $padding: $gutter / 2;
-</code></p>
-
+</code></pre>
 <p><code>$columns</code> will govern the total number of columns.</p>
-
 <p><code>$column-width</code> will govern the width of each individual column in pixels.</p>
-
 <p><code>$gutter</code> will govern the width of the margin in between columns in pixels.</p>
+<p><code>$padding</code> will govern the outer padding on either side of the grid in pixels. By default I've set this figure to half of the gutter, but feel free to change this around.</p>
+<p>We'll also add another variable which will govern if or not the container should be responsive.</p>
+<pre><code class="language-scss">// Should it be responsive?
+$responsive: true;
+</code></pre>
+<h2>2) Create the container</h2>
+<p>Before we create the container itself, we first need to work out how wide it should be based on the variables we've defined.</p>
+<p>We do this by defining a new variable called $width as the sum of the width of all columns plus the width of all gutters.</p>
+<pre><code class="language-scss">// Set container width relative to grid size
+$width: ($column-width * $columns) + ($gutter * ($columns - 1));
+</code></pre>
+<p><img src="https://raw.githubusercontent.com/WebDevLuke/My-Articles/master/2014-04-21-create-a-SASS-grid-system/grid.jpg" alt="SASS Grid System">
+Assuming the figures from step 1 remain unchanged, adding these together would return a figure of 1170.</p>
+<p>We can then use this to create the grid container. Notice the use of an IF statement and the responsive variable here to determine how we set the width.</p>
+<pre><code class="language-scss">// Set Base Container
+.container
+{
+// Set container width if responsive
+@if $responsive == true
+   {
+	max-width:$width;
+   }
+@else
+   {
+	width:$width;
+   }
+margin:0px auto;
+padding: 0 $padding 0 $padding;
+}
+</code></pre>
+<h2>3) Create the grid classes</h2>
+<p>This is where SASS really comes into it's own. Using a FOR statement we can procedurally generate the grid classes based on the $columns variable we've defined.</p>
+<pre><code class="language-scss">// Define Individual Grid Classes
+@for $i from 1 to $columns
+{
+	// Calculate grid size in pixels
+	$grid: ($column-width * $i) + ($gutter * ($i - 1));
+	
+	// Calculate responsive grid sizes if required
+	@if $responsive == true
+	{
+		// Convert Pixels to Percentages
+		$grid: ($grid / $width) * 100%;
 
-<p><code>$padding</code> will govern the outer padding on either side of the grid in pixels. By default I&#39;ve set this figure to half of the gutter, but feel free to change this around.</p>
+		// Convert Gutter Pixels to Percentages
+		$gutter-percentage: ($gutter / $width) * 100%;
 
-<p>We&#39;ll also add another variable which will govern if or not the container should be responsive.</p>
+		.grid#{$i}
+			{
+			width: $grid;
+			float: left;
+			margin-left: $gutter-percentage;
+			}
+	}
+	@else
+	{
+		$grid: $grid;
+		.grid#{$i}
+			{
+			width: $grid;
+			float: left;
+			margin-left: $gutter;
+			}
+	}
+}
 
-<p><code>
+.clear
+{
+margin-left: 0px;
+clear: left;
+}
+</code></pre>
+<p>To help with this process there is another new variable called $grid which is used to calculate the width of each grid class based on combining the total width of columns and gutters relative to the progress of the FOR statement (represented as $i).</p>
+<p><img src="https://raw.githubusercontent.com/WebDevLuke/My-Articles/master/2014-04-21-create-a-SASS-grid-system/grid2.jpg" alt="SASS Grid System">
+For example on the 7th loop of the FOR statement $i would be 7, so therefore $grid would return 670.</p>
+<p>We've also created additional variables within the responsive IF statement to convert pixel values for both grid and gutter to percentages aswell as an additional clear class used to start new rows.</p>
+<h2>4) The Finished Code</h2>
+<p>So here we have the finished code and how it would compile into regular CSS. It's up to you on how you organise it. Personally I like to stick everything apart from the initial 5 user defined variables within a SASS partial.</p>
+<h4>SASS</h4>
+<pre><code class="language-scss">// Set Grid (1170gs default)
+$column-width: 70px;
+$gutter: 30px;
+$columns: 12;
+$padding: $gutter / 2;
+
 // Should it be responsive?
 $responsive: true;
-</code></p>
 
-<h2>2) Create the container</h2>
-
-<p>Before we create the container itself, we first need to work out how wide it should be based on the variables we&#39;ve defined.</p>
-
-<p>We do this by defining a new variable called $width as the sum of the width of all columns plus the width of all gutters.</p>
-
-<p><code>
-// Set container width relative to grid size
+// Set container width relative to user variables
 $width: ($column-width * $columns) + ($gutter * ($columns - 1));
-</code>
-<img alt="SASS Grid System" src="https://raw.githubusercontent.com/WebDevLuke/My-Articles/master/2014-04-21-create-a-SASS-grid-system/grid.jpg"/>
-Assuming the figures from step 1 remain unchanged, adding these together would return a figure of 1170.</p>
 
-<p>We can then use this to create the grid container. Notice the use of an IF statement and the responsive variable here to determine how we set the width.</p>
-
-<p><code>
 // Set Base Container
 .container
 {
@@ -101,292 +155,189 @@ Assuming the figures from step 1 remain unchanged, adding these together would r
 margin:0px auto;
 padding: 0 $padding 0 $padding;
 }
-</code></p>
 
-<h2>3) Create the grid classes</h2>
-
-<p>This is where SASS really comes into it&#39;s own. Using a FOR statement we can procedurally generate the grid classes based on the $columns variable we&#39;ve defined.</p>
-
-<p><code></code>`
 // Define Individual Grid Classes
 @for $i from 1 to $columns
 {
 	// Calculate grid size in pixels
-	$grid: ($column-width <em> $i) + ($gutter </em> ($i - 1));</p>
+	$grid: ($column-width * $i) + ($gutter * ($i - 1));
+	
+	// Calculate responsive grid sizes if required
+	@if $responsive == true
+	{
+		// Calculate grid size in pixels
+		$grid: ($grid / $width) * 100%;
 
-<pre><code>// Calculate responsive grid sizes if required
-@if $responsive == true
-{
-	// Convert Pixels to Percentages
-	$grid: ($grid / $width) * 100%;
+		// Get Gutter Percentage for Grids
+		$gutter-percentage: ($gutter / $width) * 100%;
 
-	// Convert Gutter Pixels to Percentages
-	$gutter-percentage: ($gutter / $width) * 100%;
-
-	.grid#{$i}
-		{
-		width: $grid;
-		float: left;
-		margin-left: $gutter-percentage;
-		}
+		.grid#{$i}
+			{
+			width: $grid;
+			float: left;
+			margin-left:$gutter-percentage;
+			}
+	}
+	@else
+	{
+		$grid: $grid;
+		.grid#{$i}
+			{
+			width: $grid;
+			float: left;
+			margin-left:$gutter;
+			}
+	}
 }
-@else
-{
-	$grid: $grid;
-	.grid#{$i}
-		{
-		width: $grid;
-		float: left;
-		margin-left: $gutter;
-		}
-}</code></pre>
 
-<p>}</p>
-
-<p>.clear
+.clear
 {
 margin-left: 0px;
 clear: left;
 }
-<code></code>`</p>
-
-<p>To help with this process there is another new variable called $grid which is used to calculate the width of each grid class based on combining the total width of columns and gutters relative to the progress of the FOR statement (represented as $i).</p>
-
-<p><img alt="SASS Grid System" src="https://raw.githubusercontent.com/WebDevLuke/My-Articles/master/2014-04-21-create-a-SASS-grid-system/grid2.jpg"/>
-For example on the 7th loop of the FOR statement $i would be 7, so therefore $grid would return 670.</p>
-
-<p>We&#39;ve also created additional variables within the responsive IF statement to convert pixel values for both grid and gutter to percentages aswell as an additional clear class used to start new rows.</p>
-
-<h2>4) The Finished Code</h2>
-
-<p>So here we have the finished code and how it would compile into regular CSS. It&#39;s up to you on how you organise it. Personally I like to stick everything apart from the initial 5 user defined variables within a SASS partial.</p>
-
-<h4>SASS</h4>
-
-<p><code></code>`
-// Set Grid (1170gs default)
-$column-width: 70px;
-$gutter: 30px;
-$columns: 12;
-$padding: $gutter / 2;</p>
-
-<p>// Should it be responsive?
-$responsive: true;</p>
-
-<p>// Set container width relative to user variables
-$width: ($column-width <em> $columns) + ($gutter </em> ($columns - 1));</p>
-
-<p>// Set Base Container
-.container
-{
-// Set container width if responsive
-@if $responsive == true
-   {
-	max-width:$width;
-   }
-@else
-   {
-	width:$width;
-   }
-margin:0px auto;
-padding: 0 $padding 0 $padding;
-}</p>
-
-<p>// Define Individual Grid Classes
-@for $i from 1 to $columns
-{
-	// Calculate grid size in pixels
-	$grid: ($column-width <em> $i) + ($gutter </em> ($i - 1));</p>
-
-<pre><code>// Calculate responsive grid sizes if required
-@if $responsive == true
-{
-	// Calculate grid size in pixels
-	$grid: ($grid / $width) * 100%;
-
-	// Get Gutter Percentage for Grids
-	$gutter-percentage: ($gutter / $width) * 100%;
-
-	.grid#{$i}
-		{
-		width: $grid;
-		float: left;
-		margin-left:$gutter-percentage;
-		}
-}
-@else
-{
-	$grid: $grid;
-	.grid#{$i}
-		{
-		width: $grid;
-		float: left;
-		margin-left:$gutter;
-		}
-}</code></pre>
-
-<p>}</p>
-
-<p>.clear
-{
-margin-left: 0px;
-clear: left;
-}
-<code></code>`</p>
-
+</code></pre>
 <h4>CSS</h4>
-
 <p><code>$responsive</code> set to <code>true</code></p>
-
-<p><code></code>`
-.container {
+<pre><code class="language-scss">.container {
   max-width: 1170px;
   margin: 0px auto;
-  padding: 0 15px 0 15px; }</p>
+  padding: 0 15px 0 15px; }
 
-<p>.grid1 {
+.grid1 {
   width: 5.98291%;
   float: left;
-  margin-left: 2.5641%; }</p>
+  margin-left: 2.5641%; }
 
-<p>.grid2 {
+.grid2 {
   width: 14.52991%;
   float: left;
-  margin-left: 2.5641%; }</p>
+  margin-left: 2.5641%; }
 
-<p>.grid3 {
+.grid3 {
   width: 23.07692%;
   float: left;
-  margin-left: 2.5641%; }</p>
+  margin-left: 2.5641%; }
 
-<p>.grid4 {
+.grid4 {
   width: 31.62393%;
   float: left;
-  margin-left: 2.5641%; }</p>
+  margin-left: 2.5641%; }
 
-<p>.grid5 {
+.grid5 {
   width: 40.17094%;
   float: left;
-  margin-left: 2.5641%; }</p>
+  margin-left: 2.5641%; }
 
-<p>.grid6 {
+.grid6 {
   width: 48.71795%;
   float: left;
-  margin-left: 2.5641%; }</p>
+  margin-left: 2.5641%; }
 
-<p>.grid7 {
+.grid7 {
   width: 57.26496%;
   float: left;
-  margin-left: 2.5641%; }</p>
+  margin-left: 2.5641%; }
 
-<p>.grid8 {
+.grid8 {
   width: 65.81197%;
   float: left;
-  margin-left: 2.5641%; }</p>
+  margin-left: 2.5641%; }
 
-<p>.grid9 {
+.grid9 {
   width: 74.35897%;
   float: left;
-  margin-left: 2.5641%; }</p>
+  margin-left: 2.5641%; }
 
-<p>.grid10 {
+.grid10 {
   width: 82.90598%;
   float: left;
-  margin-left: 2.5641%; }</p>
+  margin-left: 2.5641%; }
 
-<p>.grid11 {
+.grid11 {
   width: 91.45299%;
   float: left;
-  margin-left: 2.5641%; }</p>
+  margin-left: 2.5641%; }
 
-<p>.clear {
+.clear {
   margin-left: 0px;
   clear: left; }
-<code></code>`</p>
-
+</code></pre>
 <h4>CSS</h4>
-
 <p><code>$responsive</code> set to <code>false</code></p>
-
-<p><code></code>`
-.container {
+<pre><code class="language-scss">.container {
   width: 1170px;
   margin: 0px auto;
-  padding: 0 15px 0 15px; }</p>
+  padding: 0 15px 0 15px; }
 
-<p>.grid1 {
+.grid1 {
   width: 70px;
   float: left;
-  margin-left: 30px; }</p>
+  margin-left: 30px; }
 
-<p>.grid2 {
+.grid2 {
   width: 170px;
   float: left;
-  margin-left: 30px; }</p>
+  margin-left: 30px; }
 
-<p>.grid3 {
+.grid3 {
   width: 270px;
   float: left;
-  margin-left: 30px; }</p>
+  margin-left: 30px; }
 
-<p>.grid4 {
+.grid4 {
   width: 370px;
   float: left;
-  margin-left: 30px; }</p>
+  margin-left: 30px; }
 
-<p>.grid5 {
+.grid5 {
   width: 470px;
   float: left;
-  margin-left: 30px; }</p>
+  margin-left: 30px; }
 
-<p>.grid6 {
+.grid6 {
   width: 570px;
   float: left;
-  margin-left: 30px; }</p>
+  margin-left: 30px; }
 
-<p>.grid7 {
+.grid7 {
   width: 670px;
   float: left;
-  margin-left: 30px; }</p>
+  margin-left: 30px; }
 
-<p>.grid8 {
+.grid8 {
   width: 770px;
   float: left;
-  margin-left: 30px; }</p>
+  margin-left: 30px; }
 
-<p>.grid9 {
+.grid9 {
   width: 870px;
   float: left;
-  margin-left: 30px; }</p>
+  margin-left: 30px; }
 
-<p>.grid10 {
+.grid10 {
   width: 970px;
   float: left;
-  margin-left: 30px; }</p>
+  margin-left: 30px; }
 
-<p>.grid11 {
+.grid11 {
   width: 1070px;
   float: left;
-  margin-left: 30px; }</p>
+  margin-left: 30px; }
 
-<p>.clear {
+.clear {
   margin-left: 0px;
   clear: left; }
- <code></code>`</p>
-
+</code></pre>
 <h4>Example HTML</h4>
-
-<p><code>
-&lt;div class=&quot;container&quot;&gt;
+<pre><code class="language-html">&lt;div class=&quot;container&quot;&gt;
 	&lt;div class=&quot;clear grid4&quot;&gt;Grid 4&lt;/div&gt;
 	&lt;div class=&quot;grid4&quot;&gt;Grid 4&lt;/div&gt;
 	&lt;div class=&quot;grid4&quot;&gt;Grid 4&lt;/div&gt;
 &lt;/div&gt;
-</code></p>
-
+</code></pre>
 <h2>5) See it in action</h2>
-
-<p>&lt;iframe height=&#39;300&#39; scrolling=&#39;no&#39; title=&#39;SASS Grid System&#39; src=&#39;//codepen.io/lukedidit/embed/AoCfK/?height=300&amp;theme-id=5799&amp;default-tab=css,result&amp;embed-version=2&#39; frameborder=&#39;no&#39; allowtransparency=&#39;true&#39; allowfullscreen=&#39;true&#39; style=&#39;width: 100%;&#39;&gt;See the Pen &lt;a href=&#39;http://codepen.io/lukedidit/pen/AoCfK/&#39;&gt;SASS Grid System&lt;/a&gt; by Luke Harrison (&lt;a href=&#39;http://codepen.io/lukedidit&#39;&gt;@lukedidit&lt;/a&gt;) on &lt;a href=&#39;http://codepen.io&#39;&gt;CodePen&lt;/a&gt;. &lt;/iframe&gt;</p></div><div id="disqus_thread"> <script>/**
+<p>&lt;iframe height='300' scrolling='no' title='SASS Grid System' src='//codepen.io/lukedidit/embed/AoCfK/?height=300&amp;theme-id=5799&amp;default-tab=css,result&amp;embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'&gt;See the Pen &lt;a href='http://codepen.io/lukedidit/pen/AoCfK/'&gt;SASS Grid System&lt;/a&gt; by Luke Harrison (&lt;a href='http://codepen.io/lukedidit'&gt;@lukedidit&lt;/a&gt;) on &lt;a href='http://codepen.io'&gt;CodePen&lt;/a&gt;. &lt;/iframe&gt;</p>
+</div><div id="disqus_thread"> <script>/**
  *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
  *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables */
 

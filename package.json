@@ -30,6 +30,7 @@
     "gulp-streamify": "1.0.2",
     "gulp-uglify": "1.5.2",
     "jstransformer-markdown": "1.1.0",
+    "jstransformer-markdown-it": "^2.0.0",
     "layzr.js": "2.0.4",
     "run-sequence": "1.1.5",
     "vinyl-source-stream": "1.1.0"
