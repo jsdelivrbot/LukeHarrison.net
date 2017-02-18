@@ -1,6 +1,6 @@
 RewriteEngine On
-Options +FollowSymLinks
-
+Options +FollowSymLinks 
+ 
 RewriteCond %{SCRIPT_FILENAME} !-d
 RewriteCond %{SCRIPT_FILENAME} !-f
   
