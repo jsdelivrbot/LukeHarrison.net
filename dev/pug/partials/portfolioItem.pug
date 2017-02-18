@@ -1,30 +1,30 @@
 section(class="banner banner--portfolio") 
-			h1(class="header--lrg") Portfolio
-			h2(class="header--sml") An overview of some of my design and development work plus a look into my side projects.
-			ul(class="tabs")
-				if portfolioCategory === "View All"
-					li(class="active") #[span View all]
-				else
-					li
-						a(href="/portfolio") #[span View all]
+	h1(class="header--lrg") Portfolio
+	h2(class="header--sml") An overview of some of my design and development work plus a look into my side projects.
+	ul(class="tabs")
+		if portfolioCategory === "View All"
+			li(class="active") #[span View all]
+		else
+			li
+				a(href="/portfolio") #[span View all]
 
-				if portfolioCategory === "Plusnet"
-					li(class="active") #[span Plusnet]
-				else
-					li
-						a(href="/portfolio/plusnet") #[span Plusnet]
+		if portfolioCategory === "Plusnet"
+			li(class="active") #[span Plusnet]
+		else
+			li
+				a(href="/portfolio/plusnet") #[span Plusnet]
 
-				if portfolioCategory === "Red HQ"
-					li(class="active") #[span Red HQ]
-				else
-					li 
-						a(href="/portfolio/red-hq") #[span Red HQ]
+		if portfolioCategory === "Red HQ"
+			li(class="active") #[span Red HQ]
+		else
+			li 
+				a(href="/portfolio/red-hq") #[span Red HQ]
 
-				if portfolioCategory === "Side Project"
-					li(class="active") #[span Side Projects]
-				else
-					li
-						a(href="/portfolio/side-projects") #[span Side Projects]
+		if portfolioCategory === "Side Project"
+			li(class="active") #[span Side Projects]
+		else
+			li
+				a(href="/portfolio/side-projects") #[span Side Projects]
 
 	section(class="portfolio-items")
 

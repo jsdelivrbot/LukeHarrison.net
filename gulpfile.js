@@ -22,9 +22,9 @@ var gulpif = require('gulp-if');
 var sassport = require('gulp-sassport');
 // Used to create synchronous build tasks
 var runSequence = require('run-sequence');
-// Used to convert Jade to HTML
-var jade = require('gulp-jade');
-// Used to pipe JSON data into Jade
+// Used to convert Pug to HTML
+var pug = require('gulp-pug');
+// Used to pipe JSON data into Pug
 var data = require('gulp-data');
 // Used to delete folders during build process
 var del = require('del');
@@ -58,32 +58,32 @@ gulp.task('deleteDist', function(){
 
 /*
 |--------------------------------------------------------------------
-|  JADE
+|  PUG
 |--------------------------------------------------------------------
 */
 
 
 // Filter in JSON data and render pages
-gulp.task('jade-standard', function() {
-  return gulp.src('./dev/jade/*.jade')
+gulp.task('pug-standard', function() {
+  return gulp.src('./dev/pug/*.pug')
     .pipe(data(function(file){
      		return {"portfolio": require('./dev/data/portfolio.js')}
      }))
-    .pipe(jade())
+    .pipe(pug())
     .pipe(gulp.dest('dist/'));
 });
 
-// Compile Jade Articles
-gulp.task('jade-blog', function() {
-  return gulp.src('./dev/jade/articles/*.jade')
-    .pipe(jade())
+// Compile Pug Articles
+gulp.task('pug-blog', function() {
+  return gulp.src('./dev/pug/articles/*.pug')
+    .pipe(pug())
     .pipe(gulp.dest('dist/articles'));
 });
 
 gulp.task('html', function(){
 	runSequence(
-		"jade-standard",
-		"jade-blog"
+		"pug-standard",
+		"pug-blog"
 	);
 });
 
@@ -216,7 +216,7 @@ gulp.task('copy', function() {
 gulp.task("watch", function() {
 	// HTML
 	gulp.watch('dev/articles/**/*.md',['html']);
-	gulp.watch('dev/jade/**/*.jade',['html']);
+	gulp.watch('dev/pug/**/*.pug',['html']);
 	gulp.watch('dev/data/**/*.js',['html']);
 	// Images
 	gulp.watch('dev/img/**/*.+(png|jpg|gif|svg)',['images']);
