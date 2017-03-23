@@ -16,11 +16,11 @@ var portfolio = {
 			}
 		],
 		"description": [
-			"One of my responsibilties at Plusnet is to build A/B and multivariant tests using Adobe Target. These allow me to test new sales page designs against existing ones by seeing how conversion is influenced.",
+			"One of my responsibilties at Plusnet was to build A/B and multivariant tests using Adobe Target. These allowed me to test new sales page designs against existing ones by seeing how conversion is influenced.",
 			"This specific example shows a test where I compared the existing broadband packages page against a new streamlined full width variant over a 30 day period. Once this was over, metrics  within Adobe Target and Google Analytics showed that the new variant succeeded in improving conversion. It was subsquently rolled out in a later sprint."
 		]
 	},
-	"Orion Framework" : {
+	"Orion Suite" : {
 		"company": "Side Project",
 		"url": "https://github.com/WebDevLuke/Orion-Framework",
 		"urlText" : "View on Github",
@@ -32,8 +32,10 @@ var portfolio = {
 			}
 		],
 		"description": [
-			"Orion is a mobile-first HTML/CSS/JS framework. It's designed to be a simple, easy to use and quick way of getting a responsive web project off the ground.",
-			"This project was originally conceived as an opportunity for me to learn SASS back in 2013 and I’ve slowly continued development on it ever since - subsequently adding technologies such as Gulp, Babel and Browserify as I’ve learned how to properly leverage them."
+			"The Orion suite is a collection of tools to help you with front-end development. It includes:-",
+			"OrionCSS - a SASS framework which provides you with a solid OOCSS foundation for your project.",
+			"OrionJS - a simple collection of reusable functions to help streamline UI development.",
+			"OrionBP - a simple Gulp powered front-end boilerplate for projects using OrionCSS and OrionJS."
 		]
 	},
 	"Brand Toolkit" : {
