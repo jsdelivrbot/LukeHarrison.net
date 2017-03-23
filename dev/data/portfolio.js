@@ -1,4 +1,22 @@
 var portfolio = {
+	"Orion Suite" : {
+		"company": "Side Project",
+		"url": "https://github.com/WebDevLuke/",
+		"urlText" : "View on Github",
+		"screenshots": [
+			{
+				"url": "/img/portfolio/sideprojects/orion-framework/01.svg",
+				"altUrl": "/img/portfolio/sideprojects/orion-framework/01.png",
+				"scroll": false
+			}
+		],
+		"description": [
+			"The Orion suite is a collection of tools to help you with front-end development. It includes:-",
+			"OrionCSS - a SASS framework which provides you with a solid OOCSS foundation for your project.",
+			"OrionJS - a simple collection of reusable functions to help streamline UI development.",
+			"OrionBP - a simple Gulp powered front-end boilerplate for projects using OrionCSS and OrionJS."
+		]
+	},
 	"A/B Testing and MVT" : {
 		"company": "Plusnet",
 		"screenshots": [
@@ -18,45 +36,6 @@ var portfolio = {
 		"description": [
 			"One of my responsibilties at Plusnet was to build A/B and multivariant tests using Adobe Target. These allowed me to test new sales page designs against existing ones by seeing how conversion is influenced.",
 			"This specific example shows a test where I compared the existing broadband packages page against a new streamlined full width variant over a 30 day period. Once this was over, metrics  within Adobe Target and Google Analytics showed that the new variant succeeded in improving conversion. It was subsquently rolled out in a later sprint."
-		]
-	},
-	"Orion Suite" : {
-		"company": "Side Project",
-		"url": "https://github.com/WebDevLuke/Orion-Framework",
-		"urlText" : "View on Github",
-		"screenshots": [
-			{
-				"url": "/img/portfolio/sideprojects/orion-framework/01.svg",
-				"altUrl": "/img/portfolio/sideprojects/orion-framework/01.png",
-				"scroll": false
-			}
-		],
-		"description": [
-			"The Orion suite is a collection of tools to help you with front-end development. It includes:-",
-			"OrionCSS - a SASS framework which provides you with a solid OOCSS foundation for your project.",
-			"OrionJS - a simple collection of reusable functions to help streamline UI development.",
-			"OrionBP - a simple Gulp powered front-end boilerplate for projects using OrionCSS and OrionJS."
-		]
-	},
-	"Brand Toolkit" : {
-		"company": "Plusnet",
-		"screenshots": [
-			{
-				"url": "/img/portfolio/plusnet/toolkit/01.jpg",
-				"scroll": true
-			},
-			{
-				"url": "/img/portfolio/plusnet/toolkit/02.jpg",
-				"scroll": true
-			},
-			{
-				"url": "/img/portfolio/plusnet/toolkit/03.jpg",
-				"scroll": true
-			}
-		],
-		"description": [
-			"Brand Toolkit is an internal website built on Wordpress which gives Plusnet creatives and stakeholders easy access to brand assets.",
-			"It started out as a small side project of mine intended for use within the web dev team, but grew in scope and is now used by creatives and brand stakeholders in departments across Plusnet."
 		]
 	},
 	"Schooltopia" : {
@@ -91,6 +70,27 @@ var portfolio = {
 		"description": [
 			"Schooltopia is a website offering web design services to primary schools. Building upon the knowledge and experience I gained at Red HQ, I wanted to create a secondary portfolio website specifically targeting schools.",
 			"This means in the future if I have the desire and the freelance capacity to build more school websites, I already have a foundation to build on."
+		]
+	},
+	"Brand Toolkit" : {
+		"company": "Plusnet",
+		"screenshots": [
+			{
+				"url": "/img/portfolio/plusnet/toolkit/01.jpg",
+				"scroll": true
+			},
+			{
+				"url": "/img/portfolio/plusnet/toolkit/02.jpg",
+				"scroll": true
+			},
+			{
+				"url": "/img/portfolio/plusnet/toolkit/03.jpg",
+				"scroll": true
+			}
+		],
+		"description": [
+			"Brand Toolkit is an internal website built on Wordpress which gives Plusnet creatives and stakeholders easy access to brand assets.",
+			"It started out as a small side project of mine intended for use within the web dev team, but grew in scope and is now used by creatives and brand stakeholders in departments across Plusnet."
 		]
 	},
 	"Screenshot Automation Tool" : {
