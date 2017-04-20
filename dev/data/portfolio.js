@@ -191,21 +191,6 @@ var portfolio = {
 			"Sandal Magna Community Academy was probably my favourite out of the six or so school websites I created whilst at Red HQ. I think it really serves as a brilliant showcase for the school and its surrounding community.",
 			"After each new school website was rolled live, I delivered training directly to the teachers themselves to educate them on how to use the CMS and what best practices were recommended."
 		]
-	},
-	"ReactJS IMDB App" : {
-		"company": "Side Project",
-		"url": "http://lukeharrison.net/react/",
-		"urlText" : "Use ReactJS IMDB App",
-		"screenshots": [
-			{
-				"url": "/img/portfolio/sideprojects/reactmovies/01.jpg",
-				"scroll": false
-			}
-		],
-		"description": [
-			"This was a small development exercise to create my first web app using ReactJS. To use, simply enter a movie into the input and submit. Relevant data is then pulled from an IMDB API and displayed on the page.",
-			"This was a great introduction to building apps using ReactJS and allowed me to get to grips with the basic principles and syntax of this powerful library."
-		]
 	}
 };
 
