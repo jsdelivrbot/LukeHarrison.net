@@ -168,7 +168,9 @@ section p a, .banner a, .portfolio-item a, .article-navigation, .article__body a
 	}
 }
 
-
+.article__body a {
+	white-space:nowrap;
+}
 
 @include bp(sml) {
 	.header--lrg {
@@ -1771,9 +1773,12 @@ form {
 
 	}
 	code {
-		font-size:85%;
-		font-family:Consolas, "Liberation Mono", Menlo, Courier, monospace;
-		background-color:rgba(0,0,0,0.04);
+		font-size:90%;
+		font-family:monospace;
+		background-color:#efefef;
+		margin:0 3px 0 1px;
+		padding:0 5px 2px;
+		border-radius:4px;
 	}
 	em {
 		font-style:italic;
