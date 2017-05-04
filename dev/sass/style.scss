@@ -81,6 +81,12 @@ body {
 	overflow-x:hidden;
 }
 
+.header--xlrg {
+	font-size:72px;
+	line-height:normal;
+	margin-bottom:15px;
+}
+
 .header--lrg {
 	font-size:24px;
 	line-height:30px;
@@ -212,6 +218,11 @@ section p a, .banner a, .portfolio-item a, .article-navigation, .article__body a
 }
 
 @include bp(lrg) {
+
+	.header--xlrg {
+		font-size:120px;
+		margin-bottom:40px;
+	}
 
 	.header--lrg {
 		font-size:60px;
@@ -1921,7 +1932,22 @@ html.no-cssanimations .loader {
 	display:none !important;
 	opacity:0 !important;
 	visibility:hidden !important;
-}	
+}
+
+
+//--------------------------------------------------------------------
+// 404 PAGE
+//--------------------------------------------------------------------
+
+.404 .footer {
+	margin-top:0;
+}
+
+.banner--404 {
+	background-color:$about;
+	text-align:center;
+}
+
 
 
 //--------------------------------------------------------------------

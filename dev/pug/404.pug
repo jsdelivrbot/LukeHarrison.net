@@ -3,10 +3,9 @@ html(lang='en')
 
 	head
 
-		- var name = "Portfolio - Luke Harrison"
-		- var slug = "portfolio" 
-		- var description = "An overview of some of my design and development work plus a look into my side projects."
-		- var portfolioCategory = "View All"
+		- var name = "404 Page Not Found - Luke Harrison"
+		- var slug = "404" 
+		- var description = "404 page not found"
 
 		include partials/header
 
@@ -16,7 +15,8 @@ html(lang='en')
 		include partials/loader
 		include partials/navigation
 		
-		section(class="banner banner--about") 
-			h1(class="header--lrg") 404 - Nope! Nothing here
+		section(class="banner banner--404") 
+			h1(class="header--xlrg") 404
+			h2(class="header--med") Page not found
 
 		include partials/footer
