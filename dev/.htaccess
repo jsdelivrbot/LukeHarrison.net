@@ -9,6 +9,9 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME}\.html -f
 RewriteRule ^(.*)$ $1.html
 
+RewriteCond %{HTTP_HOST} !^www\. [NC]
+RewriteRule ^(.*)$ http://www.%{HTTP_HOST}/$1 [R=301,L]
+
 # BEGIN GZIP
 # mod_gzip compression (legacy, Apache 1.3)
 <IfModule mod_gzip.c>
