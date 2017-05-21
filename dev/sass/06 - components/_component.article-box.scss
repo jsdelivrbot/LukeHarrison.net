@@ -1,0 +1,26 @@
+//--------------------------------------------------------------------------------------------------------------------------------------
+// ARTICLE BOX COMPONENT
+//--------------------------------------------------------------------------------------------------------------------------------------
+
+
+// BASE & ELEMENTS
+//--------------------------------------------------------------------------------------------------------------------------------------
+
+
+.c-article-box:hover .c-article-box__title,
+.c-article-box:focus .c-article-box__title,
+.c-article-box__title:hover,
+.c-article-box__title:focus {
+	color:color("red");
+}
+
+.c-article-box--island {
+	background-color:color("white"); 
+	border-bottom:rem(5px) solid color("red");
+	box-shadow:$global-box-shadow;
+	&:focus {
+		background-color:lighten(color("red"), 30%);
+	}
+}
+
+

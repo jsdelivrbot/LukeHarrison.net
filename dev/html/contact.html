@@ -1,0 +1,56 @@
+{# Define page information which feeds into header template #}
+{% set title = "Contact - Luke Harrison" %}
+{% set description = "If you have a question or just want to get in touch, email me using the form provided." %}
+{% set slug = "contact" %}
+
+{# Define page specific ogTags #}
+{% set ogTags %}
+<meta property="og:url" content="http://www.lukeharrison.net/contact" />
+{% endset %}
+
+{# Inject Header Template #}
+{% include "partials/header.html" %}
+
+{# Header #}
+<section id="content-start" class="o-box o-box--spacing-regular o-box--spacing-large@md o-box--spacing-huge@lg o-box--spacing-balance u-padding-horizontal-none u-padding-bottom-none u-background-purple">
+	<div class="o-container">
+		<div class="o-layout o-layout--flush u-overflow-hidden">
+			<div class="o-layout__item u-10/12@md u-offset-1/12@md u-10/16@lg3 u-offset-3/16@lg3 u-margin-bottom-increased u-margin-bottom-large@sm3 u-margin-bottom-giant@md u-type-white u-align-center">
+				<h1 class="c-type-charlie u-bold c-type--height-reduced u-margin-bottom-reduced u-uppercase">Contact</h1>
+				<p class="c-type-delta u-normal u-padding-horizontal-large@md u-padding-horizontal-giga@lg">If you have any questions or just want to get in touch, email me at <a href="mailto:luke@lukeharrison.net" class="c-link c-link--white">luke@lukeharrison.net</a> or use the form below.</p>
+			</div>
+			<div class="o-layout__item u-10/12@md u-offset-1/12@md u-8/12@md3 u-offset-2/12@md3 u-8/16@lg3 u-offset-4/16@lg3 u-background-white u-box-shadow">
+				<div class="o-box o-box--spacing-small o-box--spacing-regular@md"> 
+					<form class="c-email-form">
+						{# Loading Icon #}
+						<div class="c-loader c-loader--purple c-loader--in-content c-email-form__loader">
+							<div class="c-loader__icon"></div>
+						</div>
+						{# Message Overlay #}
+						<div class="c-email-form__overlay" data-success="Thanks for your email! I'll be in touch." data-failure="Oops, something went wrong. Email me directly instead."></div>
+						<fieldset>
+							<label class="u-display-block u-margin-bottom-reduced">Your name:
+								<input type="text" placeholder="eg: Luke Harrison" name="name" class="c-input-text" data-required-msg="Please give your name" autofocus required>
+								<p class="u-type-error c-input-validation js-input-validation">Wrong</p>
+							</label>
+							<label class="u-display-block u-margin-bottom-reduced">Your email address:
+								<input type="email" placeholder="eg: luke@lukeharrison.net" name="email" class="c-input-text" data-required-msg="Please supply your email address" data-type-mismatch-msg="Your email address isn't valid" required>
+								<p class="u-type-error c-input-validation js-input-validation"></p>
+							</label>
+							<label class="u-display-block u-margin-bottom-reduced u-margin-bottom-increased@md">Your message:
+								<textarea placeholder="eg: Hi there, I'd like to send you a cheque..." name="message" class="c-input-textarea" data-required-msg="Please write a message" required></textarea>
+								<p class="u-type-error c-input-validation js-input-validation"></p>
+							</label> 
+							<div class="u-align-center u-margin-bottom-small@md">
+								<button class="c-button c-button--purple">Send</button>
+							</div>
+						</fieldset>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+{# Inject Footer Template #}
+{% include "partials/footer.html" %}

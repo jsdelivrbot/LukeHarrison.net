@@ -1,0 +1,46 @@
+//--------------------------------------------------------------------------------------------------------------------------------------
+// SKIP-TO-CONTENT COMPONENT
+//--------------------------------------------------------------------------------------------------------------------------------------
+
+/*
+Skip to content component. This is hidden in the header and accessible when a user tabs through the page
+*/
+
+
+// BASE & ELEMENTS
+//--------------------------------------------------------------------------------------------------------------------------------------
+
+/*
+<a href="/" class="c-mycomponent">
+	CONTENT
+</a>
+*/
+
+.c-skip-to-content {
+	background-color:color("white");
+	position:absolute;
+	box-shadow:$global-box-shadow;
+	top:100%;
+	left:50%;
+	transform:translateX(-50%);
+	opacity:0;
+	&:focus {
+		opacity:1;
+	}
+}
+
+.c-skip-to-content--blue .c-skip-to-content__inner {
+	background-color:lighten(color("blue"), 30%);
+}
+
+.c-skip-to-content--green .c-skip-to-content__inner {
+	background-color:lighten(color("green"), 30%);
+}
+
+.c-skip-to-content--red .c-skip-to-content__inner {
+	background-color:lighten(color("red"), 30%);
+}
+
+.c-skip-to-content--purple .c-skip-to-content__inner {
+	background-color:lighten(color("purple"), 30%);
+}

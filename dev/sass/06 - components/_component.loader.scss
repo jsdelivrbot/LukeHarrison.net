@@ -1,0 +1,75 @@
+//--------------------------------------------------------------------------------------------------------------------------------------
+// ICON COMPONENT
+//--------------------------------------------------------------------------------------------------------------------------------------
+
+/*
+Styles for loading icon
+*/
+
+
+// STYLES
+//--------------------------------------------------------------------------------------------------------------------------------------
+
+.c-loader {
+	display:flex;
+	width:100%;
+	height:100%;
+	background-color:#fff;
+	opacity:0;
+	position:fixed;
+	z-index:100;
+	transition:opacity 0.5s;
+	align-items:center;
+	justify-content:center;
+}
+
+@-webkit-keyframes loading {
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+@keyframes loading {
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+.c-loader__icon {
+	width: 2em;
+	height: 2em;
+	border: 0.25em solid rgba(0,0,0,0.1);
+	border-top-color: color("blue"); 
+	border-radius: 50%;
+	-webkit-animation: loading 1s infinite linear;
+	animation: loading 1s infinite linear;
+	margin: 2em;
+}
+
+.c-loader--green .c-loader__icon {
+	border-top-color: color("green");
+}
+
+.c-loader--red .c-loader__icon {
+	border-top-color: color("red");
+}
+
+.c-loader--purple .c-loader__icon {
+	border-top-color: color("purple");
+}
+
+.is-loading .c-loader {
+	opacity:1; 
+}
+
+.no-cssanimations .c-loader {
+	display:none !important;
+	opacity:0 !important;
+	visibility:hidden !important;
+}
+
+.c-loader--in-content {
+	background-color:rgba(255,255,255,0.9);
+	z-index:-1;
+	position:absolute;
+}

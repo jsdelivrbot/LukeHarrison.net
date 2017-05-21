@@ -1,0 +1,52 @@
+//--------------------------------------------------------------------------------------------------------------------------------------
+// BUTTON COMPONENT
+//--------------------------------------------------------------------------------------------------------------------------------------
+
+
+// BASE & ELEMENTS
+//--------------------------------------------------------------------------------------------------------------------------------------
+
+.c-button {
+	width:100%;
+	display:inline-block;
+	padding:rem(15px) rem(25px);
+	background-color:color("type");
+	color:color("white");
+	font-size:rem(18px);
+	font-weight:bold;
+	border:0;
+	cursor:pointer;
+}
+
+@include bp(sm2) {
+	.c-button {
+		width:auto;
+	}
+}
+
+@include bp(md) {
+	.c-button {
+		font-size:rem(24px);
+		padding:rem(20px) rem(30px);
+	}
+}
+
+.c-button:focus {
+	outline:rem(3px) solid;
+}
+
+.c-button--blue:focus {
+	outline-color: color("blue");
+}
+
+.c-button--red:focus {
+	outline-color: color("red");
+}
+
+.c-button--green:focus {
+	outline-color: color("green");
+}
+
+.c-button--purple:focus {
+	outline-color: color("purple");
+}

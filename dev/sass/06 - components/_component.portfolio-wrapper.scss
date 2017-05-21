@@ -1,0 +1,28 @@
+//--------------------------------------------------------------------------------------------------------------------------------------
+// PORTFOLIO WRAPPER COMPONENT
+//--------------------------------------------------------------------------------------------------------------------------------------
+
+/*
+Adds a wrapper around portfolio content so it doesn't go full-width on massive screens
+*/
+
+
+// BASE & ELEMENTS
+//--------------------------------------------------------------------------------------------------------------------------------------
+
+.c-portfolio-wrapper {
+	max-width:rem(2000px);
+	margin:0 auto;
+}
+
+@include bp(sm3) {
+	.c-portfolio-wrapper {
+		padding:rem(15px) 0;
+	}
+}
+
+@include bp(md2) {
+	.c-portfolio-wrapper {
+		padding:rem(35px);
+	}
+}

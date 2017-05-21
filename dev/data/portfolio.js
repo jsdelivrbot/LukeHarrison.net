@@ -1,13 +1,14 @@
-var portfolio = {
-	"Orion Suite" : {
-		"company": "Side Project",
+module.exports = [
+	{
+		"title": "Orion Suite",
+		"category": "side-project",
 		"url": "https://github.com/WebDevLuke/",
 		"urlText" : "View on Github",
 		"screenshots": [
 			{
-				"url": "/img/portfolio/sideprojects/orion-framework/01.svg",
-				"altUrl": "/img/portfolio/sideprojects/orion-framework/01.png",
-				"scroll": false
+				"url": "orion_01",
+				"scroll": false,
+				"svg": true
 			}
 		],
 		"description": [
@@ -17,8 +18,9 @@ var portfolio = {
 			"OrionBP - a simple Gulp powered front-end boilerplate for projects using OrionCSS and OrionJS."
 		]
 	},
-	"A/B Testing and MVT" : {
-		"company": "Plusnet",
+	{
+		"title": "A/B Testing and MVT",
+		"category": "plusnet",
 		"screenshots": [
 			{
 				"url": "/img/portfolio/plusnet/AB/01.jpg",
@@ -38,8 +40,9 @@ var portfolio = {
 			"This specific example shows a test where I compared the existing broadband packages page against a new streamlined full width variant over a 30 day period. Once this was over, metrics  within Adobe Target and Google Analytics showed that the new variant succeeded in improving conversion. It was subsquently rolled out in a later sprint."
 		]
 	},
-	"Schooltopia" : {
-		"company": "Side Project",
+	{	
+		"title": "Schooltopia",
+		"category": "side-project",
 		"url": "http://www.schooltopia.co.uk",
 		"urlText" : "www.schooltopia.co.uk",
 		"screenshots": [
@@ -52,19 +55,19 @@ var portfolio = {
 				"scroll": true
 			},
 			{
-				"url": "/img/portfolio/sideprojects/schooltopia/03.svg",
-				"altUrl": "/img/portfolio/sideprojects/schooltopia/03.png",
-				"scroll": false
+				"url": "schooltopia_03",
+				"scroll": false,
+				"svg": true
 			},
 			{
-				"url": "/img/portfolio/sideprojects/schooltopia/04.svg",
-				"altUrl": "/img/portfolio/sideprojects/schooltopia/04.png",
-				"scroll": false
+				"url": "schooltopia_04",
+				"scroll": false,
+				"svg": true
 			},
 			{
-				"url": "/img/portfolio/sideprojects/schooltopia/05.svg",
-				"altUrl": "/img/portfolio/sideprojects/schooltopia/05.png",
-				"scroll": false
+				"url": "schooltopia_05",
+				"scroll": false,
+				"svg": true
 			}
 		],
 		"description": [
@@ -72,8 +75,9 @@ var portfolio = {
 			"This means in the future if I have the desire and the freelance capacity to build more school websites, I already have a foundation to build on."
 		]
 	},
-	"Brand Toolkit" : {
-		"company": "Plusnet",
+	{	
+		"title": "Brand Toolkit",
+		"category": "plusnet",
 		"screenshots": [
 			{
 				"url": "/img/portfolio/plusnet/toolkit/01.jpg",
@@ -93,8 +97,9 @@ var portfolio = {
 			"It started out as a small side project of mine intended for use within the web dev team, but grew in scope and is now used by creatives and brand stakeholders in departments across Plusnet."
 		]
 	},
-	"Screenshot Automation Tool" : {
-		"company": "Plusnet",
+	{	
+		"title": "Screenshot Automation Tool",
+		"category": "plusnet",
 		"screenshots": [
 			{
 				"url": "/img/portfolio/plusnet/screenshotTool/01.png",
@@ -106,8 +111,9 @@ var portfolio = {
 			"Users can either select from common tasks, such as generating screenshots of all pages required for signoff of a broadband offer, or they can pass in a custom array for one-off jobs."
 		]
 	},
-	"4x4overlander " : {
-		"company": "Red HQ",
+	{
+		"title": "4x4overlander",
+		"category": "red-hq",
 		"url": "http://www.4x4overlander.com/",
 		"urlText" : "www.4x4overlander.com",
 		"screenshots": [
@@ -120,8 +126,9 @@ var portfolio = {
 			"4x4overlander.com was an ecommerce project built on Wordpress and WooCommerce for a client who wanted to sell specialist parts and accessories for Land Rover Defender.", 
 		]
 	},
-	"Red HQ Redesign " : {
-		"company": "Red HQ",
+	{
+		"title": "Red HQ Redesign",
+		"category": "red-hq",
 		"screenshots": [
 			{
 				"url": "/img/portfolio/redhq/redhq/01.jpg",
@@ -137,8 +144,9 @@ var portfolio = {
 			"This new website gave Red HQ a more professional showcase to promote it's services, and as a result it saw a large increase in organic web traffic and enquiries."
 		]
 	},
-	"Tile Puzzle Game" : {
-		"company": "Side Project",
+	{
+		"title": "Tile Puzzle Game",
+		"category": "side-project",
 		"url": "https://codepen.io/lukedidit/full/yOeePo/",
 		"urlText" : "Play Tile Puzzle Game",
 		"screenshots": [
@@ -152,8 +160,9 @@ var portfolio = {
 			"There’s 4 different variations to tackle. See how quickly you can solve them!"
 		]
 	},
-	"MPD Power " : {
-		"company": "Red HQ",
+	{
+		"title": "MPD Power",
+		"category": "red-hq",
 		"screenshots": [
 			{
 				"url": "/img/portfolio/redhq/mpdpower/01.jpg",
@@ -169,8 +178,9 @@ var portfolio = {
 			"I worked with them to develop a new website which was modern and professional and would suit their needs. This redesign gave them a more corporate image which increased their sales both at home and especially in developing countries."
 		]
 	},
-	"Sandal Magna Community Academy" : {
-		"company": "Red HQ",
+	{
+		"title": "Sandal Magna Community Academy",
+		"category": "red-hq",
 		"url": "http://www.sandalmagna.co.uk",
 		"urlText" : "www.sandalmagna.co.uk",
 		"screenshots": [
@@ -192,6 +202,4 @@ var portfolio = {
 			"After each new school website was rolled live, I delivered training directly to the teachers themselves to educate them on how to use the CMS and what best practices were recommended."
 		]
 	}
-};
-
-module.exports = portfolio;
+]

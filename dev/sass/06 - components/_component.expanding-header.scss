@@ -1,0 +1,26 @@
+//--------------------------------------------------------------------------------------------------------------------------------------
+// EXPANDING HEADER COMPONENT
+//--------------------------------------------------------------------------------------------------------------------------------------
+
+/*
+Expanding header component used when a component needs to stretch and fill all available vertical space
+*/
+
+
+// BASE & ELEMENTS
+//--------------------------------------------------------------------------------------------------------------------------------------
+
+.c-expanding-header {
+	display:flex;
+	flex-direction:column;
+	justify-content:center;
+	align-items:center;
+	min-height:rem(300px);
+	flex-grow:1;
+}
+
+@include bp(md) {
+	.c-expanding-header {
+		min-height:rem(400px);
+	}
+}

@@ -1,0 +1,50 @@
+//--------------------------------------------------------------------------------------------------------------------------------------
+// SAMPLE COMPONENT
+//--------------------------------------------------------------------------------------------------------------------------------------
+
+/*
+Markdown component to control styles of elements which appear within.
+*/
+
+
+// BASE & ELEMENTS
+//--------------------------------------------------------------------------------------------------------------------------------------
+
+
+.c-markdown {
+	// Hide bug where HTML comment is being printed
+	pre:first-child, pre:first-child + p {
+		display:none;
+	}
+
+	h2 {
+		@extend .c-type-echo;
+		margin-bottom:rem(25px);
+	}
+
+	h3 {
+		@extend .c-type-delta;
+		margin-bottom:rem(25px);
+	}
+
+	hr {
+		margin:rem(25px) -15px;
+	}
+
+	a {
+		font-weight:bold;
+		@extend .c-link;
+		@extend .c-link--red;
+	}
+
+}
+
+@include bp(md) {
+
+	.c-markdown {
+		hr {
+			margin:rem(50px) -30px;
+		}
+	}
+
+}

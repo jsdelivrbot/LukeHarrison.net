@@ -1,3 +1,3 @@
-[submodule "dev/My-Articles"]
-	path = dev/My-Articles
+[submodule "dev/html/partials/My-Articles"]
+	path = dev/html/partials/My-Articles
 	url = https://github.com/WebDevLuke/My-Articles.git

@@ -1,0 +1,36 @@
+//--------------------------------------------------------------------------------------------------------------------------------------
+// CODEBLOCK STYLES
+//--------------------------------------------------------------------------------------------------------------------------------------
+
+/*
+Set basic styles for CODE BLOCKS
+*/
+
+pre {
+	background:color("type");
+	padding:rem(12px);
+	margin:rem(30px) 0;
+	color:color("white");
+	overflow:scroll;
+}
+
+code {
+	font-size:rem(16px);
+	background-color:color("light-grey");
+	margin:0 rem(3px) 0 rem(1px);
+	padding:0 rem(5px) rem(2px);
+	border-radius:rem(4px);
+}
+
+pre code {
+	background-color:inherit;
+	padding:0;
+	margin:0;
+	border-radius:0;
+}
+
+@include bp(md) {
+	pre {
+		margin:30px -30px;
+	}
+}

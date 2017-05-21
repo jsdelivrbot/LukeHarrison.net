@@ -1,0 +1,138 @@
+{# Define page information which feeds into header template #}
+{% set title = "Luke Harrison - Sheffield Web Designer & Front-End Developer" %}
+{% set description = "Luke Harrison is a Sheffield-based Web Designer & Front-End Developer." %}
+{% set slug = "about" %}
+
+{# Define page specific ogTags #}
+{% set ogTags %}
+<meta property="og:url" content="http://www.lukeharrison.net" />
+{% endset %}
+
+
+{# Inject Header Template #}
+{% include "partials/header.html" %}
+
+{# Feature Banner #}
+<section id="content-start" class="c-feature js-feature is-animated">
+	<div class="c-feature__container">
+		<svg class="c-feature__static-background"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#feature-static"></use></svg>
+		<div class="c-feature__segment c-feature__segment--designer js-feature-designer">
+			<div class="o-container">
+				<div class="o-layout c-feature__layout">
+					<div class="o-layout__item u-5/12@md u-5/16@lg3 u-offset-2/16@lg3">
+						<div class="c-type-charlie u-bold u-uppercase">Designer</div>
+						<p class="c-type-delta u-normal">Creative web designer who solves problems with <span class="u-nowrap">user-centered</span> solutions</p>
+					</div>
+				</div>
+				<svg class="c-feature__image c-feature__image--lines"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#feature-lines"></use></svg>
+			</div>
+		</div>
+		<div class="c-feature__segment c-feature__segment--developer js-feature-developer">
+			<div class="o-container">
+				<div class="o-layout c-feature__layout">
+					<div class="o-layout__item u-5/12@md u-offset-7/12@md u-5/16@lg3 u-offset-9/16@lg3">
+						<div class="c-type-charlie u-bold u-uppercase">Developer</div>
+						<p class="c-type-delta u-normal">Front-end developer who is all about scalable &amp; efficient front-end architecture</p>
+					</div>
+				</div>
+				<svg class="c-feature__image c-feature__image--full"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#feature-full"></use></svg>
+			</div>
+		</div>
+	</div>
+</section>
+
+{# About Me Introduction #}
+<section class="o-box u-padding-top-increased u-padding-top-huge@md u-padding-top-giant@md3 u-padding-top-giga@lg">
+	<div class="o-container">
+		<div class="o-layout o-layout--flush">
+			<div class="o-layout__item u-6/12@md u-6/16@lg3 u-offset-2/16@lg3 u-margin-bottom-regular@max-md">
+				<h1 class="c-type-echo u-bold u-margin-bottom-reduced">Hi, I'm Luke Harrison</h1>
+				<h2 class="c-type-delta u-normal u-margin-bottom-reduced">I’m a web designer &amp; front-end developer from Sheffield, UK with over <span class="js-years-experience">5</span> years of experience.</h2>
+				<p>I have key skills which stretch across the project life cycle; from designing UX driven wireframes and mockups through to developing high quality code focusing on performance, responsiveness and usability.</p>
+				<p>I’ve always been interested in web design, first as a hobby and now as a career. I currently work at car finance broker <a href="http://www.evolutionfunding.com" target="_blank" class="c-link c-link--blue">Evolution Funding</a>, where I'm driving front-end development and refining the usability of products and services.</p>
+			</div>
+			<div class="o-layout__item u-6/12@md u-7/16@lg3">
+				<img src="/img/me.jpg" class="c-hero" alt="Luke Harrison, Web Designer and Front-end Developer" srcset="img/me.jpg 1x, img/me-2X.jpg 2x">
+			</div>
+		</div>
+	</div>
+</section>
+
+{# Blog Posts #}
+<section class="o-box o-box--spacing-regular o-box--spacing-huge@md o-box--spacing-giant@lg o-box--spacing-balance u-background-light-grey u-padding-horizontal-none">
+	<div class="o-container">
+		<div class="o-layout">
+			<div class="o-layout__item u-10/12@md3 u-offset-1/12@md3">
+				<h2 class="c-type-echo u-bold u-margin-bottom-regular u-margin-bottom-large@md u-align-center">Latest Articles</h2>
+				{# Show latest 3 articles #}
+				{% for article in articles %}
+					{% if loop.index <= 3 %}
+						<a href="{% if article.host %}{{article.path}}{% else %}/articles/{{article.slug}}{% endif %}" class="o-box o-box--spacing-small o-box--spacing-regular@md c-article-box c-article-box--island {% if loop.index === 3 %}u-margin-bottom-regular u-margin-bottom-huge@md{% else %}u-margin-bottom-small u-margin-bottom-regular@md{% endif %}"{% if article.host %} target="blank"{% endif %}>
+							<div>{{article.date}}{% if article.host %} | {{article.host}}{% endif %}</div>
+							<h3 class="c-type-echo c-article-box__title u-bold">{{article.title}}</h3>
+						</a>
+					{% endif %}
+				{% endfor %}
+
+				<div class="u-align-center">
+					<a href="/articles" class="c-button c-button--red">More articles</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+{# Timeline #}
+<section class="o-box o-box--spacing-regular o-box--spacing-huge@md o-box--spacing-giant@md3 o-box--spacing-giga@lg o-box--spacing-balance u-padding-horizontal-none">
+	<div class="o-container">
+		<div class="o-layout u-display-block@lg">
+
+			<div class="o-layout__item u-6/12@md u-3/12@lg u-3/16@lg3 u-float-left@lg u-margin-bottom-regular@max-lg">
+				<h2 class="c-type-echo u-bold u-margin-bottom-reduced">Today</h2>
+				<h3 class="c-type-delta u-normal u-margin-bottom-reduced">Evolution Funding</h3>
+				<p>In October 2016 I made the move to car finance broker Evolution Funding - joining their development team as a web designer and front-end developer.</p>
+				<p>My priorities are maintaining products and services whilst driving front-end development on new projects. I also make sure that the user experience with all our products is top-notch.</p>
+			</div>
+
+			<div class="o-layout__item u-6/12@md u-3/12@lg u-3/16@lg3 u-offset-1/16@lg3 u-float-left@lg u-margin-bottom-regular@max-lg">
+				<h2 class="c-type-echo u-bold u-margin-bottom-reduced">2014 - 2016</h2>
+				<h3 class="c-type-delta u-normal u-margin-bottom-reduced">Plusnet</h3>
+				<p>I joined the internet service provider Plusnet in 2014 as a web designer and front-end developer.</p>
+				<p>I worked primarily on tactical marketing projects. Typically this involved building promotions, developing sales pages to increase conversion through A/B and MVT and refining sales journeys. I also enjoyed developing tools to improve my teams productivity.</p>
+			</div>
+
+			<div class="o-layout__item u-6/12@md u-2/12@lg u-2/16@lg3 u-offset-1/16@lg3 u-float-left@lg u-margin-bottom-regular">
+				<h2 class="c-type-echo u-bold u-margin-bottom-reduced">2012</h2>
+				<p class="u-nudge-top-atomic@lg">At Red HQ I created many school websites and delivered training to teachers.</p>
+			</div>
+
+			<div class="o-layout__item u-6/12@md u-2/12@lg u-2/16@lg3 u-offset-1/16@lg3 u-float-left@lg u-margin-bottom-regular">
+				<h2 class="c-type-echo u-bold u-margin-bottom-reduced">2010</h2>
+				<p class="u-nudge-top-atomic@lg">From 2010 to 2012 I worked at ZootAlore as a web designer. My first web job out of university.</p>
+			</div>
+
+			<div class="o-layout__item u-6/12@md u-2/12@lg u-2/16@lg3 u-offset-1/16@lg3 u-float-left@lg u-margin-bottom-regular">
+				<h2 class="c-type-echo u-bold u-margin-bottom-reduced">2010</h2>
+				<p class="u-nudge-top-atomic@lg">I graduated from Sheffield Hallam University with a 1:1 degree in BA (Hons) Game Design.</p>
+			</div>
+
+			<div class="o-layout__item u-6/12@md u-2/12@lg u-2/16@lg3 u-offset-1/16@lg3 u-float-left@lg u-margin-bottom-regular@max-lg">
+				<h2 class="c-type-echo u-bold u-margin-bottom-reduced">2004</h2>
+				<p class="u-nudge-top-sub-atomic@lg">Completed a work placement at Sheffield based graphic design studio The Workshop.</p>
+			</div>
+
+			<div class="o-layout__item u-6/12@md u-2/12@lg u-2/16@lg3 u-offset-1/16@lg3 u-float-left@lg u-margin-bottom-regular@max-lg"> 
+				<h2 class="c-type-echo u-bold u-margin-bottom-reduced">2002</h2>
+				<p class="u-nudge-top-sub-atomic@lg">I built my first ever website on Yahoo Geocities. See it <a href="http://web.archive.org/web/20021015034847/http://www.geocities.com/neoblackmage/" target="_blank" class="c-link c-link--blue">here</a>. Remember to sign the guestbook!</p>
+			</div>
+
+			<div class="o-layout__item u-6/12@md u-2/12@lg u-2/16@lg3 u-offset-1/16@lg3 u-float-left@lg">
+				<h2 class="c-type-echo u-bold u-margin-bottom-reduced">1988</h2>
+				<p class="u-nudge-top-sub-atomic@lg">Born in sunny Sheffield.</p>
+			</div>
+		</div>
+	</div>
+</section>
+
+{# Inject Footer Template #}
+{% include "partials/footer.html" %}

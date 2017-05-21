@@ -1,0 +1,43 @@
+//--------------------------------------------------------------------------------------------------------------------------------------
+// FULL HEIGHT OVERRIDE
+//--------------------------------------------------------------------------------------------------------------------------------------
+
+/*
+Utility classes for heights
+*/
+
+
+// STANDARD
+//--------------------------------------------------------------------------------------------------------------------------------------
+
+.u-full-height {
+	height:100% !important;
+	max-height:100% !important;
+}
+
+.u-page-height {
+	height:100vh !important;
+}
+
+// RESPONSIVE
+//--------------------------------------------------------------------------------------------------------------------------------------
+
+// Example: u-full-height@xlg
+@each $bp-name, $bp-value in $breakpoints {
+	@include bp(#{$bp-name}) {
+		.u-full-height\@#{$bp-name} {
+			height:100% !important;
+			max-height:100% !important;
+		}
+	}
+}
+
+// Example: u-full-height@max-xlg
+@each $bp-name, $bp-value in $breakpoints {
+	@include bpMax(#{$bp-name}) {
+		.u-full-height\@max-#{$bp-name} {
+			height:100% !important;
+			max-height:100% !important;
+		}
+	}
+}

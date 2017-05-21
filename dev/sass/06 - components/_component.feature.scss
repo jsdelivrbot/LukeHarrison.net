@@ -1,0 +1,192 @@
+//--------------------------------------------------------------------------------------------------------------------------------------
+// FEATURE COMPONENT
+//--------------------------------------------------------------------------------------------------------------------------------------
+
+/*
+Styles for homepage animated feature banner
+*/
+
+
+// STYLES
+//--------------------------------------------------------------------------------------------------------------------------------------
+
+@keyframes banner-animate {
+	0%	{
+		clip-path: inset(0px 0px 0px 100%);
+	}
+	5%	{
+		clip-path: inset(0px 0px 0px 100%);
+	}
+	50%	{
+		clip-path: inset(0px 0px 0px 0%);
+	}
+	55%	{
+		clip-path: inset(0px 0px 0px 0%);
+	}
+	100%	{
+		clip-path: inset(0px 0px 0px 50%);
+	}
+}
+
+.c-feature {
+	height:calc(100vh - 204px);
+	color:#ffffff;
+	text-align:center;
+	position:relative;
+	font-size:5px;
+	overflow:hidden;
+	background-color:color("blue");
+	&:after {
+		content:"";
+		display:block;
+		width:100%;
+		height:34px;
+		background-color:color("dark-blue");
+		position:absolute;
+		bottom:0;
+	}
+}
+
+.c-feature__container {
+	position:absolute;
+	width:100%; 
+	height:100%;
+}
+
+.c-feature__static-background {
+	position:absolute;
+	width:rem(1500px);
+	height:rem(600px);
+	bottom:rem(34px);
+	transform:translateX(-50%);
+}
+
+.c-feature__segment {
+	position:absolute;
+	display:none;
+	bottom:34px;
+	width:100%;
+	height:100%;
+	top:0;
+}
+
+.c-feature__segment--developer {
+	background-color:color("light-blue");
+}
+
+.c-feature__layout {
+	margin-top:7%;
+}
+
+.c-feature__image {
+	width:115em;
+	height:38.4em;
+	position:absolute;
+	bottom:34px;
+	left:0;
+	right:0px;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+.c-feature__image--lines {
+	background-color:color("blue");
+}		
+
+.c-feature__image--full {
+	background-color:color("light-blue"); 
+}
+
+.c-feature.is-inactive {
+	.c-feature__segment--developer {
+		transition: clip 1.5s, clip-path 1.5s;
+	}
+}
+
+@include bp(sm) {
+
+	.c-feature__static-background {
+		width:rem(2000px);
+		height:rem(800px);
+	}
+
+}
+
+@include bp(sm2) {
+	.c-feature {
+		font-size:6px;
+	}
+}
+
+@include bpMax(md, "orientation:landscape") {
+	.c-feature {
+		font-size:rem(6px);
+		height:rem(350px);
+	}
+}
+
+@include bp(md) {
+	.c-feature__container {
+		left:auto;
+	}
+
+	.c-feature__segment {
+		display:block; 
+	}
+
+	.c-feature__static-background {
+		display:none;
+	}
+
+	body.clip-path .c-feature.is-animated .c-feature__segment--developer {
+		animation-name: banner-animate;
+		animation-duration: 2s; 
+		animation-timing-function: ease-in-out;
+		animation-play-state: paused;
+	}
+
+	body.no-clip-path .c-feature.is-animated .c-feature__segment--developer {
+		animation-name: banner-animate-legacy;
+		animation-duration: 2s;
+		animation-timing-function: ease-in-out;
+		animation-play-state: paused;
+	}
+}
+
+@include bpBetween(md, lg3) {
+	.c-feature {
+		min-height:rem(663px);
+	}
+}
+
+@include bp(md, "orientation:portrait") {
+	.c-feature {
+		height:50vh;
+		max-height:rem(860px);
+	}
+}
+
+@include bp(md, "orientation:landscape") {
+	.c-feature {
+		height:calc(100vh - 112px);
+		max-height:rem(898px);
+	}
+}
+
+@include bp(md3) {
+	.c-feature {
+		font-size:8px;
+	}
+}
+
+@include bp(lg3) {
+	.c-feature {
+		min-height:rem(730px);
+	}
+}
+
+@include bp(lg4) {
+	.c-feature {
+		font-size:10px;
+	}
+}

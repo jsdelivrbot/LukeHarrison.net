@@ -1,0 +1,99 @@
+{# Header #}
+<section id="content-start" class="u-background-green u-align-center">
+	<div class="o-box o-box--spacing-regular o-box--spacing-large@md o-box--spacing-huge@lg o-box--spacing-balance u-padding-horizontal-none">
+		<div class="o-container">
+			<div class="o-layout">
+				<div class="o-layout__item u-10/12@md u-offset-1/12@md u-10/16@lg3 u-offset-3/16@lg3 u-type-white">
+					<h1 class="c-type-charlie u-bold c-type--height-reduced u-margin-bottom-reduced u-uppercase">Portfolio</h1>
+					<p class="c-type-delta u-normal u-padding-horizontal-large@md u-padding-horizontal-giga@lg">An overview of some of my design and development work plus a look into my side projects.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="o-container">
+		{# Tabs #}
+		<ul class="o-list-inline c-tabs u-padding-bottom-small@max-md">
+			<li class="o-list-inline__item c-tabs__item {% if portfolioPage === "view-all" %}is-active{% endif %}">
+				<a href="/portfolio" class="c-type-delta"><span class="u-position-relative">View All</span></a>
+			</li>
+			<li class="o-list-inline__item c-tabs__item {% if portfolioPage === "plusnet" %}is-active{% endif %}">
+				<a href="/portfolio/plusnet" class="c-type-delta"><span class="u-position-relative">Plusnet</span></a>
+			</li>
+			<li class="o-list-inline__item c-tabs__item {% if portfolioPage === "red-hq" %}is-active{% endif %}">
+				<a href="/portfolio/red-hq" class="c-type-delta"><span class="u-position-relative">Red HQ</span></a>
+			</li>
+			<li class="o-list-inline__item c-tabs__item {% if portfolioPage === "side-project" %}is-active{% endif %}">
+				<a href="/portfolio/side-projects" class="c-type-delta"><span class="u-position-relative">Side Projects</span></a>
+			</li>
+		</ul>
+	</div> 
+</section>
+
+<div class="c-portfolio-wrapper">
+
+	{# Set cycler to go between odd, even #}
+	{% set cls = cycler("is-odd", "is-even") %}
+	{# Loop through portfolio and render #}
+	{% for item in portfolio %}
+		{# if view-all show all items, otherwise show matching category items #}
+		{% if portfolioPage === "view-all" or portfolioPage === item.category %}
+			<section class="c-portfolio-item {{ cls.next() }}">
+				<div class="c-portfolio-item__screens {% if item.screenshots.length > 1 %}has-multiple{% endif %}" {% if item.screenshots.length > 1 %}tabindex="0"{% endif %}>
+					<div class="c-portfolio-item__slide-container">
+						{# Loop through screenshots #}
+						{% for screenshot in item.screenshots %}
+							<div class="c-portfolio-item__slide {% if screenshot.scroll %}has-scroll{% else %}no-scroll{% endif %} {% if loop.first %}is-active{%endif%}">
+								<div class="c-portfolio-item__slide-inner">
+									<svg class="c-portfolio-item__browser"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#browser"></use></svg>
+									<div class="c-portfolio-item__screen">
+										{% if screenshot.svg %}
+											<svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#{{screenshot.url}}"></use></svg>
+										{% else %}
+											<img alt="{{item.title}} screenshot {{loop.index}}" src="{{screenshot.url}}">
+										{% endif %}
+									</div>
+									<img class="c-portfolio-spacer" src="/img/portfolio-spacer.gif" alt="portfolio spacer">
+								</div>
+							</div>
+						{% endfor %}
+					</div>
+					<div class="c-portfolio-item__controls">
+						<span class="c-portfolio-items__controls-arrow c-portfolio-items__controls-prev"></span>
+						<span class="c-portfolio-items__controls-num"></span>
+						<span class="c-portfolio-items__controls-arrow c-portfolio-items__controls-next"></span>
+					</div>
+				</div>
+				<div class="o-container">
+					<div class="o-layout o-layout--middle u-full-height">
+						{% if cls.current === "is-odd" %}
+							<div class="o-layout__item c-portfolio-item__text u-10/12@sm2 u-offset-1/12@sm2 u-8/12@md3 u-offset-2/12@md3 u-5/12@lg u-offset-7/12@lg u-5/16@lg3 u-offset-9/16@lg3">
+						{% else %}
+							<div class="o-layout__item c-portfolio-item__text u-10/12@sm2 u-offset-1/12@sm2 u-8/12@md3 u-offset-2/12@md3 u-5/12@lg u-5/16@lg3 u-offset-2/16@lg3">
+						{% endif %}
+								<div class="o-box o-box--spacing-reduced o-box--spacing-increased@sm2 o-box--spacing-huge@md2 o-box--spacing-none@lg o-box--spacing-balance u-padding-horizontal-none">
+									<p class="u-margin-bottom-none">
+										{% if item.category === "plusnet" %}
+											Plusnet
+										{% elseif item.category === "red-hq" %}
+											Red HQ
+										{% elseif item.category === "side-project" %}
+											Side Project
+										{% endif %}
+									</p>
+									<h2 class="c-type-echo u-margin-bottom-reduced">{{item.title}}</h2>
+									{% for paragraph in item.description %}
+										<p>{{paragraph}}</p>
+									{% endfor %}
+									{% if item.url %}
+										<a href="{{item.url}}" target="_blank" class="c-link c-link--green u-bold">{{item.urlText}}</a>
+									{% endif %}
+								</div>
+							</div>
+					</div>
+				</div>
+			</section>
+			
+		{% endif %}
+	{% endfor %}
+
+</div>

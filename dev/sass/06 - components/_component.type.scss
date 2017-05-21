@@ -1,0 +1,64 @@
+//--------------------------------------------------------------------------------------------------------------------------------------
+// TYPE COMPONENT
+//--------------------------------------------------------------------------------------------------------------------------------------
+
+/*
+Styles for different type sizes
+*/
+
+
+// STYLES
+//--------------------------------------------------------------------------------------------------------------------------------------
+
+.c-type-alpha,
+.c-type-charlie, /* > 48px > 60px */
+.c-type-echo { /* > 36px */
+	font-size:rem(24px); 
+}
+
+.c-type-bravo {
+	font-size:rem(16px); /* > 24px */
+}
+
+.c-type-delta, /* > 24px */
+.c-type-foxtrot {
+	font-size:rem(18px); 
+}
+
+@include bp(sm2) {
+	.c-type-charlie {
+		font-size:rem(38px); /* > 60px */
+	}
+}
+
+@include bp(md) {
+	.c-type-bravo {
+		font-size:rem(24px);
+	}
+
+	.c-type-delta {
+		font-size:rem(24px);
+	}
+
+	.c-type-echo {
+		font-size:rem(36px);
+	}
+}
+
+@include bp(md3) {
+	.c-type-charlie {
+		font-size:rem(60px); 
+	}
+}
+
+
+// LINE HEIGHT MODIFIER
+//--------------------------------------------------------------------------------------------------------------------------------------
+
+.c-type--height-reduced {
+	line-height:1.25em;
+}
+
+.c-type--height-small {
+	line-height:1em;
+}

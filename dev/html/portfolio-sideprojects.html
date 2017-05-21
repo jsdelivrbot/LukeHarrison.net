@@ -1,0 +1,19 @@
+{# Define page information which feeds into header template #}
+{% set title = "Portfolio - Luke Harrison" %}
+{% set description = "An overview of some of my design and development work plus a look into my side projects." %}
+{% set slug = "portfolio" %}
+{% set portfolioPage = "side-project" %}
+
+{# Define page specific ogTags #}
+{% set ogTags %}
+<meta property="og:url" content="http://www.lukeharrison.net/portfolio/side-projects" />
+{% endset %}
+
+{# Inject Header Template #}
+{% include "partials/header.html" %}
+
+{# Inject Portfolio Template #}
+{% include "partials/portfolio-template.html" %}
+
+{# Inject Footer Template #}
+{% include "partials/footer.html" %}

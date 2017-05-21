@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<title>{{title|safe}}</title>
+
+{# Metatags #}
+<meta charset='UTF-8'>
+<meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1" />
+<meta name="description" content="#{description|safe}"/>
+
+{# Facebook Specific Metatags #}
+{# https://developers.facebook.com/docs/sharing/webmasters #}
+<meta property="og:locale" content="en_GB" />
+<meta property="og:title" content="{{title|safe}}" />
+<meta property="og:description" content="{{description|safe}}" />
+<meta property="og:url" content="http://www.lukeharrison.net" />
+<meta property="og:site_name" content="LukeHarrison.net" />
+<meta property="og:image" content="http://www.lukeharrison.net/img/share.png" />
+<meta property="og:image:width" content="512" />
+<meta property="og:image:height" content="512" />
+<meta property="og:image:type" content="image/png">
+{# Dynamic page specific OG metatags #}
+{{ogTags|safe}} 
+
+
+{# Twitter Specific Metatags #}
+{# https://dev.twitter.com/cards/overview #}
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:site" content="@WebDevLuke"/>
+<meta name="twitter:title" content="{{title|safe}}"/>
+<meta name="twitter:description" content="{{description|safe}}"/>
+<meta name="twitter:image" content="http://www.lukeharrison.net/img/share.png" />
+
+{# Links #}
+<link rel="canonical" href="http://www.lukeharrison.net" />
+<link rel='icon' type='image/ico' href='/img/favicon.ico'>
+<link rel='apple-touch-icon' href='http://www.lukeharrison.net/img/share.png'>
+<link rel='stylesheet' type='text/css' href='/css/main.min.css'>
+<link rel='publisher' href='https://plus.google.com/u/0/111391854319047457378/about'>
+
+</head>
+<body class="js-{{slug}} is-loading {% if flexBody %}u-flex@md u-flex-direction-column@md u-page-height{% endif %}">
+
+{# Work out what link colour to use #}
+{% if slug === "about" or slug === "about-this-website" or slug === "404" %}
+	{% set linkColor = "blue" %}
+{% elseif slug === "portfolio" %}
+	{% set linkColor = "green" %}
+{% elseif slug === "articles" %}
+	{% set linkColor = "red" %}
+{% elseif slug === "contact" %}
+	{% set linkColor = "purple" %}
+{% endif %}
+
+ {# SVG icon system master file #}
+<div class="u-hidden-visually" aria-hidden="true">
+	<!-- inject:svg --><!-- endinject -->
+</div>
+
+{# Loading Icon #}
+<div class="c-loader js-loader c-loader--{{linkColor}}">
+	<div class="c-loader__icon"></div>
+</div>
+
+{#
+Replication of the logo which appears at mobile levels.
+We have to break BEM here to get position-sticky working
+#}
+<div class="c-header__box c-header__box--logo u-display-block u-hide@md">
+	<svg class="c-icon c-icon--logo u-margin-bottom-tiny"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-logo"></use></svg>
+	<p class="c-type-alpha c-type--height-small u-bold u-margin-bottom-atomic">Luke Harrison</p>
+	<p class="c-type--height-reduced">Web Designer &amp; <span class="u-nowrap">Front-End Developer</span></p>
+</div>
+{# Main header component #}
+<header class="c-header u-z-index-regular js-sticky-polyfill">
+	<nav class="o-layout o-layout--fit-height o-layout--flush c-header__row">
+		<div class="o-layout__item c-header__box c-header__box--logo u-hide@max-md u-position-relative">
+			<a href="#content-start" class="o-box o-box--spacing-micro c-skip-to-content c-skip-to-content--{{linkColor}}" tabindex="0">
+				<div class="o-box o-box--spacing-micro c-skip-to-content__inner">Skip to content</div>
+			</a>
+			<div class="c-header__box-inner">
+				<div class="o-media o-media--spacing-small@md">
+					<div class="o-media__image">
+						<svg class="c-icon c-icon--logo"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-logo"></use></svg>
+					</div>
+					<div class="o-media__body u-nudge-top-atomic">
+						<p class="c-type-alpha c-type--height-small u-bold u-margin-bottom-atomic">Luke Harrison</p>
+						<p class="c-type--height-reduced">Web Designer &amp; <span class="u-nowrap">Front-End Developer</span></p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="o-layout__item c-header__box  u-border-left-thin@md">
+			<div class="c-header__box-inner">
+				<a href="/" class="c-type-bravo c-link {% if slug === "about" %}c-link--fixed{% else %}c-link--reverse{% endif %} c-link--blue u-bold">About</a>
+			</div>
+		</div>
+		<div class="o-layout__item c-header__box u-border-left-thin">
+			<div class="c-header__box-inner">
+				<a href="/portfolio" class="c-type-bravo c-link {% if slug === "portfolio" %}c-link--fixed{% else %}c-link--reverse{% endif %} c-link--green u-bold">Portfolio</a>
+			</div>
+		</div>
+		<div class="o-layout__item c-header__box u-border-left-thin">
+			<div class="c-header__box-inner">
+				<a href="/articles" class="c-type-bravo c-link {% if slug === "articles" %}c-link--fixed{% else %}c-link--reverse{% endif %} c-link--red u-bold">Articles</a>
+			</div>
+		</div>
+		<div class="o-layout__item c-header__box u-border-left-thin">
+			<div class="c-header__box-inner"> 
+				<a href="/contact" class="c-type-bravo c-link {% if slug === "contact" %}c-link--fixed{% else %}c-link--reverse{% endif %} c-link--purple u-bold">Contact</a>
+			</div>
+		</div>
+	</nav>
+</header>

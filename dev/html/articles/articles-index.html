@@ -1,0 +1,72 @@
+{# Define page information which feeds into header template #}
+{% set title = "Articles - Luke Harrison" %}
+{% set description = "A list of articles by Luke Harrison on web design, web development and more." %}
+{% set slug = "articles" %}
+{% set assetsPath = "../" %}
+
+{# Define page specific ogTags #}
+{% set ogTags %}
+<meta property="og:url" content="http://www.lukeharrison.net/articles" />
+{% endset %}
+
+{# Inject Header Template #}
+{% include "partials/header.html" %}
+
+{# Header #}
+<section id="content-start" class="o-box o-box--spacing-regular o-box--spacing-large@md o-box--spacing-huge@lg o-box--spacing-balance u-padding-horizontal-none u-background-red u-type-white u-align-center">
+	<div class="o-container">
+		<div class="o-layout">
+			<div class="o-layout__item u-10/12@md u-offset-1/12@md u-10/16@lg3 u-offset-3/16@lg3">
+				<h1 class="c-type-charlie u-bold c-type--height-reduced u-margin-bottom-reduced u-uppercase">Articles</h1>
+				<p class="c-type-delta u-normal u-padding-horizontal-large@md u-padding-horizontal-giga@lg">Occasionally I write about web development if I've learned something new or want to share something neat.</p>
+			</div>
+		</div>
+	</div>
+</section>
+
+{# Articles List #}
+<section class="o-box o-box--spacing-tiny o-box--spacing-regular@md o-box--spacing-balance u-padding-horizontal-none u-padding-bottom-large u-padding-bottom-mega@md">
+	<div class="o-container">
+		<div class="o-layout">
+			<div class="o-layout__item u-10/12@md u-offset-1/12@md u-8/12@md3 u-offset-2/12@md3 u-8/16@lg3 u-offset-4/16@lg3 u-margin-bottom-increased u-margin-bottom-large@md">
+				{# Generate Articles List #}
+				{% for article in articles %}
+					<div class="o-box o-box--spacing-reduced o-box--spacing-increased@md o-box--spacing-balance c-articles-box u-padding-horizontal-none">
+						<div>{{article.date}}{% if article.host %} | {{article.host}}{% endif %}</div>
+						<h2>
+							<a href="{% if article.host %}{{article.path}}{% else %}/articles/{{article.slug}}{% endif %}" class="c-type-echo c-article-box__title u-bold" {% if article.host %} target="blank"{% endif %}>{{article.title}}</a>
+						</h2>
+					</div>
+					<hr>
+				{% endfor %}
+			</div>
+			<div class="o-layout__item u-10/12@md u-offset-1/12@md u-8/12@md3 u-offset-2/12@md3 u-8/16@lg3 u-offset-4/16@lg3">
+				{# Pagination #}
+				<ul class="o-list-inline">
+					<li class="o-list-inline__item u-1/3">
+						{% if currentPage === 2 %}
+							<a href="/articles" class="c-link c-link--red c-type-foxtrot u-bold">Previous</a>
+						{% elseif currentPage !== 1 %}
+							<a href="/articles/{{ currentPage - 1}}" class="c-link c-link--red c-type-foxtrot u-bold">Previous</a>
+						{% endif %}
+					</li>
+					<li class="o-list-inline__item u-1/3 u-align-center">
+						<ul class="o-list-inline o-list-inline--spacing-small o-list-inline--delimited-pipe">
+							{% for i in range(1, (pageNum|int + 1)) -%}
+								<li class="o-list-inline__item"><a href="/articles/{% if i !== 1 %}{{i}}{% endif %}" class="c-link c-link--red {% if i !== currentPage %}c-link--reverse{% endif %} c-type-foxtrot u-bold">{{i}}</a></li>
+							{%- endfor %}
+						</ul>
+					</li>
+					<li class="o-list-inline__item u-1/3 u-align-right">
+						{% if currentPage !== pageNum %}
+							<a href="/articles/{{ currentPage + 1}}" class="c-link c-link--red c-type-foxtrot u-bold">Next</a>
+						{% endif %}
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</section>
+
+{# Inject Footer Template #}
+{% include "partials/footer.html" %}

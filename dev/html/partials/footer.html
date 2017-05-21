@@ -1,0 +1,73 @@
+{# Work out what link colour to use #}
+{% if slug === "about" or slug === "about-this-website" or slug === "404" %}
+	{% set linkColor = "blue" %}
+{% elseif slug === "portfolio" %}
+	{% set linkColor = "green" %}
+{% elseif slug === "articles" %}
+	{% set linkColor = "red" %}
+{% elseif slug === "contact" %}
+	{% set linkColor = "purple" %}
+{% endif %}
+
+<footer class="o-box c-footer u-padding-horizontal-none">
+	<div class="o-container">
+		<div class="o-layout">
+			<div class="o-layout__item u-10/12@sm2 u-offset-1/12@sm2 u-6/12@md3 u-align-center@max-md3 u-margin-bottom-increased u-margin-bottom-giant@md3">
+				<h2 class="c-type-delta u-normal u-margin-bottom-increased u-margin-bottom-large@md3">This is the online portfolio of Luke Harrison - a Sheffield based web designer &amp; front-end developer.</h2>
+
+				<ul class="o-list-inline o-list-inline--spacing-reduced">
+					<li class="o-list-inline__item">
+						<a href="https://twitter.com/WebDevLuke" target="_blank" class="c-link c-link--borderless c-link--{{linkColor}}">
+							<svg class="c-icon c-icon--twitter"><use xlink:href="#icon-social-twitter"></use></svg>
+						</a>
+					</li>
+					<li class="o-list-inline__item">
+						<a href="https://www.linkedin.com/in/lukedidit" target="_blank" class="c-link c-link--borderless c-link--{{linkColor}}">
+							<svg class="c-icon c-icon--linkedin"><use xlink:href="#icon-social-linkedin"></use></svg>
+						</a>
+					</li>
+					<li class="o-list-inline__item">
+						<a href="https://github.com/WebDevLuke" target="_blank" class="c-link c-link--borderless c-link--{{linkColor}}">
+							<svg class="c-icon c-icon--github"><use xlink:href="#icon-social-github"></use></svg>
+						</a>
+					</li>
+					<li class="o-list-inline__item">
+						<a href="http://codepen.io/lukedidit/" target="_blank" class="c-link c-link--borderless c-link--{{linkColor}}">
+							<svg class="c-icon c-icon--codepen"><use xlink:href="#icon-social-codepen"></use></svg>
+						</a>
+					</li>
+				 </ul>
+
+			</div>
+			<nav class="o-layout__item u-6/12@md3 u-align-center u-align-right@md3 u-padding-left-none@md3 u-margin-bottom-increased@max-md3 u-hide@max-sm2">
+				<ul class="o-list-inline o-list-inline--spacing-small o-list-inline--spacing-regular@md3 o-list-inline--spacing-increased@lg">
+					<li class="o-list-inline__item"><a href="/" class="c-link c-link--blue {% if slug === "about" %}c-link--fixed{% else %}c-link--reverse{% endif %} c-type-delta u-bold">About</a></li>
+					<li class="o-list-inline__item"><a href="/portfolio" class="c-link c-link--green {% if slug === "portfolio" %}c-link--fixed{% else %}c-link--reverse{% endif %} c-type-delta u-bold">Portfolio</a></li>
+					<li class="o-list-inline__item"><a href="/articles" class="c-link c-link--red {% if slug === "articles" %}c-link--fixed{% else %}c-link--reverse{% endif %} c-type-delta u-bold">Articles</a></li>
+					<li class="o-list-inline__item"><a href="/contact" class="c-link c-link--purple {% if slug === "contact" %}c-link--fixed{% else %}c-link--reverse{% endif %} c-type-delta u-bold">Contact</a></li>
+				</ul>
+			</nav>
+			<div class="o-layout__item u-align-center@max-md3">
+				<ul class="o-list-inline o-list-inline--spacing-small@sm2 o-list-inline--delimited-pipe@sm2">
+					<li class="o-list-inline__item c-type-foxtrot u-display-block@max-sm2">&copy;  2012 - <span class="js-year">year</span> Luke Harrison</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</footer>
+
+{# Main JS File #}
+<script src="/js/main.min.js"></script>
+
+{# GA #}
+<script>
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-48476216-1', 'auto');
+	ga('send', 'pageview');
+</script>
+
+</body>
+</html>

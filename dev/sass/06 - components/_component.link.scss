@@ -1,0 +1,134 @@
+//--------------------------------------------------------------------------------------------------------------------------------------
+// LINK COMPONENT
+//--------------------------------------------------------------------------------------------------------------------------------------
+
+/*
+Styles for links
+*/
+
+
+// STYLES
+//--------------------------------------------------------------------------------------------------------------------------------------
+
+.c-link {
+	display:inline-block;
+	position: relative;
+	&:hover {
+		text-decoration:none;
+	}
+	&:before, &:after {
+		content: "";
+		display: block;
+		position: absolute;
+		width: 50%;
+		height: 2px;
+		background-color: #000000;
+		bottom: rem(1px);
+		transition: width 0.5s;
+	}
+	&:before {
+		right: 50%;
+	}
+	&:after {
+		left: 50%; 
+	}
+	&:hover {
+		&:before, &:after {
+			width:0;
+		}
+	}
+}
+
+.c-link:focus {
+	text-decoration:none;
+	outline: rem(2px) solid;
+	&:before, &:after {
+		width: 50%;
+	}
+	&:before {
+		right: 50%;
+	}
+	&:after {
+		left: 50%; 
+	}
+}
+
+
+// REVERSE BORDER MODIFIER
+//--------------------------------------------------------------------------------------------------------------------------------------
+
+
+.c-link--reverse {
+	&:before, &:after {
+		width:0;
+	}
+	&:hover {
+		&:before, &:after {
+			width: 50%;
+		}
+	}
+}
+
+
+// COLOUR MODIFIERS
+//--------------------------------------------------------------------------------------------------------------------------------------
+
+.c-link--blue {
+	&:focus {
+		background:lighten(color("blue"), 30%);
+		outline-color:lighten(color("blue"), 30%);
+	}
+	&:before, &:after {
+		background-color:color("blue");
+	}	
+}
+
+.c-link--green {
+	&:focus {
+		background-color:lighten(color("green"), 30%);
+		outline-color:lighten(color("green"), 30%);
+	}
+	&:before, &:after {
+		background-color:color("green");
+	}	
+}
+
+.c-link--red {
+	&:focus {
+		background-color:lighten(color("red"), 30%);
+		outline-color:lighten(color("red"), 30%);
+	}
+	&:before, &:after {
+		background-color:color("red");
+	}	
+}
+
+.c-link--purple {
+	&:focus {
+		background-color:lighten(color("purple"), 30%);
+		outline-color:lighten(color("purple"), 30%);
+	}
+	&:before, &:after {
+		background-color:color("purple");
+	}	
+}
+
+.c-link--white {
+	&:focus {
+		background-color:rgba(255,255,255,0.3);
+		outline-color:rgba(255,255,255,0.3);
+	}
+	&:before, &:after {
+		background-color:color("white");
+	}	
+}
+
+
+// NO-BORDER MODIFIER
+//--------------------------------------------------------------------------------------------------------------------------------------
+
+.c-link--borderless {
+	&:before, &:after {
+		display:none;
+	}
+}

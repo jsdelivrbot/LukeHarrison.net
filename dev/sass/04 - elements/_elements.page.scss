@@ -1,0 +1,23 @@
+//--------------------------------------------------------------------------------------------------------------------------------------
+// HTML STYLES
+//--------------------------------------------------------------------------------------------------------------------------------------
+
+/*
+Set basic styles for HTML top level element.
+*/
+
+
+html {
+	color: color(type);
+	font-family: "lato", sans-serif;
+	font-size: ($global-font-size / 16px) * 1em; /* [1] */
+	line-height: $global-line-height; /* [1] */
+	font-weight:300;
+	min-height: 100%;
+	overflow-y: scroll;
+	overflow-x: hidden;
+}
+
+body {
+	font-size:rem(18px);
+}

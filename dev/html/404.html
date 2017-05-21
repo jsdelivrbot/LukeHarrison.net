@@ -1,0 +1,20 @@
+{# Define page information which feeds into header template #}
+{% set title = "404 page not found - Luke Harrison" %}
+{% set description = "Luke Harrison is a Sheffield-based Web Designer & Front-End Developer." %}
+{% set slug = "404" %}
+
+{# Trigger flexbox utilities on body #}
+{% set flexBody = true %}
+
+{# Inject Header Template #}
+{% include "partials/header.html" %} 
+
+{# Header #}
+<section id="content-start" class="o-box o-box--spacing-regular o-box--spacing-large@md o-box--spacing-huge@lg o-box--spacing-balance c-expanding-header u-padding-horizontal-none u-background-blue u-type-white u-align-center">
+	<h1 class="c-type-charlie u-bold c-type--height-reduced u-margin-bottom-reduced u-uppercase">404</h1>
+	<p class="c-type-delta u-normal u-padding-horizontal-large@md u-padding-horizontal-giga@lg u-margin-bottom-increased">Oops, you've took a wrong turn.</p>
+	<a href="/" class="c-button">Go home</a>
+</section>
+
+{# Inject Footer Template #}
+{% include "partials/footer.html" %}

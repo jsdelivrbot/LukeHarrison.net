@@ -1,0 +1,90 @@
+//--------------------------------------------------------------------------------------------------------------------------------------
+// HEADER COMPONENT
+//--------------------------------------------------------------------------------------------------------------------------------------
+
+/*
+Styles for the header component which sits atop every page.
+*/
+
+
+// STYLES
+//--------------------------------------------------------------------------------------------------------------------------------------
+
+.c-header {
+	background-color:#ffffff;
+	box-shadow:$global-box-shadow;
+	will-change: transform;
+	position:relative;
+}
+
+.c-header__box {
+	display:inherit;
+	text-align:center;
+	width:25%;
+	border-color:color("light-grey");
+}
+
+.c-header__box-inner { 
+	width:100%;
+	align-self:center;
+}
+
+@include bpMax(md) {
+	.c-header__row {
+		width:100%;
+		background-color:#ffffff;
+		box-shadow:$global-box-shadow;
+	}
+
+	.c-header__box {
+		height:rem(50px);
+	}
+
+	.c-header__box.c-header__box--logo {
+		background-color:#ffffff;
+		width:100%;
+		padding:rem(15px) 0; 
+		height:auto;
+		border-bottom:rem(1px) solid color("light-grey");
+	}
+}
+
+@include bpMax(md, "orientation:portrait") {
+	.c-header {
+		position:sticky;
+		top:0;
+	}
+}
+
+@include bp(md) {
+	.c-header__row {
+		min-height:rem(112px);
+		height:12vh;
+		max-height:rem(120px);
+	}
+
+	.c-header__box.c-header__box--logo {
+		padding:0 rem(10px) 0 rem(20px);
+		text-align:left;
+	}
+
+	.c-header__box {
+		width:15%;
+		& .c-link {
+			position:relative;
+			top:rem(-3px);
+		}
+	}
+}
+
+@include bpBetween(md, lg2) {
+	.c-header__box--logo {
+		width:40%;
+	}
+}
+
+@include bp(lg2) {
+	.c-header__box {
+		width:20%;
+	}
+}

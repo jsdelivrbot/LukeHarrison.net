@@ -1,0 +1,40 @@
+//--------------------------------------------------------------------------------------------------------------------------------------
+// FLEX
+//--------------------------------------------------------------------------------------------------------------------------------------
+
+/*
+Flex utility classes
+*/
+
+
+// BORDER TYPE
+//--------------------------------------------------------------------------------------------------------------------------------------
+
+.u-flex {
+	display:flex !important;
+}
+
+.u-flex-grow {
+	flex-grow:2 !important;
+}
+
+.u-flex-direction-column {
+	flex-direction:column !important;
+}
+
+// Example: u-flex@xlg
+@each $bp-name, $bp-value in $breakpoints {
+	@include bp(#{$bp-name}) {
+		.u-flex\@#{$bp-name} {
+			display:flex !important;
+		}
+
+		.u-flex-grow\@#{$bp-name} {
+			flex-grow:2 !important;
+		}
+
+		.u-flex-direction-column\@#{$bp-name} {
+			flex-direction:column !important;
+		}
+	}
+}
