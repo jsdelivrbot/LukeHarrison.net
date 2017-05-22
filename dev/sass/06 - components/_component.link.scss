@@ -13,9 +13,6 @@ Styles for links
 .c-link {
 	display:inline-block;
 	position: relative;
-	&:hover {
-		text-decoration:none;
-	}
 	&:before, &:after {
 		content: "";
 		display: block;
@@ -32,7 +29,11 @@ Styles for links
 	&:after {
 		left: 50%; 
 	}
-	&:hover {
+}
+
+.no-touchevents {
+	.c-link:hover {
+		text-decoration:none;
 		&:before, &:after {
 			width:0;
 		}
@@ -62,7 +63,10 @@ Styles for links
 	&:before, &:after {
 		width:0;
 	}
-	&:hover {
+}
+
+.no-touchevents {
+	.c-link--reverse:hover {
 		&:before, &:after {
 			width: 50%;
 		}
