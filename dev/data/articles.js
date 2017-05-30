@@ -1,5 +1,11 @@
 module.exports = [
 	{
+		"title": "Managing State in CSS with Reusable JavaScript Functions - Part 2",
+		"date": "30th May 2017",
+		"path": "https://css-tricks.com/managing-state-css-reusable-javascript-functions-part-2/",
+		"host": "CSS-Tricks"
+	},
+	{
 		"title": "Renaming 3rd party SASS mixins without overriding",
 		"date": "29th April 2017",
 		"slug": "renaming-3rd-party-sass-mixins-without-overriding",
