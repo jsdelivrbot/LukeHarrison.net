@@ -23,15 +23,15 @@ module.exports = [
 		"category": "plusnet",
 		"screenshots": [
 			{
-				"url": "/img/portfolio/plusnet/AB/01.jpg",
+				"url": "/img/portfolio/plusnet/AB/plusnet-ab-test-01.jpg",
 				"scroll": false
 			},
 			{
-				"url": "/img/portfolio/plusnet/AB/02.jpg",
+				"url": "/img/portfolio/plusnet/AB/plusnet-ab-test-02.jpg",
 				"scroll": true
 			},
 			{
-				"url": "/img/portfolio/plusnet/AB/03.jpg",
+				"url": "/img/portfolio/plusnet/AB/plusnet-ab-test-03.jpg",
 				"scroll": true
 			}
 		],
@@ -47,11 +47,11 @@ module.exports = [
 		"urlText" : "www.schooltopia.co.uk",
 		"screenshots": [
 			{
-				"url": "/img/portfolio/sideprojects/schooltopia/01.jpg",
+				"url": "/img/portfolio/sideprojects/schooltopia/schooltopia-01.jpg",
 				"scroll": true
 			},
 			{
-				"url": "/img/portfolio/sideprojects/schooltopia/02.jpg",
+				"url": "/img/portfolio/sideprojects/schooltopia/schooltopia-02.jpg",
 				"scroll": true
 			},
 			{
@@ -80,15 +80,15 @@ module.exports = [
 		"category": "plusnet",
 		"screenshots": [
 			{
-				"url": "/img/portfolio/plusnet/toolkit/01.jpg",
+				"url": "/img/portfolio/plusnet/toolkit/plusnet-brand-toolkit-01.jpg",
 				"scroll": true
 			},
 			{
-				"url": "/img/portfolio/plusnet/toolkit/02.jpg",
+				"url": "/img/portfolio/plusnet/toolkit/plusnet-brand-toolkit-02.jpg",
 				"scroll": true
 			},
 			{
-				"url": "/img/portfolio/plusnet/toolkit/03.jpg",
+				"url": "/img/portfolio/plusnet/toolkit/plusnet-brand-toolkit-03.jpg",
 				"scroll": true
 			}
 		],
@@ -102,7 +102,7 @@ module.exports = [
 		"category": "plusnet",
 		"screenshots": [
 			{
-				"url": "/img/portfolio/plusnet/screenshotTool/01.png",
+				"url": "/img/portfolio/plusnet/screenshotTool/plusnet-screenshot-automation-01.png",
 				"scroll": false
 			}
 		],
@@ -118,7 +118,7 @@ module.exports = [
 		"urlText" : "www.4x4overlander.com",
 		"screenshots": [
 			{
-				"url": "/img/portfolio/redhq/4x4overlander/01.jpg",
+				"url": "/img/portfolio/redhq/4x4overlander/4x4overlander-01.jpg",
 				"scroll": true
 			}
 		],
@@ -131,11 +131,11 @@ module.exports = [
 		"category": "red-hq",
 		"screenshots": [
 			{
-				"url": "/img/portfolio/redhq/redhq/01.jpg",
+				"url": "/img/portfolio/redhq/redhq/red-hq-01.jpg",
 				"scroll": true
 			},
 			{
-				"url": "/img/portfolio/redhq/redhq/02.jpg",
+				"url": "/img/portfolio/redhq/redhq/red-hq-02.jpg",
 				"scroll": false
 			}
 		],
@@ -151,7 +151,7 @@ module.exports = [
 		"urlText" : "Play Tile Puzzle Game",
 		"screenshots": [
 			{
-				"url": "/img/portfolio/sideprojects/tilepuzzle/01.png",
+				"url": "/img/portfolio/sideprojects/tilepuzzle/tile-puzzle-01.png",
 				"scroll": false
 			}
 		],
@@ -165,11 +165,11 @@ module.exports = [
 		"category": "red-hq",
 		"screenshots": [
 			{
-				"url": "/img/portfolio/redhq/mpdpower/01.jpg",
+				"url": "/img/portfolio/redhq/mpdpower/mpd-power-01.jpg",
 				"scroll": true
 			},
 			{
-				"url": "/img/portfolio/redhq/mpdpower/02.jpg",
+				"url": "/img/portfolio/redhq/mpdpower/mpd-power-02.jpg",
 				"scroll": true
 			}
 		],
@@ -185,15 +185,15 @@ module.exports = [
 		"urlText" : "www.sandalmagna.co.uk",
 		"screenshots": [
 			{
-				"url": "/img/portfolio/redhq/sandalmagna/01.jpg",
+				"url": "/img/portfolio/redhq/sandalmagna/sandal-magna-01.jpg",
 				"scroll": true
 			},
 			{
-				"url": "/img/portfolio/redhq/sandalmagna/02.jpg",
+				"url": "/img/portfolio/redhq/sandalmagna/sandal-magna-02.jpg",
 				"scroll": false
 			},
 			{
-				"url": "/img/portfolio/redhq/sandalmagna/03.jpg",
+				"url": "/img/portfolio/redhq/sandalmagna/sandal-magna-03.jpg",
 				"scroll": false
 			}
 		],
