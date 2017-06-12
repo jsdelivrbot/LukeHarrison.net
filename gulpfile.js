@@ -108,6 +108,8 @@ const merge = require('merge-stream');
 const mkdirp = require('mkdirp');
 // Required to generate sitemap
 const sitemap = require('gulp-sitemap');
+// Used to make local dev server
+const webserver = require('gulp-webserver');
 
 
 //--------------------------------------------------------------------------------------------------------------------------------------
@@ -117,6 +119,21 @@ const sitemap = require('gulp-sitemap');
 /*
 Create all the individual functions which will contribute towards our production functions
 */
+
+
+// SERVER TASK
+//--------------------------------------------------------------------------------------------------------------------------------------
+
+/*
+Creates a server at localhost:8000
+*/
+
+gulp.task('serve', function() {
+	gulp.src('./dist/')
+	.pipe(webserver({
+		open: true
+	}));
+});
 
 
 // SETUP TASK
