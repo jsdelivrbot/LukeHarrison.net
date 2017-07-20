@@ -4,7 +4,7 @@ module.exports = [
 		"date": "21st July 2017",
 		"slug": "web-designer-magazine-website-theming-with-css-variables-and-web-storage-api",
 		"copy": "2017-07-21-web-designer-magazine-website-theming-with-css-variables-and-web-storage-api/copy.md",
-		"description": "I've been lucky enough to feature in the latest edition of [Web Designer Magazine](https://www.myfavouritemagazines.co.uk/web-designer-print-back-issues/web-designer-issue-264/) with a fun little tutorial titled 'Website theming with CSS variables and Web Storage API'."
+		"description": "I've been lucky enough to feature in the latest edition of Web Designer Magazine with a fun little tutorial titled 'Website theming with CSS variables and Web Storage API'."
 	},
 	{
 		"title": "Managing State in CSS with Reusable JavaScript Functions - Part 2",
