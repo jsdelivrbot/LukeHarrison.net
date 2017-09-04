@@ -1,5 +1,12 @@
 module.exports = [
 	{
+		"title": "Web Designer Magazine - Generate a static blog with Gulp and Nunjucks",
+		"date": "4th September 2017",
+		"slug": "web-designer-magazine-generate-a-static-blog-with-gulp-and-nunjucks",
+		"copy": "2017-09-04-web-designer-magazine-generate-a-static-blog-with-gulp-and-nunjucks/copy.md",
+		"description": "I'm back in the latest edition of Web Designer Magazine with another tutorial titled 'Generate a static blog with Gulp and Nunjucks'."
+	},
+	{
 		"title": "Web Designer Magazine - Website theming with CSS variables and Web Storage API",
 		"date": "21st July 2017",
 		"slug": "web-designer-magazine-website-theming-with-css-variables-and-web-storage-api",
