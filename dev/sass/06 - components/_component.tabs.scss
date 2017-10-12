@@ -24,13 +24,13 @@ Tabs component. Typically used within a header banner.
 	}
 }
 
-@include bpMax(md) { 
+@include bpMax(md3) { 
 	.c-tabs__item {
 		display:block;
 	}
 }
 
-@include bp(md) {
+@include bp(md3) {
 	.c-tabs__item {
 		position:relative;
 	}

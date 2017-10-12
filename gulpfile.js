@@ -296,14 +296,12 @@ gulp.task('sass-build', function(){
 	if(lint) {
 		runSequence(
 			"sass-lint",
-			"sass",
-			"uncss"
+			"sass"
 		);
 	}
 	else {
 		runSequence(
-			"sass",
-			"uncss"
+			"sass"
 		);		
 	}
 });
@@ -312,14 +310,12 @@ gulp.task('sass-build-debug', function(){
 	if(lint) {
 		runSequence(
 			"sass-lint",
-			"sass-debug",
-			"uncss"
+			"sass-debug"
 		);
 	}
 	else {
 		runSequence(
-			"sass",
-			"uncss"
+			"sass"
 		);		
 	}
 });
