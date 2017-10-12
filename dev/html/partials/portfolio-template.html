@@ -16,6 +16,9 @@
 			<li class="o-list-inline__item c-tabs__item {% if portfolioPage === "view-all" %}is-active{% endif %}">
 				<a href="/portfolio" class="c-type-delta"><span class="u-position-relative">View All</span></a>
 			</li>
+			<li class="o-list-inline__item c-tabs__item {% if portfolioPage === "evolution-funding" %}is-active{% endif %}">
+				<a href="/portfolio/evolution-funding" class="c-type-delta"><span class="u-position-relative">Evolution Funding</span></a>
+			</li>
 			<li class="o-list-inline__item c-tabs__item {% if portfolioPage === "plusnet" %}is-active{% endif %}">
 				<a href="/portfolio/plusnet" class="c-type-delta"><span class="u-position-relative">Plusnet</span></a>
 			</li>
@@ -72,7 +75,9 @@
 						{% endif %}
 								<div class="o-box o-box--spacing-reduced o-box--spacing-increased@sm2 o-box--spacing-huge@md2 o-box--spacing-none@lg o-box--spacing-balance u-padding-horizontal-none">
 									<p class="u-margin-bottom-none">
-										{% if item.category === "plusnet" %}
+										{% if item.category === "evolution-funding" %}
+											Evolution Funding
+										{% elseif item.category === "plusnet" %}
 											Plusnet
 										{% elseif item.category === "red-hq" %}
 											Red HQ
