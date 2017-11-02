@@ -14,7 +14,7 @@ module.exports = [
 		"description": "I've been lucky enough to feature in the latest edition of Web Designer Magazine with a fun little tutorial titled 'Website theming with CSS variables and Web Storage API'."
 	},
 	{
-		"title": "Managing State in CSS with Reusable JavaScript Functions - Part 2",
+		"title": "Managing state in CSS with reusable JavaScript functions - part 2",
 		"date": "30th May 2017",
 		"path": "https://css-tricks.com/managing-state-css-reusable-javascript-functions-part-2/",
 		"host": "CSS-Tricks"
@@ -27,13 +27,13 @@ module.exports = [
 		"description": "A look into how in SASS we can use wrapper mixins as a method of renaming 3rd party mixins without overriding them."
 	},
 	{
-		"title": "Managing State in CSS with Reusable JavaScript Functions",
+		"title": "Managing state in CSS with reusable javaScript functions",
 		"date": "28th April 2017",
 		"path": "https://css-tricks.com/managing-state-css-reusable-javascript-functions/",
 		"host": "CSS-Tricks"
 	},
 	{
-		"title": "Naming Conventions for Sizes in Scalable CSS",
+		"title": "Naming conventions for sizes in scalable CSS",
 		"date": "27th February 2017",
 		"path": "https://speckyboy.com/naming-conventions-sizes-scalable-css/",
 		"host": "Speckyboy Design Magazine"

@@ -1,0 +1,51 @@
+{# Define page information which feeds into header template #}
+{% set title = "Articles - Luke Harrison" %}
+{% set description = "A list of articles by Luke Harrison on web design, web development and more." %}
+{% set slug = "articles" %}
+{% set assetsPath = "../" %}
+
+{# Define page specific ogTags #}
+{% set ogTags %}
+<meta property="og:url" content="http://www.lukeharrison.net/articles" />
+{% endset %}
+
+{# Inject Header Template #}
+{% include "partials/header.html" %}
+
+{# Header #}
+<section id="content-start" class="u-background-red u-align-center">
+	<div class="o-box o-box--spacing-regular o-box--spacing-large@md o-box--spacing-huge@lg o-box--spacing-balance u-padding-horizontal-none">
+		<div class="o-container">
+			<div class="o-layout">
+				<div class="o-layout__item u-10/12@md u-offset-1/12@md u-10/16@lg3 u-offset-3/16@lg3 u-type-white">
+					<h1 class="c-type-charlie u-bold c-type--height-reduced u-margin-bottom-reduced u-uppercase">Articles</h1>
+					<p class="c-type-delta u-normal u-padding-horizontal-large@md u-padding-horizontal-giga@lg">Occasionally I write about web development if I've learned something new or want to share something neat.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="o-container">
+		{# Tabs #}
+		<ul class="o-list-inline c-tabs c-tabs--red c-tabs--fixed u-padding-bottom-small@max-md">
+			<li class="o-list-inline__item c-tabs__item">
+				<a href="/articles" class="c-type-delta"><span class="u-position-relative">Blog Posts</span></a>
+			</li>
+			<li class="o-list-inline__item c-tabs__item is-active">
+				<a href="/articles/published" class="c-type-delta"><span class="u-position-relative">Published</span></a>
+			</li>
+		</ul>
+	</div>
+</section>
+
+<section class="o-box o-box--spacing-regular o-box--spacing-huge@md o-box--spacing-balance u-padding-horizontal-none">
+	<div class="o-container">
+		<div class="o-layout">
+			<div class="o-layout__item u-10/12@md u-offset-1/12@md u-8/12@md3 u-offset-2/12@md3 u-8/16@lg3 u-offset-4/16@lg3">
+				hello
+			</div>
+		</div>
+	</div>
+</section>
+
+{# Inject Footer Template #}
+{% include "partials/footer.html" %}
