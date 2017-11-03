@@ -1,0 +1,36 @@
+//--------------------------------------------------------------------------------------------------------------------------------------
+// PUBLISHED BLOCK COMPONENT
+//--------------------------------------------------------------------------------------------------------------------------------------
+
+
+// BASE & ELEMENTS
+//--------------------------------------------------------------------------------------------------------------------------------------
+
+.c-published-block__entries {
+	padding-bottom:rem(spacing("regular"));
+}
+
+.c-published-block__entry:not(:last-child) {
+	margin-bottom:rem(spacing("regular"));
+}
+
+.c-published-block:last-child .c-published-block__entries {
+	padding-bottom:0;
+}
+
+@include bp(md) {
+	.c-published-block__entry:not(:last-child) {
+		margin-bottom:rem(spacing("large"));
+	}
+
+	.c-published-block__entries {
+		padding-bottom:rem(spacing("huge"));
+	}
+}
+
+@include bpMax(md) {
+	.c-published-block:not(:last-child) {
+		border-bottom:rem(2px) solid color("light-grey");
+		margin-bottom:spacing("regular");
+	}
+}

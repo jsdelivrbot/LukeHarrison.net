@@ -12,18 +12,18 @@
 <html lang="en">
 <head>
 
-<title>Create a SASS grid system - Luke Harrison</title>
+<title>Articles - Luke Harrison</title>
 
 
 <meta charset='UTF-8'>
 <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1" />
-<meta name="description" content="In this post I'll be showing you how to create a responsive grid system where you simply define a few variables and let SASS worry about the rest."/>
+<meta name="description" content="A list of published articles by Luke Harrison on web design, web development and more."/>
 
 
 
 <meta property="og:locale" content="en_GB" />
-<meta property="og:title" content="Create a SASS grid system - Luke Harrison" />
-<meta property="og:description" content="In this post I'll be showing you how to create a responsive grid system where you simply define a few variables and let SASS worry about the rest." />
+<meta property="og:title" content="Articles - Luke Harrison" />
+<meta property="og:description" content="A list of published articles by Luke Harrison on web design, web development and more." />
 <meta property="og:site_name" content="LukeHarrison.net" />
 <meta property="og:image" content="http://www.lukeharrison.net/img/share.png" />
 <meta property="og:image:width" content="512" />
@@ -31,7 +31,7 @@
 <meta property="og:image:type" content="image/png">
 
 
-<meta property="og:url" content="http://www.lukeharrison.net/articles/create-a-SASS-grid-system" />
+<meta property="og:url" content="http://www.lukeharrison.net/articles/published" />
  
 
 
@@ -39,8 +39,8 @@
 
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:site" content="@WebDevLuke"/>
-<meta name="twitter:title" content="Create a SASS grid system - Luke Harrison"/>
-<meta name="twitter:description" content="In this post I'll be showing you how to create a responsive grid system where you simply define a few variables and let SASS worry about the rest."/>
+<meta name="twitter:title" content="Articles - Luke Harrison"/>
+<meta name="twitter:description" content="A list of published articles by Luke Harrison on web design, web development and more."/>
 <meta name="twitter:image" content="http://www.lukeharrison.net/img/share.png" />
 
 
@@ -117,356 +117,128 @@
 </header>
 
 
-<section id="content-start" class="o-box o-box--spacing-regular o-box--spacing-large@md o-box--spacing-huge@lg o-box--spacing-balance u-padding-horizontal-none u-background-red u-type-white u-align-center">
-	<div class="o-container">
-		<div class="o-layout">
-			<div class="o-layout__item u-10/12@md u-offset-1/12@md u-10/16@lg3 u-offset-3/16@lg3">
-				<h1 class="c-type-charlie u-bold c-type--height-reduced u-margin-bottom-reduced">Create a SASS grid system</h1>
-				<p class="c-type-delta u-normal u-padding-horizontal-large@md u-padding-horizontal-giga@lg">Posted on 21st April 2014</p>
+<section id="content-start" class="u-background-red u-align-center">
+	<div class="o-box o-box--spacing-regular o-box--spacing-large@md o-box--spacing-huge@lg o-box--spacing-balance u-padding-horizontal-none">
+		<div class="o-container">
+			<div class="o-layout">
+				<div class="o-layout__item u-10/12@md u-offset-1/12@md u-10/16@lg3 u-offset-3/16@lg3 u-type-white">
+					<h1 class="c-type-charlie u-bold c-type--height-reduced u-margin-bottom-reduced u-uppercase">Articles</h1>
+					<p class="c-type-delta u-normal u-padding-horizontal-large@md u-padding-horizontal-giga@lg">Occasionally I write about web development if I've learned something new or want to share something neat.</p>
+				</div>
 			</div>
 		</div>
 	</div>
+	<div class="o-container">
+		
+		<ul class="o-list-inline c-tabs c-tabs--red c-tabs--fixed u-padding-bottom-small@max-md3">
+			<li class="o-list-inline__item c-tabs__item">
+				<a href="/articles" class="c-type-delta"><span class="u-position-relative">Blog Posts</span></a>
+			</li>
+			<li class="o-list-inline__item c-tabs__item is-active">
+				<a href="/articles/published" class="c-type-delta"><span class="u-position-relative">Published</span></a>
+			</li>
+		</ul>
+	</div>
 </section>
-
 
 <section class="o-box o-box--spacing-regular o-box--spacing-huge@md o-box--spacing-balance u-padding-horizontal-none">
 	<div class="o-container">
-		<div class="o-layout"> 
-			<div class="o-layout__item u-10/12@md u-offset-1/12@md u-8/12@md3 u-offset-2/12@md3 u-8/16@lg3 u-offset-4/16@lg3">
-				<article class="c-markdown u-margin-bottom-regular u-margin-bottom-huge@md">
 
-<!--
-Create a SASS grid system
-Posted on 21st April 2014
--->
-<p><img src="https://raw.githubusercontent.com/WebDevLuke/My-Articles/master/2014-04-21-create-a-SASS-grid-system/blog-pic.jpg" alt="SASS Grid System"></p>
-<p>In this post I&#39;ll be showing you how to create a responsive grid system where you simply define a few variables and let SASS worry about the rest. This tutorial assumes you have some knowledge of both CSS grids and SASS, so if you&#39;re unsure about either I would definitely recommend reading up before continuing.</p>
-<p>Right, let&#39;s get started.</p>
-<h2 id="1-set-the-variables">1) Set the variables</h2>
-<p>The first thing we need to do is define the SASS variables which will allow you to specify the type of grid system you want to generate.</p>
-<p>These should hopefully be pretty self explanatory.</p>
-<pre><code class="lang-scss">// Set Grid
-$columns: 12;
-$column-width: 70px;
-$gutter: 30px;
-$padding: $gutter / 2;
-</code></pre>
-<p><code>$columns</code> will govern the total number of columns.</p>
-<p><code>$column-width</code> will govern the width of each individual column in pixels.</p>
-<p><code>$gutter</code> will govern the width of the margin in between columns in pixels.</p>
-<p><code>$padding</code> will govern the outer padding on either side of the grid in pixels. By default I&#39;ve set this figure to half of the gutter, but feel free to change this around.</p>
-<p>We&#39;ll also add another variable which will govern if or not the container should be responsive.</p>
-<pre><code class="lang-scss">// Should it be responsive?
-$responsive: true;
-</code></pre>
-<h2 id="2-create-the-container">2) Create the container</h2>
-<p>Before we create the container itself, we first need to work out how wide it should be based on the variables we&#39;ve defined.</p>
-<p>We do this by defining a new variable called $width as the sum of the width of all columns plus the width of all gutters.</p>
-<pre><code class="lang-scss">// Set container width relative to grid size
-$width: ($column-width * $columns) + ($gutter * ($columns - 1));
-</code></pre>
-<p><img src="https://raw.githubusercontent.com/WebDevLuke/My-Articles/master/2014-04-21-create-a-SASS-grid-system/grid.jpg" alt="SASS Grid System">
-Assuming the figures from step 1 remain unchanged, adding these together would return a figure of 1170.</p>
-<p>We can then use this to create the grid container. Notice the use of an IF statement and the responsive variable here to determine how we set the width.</p>
-<pre><code class="lang-scss">// Set Base Container
-.container
-{
-// Set container width if responsive
-@if $responsive == true
-   {
-    max-width:$width;
-   }
-@else
-   {
-    width:$width;
-   }
-margin:0px auto;
-padding: 0 $padding 0 $padding;
-}
-</code></pre>
-<h2 id="3-create-the-grid-classes">3) Create the grid classes</h2>
-<p>This is where SASS really comes into it&#39;s own. Using a FOR statement we can procedurally generate the grid classes based on the $columns variable we&#39;ve defined.</p>
-<pre><code class="lang-scss">// Define Individual Grid Classes
-@for $i from 1 to $columns
-{
-    // Calculate grid size in pixels
-    $grid: ($column-width * $i) + ($gutter * ($i - 1));
-
-    // Calculate responsive grid sizes if required
-    @if $responsive == true
-    {
-        // Convert Pixels to Percentages
-        $grid: ($grid / $width) * 100%;
-
-        // Convert Gutter Pixels to Percentages
-        $gutter-percentage: ($gutter / $width) * 100%;
-
-        .grid#{$i}
-            {
-            width: $grid;
-            float: left;
-            margin-left: $gutter-percentage;
-            }
-    }
-    @else
-    {
-        $grid: $grid;
-        .grid#{$i}
-            {
-            width: $grid;
-            float: left;
-            margin-left: $gutter;
-            }
-    }
-}
-
-.clear
-{
-margin-left: 0px;
-clear: left;
-}
-</code></pre>
-<p>To help with this process there is another new variable called $grid which is used to calculate the width of each grid class based on combining the total width of columns and gutters relative to the progress of the FOR statement (represented as $i).</p>
-<p><img src="https://raw.githubusercontent.com/WebDevLuke/My-Articles/master/2014-04-21-create-a-SASS-grid-system/grid2.jpg" alt="SASS Grid System">
-For example on the 7th loop of the FOR statement $i would be 7, so therefore $grid would return 670.</p>
-<p>We&#39;ve also created additional variables within the responsive IF statement to convert pixel values for both grid and gutter to percentages aswell as an additional clear class used to start new rows.</p>
-<h2 id="4-the-finished-code">4) The Finished Code</h2>
-<p>So here we have the finished code and how it would compile into regular CSS. It&#39;s up to you on how you organise it. Personally I like to stick everything apart from the initial 5 user defined variables within a SASS partial.</p>
-<h4 id="sass">SASS</h4>
-<pre><code class="lang-scss">// Set Grid (1170gs default)
-$column-width: 70px;
-$gutter: 30px;
-$columns: 12;
-$padding: $gutter / 2;
-
-// Should it be responsive?
-$responsive: true;
-
-// Set container width relative to user variables
-$width: ($column-width * $columns) + ($gutter * ($columns - 1));
-
-// Set Base Container
-.container
-{
-// Set container width if responsive
-@if $responsive == true
-   {
-    max-width:$width;
-   }
-@else
-   {
-    width:$width;
-   }
-margin:0px auto;
-padding: 0 $padding 0 $padding;
-}
-
-// Define Individual Grid Classes
-@for $i from 1 to $columns
-{
-    // Calculate grid size in pixels
-    $grid: ($column-width * $i) + ($gutter * ($i - 1));
-
-    // Calculate responsive grid sizes if required
-    @if $responsive == true
-    {
-        // Calculate grid size in pixels
-        $grid: ($grid / $width) * 100%;
-
-        // Get Gutter Percentage for Grids
-        $gutter-percentage: ($gutter / $width) * 100%;
-
-        .grid#{$i}
-            {
-            width: $grid;
-            float: left;
-            margin-left:$gutter-percentage;
-            }
-    }
-    @else
-    {
-        $grid: $grid;
-        .grid#{$i}
-            {
-            width: $grid;
-            float: left;
-            margin-left:$gutter;
-            }
-    }
-}
-
-.clear
-{
-margin-left: 0px;
-clear: left;
-}
-</code></pre>
-<h4 id="css">CSS</h4>
-<p><code>$responsive</code> set to <code>true</code></p>
-<pre><code class="lang-scss">.container {
-  max-width: 1170px;
-  margin: 0px auto;
-  padding: 0 15px 0 15px; }
-
-.grid1 {
-  width: 5.98291%;
-  float: left;
-  margin-left: 2.5641%; }
-
-.grid2 {
-  width: 14.52991%;
-  float: left;
-  margin-left: 2.5641%; }
-
-.grid3 {
-  width: 23.07692%;
-  float: left;
-  margin-left: 2.5641%; }
-
-.grid4 {
-  width: 31.62393%;
-  float: left;
-  margin-left: 2.5641%; }
-
-.grid5 {
-  width: 40.17094%;
-  float: left;
-  margin-left: 2.5641%; }
-
-.grid6 {
-  width: 48.71795%;
-  float: left;
-  margin-left: 2.5641%; }
-
-.grid7 {
-  width: 57.26496%;
-  float: left;
-  margin-left: 2.5641%; }
-
-.grid8 {
-  width: 65.81197%;
-  float: left;
-  margin-left: 2.5641%; }
-
-.grid9 {
-  width: 74.35897%;
-  float: left;
-  margin-left: 2.5641%; }
-
-.grid10 {
-  width: 82.90598%;
-  float: left;
-  margin-left: 2.5641%; }
-
-.grid11 {
-  width: 91.45299%;
-  float: left;
-  margin-left: 2.5641%; }
-
-.clear {
-  margin-left: 0px;
-  clear: left; }
-</code></pre>
-<h4 id="css">CSS</h4>
-<p><code>$responsive</code> set to <code>false</code></p>
-<pre><code class="lang-scss">.container {
-  width: 1170px;
-  margin: 0px auto;
-  padding: 0 15px 0 15px; }
-
-.grid1 {
-  width: 70px;
-  float: left;
-  margin-left: 30px; }
-
-.grid2 {
-  width: 170px;
-  float: left;
-  margin-left: 30px; }
-
-.grid3 {
-  width: 270px;
-  float: left;
-  margin-left: 30px; }
-
-.grid4 {
-  width: 370px;
-  float: left;
-  margin-left: 30px; }
-
-.grid5 {
-  width: 470px;
-  float: left;
-  margin-left: 30px; }
-
-.grid6 {
-  width: 570px;
-  float: left;
-  margin-left: 30px; }
-
-.grid7 {
-  width: 670px;
-  float: left;
-  margin-left: 30px; }
-
-.grid8 {
-  width: 770px;
-  float: left;
-  margin-left: 30px; }
-
-.grid9 {
-  width: 870px;
-  float: left;
-  margin-left: 30px; }
-
-.grid10 {
-  width: 970px;
-  float: left;
-  margin-left: 30px; }
-
-.grid11 {
-  width: 1070px;
-  float: left;
-  margin-left: 30px; }
-
-.clear {
-  margin-left: 0px;
-  clear: left; }
-</code></pre>
-<h4 id="example-html">Example HTML</h4>
-<pre><code class="lang-html">&lt;div class=&quot;container&quot;&gt;
-    &lt;div class=&quot;clear grid4&quot;&gt;Grid 4&lt;/div&gt;
-    &lt;div class=&quot;grid4&quot;&gt;Grid 4&lt;/div&gt;
-    &lt;div class=&quot;grid4&quot;&gt;Grid 4&lt;/div&gt;
-&lt;/div&gt;
-</code></pre>
-<h2 id="5-see-it-in-action">5) See it in action</h2>
-<iframe height='300' scrolling='no' title='SASS Grid System' src='//codepen.io/lukedidit/embed/AoCfK/?height=300&theme-id=5799&default-tab=css,result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='http://codepen.io/lukedidit/pen/AoCfK/'>SASS Grid System</a> by Luke Harrison (<a href='http://codepen.io/lukedidit'>@lukedidit</a>) on <a href='http://codepen.io'>CodePen</a>. </iframe>
-
-
-				</article>
-				<div id="disqus_thread"> 
-					<script>
-						/**
-						 *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-						 *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables */
-						
-						var disqus_config = function () {
-								this.page.url = "http://www.lukeharrison.net/articles/create-a-SASS-grid-system";  // Replace PAGE_URL with your page's canonical URL variable
-								//this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-						};
-						(function() { // DON'T EDIT BELOW THIS LINE
-							var d = document, s = d.createElement('script');
-							s.src = '//webdevluke.disqus.com/embed.js'; 
-							s.setAttribute('data-timestamp', +new Date());
-							(d.head || d.body).appendChild(s);
-						})();
-					</script>
-					<script id="dsq-count-scr" src="//webdevluke.disqus.com/count.js" async></script>
+		
+		
+			<section class="o-layout o-layout--fit-height c-published-block">
+				<div class="o-layout__item c-published-block__title u-4/12@md u-3/12@md3 u-offset-1/12@md3 u-3/16@lg3 u-offset-3/16@lg3 u-padding-right-regular@md u-padding-right-large@md3 u-nudge-top-micro u-align-center@max-md">
+					
+						<svg class="c-icon c-icon--webdesigner u-display-block u-margin-bottom-small u-align-center-block@max-md u-margin-bottom-regular@md"><use xlink:href="#logo-webdesigner"></use></svg>
+					
+					<div class="u-display-inline-block u-8/12@sm2 u-12/12@md"><em>"Web Designer is the print premier magazine for aspiring online creatives and industry professionals."</em></div>
 				</div>
+				<div class="o-layout__item c-published-block__entries u-8/12@md u-7/12@md3 u-7/16@lg3 u-border-left-regular@md u-border-light-grey u-padding-left-regular@md u-padding-left-large@md3">
+					<div class="o-box o-box--spacing-regular@max-md u-padding-horizontal-none u-padding-bottom-none@max-md">
+						
+							<div class="c-published-block__entry">
+								<p class="u-margin-bottom-none">Issue 267 | October 2017</p>
+								<h2 class="c-type-echo u-bold u-margin-bottom-tiny u-margin-bottom-reduced@md">Managing CSS Classes with JavaScript &amp; Data Attributes</h2>
+								<p>Create a reusable JavaScript function which uses data attributes to easily manage CSS class changes.</p>
+								<a href="https://www.myfavouritemagazines.co.uk/web-designer-print-back-issues/web-designer-issue-267/" class="c-link c-link--red u-bold" target="_blank">View Magazine</a>
+							</div>
+						
+							<div class="c-published-block__entry">
+								<p class="u-margin-bottom-none">Issue 266 | September 2017</p>
+								<h2 class="c-type-echo u-bold u-margin-bottom-tiny u-margin-bottom-reduced@md">Simplify Media Queries with SASS</h2>
+								<p>Media queries are a cornerstone of responsive web design. Employ the power of SASS to make them easier and quicker to use.</p>
+								<a href="https://www.myfavouritemagazines.co.uk/web-designer-print-back-issues/web-designer-issue-266/" class="c-link c-link--red u-bold" target="_blank">View Magazine</a>
+							</div>
+						
+							<div class="c-published-block__entry">
+								<p class="u-margin-bottom-none">Issue 265 | August 2017</p>
+								<h2 class="c-type-echo u-bold u-margin-bottom-tiny u-margin-bottom-reduced@md">Generate a Static Blog with Gulp &amp; Nunjucks</h2>
+								<p>How to generate a static blog using task runner Gulp and Mozilla’s templating engine Nunjucks.</p>
+								<a href="https://www.myfavouritemagazines.co.uk/web-designer-print-back-issues/web-designer-issue-265/" class="c-link c-link--red u-bold" target="_blank">View Magazine</a>
+							</div>
+						
+							<div class="c-published-block__entry">
+								<p class="u-margin-bottom-none">Issue 264 | July 2017</p>
+								<h2 class="c-type-echo u-bold u-margin-bottom-tiny u-margin-bottom-reduced@md">Setup Site Theming with CSS variables</h2>
+								<p>Use CSS variables and Web Storage API to implement website theming which persists across sessions.</p>
+								<a href="https://www.myfavouritemagazines.co.uk/web-designer-print-back-issues/web-designer-issue-264/" class="c-link c-link--red u-bold" target="_blank">View Magazine</a>
+							</div>
+						
+					</div>
+				</div>
+			</section>
+		
+			<section class="o-layout o-layout--fit-height c-published-block">
+				<div class="o-layout__item c-published-block__title u-4/12@md u-3/12@md3 u-offset-1/12@md3 u-3/16@lg3 u-offset-3/16@lg3 u-padding-right-regular@md u-padding-right-large@md3 u-nudge-top-micro u-align-center@max-md">
+					
+						<svg class="c-icon c-icon--csstricks u-display-block u-margin-bottom-small u-align-center-block@max-md u-margin-bottom-regular@md"><use xlink:href="#logo-csstricks"></use></svg>
+					
+					<div class="u-display-inline-block u-8/12@sm2 u-12/12@md"><em>"CSS-Tricks is a popular website about all things web design and development."</em></div>
+				</div>
+				<div class="o-layout__item c-published-block__entries u-8/12@md u-7/12@md3 u-7/16@lg3 u-border-left-regular@md u-border-light-grey u-padding-left-regular@md u-padding-left-large@md3">
+					<div class="o-box o-box--spacing-regular@max-md u-padding-horizontal-none u-padding-bottom-none@max-md">
+						
+							<div class="c-published-block__entry">
+								<p class="u-margin-bottom-none">May 2017</p>
+								<h2 class="c-type-echo u-bold u-margin-bottom-tiny u-margin-bottom-reduced@md">Managing State in CSS with Reusable JavaScript Functions - Part 2</h2>
+								<p>Continuing from part 1, I build upon and improve the class toggling reusable JavaScript function.</p>
+								<a href="https://css-tricks.com/managing-state-css-reusable-javascript-functions-part-2/" class="c-link c-link--red u-bold" target="_blank">Read Article</a>
+							</div>
+						
+							<div class="c-published-block__entry">
+								<p class="u-margin-bottom-none">April 2017</p>
+								<h2 class="c-type-echo u-bold u-margin-bottom-tiny u-margin-bottom-reduced@md">Managing State in CSS with Reusable JavaScript Functions - Part 1</h2>
+								<p>Determining the most efficient way of managing state can be a challenging issue in CSS. I explore one solution.</p>
+								<a href="https://css-tricks.com/managing-state-css-reusable-javascript-functions/" class="c-link c-link--red u-bold" target="_blank">Read Article</a>
+							</div>
+						
+					</div>
+				</div>
+			</section>
+		
+			<section class="o-layout o-layout--fit-height c-published-block">
+				<div class="o-layout__item c-published-block__title u-4/12@md u-3/12@md3 u-offset-1/12@md3 u-3/16@lg3 u-offset-3/16@lg3 u-padding-right-regular@md u-padding-right-large@md3 u-nudge-top-micro u-align-center@max-md">
+					
+						<img src="/img/logo-speckyboy.png" class="c-icon c-icon--speckyboy u-display-block u-align-center-block@max-md u-margin-bottom-small u-margin-bottom-regular@md" alt="Speckyboy Design Magazine">
+					
+					<div class="u-display-inline-block u-8/12@sm2 u-12/12@md"><em>"Speckyboy is an online magazine for web designers."</em></div>
+				</div>
+				<div class="o-layout__item c-published-block__entries u-8/12@md u-7/12@md3 u-7/16@lg3 u-border-left-regular@md u-border-light-grey u-padding-left-regular@md u-padding-left-large@md3">
+					<div class="o-box o-box--spacing-regular@max-md u-padding-horizontal-none u-padding-bottom-none@max-md">
+						
+							<div class="c-published-block__entry">
+								<p class="u-margin-bottom-none">February 2017</p>
+								<h2 class="c-type-echo u-bold u-margin-bottom-tiny u-margin-bottom-reduced@md">Naming conventions for sizes in scalable CSS</h2>
+								<p>In this article, I explore how naming conventions can be used to represent sizes in scalable CSS.</p>
+								<a href="https://speckyboy.com/naming-conventions-sizes-scalable-css/" class="c-link c-link--red u-bold" target="_blank">Read Article</a>
+							</div>
+						
+					</div>
+				</div>
+			</section>
+		
 
-			</div>
-		</div>
+
 	</div>
 </section>
 

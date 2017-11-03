@@ -12,7 +12,7 @@
 	</div>
 	<div class="o-container">
 		{# Tabs #}
-		<ul class="o-list-inline c-tabs u-padding-bottom-small@max-md">
+		<ul class="o-list-inline c-tabs c-tabs--green u-padding-bottom-small@max-md3">
 			<li class="o-list-inline__item c-tabs__item {% if portfolioPage === "view-all" %}is-active{% endif %}">
 				<a href="/portfolio" class="c-type-delta"><span class="u-position-relative">View All</span></a>
 			</li>
@@ -29,7 +29,7 @@
 				<a href="/portfolio/side-projects" class="c-type-delta"><span class="u-position-relative">Side Projects</span></a>
 			</li>
 		</ul>
-	</div> 
+	</div>
 </section>
 
 <div class="c-portfolio-wrapper">
@@ -85,7 +85,7 @@
 											Side Project
 										{% endif %}
 									</p>
-									<h2 class="c-type-echo u-margin-bottom-reduced">{{item.title}}</h2>
+									<h2 class="c-type-echo u-margin-bottom-tiny u-margin-bottom-reduced@md">{{item.title}}</h2>
 									{% for paragraph in item.description %}
 										<p>{{paragraph}}</p>
 									{% endfor %}
@@ -97,7 +97,7 @@
 					</div>
 				</div>
 			</section>
-			
+
 		{% endif %}
 	{% endfor %}
 

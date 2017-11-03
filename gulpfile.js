@@ -21,7 +21,7 @@ const minify = true;
 //--------------------------------------------------------------------------------------------------------------------------------------
 
 /*
-If lint is true then SASS will be linted by stylelint to enforce style guidelines. These rules can be tweaked 
+If lint is true then SASS will be linted by stylelint to enforce style guidelines. These rules can be tweaked
 in '.stylelintrc'.
 */
 
@@ -176,7 +176,7 @@ gulp.task('setup', function(){
 	// Grab sample component and move to new components dir
 	gulp.src('node_modules/orioncss/06 - components/_sample.component.mycomponent.scss')
 	.pipe(gulp.dest(sassDev + '/06 - components/'));
-	// Gram sample JS main, rename and then 
+	// Gram sample JS main, rename and then
 	gulp.src('node_modules/orionjs/sample.main.js')
 	.pipe(rename('main.js'))
 	.pipe(gulp.dest(jsDev))
@@ -286,7 +286,7 @@ gulp.task('sass-watch', function(){
 	else {
 		runSequence(
 			"sass"
-		);		
+		);
 	}
 });
 
@@ -302,7 +302,7 @@ gulp.task('sass-build', function(){
 	else {
 		runSequence(
 			"sass"
-		);		
+		);
 	}
 });
 
@@ -316,7 +316,7 @@ gulp.task('sass-build-debug', function(){
 	else {
 		runSequence(
 			"sass"
-		);		
+		);
 	}
 });
 
@@ -389,12 +389,12 @@ gulp.task('js', function() {
 		.transform('babelify', {presets: ['es2015']})
 		.bundle()
 		.pipe(source(file))
-		.pipe(gulpif(minify, rename({ 
+		.pipe(gulpif(minify, rename({
 			dirname: "",
 			basename: name,
 			suffix: ".min",
 			extname: ".js"
-		}), rename({ 
+		}), rename({
 			dirname: "",
 			basename: name,
 			extname: ".js"
@@ -417,6 +417,7 @@ https://gist.github.com/kerryhatcher/1382950af52f3082ecdc668bba5aa11b
 var env = new nunjucks.Environment(new nunjucks.FileSystemLoader(htmlDev));
 var articles = require("./dev/data/articles.js");
 var portfolio = require("./dev/data/portfolio.js");
+var published = require("./dev/data/published.js");
 
 marked.setOptions({
 	renderer: new marked.Renderer(),
@@ -434,7 +435,8 @@ gulp.task('html-copy', function() {
 	gulp.src('./' + htmlDev +'/*.html')
 	.pipe(gulpNunjucks.compile({
 		articles: articles,
-		portfolio: portfolio
+		portfolio: portfolio,
+		published: published
 	}, {env: env}))
 	.pipe(gulp.dest(htmlDist + '/'));
 });
@@ -621,7 +623,7 @@ gulp.task('build',function() {
 		// Delete Dist Folder
 		"deleteDist",
 		["html-copy", "articles"],
-		// Run other tasks synchronously 
+		// Run other tasks synchronously
 		["php", "sass-build", "js", "copy"],
 		"images"
 	);
