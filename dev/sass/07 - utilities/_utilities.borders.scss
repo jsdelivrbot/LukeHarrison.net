@@ -20,7 +20,7 @@ Basic classes for common border configurations. Colours listed in settings.color
 }
 
 .u-border-thin {
-	border-width:rem(1px) !important; 
+	border-width:rem(1px) !important;
 }
 
 .u-border-top-thin {
@@ -37,6 +37,22 @@ Basic classes for common border configurations. Colours listed in settings.color
 
 .u-border-left-thin {
 	border-left-width:rem(1px) !important;
+}
+
+.u-border-top-regular {
+	border-top-width:rem(2px) !important;
+}
+
+.u-border-right-regular {
+	border-right-width:rem(2px) !important;
+}
+
+.u-border-bottom-regular {
+	border-bottom-width:rem(2px) !important;
+}
+
+.u-border-left-regular {
+	border-left-width:rem(2px) !important;
 }
 
 @each $bp-name, $bp-value in $breakpoints {
@@ -60,7 +76,23 @@ Basic classes for common border configurations. Colours listed in settings.color
 
 		.u-border-left-thin\@#{$bp-name}  {
 			border-left-width:rem(1px) !important;
-		}	
+		}
+
+		.u-border-top-regular\@#{$bp-name} {
+			border-top-width:rem(2px) !important;
+		}
+
+		.u-border-right-regular\@#{$bp-name} {
+			border-right-width:rem(2px) !important;
+		}
+
+		.u-border-bottom-regular\@#{$bp-name} {
+			border-bottom-width:rem(2px) !important;
+		}
+
+		.u-border-left-regular\@#{$bp-name} {
+			border-left-width:rem(2px) !important;
+		}
 	}
 }
 
@@ -85,6 +117,29 @@ Basic classes for common border configurations. Colours listed in settings.color
 
 		.u-border-left-thin\@max-#{$bp-name}  {
 			border-left-width:rem(1px) !important;
-		}	
+		}
+
+		.u-border-top-regular\@max-#{$bp-name} {
+			border-top-width:rem(2px) !important;
+		}
+
+		.u-border-right-regular\@max-#{$bp-name} {
+			border-right-width:rem(2px) !important;
+		}
+
+		.u-border-bottom-regular\@max-#{$bp-name} {
+			border-bottom-width:rem(2px) !important;
+		}
+
+		.u-border-left-regular\@max-#{$bp-name} {
+			border-left-width:rem(2px) !important;
+		}
+	}
+}
+
+// Border colors
+@each $color-name, $color-value in $colors {
+	.u-border-#{$color-name} {
+		border-color:$color-value !important;
 	}
 }

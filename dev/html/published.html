@@ -1,12 +1,12 @@
 {# Define page information which feeds into header template #}
 {% set title = "Articles - Luke Harrison" %}
-{% set description = "A list of articles by Luke Harrison on web design, web development and more." %}
+{% set description = "A list of published articles by Luke Harrison on web design, web development and more." %}
 {% set slug = "articles" %}
 {% set assetsPath = "../" %}
 
 {# Define page specific ogTags #}
 {% set ogTags %}
-<meta property="og:url" content="http://www.lukeharrison.net/articles" />
+<meta property="og:url" content="http://www.lukeharrison.net/articles/published" />
 {% endset %}
 
 {# Inject Header Template #}
@@ -26,7 +26,7 @@
 	</div>
 	<div class="o-container">
 		{# Tabs #}
-		<ul class="o-list-inline c-tabs c-tabs--red c-tabs--fixed u-padding-bottom-small@max-md">
+		<ul class="o-list-inline c-tabs c-tabs--red c-tabs--fixed u-padding-bottom-small@max-md3">
 			<li class="o-list-inline__item c-tabs__item">
 				<a href="/articles" class="c-type-delta"><span class="u-position-relative">Blog Posts</span></a>
 			</li>
@@ -39,11 +39,34 @@
 
 <section class="o-box o-box--spacing-regular o-box--spacing-huge@md o-box--spacing-balance u-padding-horizontal-none">
 	<div class="o-container">
-		<div class="o-layout">
-			<div class="o-layout__item u-10/12@md u-offset-1/12@md u-8/12@md3 u-offset-2/12@md3 u-8/16@lg3 u-offset-4/16@lg3">
-				hello
-			</div>
-		</div>
+
+		{# Loop through published and render #}
+		{% for item in published %}
+			<section class="o-layout o-layout--fit-height c-published-block">
+				<div class="o-layout__item c-published-block__title u-4/12@md u-3/12@md3 u-offset-2/12@md3 u-3/16@lg3 u-offset-3/16@lg3 u-padding-right-regular@md u-padding-right-large@md3 u-nudge-top-micro">
+					{% if item.logoSVG %}
+						<svg class="{{item.logoClass}} u-display-block u-margin-bottom-small u-margin-bottom-regular@md"><use xlink:href="#{{item.logo}}"></use></svg>
+					{% else %}
+						<img src="{{item.logo}}" class="{{item.logoClass}} u-display-block u-margin-bottom-small u-margin-bottom-regular@md" alt="{{item.title}}">
+					{% endif %}
+					<em>"{{item.description}}"</em>
+				</div>
+				<div class="o-layout__item c-published-block__entries u-8/12@md u-6/12@md3 u-7/16@lg3 u-border-left-regular@md u-border-light-grey u-padding-left-regular@md u-padding-left-large@md3">
+					<div class="o-box o-box--spacing-regular@max-md u-padding-horizontal-none u-padding-bottom-none@max-md">
+						{% for entry in item.entries %}
+							<div class="c-published-block__entry">
+								<p class="u-margin-bottom-none">{{entry.subtitle}}</p>
+								<h2 class="c-type-echo u-bold u-margin-bottom-tiny u-margin-bottom-reduced@md">{{entry.title}}</h2>
+								<p>{{entry.description}}</p>
+								<a href="{{entry.url}}" class="c-link c-link--red u-bold">{{entry.urlText}}</a>
+							</div>
+						{% endfor %}
+					</div>
+				</div>
+			</section>
+		{% endfor %}
+
+
 	</div>
 </section>
 
