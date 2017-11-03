@@ -11,7 +11,7 @@
 }
 
 .c-published-block__entry:not(:last-child) {
-	margin-bottom:rem(spacing("regular"));
+	margin-bottom:rem(spacing("large"));
 }
 
 .c-published-block:last-child .c-published-block__entries {
@@ -19,10 +19,6 @@
 }
 
 @include bp(md) {
-	.c-published-block__entry:not(:last-child) {
-		margin-bottom:rem(spacing("large"));
-	}
-
 	.c-published-block__entries {
 		padding-bottom:rem(spacing("huge"));
 	}
