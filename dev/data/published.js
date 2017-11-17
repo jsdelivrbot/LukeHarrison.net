@@ -7,6 +7,13 @@ module.exports = [
 		"logoClass": "c-icon c-icon--webdesigner",
 		"entries": [
 			{
+				"title": "Using Wordpress API with a Vue.js Powered Blog",
+				"subtitle": "Issue 268 | November 2017",
+				"description": "Implement Wordpress API into a Vue.js powered blog using Vuex, a state management library.",
+				"url": "https://www.myfavouritemagazines.co.uk/web-designer-print-back-issues/web-designer-issue-268/",
+				"urlText": "View Magazine"
+			},
+			{
 				"title": "Managing CSS Classes with JavaScript & Data Attributes",
 				"subtitle": "Issue 267 | October 2017",
 				"description": "Create a reusable JavaScript function which uses data attributes to easily manage CSS class changes.",
