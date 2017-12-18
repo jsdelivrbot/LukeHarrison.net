@@ -7,6 +7,13 @@ module.exports = [
 		"logoClass": "c-icon c-icon--webdesigner",
 		"entries": [
 			{
+				"title": "Create a flexible carousel component in Vue.js",
+				"subtitle": "Issue 269 | December 2017",
+				"description": "How to create a simple, flexible carousel component in Vue.js, the JavaScript framework.",
+				"url": "https://www.myfavouritemagazines.co.uk/web-designer-print-back-issues/web-designer-issue-269/",
+				"urlText": "View Magazine"
+			},
+			{
 				"title": "Using Wordpress API with a Vue.js Powered Blog",
 				"subtitle": "Issue 268 | November 2017",
 				"description": "Implement Wordpress API into a Vue.js powered blog using Vuex, a state management library.",
