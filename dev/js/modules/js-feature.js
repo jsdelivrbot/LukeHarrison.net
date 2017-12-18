@@ -1,5 +1,5 @@
 // Pass in window and document object to increase lookup speed
-module.exports = (function(window, document){ 
+module.exports = (function(window, document){
 
 	/*
 	|--------------------------------------------------------------------
@@ -27,7 +27,7 @@ module.exports = (function(window, document){
 		clipPath = areClipPathShapesSupported(),
 		moveWidth = document.body.clientWidth || document.documentElement.clientWidth,
 		moveHeight = document.body.clientHeight + 300 || document.documentElement.clientHeight + 300,
-		isSafari = navigator.userAgent.indexOf('Safari') != -1 && navigator.userAgent.indexOf('Chrome') == -1, 
+		isSafari = navigator.userAgent.indexOf('Safari') != -1 && navigator.userAgent.indexOf('Chrome') == -1,
 		bannerEnter,
 		bannerLeave,
 		bannerAnimation,
@@ -35,13 +35,13 @@ module.exports = (function(window, document){
 		resizeBanner,
 		bannerToDefault,
 		bannerReset,
-		anim0,	anim10, anim50, anim60, anim100; 
+		anim0,	anim10, anim50, anim60, anim100;
 
 	// Create function to set default feature state
 	resizeBanner = function(){
 		// Reinitialise with current document width and height
 		moveWidth = document.body.clientWidth || document.documentElement.clientWidth;
-		moveHeight = document.body.clientHeight + 300 || document.documentElement.clientHeight + 300; 
+		moveHeight = document.body.clientHeight + 300 || document.documentElement.clientHeight + 300;
 
 		// Reset vertical line
 		if(!clipPath || isSafari){
@@ -62,7 +62,7 @@ module.exports = (function(window, document){
 		style.type = 'text/css';
 		document.getElementsByTagName('head')[0].appendChild(style);
 		style.innerHTML = `
-			@-webkit-keyframes banner-animate-legacy {
+			@keyframes banner-animate-legacy {
 				0%	{
 					clip: ${anim0}
 				}
@@ -104,8 +104,8 @@ module.exports = (function(window, document){
 			full.style.clip = `rect(0px, ${moveWidth}px, ${moveHeight}px, ${moveWidth*0.50}px)`;
 		}
 		else {
-			full.style.setProperty("-webkit-clip-path", "inset(0 0 0 50%)");
-		}	
+			full.style.setProperty("clip-path", "inset(0 0 0 50%)");
+		}
 	};
 
 	bannerToDefault = function(){
@@ -119,17 +119,17 @@ module.exports = (function(window, document){
 			else {
 				bannerAnimation();
 			}
-			bannerReset(); 
+			bannerReset();
 		}
 		else {
 			document.querySelector("body").classList.add("clip-path");
-			full.style.setProperty("-webkit-clip-path", "inset(0 0 0 50%)");
+			full.style.setProperty("clip-path", "inset(0 0 0 50%)");
 		}
 	};
-	
+
 	// On window resize get new document dimensions and recrop if not clip-path
-	window.onresize = function(){ 
-		resizeBanner();  
+	window.onresize = function(){
+		resizeBanner();
 	}
 
 	// Define function which fires when mouse enters feature
@@ -148,8 +148,8 @@ module.exports = (function(window, document){
 				pos = moveWidth - pos;
 
 				//Move vertical line
-				if(clipPath && !isSafari){ 
-					full.style.setProperty("-webkit-clip-path", `inset(0 0 0 ${pos}px)`); 
+				if(clipPath && !isSafari){
+					full.style.setProperty("clip-path", `inset(0 0 0 ${pos}px)`);
 				}
 				else {
 					full.style.clip = `rect(0px, ${moveWidth}px, ${moveHeight}px, ${pos}px)`;
@@ -185,7 +185,7 @@ module.exports = (function(window, document){
 		}
 		else {
 			banner.attachEvent("onmouseenter", bannerEnter);
-			banner.attachEvent("onmouseleave", bannerLeave); 
+			banner.attachEvent("onmouseleave", bannerLeave);
 		}
 	}
 
