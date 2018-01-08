@@ -1,5 +1,12 @@
 module.exports = [
 	{
+		"title": "Web Designer Magazine - Build a Web Form with Great UX - Cut Content",
+		"date": "11th January 2018",
+		"slug": "web-designer-magazine-build-a-web-form-with-great-ux-cut-content",
+		"copy": "2018-01-11-web-designer-magazine-build-a-web-form-with-great-ux-cut-content/copy.md",
+		"description": "Here's some additional content which couldn't quite make the cut in my latest Web Designer Magazine article 'Build a Web Form with Great UX'."
+	},
+	{
 		"title": "Web Designer Magazine - Generate a static blog with Gulp and Nunjucks",
 		"date": "4th September 2017",
 		"slug": "web-designer-magazine-generate-a-static-blog-with-gulp-and-nunjucks",
