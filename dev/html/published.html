@@ -49,7 +49,11 @@
 					{% else %}
 						<img src="{{item.logo}}" class="{{item.logoClass}} u-display-block u-align-center-block@max-md u-margin-bottom-small u-margin-bottom-regular@md" alt="{{item.title}}">
 					{% endif %}
-					<div class="u-display-inline-block u-8/12@sm2 u-12/12@md"><em>"{{item.description}}"</em></div>
+					<div class="u-display-inline-block u-8/12@sm2 u-12/12@md u-margin-bottom-small u-margin-bottom-regular@md"><em>"{{item.description}}"</em></div>
+
+					{% if item.entries.length > 1 %}
+						<strong>{{item.entries.length}} articles</strong>
+					{% endif %}
 				</div>
 				<div class="o-layout__item c-published-block__entries u-8/12@md u-7/12@md3 u-7/16@lg3 u-border-left-regular@md u-border-light-grey u-padding-left-regular@md u-padding-left-large@md3">
 					<div class="o-box o-box--spacing-regular@max-md u-padding-horizontal-none u-padding-bottom-none@max-md">
@@ -59,6 +63,10 @@
 								<h2 class="c-type-echo u-bold u-margin-bottom-tiny u-margin-bottom-reduced@md">{{entry.title}}</h2>
 								<p>{{entry.description}}</p>
 								<a href="{{entry.url}}" class="c-link c-link--red u-bold" target="_blank">{{entry.urlText}}</a>
+								{% if entry.archivedLink %}
+									<span class="u-display-block@max-sm u-margin-vertical-small@max-sm u-margin-horizontal-micro@sm"><span class="u-hide@max-sm">|</span></span>
+									<a href="{{entry.archivedLink}}" class="c-link c-link--red u-bold" target="_blank">{{entry.archivedLinkText}}</a>
+								{% endif %}
 							</div>
 						{% endfor %}
 					</div>

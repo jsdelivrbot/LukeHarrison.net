@@ -1,5 +1,5 @@
 <!-- 
-Build a Web Form with Great UX
+Web Designer Magazine - Build a Web Form with Great UX - Additional Content
 Posted on 11th January 2018
 -->
 

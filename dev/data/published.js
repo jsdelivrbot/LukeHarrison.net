@@ -7,6 +7,13 @@ module.exports = [
 		"logoClass": "c-icon c-icon--webdesigner",
 		"entries": [
 			{
+				"title": "Build a Web Form with Great UX",
+				"subtitle": "Issue 270 | January 2018",
+				"description": "Learn the techniques and best practices which will allow you to create a web form with a highly optimised UX.",
+				"url": "https://www.myfavouritemagazines.co.uk/web-designer-print-back-issues/web-designer-issue-270/",
+				"urlText": "View Magazine"
+			},
+			{
 				"title": "Create a flexible carousel component in Vue.js",
 				"subtitle": "Issue 269 | December 2017",
 				"description": "How to create a simple, flexible carousel component in Vue.js, the JavaScript framework.",
@@ -25,7 +32,9 @@ module.exports = [
 				"subtitle": "Issue 267 | October 2017",
 				"description": "Create a reusable JavaScript function which uses data attributes to easily manage CSS class changes.",
 				"url": "https://www.myfavouritemagazines.co.uk/web-designer-print-back-issues/web-designer-issue-267/",
-				"urlText": "View Magazine"
+				"urlText": "View Magazine",
+				"archivedLink": "http://www.creativebloq.com/how-to/manage-css-classes-with-javascript",
+				"archivedLinkText": "Read on CreativeBloq"
 			},
 			{
 				"title": "Simplify Media Queries with SASS",
@@ -46,7 +55,9 @@ module.exports = [
 				"subtitle": "Issue 264 | July 2017",
 				"description": "Use CSS variables and Web Storage API to implement website theming which persists across sessions.",
 				"url": "https://www.myfavouritemagazines.co.uk/web-designer-print-back-issues/web-designer-issue-264/",
-				"urlText": "View Magazine"
+				"urlText": "View Magazine",
+				"archivedLink": "http://www.creativebloq.com/how-to/set-up-site-theming-with-css-variables",
+				"archivedLinkText": "Read on CreativeBloq"
 			}
 		]
 	},
