@@ -1,9 +1,9 @@
 module.exports = [
 	{
-		"title": "Web Designer Magazine - Build a Web Form with Great UX - Cut Content",
+		"title": "Web Designer Magazine - Build a Web Form with Great UX - Additional Content",
 		"date": "11th January 2018",
-		"slug": "web-designer-magazine-build-a-web-form-with-great-ux-cut-content",
-		"copy": "2018-01-11-web-designer-magazine-build-a-web-form-with-great-ux-cut-content/copy.md",
+		"slug": "web-designer-magazine-build-a-web-form-with-great-ux-additional-content",
+		"copy": "2018-01-11-web-designer-magazine-build-a-web-form-with-great-ux-additional-content/copy.md",
 		"description": "Here's some additional content which couldn't quite make the cut in my latest Web Designer Magazine article 'Build a Web Form with Great UX'."
 	},
 	{
