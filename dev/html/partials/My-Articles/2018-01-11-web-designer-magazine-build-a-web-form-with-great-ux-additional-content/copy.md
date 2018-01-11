@@ -5,7 +5,11 @@ Posted on 11th January 2018
 
 In January's edition of Web Designer Magazine, I've been lucky enough to have my 7th consecutive article featured. This one is called "Build a Web Form with Great UX", where you'll learn the techniques and best practices which will allow you to create a web form with a highly optimised UX. I hope you enjoy it.
 
-<TWEET>
+<div style="display:flex;justify-content:center;margin-bottom:30px;">
+<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">The new <a href="https://twitter.com/WebDesignerMag?ref_src=twsrc%5Etfw">@WebDesignerMag</a> is out today. In it you can find my tutorial called &quot;Build a web form with great UX&quot;. Make sure to grab a copy at <a href="https://t.co/QCBdecWOmz">https://t.co/QCBdecWOmz</a>. Enjoy! 🧐 <a href="https://t.co/p2MXRHmgMY">pic.twitter.com/p2MXRHmgMY</a></p>&mdash; Luke Harrison (@WebDevLuke) <a href="https://twitter.com/WebDevLuke/status/951408857460461570?ref_src=twsrc%5Etfw">January 11, 2018</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</div>
+
 
 To support the article, I'd like to share some additional content which couldn't quite make the cut this month, as with print, you only have so many words to play with. These are a collection of useful UX takeaways which relate to certain steps. Alone, these aren't likely to make much sense, but if you're reading these alongside my article in Web Designer, you'll come to understand the thinking behind some of the things you'll be doing.
 
