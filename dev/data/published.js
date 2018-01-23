@@ -25,7 +25,9 @@ module.exports = [
 				"subtitle": "Issue 268 | November 2017",
 				"description": "Implement Wordpress API into a Vue.js powered blog using Vuex, a state management library.",
 				"url": "https://www.myfavouritemagazines.co.uk/web-designer-print-back-issues/web-designer-issue-268/",
-				"urlText": "View Magazine"
+				"urlText": "View Magazine",
+				"archivedLink": "https://www.creativebloq.com/how-to/power-a-blog-using-the-wordpress-api",
+				"archivedLinkText": "Read on CreativeBloq"
 			},
 			{
 				"title": "Managing CSS Classes with JavaScript & Data Attributes",
