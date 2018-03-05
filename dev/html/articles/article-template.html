@@ -6,7 +6,7 @@
 
 {# Define page specific ogTags #}
 {% set ogTags %}
-<meta property="og:url" content="http://www.lukeharrison.net/articles/{{article.slug}}" />
+<meta property="og:url" content="https://www.lukeharrison.net/articles/{{article.slug}}" />
 {% endset %}
 
 {# Inject Header Template #}
@@ -27,7 +27,7 @@
 {# Articles List #}
 <section class="o-box o-box--spacing-regular o-box--spacing-huge@md o-box--spacing-balance u-padding-horizontal-none">
 	<div class="o-container">
-		<div class="o-layout"> 
+		<div class="o-layout">
 			<div class="o-layout__item u-10/12@md u-offset-1/12@md u-8/12@md3 u-offset-2/12@md3 u-8/16@lg3 u-offset-4/16@lg3">
 				<article class="c-markdown u-margin-bottom-regular u-margin-bottom-huge@md">
 {# We have to de-intent this here because there's a bug with nunjucks markdown which removes codeblock indents #}
@@ -35,19 +35,19 @@
 {% include "partials/My-Articles/" + article.copy %}
 {% endmarkdown %}
 				</article>
-				<div id="disqus_thread"> 
+				<div id="disqus_thread">
 					<script>
 						/**
 						 *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
 						 *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables */
-						
+
 						var disqus_config = function () {
-								this.page.url = "http://www.lukeharrison.net/articles/{{article.slug}}";  // Replace PAGE_URL with your page's canonical URL variable
+								this.page.url = "https://www.lukeharrison.net/articles/{{article.slug}}";  // Replace PAGE_URL with your page's canonical URL variable
 								//this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
 						};
 						(function() { // DON'T EDIT BELOW THIS LINE
 							var d = document, s = d.createElement('script');
-							s.src = '//webdevluke.disqus.com/embed.js'; 
+							s.src = '//webdevluke.disqus.com/embed.js';
 							s.setAttribute('data-timestamp', +new Date());
 							(d.head || d.body).appendChild(s);
 						})();
