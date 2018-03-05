@@ -1,6 +1,9 @@
 RewriteEngine On
 Options +FollowSymLinks
 
+RewriteCond %{HTTPS} !=on
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
 RewriteRule    ^portfolio/plusnet?$    portfolio-plusnet.html    [NC,L]
 RewriteRule    ^portfolio/red-hq?$    portfolio-redhq.html    [NC,L]
 RewriteRule    ^portfolio/side-projects?$    portfolio-sideprojects.html    [NC,L]
