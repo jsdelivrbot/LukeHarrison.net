@@ -27,6 +27,7 @@ textarea {
 		border-color:color("error");
 	}
 	&:focus {
+		outline: none;
 		border-color:color("purple");
 	}
 }

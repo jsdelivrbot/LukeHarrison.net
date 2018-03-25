@@ -7,6 +7,20 @@ module.exports = [
 		"logoClass": "c-icon c-icon--webdesigner",
 		"entries": [
 			{
+				"title": "Design for the web with Sketch",
+				"subtitle": "Issue 272 | March 2018",
+				"description": "Learn how to create a simple webpage design using Sketch, and discover essential tips and tricks along the way.",
+				"url": "https://www.myfavouritemagazines.co.uk/web-designer-print-back-issues/web-designer-issue-272/",
+				"urlText": "View Magazine"
+			},
+			{
+				"title": "Automate your workflow with Gulp",
+				"subtitle": "Issue 271 | February 2018",
+				"description": "Learn how to remove the nuisance of repetitive and mundane tasks with the help of Gulp, a Node.js task runner.",
+				"url": "https://www.myfavouritemagazines.co.uk/web-designer-print-back-issues/web-designer-issue-271/",
+				"urlText": "View Magazine"
+			},
+			{
 				"title": "Build a Web Form with Great UX",
 				"subtitle": "Issue 270 | January 2018",
 				"description": "Learn the techniques and best practices which will allow you to create a web form with a highly optimised UX.",
