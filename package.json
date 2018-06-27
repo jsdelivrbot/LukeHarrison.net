@@ -15,7 +15,7 @@
     ]
   },
   "scripts": {
-    "build": "gulp build && gulp svg && gulp sitemap",
+    "build": "gulp build && gulp svg && gulp sitemap && gulp uncss",
     "serve": "npm run build && gulp serve"
   },
   "dependencies": {
@@ -41,7 +41,6 @@
     "gulp-svgmin": "1.2.3",
     "gulp-svgstore": "6.1.0",
     "gulp-uglify": "1.5.2",
-    "gulp-uncss": "1.0.6",
     "gulp-webserver": "0.9.1",
     "highlightjs": "9.10.0",
     "layzr.js": "2.2.2",
@@ -57,5 +56,8 @@
     "stickyfill": "1.1.1",
     "stylelint-scss": "1.4.3",
     "vinyl-source-stream": "1.1.0"
+  },
+  "devDependencies": {
+    "gulp-uncss": "^1.0.6"
   }
 }

@@ -625,6 +625,7 @@ gulp.task('build',function() {
 		["html-copy", "articles"],
 		// Run other tasks synchronously
 		["php", "sass-build", "js", "copy"],
-		"images"
+		"images",
+		"uncss"
 	);
 });

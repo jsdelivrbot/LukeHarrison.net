@@ -7,6 +7,20 @@ module.exports = [
 		"logoClass": "c-icon c-icon--webdesigner",
 		"entries": [
 			{
+				"title": "Create a Modal Component in React with Portals",
+				"subtitle": "Issue 274 | May 2018",
+				"description": "Learn how to create a simple, usable modal component in React, leveraging its portal functionality.",
+				"url": "https://www.myfavouritemagazines.co.uk/web-designer-print-back-issues/web-designer-issue-274/",
+				"urlText": "View Magazine"
+			},
+			{
+				"title": "Create a highly reusable input symbol in Sketch",
+				"subtitle": "Issue 273 | April 2018",
+				"description": "In Sketch, leverage the power of overrides to create a highly reusable input symbol, perfect for wireframes",
+				"url": "https://www.myfavouritemagazines.co.uk/web-designer-print-back-issues/web-designer-issue-273/",
+				"urlText": "View Magazine"
+			},
+			{
 				"title": "Design for the web with Sketch",
 				"subtitle": "Issue 272 | March 2018",
 				"description": "Learn how to create a simple webpage design using Sketch, and discover essential tips and tricks along the way.",

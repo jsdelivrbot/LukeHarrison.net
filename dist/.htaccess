@@ -8,8 +8,8 @@ RewriteRule    ^portfolio/plusnet?$    portfolio-plusnet.html    [NC,L]
 RewriteRule    ^portfolio/red-hq?$    portfolio-redhq.html    [NC,L]
 RewriteRule    ^portfolio/side-projects?$    portfolio-sideprojects.html    [NC,L]
 RewriteRule    ^portfolio/evolution-funding?$    portfolio-evolution-funding.html    [NC,L]
-RewriteRule    ^articles/?$    articles/articles-index.html    [NC,L]
-RewriteRule    ^articles/published?$    published.html    [NC,L]
+RewriteRule    ^articles/posts?$    articles/articles-index.html    [NC,L]
+RewriteRule    ^articles/?$    published.html    [NC,L]
 
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME}\.html -f
