@@ -20,15 +20,15 @@ module.exports = [
 		],
 		"description": [
 			"One of my favourite projects at Evolution Funding has been the redesign of the EVOGO website.",
-			"I was involved at all stages of this project, from mapping out the initial journeys and sitemap alongside stakeholders, to working closely with designers to translate these into effective, user centred designs.",
-			"Next, these designs were translated into a single page application using Vue, Vuex and Webpack to give the website a fluidity and responsiveness that would lead to increased customer conversions."
+			"I was involved at all stages of this project, from mapping out the initial journeys and sitemaps alongside stakeholders, to working closely with designers to translate these into effective, user centred designs.",
+			"Next, these designs were built as a single page application using Vue, Vuex and Webpack, which gave the website a fluidity and responsiveness that would lead to increased customer conversions."
 		]
 	},
 	{
 		"title": "EvoCSS & EvoToolkit",
 		"category": "evolution-funding",
-		"url": "https://toolkit.evolution-funding.com",
-		"urlText" : "toolkit.evolution-funding.com",
+		"url": "https://toolkit.evolutionfunding.com",
+		"urlText" : "toolkit.evolutionfunding.com",
 		"screenshots": [
 			{
 				"url": "/img/portfolio/evolution-funding/toolkit/toolkit-01.jpg",
