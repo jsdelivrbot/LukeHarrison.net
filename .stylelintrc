@@ -5,7 +5,7 @@
 	'rules': {
 		'color-hex-case': 'lower',
 		'color-no-invalid-hex': true,
-		'declaration-block-no-duplicate-properties': true,
+		'declaration-block-no-duplicate-properties': false,
 		'font-family-no-duplicate-names': true,
 		'function-calc-no-unspaced-operator': true,
 		'indentation': "tab",

@@ -65,8 +65,8 @@ module.exports = [
 			}
 		],
 		"description": [
-			"My involvement with the redesign of the Mike Brewer Motors website ranged from being involved in early stakeholder meetings, where I helped guide the designs to improve their UX, to then developing all of its front-end codebase and Gulp-driven build system.",
-			"Once this was done, I then went on to support PHP developers as they integrated this all with back-end APIs and CRM systems to round off the project."
+			"My involvement with the Mike Brewer Motors website project ranged from being involved in early stakeholder meetings, where I helped to improve the user experience of the designs, to then developing all of its front-end codebase and Gulp-driven build system.",
+			"At the 2018 Autotrader Retailer Awards, the website won 'Best Online Experience' after 6,000 independent website reviews, which was a nice validation of all the hard work I've put into this project."
 		]
 	},
 	{

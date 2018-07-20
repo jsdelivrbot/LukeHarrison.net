@@ -1,5 +1,12 @@
 module.exports = [
 	{
+		"title": "Mike Brewer Motors wins 'Best Online Experience' at Autotrader's 2018 Retailer Awards",
+		"date": "20th July 2018",
+		"slug": "mike-brewer-motors-wins-best-online-experience-at-autotraders-2018-retailer-awards",
+		"copy": "2018-07-20-mike-brewer-motors-wins-best-online-experience-at-autotraders-2018-retailer-awards/copy.md",
+		"description": "Here's some additional content which couldn't quite make the cut in my latest Web Designer Magazine article 'Build a Web Form with Great UX'."
+	},
+	{
 		"title": "Web Designer Magazine - Build a Web Form with Great UX - Additional Content",
 		"date": "11th January 2018",
 		"slug": "web-designer-magazine-build-a-web-form-with-great-ux-additional-content",

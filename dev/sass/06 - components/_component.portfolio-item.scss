@@ -11,7 +11,7 @@ Component to display portfolio item
 //--------------------------------------------------------------------------------------------------------------------------------------
 
 .c-portfolio-item {
-	counter-reset: total 0 current 1;   
+	counter-reset: total 0 current 1;
 	position:relative;
 	box-sizing:border-box;
 	@include clearfix();
@@ -19,7 +19,7 @@ Component to display portfolio item
 
 .c-portfolio-item__screens {
 	width:100%;
-	background-color:color("light-grey"); 
+	background-color:color("light-grey");
 	overflow:hidden;
 	position:relative;
 	user-select: none;
@@ -54,7 +54,7 @@ Component to display portfolio item
 }
 
 .c-portfolio-item__slide.is-prev {
-	counter-increment: current; 
+	counter-increment: current;
 }
 
 .c-portfolio-item__slide.is-active {
@@ -68,7 +68,7 @@ Component to display portfolio item
 	overflow:hidden;
 	position:relative;
 	background:color("white");
-	box-shadow: $global-box-shadow; 
+	box-shadow: $global-box-shadow;
 }
 
 .c-portfolio-item__browser {
@@ -81,12 +81,12 @@ Component to display portfolio item
 }
 
 .c-portfolio-item__screen {
-	counter-increment: total;  
+	counter-increment: total;
 	overflow:hidden;
 	width:100%;
 	position:absolute;
 	height:calc(100% - 39px);
-	border-bottom-left-radius:0.625rem; 
+	border-bottom-left-radius:0.625rem;
 	border-bottom-right-radius:0.625rem;
 	img,
 	svg {
@@ -102,9 +102,13 @@ Component to display portfolio item
 	}
 }
 
-.c-portfolio-item__slide.has-scroll .c-portfolio-item__screen { 
-	overflow:scroll;
+.c-portfolio-item__slide.has-scroll .c-portfolio-item__screen {
+	//overflow:scroll;
 	overflow-x: hidden;
+	cursor: move; /* fallback if grab cursor is unsupported */
+	cursor: grab;
+	cursor: -moz-grab;
+	cursor: -webkit-grab;
 }
 
 .c-portfolio-spacer {
@@ -153,7 +157,7 @@ Component to display portfolio item
 }
 
 .c-portfolio-items__controls-num:before {
-	content: counter(current) " / " counter(total)""; 
+	content: counter(current) " / " counter(total)"";
 }
 
 @include bp(sm3) {
@@ -193,7 +197,7 @@ Component to display portfolio item
 
 		&.is-even{
 			.c-portfolio-item__screens {
-				float:right; 
+				float:right;
 			}
 		}
 
@@ -232,7 +236,7 @@ Component to display portfolio item
 
 	.c-portfolio-item__screens.has-multiple {
 		.c-portfolio-item__slide {
-			padding-bottom:rem(80px); 
+			padding-bottom:rem(80px);
 		}
 	}
 

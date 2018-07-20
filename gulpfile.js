@@ -131,6 +131,7 @@ Creates a server at localhost:8000
 gulp.task('serve', function() {
 	gulp.src('./dist/')
 	.pipe(webserver({
+		port: 3000,
 		open: true
 	}));
 });

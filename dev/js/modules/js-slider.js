@@ -10,7 +10,7 @@ module.exports = (function(document, window){
 		scrollSlides = document.querySelectorAll(".c-portfolio-item__slide.has-scroll .c-portfolio-item__screen"),
 		noScrollSlide = document.querySelector(".c-portfolio-item__slide.no-scroll .c-portfolio-item__screen img"),
 		noScrollSlideHeight,
-		length = slider.length, 
+		length = slider.length,
 		i,
 		d,
 		sliderClick,
@@ -63,7 +63,7 @@ module.exports = (function(document, window){
 	sliderMove = function(direction, parent){
 		active = parent.querySelector(".c-portfolio-item__slide.is-active");
 		screenContainer = parent.querySelector(".c-portfolio-item__slide-container");
-		slides = screenContainer.querySelectorAll(".c-portfolio-item__slide"); 
+		slides = screenContainer.querySelectorAll(".c-portfolio-item__slide");
 
 		if(direction === "next") {
 			if(active.nextElementSibling){
@@ -117,27 +117,27 @@ module.exports = (function(document, window){
 		for(i = 0; i < length; i++) {
 			// Add click events
 			if(slider[i].addEventListener){
-				slider[i].addEventListener("click", function(e){ 
+				slider[i].addEventListener("click", function(e){
 					sliderClick(e);
 				});
 			}
 			else {
 				slider[i].attachEvent("onclick", function(e){
 					sliderClick(e);
-				}); 
+				});
 			}
 
 			// Add touch events
 			if(Modernizr.touchevents){
 				swipeDetect(slider[i], function(swipedir, eventObj){
-			
+
 					parent = getClosest(eventObj.target, '.c-portfolio-item__screens');
 
 					if (swipedir == 'right') {
 						sliderMove("previous", parent);
 					}
 					if (swipedir == 'left') {
-						sliderMove("next", parent); 
+						sliderMove("next", parent);
 					}
 				})
 			}
@@ -164,9 +164,23 @@ module.exports = (function(document, window){
 
 			// Set container width
 			screenContainer.style.width = (100 * slides.length) + "%";
-			screenContainer.style.left = 0 + "%"; 
+			screenContainer.style.left = 0 + "%";
 		}
 	})(slider, Modernizr);
+
+	// Add scroll capabilities for long screenshots
+	for(i = 0; i < scrollSlides.length; i++) {
+		scrollSlides[i].addEventListener('touchstart', function(e) {
+			console.log(e.type);
+		});
+		scrollSlides[i].addEventListener('touchmove', function(e) {
+			e.preventDefault();
+			console.log(e);
+		});
+		scrollSlides[i].addEventListener('touchend', function(e) {
+			console.log(e.type);
+		});
+	}
 
 
 })(document, window);
