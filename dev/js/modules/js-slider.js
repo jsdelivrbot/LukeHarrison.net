@@ -168,19 +168,5 @@ module.exports = (function(document, window){
 		}
 	})(slider, Modernizr);
 
-	// Add scroll capabilities for long screenshots
-	for(i = 0; i < scrollSlides.length; i++) {
-		scrollSlides[i].addEventListener('touchstart', function(e) {
-			console.log(e.type);
-		});
-		scrollSlides[i].addEventListener('touchmove', function(e) {
-			e.preventDefault();
-			console.log(e);
-		});
-		scrollSlides[i].addEventListener('touchend', function(e) {
-			console.log(e.type);
-		});
-	}
-
 
 })(document, window);

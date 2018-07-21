@@ -103,12 +103,8 @@ Component to display portfolio item
 }
 
 .c-portfolio-item__slide.has-scroll .c-portfolio-item__screen {
-	//overflow:scroll;
+	overflow:scroll;
 	overflow-x: hidden;
-	cursor: move; /* fallback if grab cursor is unsupported */
-	cursor: grab;
-	cursor: -moz-grab;
-	cursor: -webkit-grab;
 }
 
 .c-portfolio-spacer {
